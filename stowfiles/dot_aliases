@@ -1,0 +1,23 @@
+# Aliases for some common commands (don't forget to add its 'old' counterpart):
+alias ls='eza --icons'
+alias lsold='ls'
+alias cd='z'
+alias cdold='cd'
+alias org='cd ~/org && ec .'
+alias ec='emacsclient -r -a "emacs"'
+alias ect='emacsclient -nw'
+alias icat='kitten icat'
+alias kdiff='kitten diff'
+alias gitg="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all"
+alias gita="git add"
+alias gitc="git commit -m"
+alias gits="git status"
+alias gitp="git push"
+alias s="kitten ssh"
+alias rg="rg --color=auto"
+alias grep="grep --color=auto"
+alias ll='eza -alF --icons'
+alias la='eza -A --icons'
+alias l='eza -CF --icons'
+alias tree='tree -C'
+alias grsync="rsync -av --filter=':- .gitignore'"
