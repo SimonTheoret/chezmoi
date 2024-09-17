@@ -139,8 +139,9 @@ export PATH="$PATH:/home/simon/bin"
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:/home/simon/go/bin"
-export PATH=/home/simon/.cache/rebar3/bin:$PATH
+export PATH="$PATH:/home/simon/.cache/rebar3/bin"
 export PATH="$PATH:/opt/nvim-linux64/bin"
+export PATH="$PATH:/home/simon/.cargo/bin"
 
 . "$HOME/.asdf/asdf.sh"
 
@@ -179,17 +180,6 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-vterm_printf() {
-    if [ -n "$TMUX" ] && ([ "${TERM%%-*}" = "tmux" ] || [ "${TERM%%-*}" = "screen" ]); then
-        # Tell tmux to pass the escape sequences through
-        printf "\ePtmux;\e\e]%s\007\e\\" "$1"
-    elif [ "${TERM%%-*}" = "screen" ]; then
-        # GNU screen (screen, screen-256color, screen-256color-bce)
-        printf "\eP\e]%s\007\e\\" "$1"
-    else
-        printf "\e]%s\e\\" "$1"
-    fi
-}
 bindkey -r '^T'
 bindkey '^F' fzf-file-widget
 

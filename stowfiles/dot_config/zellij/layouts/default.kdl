@@ -46,7 +46,7 @@
 //     }
 // }
 layout {
-    pane size=1 borderless=true {
+    pane size=1  {
         plugin location="file:~/.config/zellij/plugins/zj-status-bar.wasm"
     }
     pane
