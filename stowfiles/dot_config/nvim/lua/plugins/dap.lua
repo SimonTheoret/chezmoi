@@ -50,7 +50,7 @@ return {
         {
             "<leader>dl",
             function()
-                require('fzf-lua').dap_command()
+                require('fzf-lua').dap_commands()
             end,
             desc = "List dap command"
         },
