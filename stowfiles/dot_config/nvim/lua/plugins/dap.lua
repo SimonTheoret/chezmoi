@@ -61,6 +61,13 @@ return {
             end,
             desc = "List dap breakpoints"
         },
+        {
+            "<leader>dq",
+            function()
+                require('dap').disconnect({ terminateDebuggee = true })
+            end,
+            desc = "Exit dap"
+        },
     },
     lazy = true
 }
