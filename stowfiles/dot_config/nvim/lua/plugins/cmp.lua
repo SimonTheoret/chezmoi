@@ -90,8 +90,7 @@ return {
                 -- { name = 'ultisnips' }, -- For ultisnips users.
                 -- { name = 'snippy' }, -- For snippy users.
                 { name = "nvim_lsp" },
-                { name = "neorg" },
-                { name = 'buffer' },
+                -- { name = 'buffer' },
                 { name = 'path' },
                 { name = 'nvim_lsp_signature_help' },
                 {
