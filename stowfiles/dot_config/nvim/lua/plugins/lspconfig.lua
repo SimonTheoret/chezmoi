@@ -28,31 +28,33 @@ return {
             }
         }
 
-        lspconfig.rust_analyzer.setup({ -- rust LSP
-            -- Server-specific settings. See `:help lspconfig-setup`
-            -- on_attach = function(client, bufnr)
-            --     vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-            -- end,
-            capabilities = capabilities,
-            settings = {
-                ['rust-analyzer'] = {
-                    completion = {
-                        fullFunctionSignatures = { enable = true }
-                    },
-                    hover = {
-                        actions = { enable = true }
-                    },
-                    check = {
-                        command = "clippy"
-                    },
-                    cargo = {
-                        allFeatures = true,
-                    },
-                    files = {
-                        excludeDirs = { os.getenv("HOME") .. "/.cargo/" }
-                    }
-                },
-            },
+        lspconfig.rust_analyzer.setup({
+            -- { -- rust LSP
+            --     -- Server-specific settings. See `:help lspconfig-setup`
+            --     -- on_attach = function(client, bufnr)
+            --     --     vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+            --     -- end,
+            --     capabilities = capabilities,
+            --     settings = {
+            --         ['rust-analyzer'] = {
+            --             completion = {
+            --                 fullFunctionSignatures = { enable = true }
+            --             },
+            --             hover = {
+            --                 actions = { enable = true }
+            --             },
+            --             check = {
+            --                 command = "clippy"
+            --             },
+            --             cargo = {
+            --                 allFeatures = true,
+            --             },
+            --             files = {
+            --                 excludeDirs = { os.getenv("HOME") .. "/.cargo/" }
+            --             }
+            --         },
+            --     },
+            -- }
         })
         -- Lua lsp
         lspconfig.lua_ls.setup {
