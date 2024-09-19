@@ -194,7 +194,15 @@ return {
             ---@type NoiceConfigViews
             views = {}, ---@see section on views
             ---@type NoiceRouteConfig[]
-            routes = {}, --- @see section on routes
+            routes = {
+                {
+                    filter = {
+                        event = "notify",
+                        find = "No information available",
+                    },
+                    opts = { skip = true },
+                },
+            },
             ---@type table<string, NoiceFilter>
             status = {}, --- @see section on statusline components
             ---@type NoiceFormatOptions
