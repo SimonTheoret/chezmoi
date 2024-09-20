@@ -30,7 +30,7 @@ return {
         { "<leader>di", function() require('dap').step_into() end,          desc = "DAP step into" },
         { "<leader>dr", function() require('dap').repl.open() end,          desc = "DAP open repl" },
         { "<leader>dh", function() require('dap.ui.widgets').hover() end,   desc = "DAP hover" },
-        { "<leader>dp", function() require('dap.ui.widgets').preview() end, desc = "DAP preview" },
+        { "<leader>ds", function() require('dap.ui.widgets').preview() end, desc = "DAP preview" },
         {
             "<leader>df",
             function()
@@ -38,14 +38,6 @@ return {
                 widgets.centered_float(widgets.frames)
             end,
             desc = "DAP frames"
-        },
-        {
-            "<leader>ds",
-            function()
-                local widgets = require('dap.ui.widgets')
-                widgets.centered_float(widgets.scopes)
-            end,
-            desc = "DAP scopes"
         },
         {
             "<leader>dl",
@@ -67,6 +59,13 @@ return {
                 require('dap').disconnect({ terminateDebuggee = true })
             end,
             desc = "Exit dap"
+        },
+        {
+            "<leader>dp",
+            function()
+                require('dap').pause()
+            end,
+            desc = "Dap pause thread"
         },
     },
     lazy = true
