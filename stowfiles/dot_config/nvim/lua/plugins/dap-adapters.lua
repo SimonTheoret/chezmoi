@@ -5,4 +5,5 @@ return {
         -- If using the above, then `python -m debugpy --version`
         -- must work in the shell
     end,
+    lazy = true,
 }
