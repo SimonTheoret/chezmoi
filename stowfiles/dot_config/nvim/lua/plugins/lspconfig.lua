@@ -170,7 +170,7 @@ return {
                 vim.keymap.set('n', '<leader>cf', vim.lsp.buf.add_workspace_folder,
                     { desc = "Lsp add workspace folder", buffer = ev.buf })
 
-                vim.keymap.set('n', '<leader>cr', vim.lsp.buf.remove_workspace_folder,
+                vim.keymap.set('n', '<leader>cw', vim.lsp.buf.remove_workspace_folder,
                     { desc = "Lsp remove workspace folder", buffer = ev.buf })
 
                 vim.keymap.set('n', '<leader>cll', function()
