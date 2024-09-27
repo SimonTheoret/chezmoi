@@ -106,11 +106,11 @@ return {
             function() require("telescope.builtin").current_buffer_fuzzy_find() end,
             desc = 'Telescope current buffer fuzzy'
         },
-        {
-            '<leader>fy',
-            function() require("telescope").extensions.file_browser.file_browser() end,
-            desc = 'Telescope file browser'
-        },
+        -- {
+        --     '<leader>fy',
+        --     function() require("telescope").extensions.file_browser.file_browser() end,
+        --     desc = 'Telescope file browser'
+        -- },
 
     }
 }
