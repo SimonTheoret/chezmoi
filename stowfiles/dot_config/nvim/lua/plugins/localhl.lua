@@ -1,4 +1,4 @@
 return { -- default configuration
-    "RRethy/vim-illuminate",
-    config = false,
+--     "RRethy/vim-illuminate",
+--     config = false,
 }

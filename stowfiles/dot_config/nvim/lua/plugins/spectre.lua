@@ -14,7 +14,7 @@ return {
             desc = "Search current word"
         },
         {
-            '<leader>sw',
+            '<leader>so',
             '<esc><cmd>lua require("spectre").open_visual()<CR>',
             desc = "Search current word"
         },
