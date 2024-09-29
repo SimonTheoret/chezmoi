@@ -5,7 +5,7 @@ return {
 
         {
             '<leader>fy',
-            function() require("telescope").extensions.file_browser.file_browser() end,
+            ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
             desc = 'Telescope file browser'
         },
     }
