@@ -22,6 +22,11 @@ return {
                 stopAtBeginningOfMainSubprogram = false,
             },
         }
+        dap.adapters.gdb = {
+            type = "executable",
+            command = "gdb",
+            args = { "--interpreter=dap", "--eval-command", "set print pretty on" }
+        }
     end,
     keys = {
         { "<leader>dt", function() require('dap').toggle_breakpoint() end,  desc = "DAP toggle breakpoint" },
