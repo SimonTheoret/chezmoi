@@ -22,7 +22,7 @@
 
 (defun search-emacs-dir ()
   (interactive)
-  (ido-find-file-in-dir user-emacs-directory))
+  (find-file "~/.local/share/chezmoi/stowfiles/dot_config/emacs/" ))
 
 
 (general-def

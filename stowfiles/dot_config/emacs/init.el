@@ -34,7 +34,6 @@
 (config-load-file-no-extension "hooks")
 (config-load-file-no-extension "prog")
 (config-load-file-no-extension "undo")
-(config-load-file-no-extension "pythonlang")
 (config-load-file-no-extension "terminal")
 (config-load-file-no-extension "check")
 (config-load-file-no-extension "latexlang")
@@ -44,10 +43,8 @@
 (config-load-file-no-extension "compi")
 (config-load-file-no-extension "spelling")
 (config-load-file-no-extension "envir")
-(config-load-file-no-extension "projdeploy")
 (config-load-file-no-extension "dock")
 (config-load-file-no-extension "typeoffiles")
-;; (config-load-file-no-extension "email")
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
