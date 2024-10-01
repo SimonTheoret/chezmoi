@@ -86,10 +86,6 @@
   :init
   (solaire-global-mode +1))
 
-(use-package rainbow-delimiters
-  :init
-  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
-
 (use-package nerd-icons-ibuffer
   :hook (ibuffer-mode . nerd-icons-ibuffer-mode))
 
@@ -116,13 +112,3 @@
 				       ":?" ":?>" "//" "///" "/*" "*/" "/=" "//=" "/==" "@_" "__" "???"
 				       "<:<" ";;;"))
   (global-ligature-mode t))
-
-(use-package writeroom-mode
-  :general
-  (general-def
-    :states 'normal
-    :prefix "<leader> z"
-    :prefix-command 'Zen
-    "z" ' ("Zen mode" . writeroom-mode)))
-
-(use-package posframe)

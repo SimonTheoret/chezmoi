@@ -155,8 +155,6 @@
   '("LSP restart workspace" . lsp-workspace-restart)
   )
 
-(use-package all-the-icons)
-
 ;; optionally
 ;; By default, lsp-mode automatically activates lsp-ui unless lsp-auto-configure is set to nil.
 (use-package lsp-ui :commands lsp-ui-mode)
@@ -233,5 +231,3 @@
   (setq lsp-latex-forward-search-args
 	'("--synctex-forward" "%l:1:%f" "%p")))
 
-;; Nix
-(use-package nix-mode :mode "\\.nix\\'")
