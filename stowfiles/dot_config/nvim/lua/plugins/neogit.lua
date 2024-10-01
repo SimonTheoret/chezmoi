@@ -6,13 +6,10 @@ return {
 
         -- Only one of these is needed, not both.
         "nvim-telescope/telescope.nvim", -- optional
-        "ibhagwan/fzf-lua",
     },
     config = function()
         local neogit = require("neogit")
         neogit.setup {
-            graph_style = "unicode",
-            commit_editor = { kind = "tab", staged_diff_split_kind = "auto" }
         }
     end,
     keys = {
