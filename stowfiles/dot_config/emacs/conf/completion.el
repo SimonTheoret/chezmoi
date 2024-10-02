@@ -9,6 +9,7 @@
   :config
   (setq company-minimum-prefix-length 1)
   (setq company-idle-delay 0.05)
+  (setq company-backends '((company-capf :with company-yasnippet company-files company-keywords company-dabbrev-code )))
   :general-config
   (general-def company-active-map
     "<backtab>" (lambda () (interactive) (company-complete-common-or-cycle -1))
@@ -18,6 +19,7 @@
     "RET" #'newline
     "<return>" #'newline
     "C-<return>" #'company-complete-selection
+    "C-<RET>" #'company-complete-selection
     "C-b" #'company-complete-selection
     ))
 ;; (evil-global-set-key 'insert (kbd "TAB") 'company-select-next)
