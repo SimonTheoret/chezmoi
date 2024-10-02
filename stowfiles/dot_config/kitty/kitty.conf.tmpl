@@ -1,0 +1,27 @@
+
+font_family      JetBrainsMono Nerd Font
+bold_font        auto
+italic_font      auto
+bold_italic_font auto
+
+
+ {{ if eq .chezmoi.os "darwin"  }}
+ font_size 10
+ {{else if (and (eq .chezmoi.os "linux") (eq .chezmoi.hostname "simon") (eq .chezmoi.osRelease.name "Arch Linux"))}}
+ font_size 13
+ {{else if (and (eq .chezmoi.os "linux") (eq .chezmoi.hostname "stheoret") )}}
+ font_size 10
+ {{end}}
+
+
+background_opacity 0.80
+
+background_blur 32
+
+
+
+# BEGIN_KITTY_THEME
+# Monokai Soda
+macos_option_as_alt yes
+include current-theme.conf
+# END_KITTY_THEME

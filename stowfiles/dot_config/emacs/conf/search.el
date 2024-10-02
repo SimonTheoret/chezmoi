@@ -90,10 +90,6 @@
   ;; package.
   (marginalia-mode))
 
-(defun search-emacs-dir ()
-  (interactive)
-  (ido-find-file-in-dir user-emacs-directory))
-
 
 (use-package
   embark
