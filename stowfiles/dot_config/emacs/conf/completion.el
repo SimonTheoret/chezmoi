@@ -7,7 +7,7 @@
   :init
   (add-hook 'after-init-hook 'global-company-mode)
   :config
-  (setq company-minimum-prefix-length 1)
+  (setq company-minimum-prefix-length 3)
   (setq company-idle-delay 0.05)
   (setq company-backends '((company-capf :with company-yasnippet company-files company-keywords company-dabbrev-code )))
   :general-config

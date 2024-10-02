@@ -16,7 +16,7 @@ return {
         {
             "<leader>g/",
             function()
-                require('neogit').open({ kind = "auto" })
+                require('neogit').open()
             end,
             desc = "Neogit"
         },

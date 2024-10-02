@@ -180,12 +180,20 @@
 --         vim.cmd.colorscheme('ofirkai')
 --     end
 -- }
+-- return {
+--     'polirritmico/monokai-nightasty.nvim',
+--     lazy = false,
+--     priority = 1000,
+--     config = function()
+--         vim.opt.background = "dark" -- default to dark or light style
+--         vim.cmd.colorscheme("monokai-nightasty")
+--     end
+-- }
 return {
-    'polirritmico/monokai-nightasty.nvim',
+    'UtkarshVerma/molokai.nvim',
     lazy = false,
     priority = 1000,
     config = function()
-        vim.opt.background = "dark" -- default to dark or light style
-        vim.cmd.colorscheme("monokai-nightasty")
+        vim.cmd [[colorscheme molokai]]
     end
 }
