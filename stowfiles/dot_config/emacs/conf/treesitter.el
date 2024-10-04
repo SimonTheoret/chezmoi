@@ -42,6 +42,7 @@
   )
 
 (defun set-python-colors ()
+  (interactive)
   (setq treesit-font-lock-feature-list
         '((comment definition)
           (keyword string type)
@@ -57,6 +58,7 @@
   (treesit-font-lock-recompute-features))
 
 (defun set-rust-colors ()
+  (interactive)
   (setq treesit-font-lock-feature-list
 	'((comment definition)
 	  (keyword string)

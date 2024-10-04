@@ -76,7 +76,7 @@
 (add-to-list 'display-buffer-alist
              '((lambda (buffer _) (with-current-buffer buffer
 			       (seq-some (lambda (mode)
-                                           (derived-mode-p mode))
+					   (derived-mode-p mode))
                                          '(help-mode))))
 	       (display-buffer-reuse-window display-buffer-below-selected)
 	       (reusable-frames . visible)
@@ -172,8 +172,6 @@
 (use-package
   lsp-pyright
   :after lsp-mode
-  :init
-  (setq lsp-pyright-diagnostic-mode "workspace")
   :hook
   (python-ts-mode
    .
@@ -230,4 +228,3 @@
   :init (setq lsp-latex-forward-search-executable "zathura")
   (setq lsp-latex-forward-search-args
 	'("--synctex-forward" "%l:1:%f" "%p")))
-
