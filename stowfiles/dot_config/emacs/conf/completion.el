@@ -9,7 +9,7 @@
   :config
   (setq company-minimum-prefix-length 3)
   (setq company-idle-delay 0.05)
-  (setq company-backends '((company-capf :with company-yasnippet company-files company-keywords company-dabbrev-code )))
+  (setq company-backends '((company-capf  company-files company-keywords company-dabbrev-code :with company-yasnippet)))
   :general-config
   (general-def company-active-map
     "<backtab>" (lambda () (interactive) (company-complete-common-or-cycle -1))
