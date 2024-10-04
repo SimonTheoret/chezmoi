@@ -5,7 +5,6 @@
   "Loads and runs the file contained in the directory user-emacs-directory/conf"
   (let ((path (concat user-emacs-directory "conf/" content ".el")))
     (load(locate-user-emacs-file path))))
-()
 
 ;; Immediate loading
 (add-to-list 'load-path (concat user-emacs-directory "conf/"))
@@ -20,7 +19,7 @@
 (config-load-file-no-extension "completion")
 (config-load-file-no-extension "diredup")
 (config-load-file-no-extension "search")
-(config-load-file-no-extension "org")
+(config-load-file-no-extension "noting")
 (config-load-file-no-extension "lsp")
 (config-load-file-no-extension "dap")
 (config-load-file-no-extension "treesitter")

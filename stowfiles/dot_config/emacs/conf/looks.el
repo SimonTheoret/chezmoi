@@ -22,12 +22,12 @@
   ;; Global settings (defaults)
   (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
         doom-themes-enable-italic t) ; if nil, italics is universally disabled
-  (load-theme 'doom-molokai-sick t)
+  (load-theme 'doom-molokai-sick t))
 
   ;; Enable flashing mode-line on errors
   ;; (doom-themes-visual-bell-config)
   ;; Corrects (and improves) org-mode's native fontification.
-  (doom-themes-org-config))
+  ;; (doom-themes-org-config))
 
 ;; (use-package all-the-icons
 ;;   :if (display-graphic-p))
@@ -82,9 +82,9 @@
 ;;   )
 
 ;; cute aestethic plugin
-(use-package solaire-mode
-  :init
-  (solaire-global-mode +1))
+;; (use-package solaire-mode
+;;   :init
+;;   (solaire-global-mode +1))
 
 (use-package nerd-icons-ibuffer
   :hook (ibuffer-mode . nerd-icons-ibuffer-mode))

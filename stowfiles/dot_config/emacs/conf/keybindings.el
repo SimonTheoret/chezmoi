@@ -63,14 +63,14 @@
   (evil-snipe-mode +1)
   (evil-snipe-override-mode +1))
 
-;; org evil
-(use-package
-  evil-org
-  :after org
-  :hook (org-mode . (lambda () evil-org-mode))
-  :config
-  (require 'evil-org-agenda)
-  (evil-org-agenda-set-keys))
+;; ;; org evil
+;; (use-package
+;;   evil-org
+;;   :after org
+;;   :hook (org-mode . (lambda () evil-org-mode))
+;;   :config
+;;   (require 'evil-org-agenda)
+;;   (evil-org-agenda-set-keys))
 
 ;; easy-motion for moving fast af
 (use-package evil-easymotion

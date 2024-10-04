@@ -39,7 +39,7 @@
 (use-package cdlatex
   :hook
   (LaTeX-mode . cdlatex-mode)
-  (org-mode . org-cdlatex-mode))
+  )
 
 ;; (general-def
 ;;   :states 'normal

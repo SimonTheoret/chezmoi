@@ -24,7 +24,6 @@
   (interactive)
   (ido-find-file-in-dir "~/.local/share/chezmoi/stowfiles/dot_config/emacs/" ))
 
-
 (general-def
   :states
   'normal
