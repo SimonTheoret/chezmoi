@@ -1,12 +1,11 @@
 ;; -*- lexical-binding: t -*-
+(defun dotfiles--lsp-if-supported ()
+  "Run `lsp' if it's a supported mode."
+  (unless (derived-mode-p 'emacs-lisp-mode)
+    (lsp)))
 
-(add-hook 'hack-local-variables-hook (lambda (
-				       (if (derived-mode-p 'python-mode) (lsp-deferred))
-				       (if (derived-mode-p 'rust-mode) (lsp-deferred))
-				       (if (derived-mode-p 'go-mode) (lsp-deferred))
-				       (if (derived-mode-p 'latex-mode) (lsp-deferred))
-				       (if (derived-mode-p 'elisp-mode) (nil))
-				       ))
+(add-hook 'hack-local-variables-hook
+          (lambda () (when (derived-mode-p 'prog-mode) (dotfiles--lsp-if-supported))))
 
 (defun lsp-booster--advice-json-parse (old-fn &rest args)
   "Try to parse bytecode instead of json."
@@ -45,12 +44,13 @@
   :hook
   ( ;; replace XXX-mode with concrete major-mode(e. g. python--tsmode)
    ;; (python-ts-mode . lsp-deferred) ;;already taken care of
-   (go-ts-mode . lsp-deferred)
-   (rust-ts-mode . lsp-deferred) ;;already taken care of
+   (go-ts-mode . lsp)
+   (rust-ts-mode . lsp) ;;already taken care of
+   (sh-mode . lsp)
    ;;(rustic-mode . lsp-deferred) ;;already taken care of
    ;; if you want which-key integration
    (lsp-mode . lsp-enable-which-key-integration)
-   (LaTeX-mode . lsp-deferred)
+   (LaTeX-mode . lsp)
    (kill-emacs . lsp-workspace-remove-all-folders)
    )
   :commands (lsp lsp-deferred)
@@ -178,7 +178,7 @@
    .
    (lambda ()
      (require 'lsp-pyright)
-     (lsp-deferred)))) ; or lsp-deferred
+     (lsp)))) ; or lsp-deferred
 
 ;; Rust
 (use-package rust-mode
@@ -200,7 +200,7 @@
   :init (setq lsp-latex-forward-search-executable "zathura")
   (setq lsp-latex-forward-search-args
 	'("--synctex-forward" "%l:1:%f" "%p"))
-  :hook (tex-mode . lsp-deferred) (latex-mode . lsp-deferred) (LaTeX-mode . lsp-deferred))
+  :hook (tex-mode . lsp) (latex-mode . lsp) (LaTeX-mode . lsp))
 
 ;; Go
 (use-package
