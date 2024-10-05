@@ -228,3 +228,19 @@
   :init (setq lsp-latex-forward-search-executable "zathura")
   (setq lsp-latex-forward-search-args
 	'("--synctex-forward" "%l:1:%f" "%p")))
+
+(use-package casual-symbol-overlay
+  :general
+  (general-def
+    :states 'normal
+    :prefix "<leader> c o"
+    :prefix-command 'SymbolOverlay
+    "m" '("SymbolOverlay mode" . symbol-overlay-mode )
+    "p" '("SymbolOverlay put" . symbol-overlay-put )
+    "f" '("SymbolOverlay forward" . symbol-overlay-switch-forward )
+    "b" '("SymbolOverlay backward" . symbol-overlay-switch-backward )
+    "r" '("SymbolOverlay remove" . symbol-overlay-switch-remove-all )
+    )
+  :bind (:map
+         symbol-overlay-map
+         ("C-o" . casual-symbol-overlay-tmenu)))
