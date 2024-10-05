@@ -1,5 +1,8 @@
 ;; -*- lexical-binding: t -*-
 
+(setq custom-file (concat user-emacs-directory "custom.el"))
+(when (file-exists-p custom-file)
+  (load custom-file))
 ;;loading function
 (defun config-load-file-no-extension (content)
   "Loads and runs the file contained in the directory user-emacs-directory/conf"
@@ -44,20 +47,3 @@
 (config-load-file-no-extension "envir")
 (config-load-file-no-extension "dock")
 (config-load-file-no-extension "typeoffiles")
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(safe-local-variable-values
-   '((comment-fill-column . 80)
-     (deadgrep-extra-arguments quote
-			       ("--no-config --L --hidden"))
-     (eval setq consult-ripgrep-args
-	   (concat consult-ripgrep-args " -L --hidden ")))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

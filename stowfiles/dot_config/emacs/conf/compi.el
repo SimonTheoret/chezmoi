@@ -19,8 +19,7 @@
 (general-def
   :states
   'normal
-  :prefix "<leader> c c"
-  :prefix-command 'Compile
+  :prefix "<leader> c"
   "c"
   '("compile" . compile)
   "r"

@@ -1,4 +1,8 @@
 ;; -*- lexical-binding: t -*-
+(add-hook 'hack-local-variables-hook (lambda ()
+				       (when (derived-mode-p 'prog-mode)
+					 (lsp))))
+
 (defun lsp-booster--advice-json-parse (old-fn &rest args)
   "Try to parse bytecode instead of json."
   (or
@@ -29,12 +33,6 @@
           (cons "emacs-lsp-booster" orig-result))
       orig-result)))
 (advice-add 'lsp-resolve-final-command :around #'lsp-booster--advice-final-command)
-
-
-(defun dotfiles--lsp-deferred-if-supported ()
-  "Run `lsp-deferred' if it's a supported mode."
-  (unless (derived-mode-p 'emacs-lisp-mode)
-    (lsp-deferred)))
 
 (use-package
   lsp-mode
@@ -99,7 +97,7 @@
   '("Find declaration" . lsp-find-declaration)
   "b"
   '("Open doc in buffer" . lsp-describe-thing-at-point)
-  "r"
+  "R"
   '("Find reference" . lsp-ui-peek-find-references)
   "n"
   '("Rename" . lsp-rename)
@@ -112,7 +110,6 @@
   )
 
 ;; This function filters any diagnostics coming from the virtual env of python
-
 (setf lsp-diagnostic-filter (lambda (param work) ;; params is the hash map containing the diagnostics for a single buffer
 			      ;; (message "%s" param)
 			      (if (string-match (regexp-quote ".venv/") (plist-get param :uri) )
@@ -179,13 +176,6 @@
      (require 'lsp-pyright)
      (lsp-deferred)))) ; or lsp-deferred
 
-(with-eval-after-load 'lsp-mode
-  (lsp-register-client
-   (make-lsp-client :new-connection (lsp-tramp-connection "pyright")
-                    :major-modes '(python-mode)
-                    :remote? t
-                    :server-id 'pyright-remote)))
-
 ;; Rust
 (use-package rust-mode
   ;;   :mode "\\.rs\\'"
@@ -244,3 +234,10 @@
   :bind (:map
          symbol-overlay-map
          ("C-o" . casual-symbol-overlay-tmenu)))
+
+
+(defun my-reload-dir-locals-for-current-buffer ()
+  "reload dir locals for the current buffer"
+  (interactive)
+  (let ((enable-local-variables :all))
+    (hack-dir-local-variables-non-file-buffer)))
