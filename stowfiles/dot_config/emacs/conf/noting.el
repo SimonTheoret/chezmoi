@@ -328,6 +328,7 @@
     "b" '("Follow backlink" . obsidian-backlink-jump)
     ;; If you prefer you can use `obsidian-insert-link'
     "i" '("Insert link" . obsidian-insert-link)
+    "t" '("Daily note" . obsidian-daily-note)
     "j" '("Obsidian jump" . obsidian-jump)
     "s" '("Search notes" . obsidian-search)
     "c" '("Captur note" . obsidian-capture)
