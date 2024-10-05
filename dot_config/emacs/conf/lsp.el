@@ -1,7 +1,12 @@
 ;; -*- lexical-binding: t -*-
-(add-hook 'hack-local-variables-hook (lambda ()
-				       (when (derived-mode-p 'prog-mode)
-					 (lsp))))
+
+(add-hook 'hack-local-variables-hook (lambda (
+				       (if (derived-mode-p 'python-mode) (lsp-deferred))
+				       (if (derived-mode-p 'rust-mode) (lsp-deferred))
+				       (if (derived-mode-p 'go-mode) (lsp-deferred))
+				       (if (derived-mode-p 'latex-mode) (lsp-deferred))
+				       (if (derived-mode-p 'elisp-mode) (nil))
+				       ))
 
 (defun lsp-booster--advice-json-parse (old-fn &rest args)
   "Try to parse bytecode instead of json."
@@ -46,7 +51,6 @@
    ;; if you want which-key integration
    (lsp-mode . lsp-enable-which-key-integration)
    (LaTeX-mode . lsp-deferred)
-   (nix-mode . lsp-deferred)
    (kill-emacs . lsp-workspace-remove-all-folders)
    )
   :commands (lsp lsp-deferred)

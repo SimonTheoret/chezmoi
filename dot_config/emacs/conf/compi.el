@@ -1,4 +1,4 @@
-;; -*- lexical-binding: t -*- 
+;; -*- lexical-binding: t -*-
 
 (defun change-compile-command (str)
   (set (make-local-variable 'compile-command) str))
@@ -24,5 +24,6 @@
   '("compile" . compile)
   "r"
   '("recompile" . recompile)
+  "k"
+  '("kill" . kill-compilation)
   )
-

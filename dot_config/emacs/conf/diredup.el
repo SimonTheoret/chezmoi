@@ -22,7 +22,9 @@
 
 (defun search-emacs-dir ()
   (interactive)
-  (ido-find-file-in-dir "~/.local/share/chezmoi/stowfiles/dot_config/emacs/" ))
+  (ido-find-file-in-dir "~/.local/share/chezmoi/dot_config/emacs/" ))
+
+(add-hook 'dired-mode-hook (lambda () (setq display-line-numbers 'relative)))
 
 (general-def
   :states
