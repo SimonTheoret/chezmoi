@@ -82,8 +82,8 @@ exec_always --no-startup-id xset r rate 160 90
 floating_modifier $mod
 
 # Keyboard layout:
-exec_always --no-startup-id "setxkbmap -model pc104 -layout us,ca multix"
-exec_always --no-startup-id "setxkbmap -option 'grp:alt_shift_toggle'"
+exec_always --no-startup-id "setxkbmap -option 'grp:alt_space_toggle' -model pc104 -layout us,ca multix"
+# exec_always --no-startup-id "setxkbmap -option"
 
 # start a terminal
 bindsym $mod+m exec kitty
