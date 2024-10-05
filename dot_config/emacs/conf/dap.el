@@ -12,7 +12,7 @@
     "t" '("Toggle breakpoint" . dap-breakpoint-toggle )
     "f" '("Condition for breakpoint" . dap-breakpoint-condition )
     "e" '("Eval thing" . dap-eval-thing-at-point)
-    "n" '("Dap next" . dap-breakpoint-toggle )
+    "n" '("Dap next" . dap-next )
     "i" '("Step in" . dap-step-in )
     "o" '("Step out" . dap-step-out )
     "c" '("Continue" . dap-continue )
@@ -21,6 +21,7 @@
     "r" '("Dap relaunch recent" . dap-debug-recent )
     "l" '("Dap relaunch last" . dap-debug-last )
     "u" '("Dap ui repl" . dap-ui-repl )
+    "s" '("Eval string" . dap-eval )
     )
   )
 ;; (use-package dap-LANGUAGE) to load the dap adapter for your language

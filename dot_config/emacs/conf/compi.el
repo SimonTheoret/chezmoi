@@ -24,6 +24,6 @@
   '("compile" . compile)
   "r"
   '("recompile" . recompile)
-  "k"
+  "l"
   '("kill" . kill-compilation)
   )
