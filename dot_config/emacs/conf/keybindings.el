@@ -160,4 +160,5 @@
 ;; combine evil join and evil fill and move
 ;; (defun join-and-fill ()
 ;;   (evil-join))
-(evil-collection-define-key 'normal 'dired-mode-map " " nil)
+(with-eval-after-load 'dired
+(evil-collection-define-key 'normal 'dired-mode-map " " nil))
