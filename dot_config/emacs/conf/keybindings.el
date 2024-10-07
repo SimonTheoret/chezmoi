@@ -162,3 +162,4 @@
 ;;   (evil-join))
 (with-eval-after-load 'dired
 (evil-collection-define-key 'normal 'dired-mode-map " " nil))
+(global-unset-key (kbd "M-SPC") )
