@@ -4,6 +4,20 @@
 ;; Debug to add bugs
 
 (use-package dap-mode
+  :config
+  (require 'dap-python)
+  ;; if you installed debugpy, you need to set this
+  ;; https://github.com/emacs-lsp/dap-mode/issues/306
+  (setq dap-python-debugger 'debugpy)
+  (require 'dap-gdb-lldb)
+  (dap-gdb-lldb-setup)
+  (dap-register-debug-template "Rust::GDB Run Configuration"
+                               (list :type "gdb"
+                                     :request "launch"
+                                     :name "GDB::Run"
+				     :gdbpath "rust-gdb"
+                                     :target nil
+                                     :cwd nil))
   :general
   (general-def
     :states 'normal
@@ -25,19 +39,3 @@
     )
   )
 ;; (use-package dap-LANGUAGE) to load the dap adapter for your language
-(require 'dap-python)
-;; if you installed debugpy, you need to set this
-;; https://github.com/emacs-lsp/dap-mode/issues/306
-(setq dap-python-debugger 'debugpy)
-
-
-(require 'dap-gdb-lldb)
-(dap-gdb-lldb-setup)
-
-(dap-register-debug-template "Rust::GDB Run Configuration"
-                             (list :type "gdb"
-                                   :request "launch"
-                                   :name "GDB::Run"
-				   :gdbpath "rust-gdb"
-                                   :target nil
-                                   :cwd nil))
