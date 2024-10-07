@@ -8,14 +8,15 @@
 ;; (use-package smooth-scrolling
 ;;   :init
 ;;   (smooth-scrolling-mode 1))
-(defun frame-transparency ()
-  (set-frame-parameter nil 'alpha-background 70)
-  (add-to-list 'default-frame-alist '(alpha-background . 70))
-  )
+;; (defun frame-transparency ()
+;;   (interactive)
+;;   (set-frame-parameter nil 'alpha-background 70)
+;;   (add-to-list 'default-frame-alist '(alpha-background . 70))
+;;   )
 
-(if (string= "gnu/linux" system-type)
-	(frame-transparency)
- )
+;; (if (string= "gnu/linux" system-type)
+;; 	(frame-transparency)
+;;  )
 ;; Theme
 (use-package doom-themes
   :config
