@@ -13,7 +13,7 @@
   :after evil-collection
   :config
   (setq magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1)
-  (setq magit-todos-exclude-globs '(".*.ipynb"))
+  (setq magit-todos-exclude-globs '("*.ipynb"))
   :general-config
   (general-def
     :states 'normal
