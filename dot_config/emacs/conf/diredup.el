@@ -24,6 +24,10 @@
   (interactive)
   (ido-find-file-in-dir "~/.local/share/chezmoi/dot_config/emacs/" ))
 
+(defun search-chezmoi-dir ()
+  (interactive)
+  (ido-find-file-in-dir "~/.local/share/chezmoi" ))
+
 (add-hook 'dired-mode-hook (lambda () (setq display-line-numbers 'relative)))
 
 (general-def
@@ -51,6 +55,8 @@
   '("Change current dir" . cd)
   "o"
   '("Dired here" . dired-jump)
+  "l"
+  '("Chezmoi files" . search-chezmoi-dir)
   )
 
 (general-def
