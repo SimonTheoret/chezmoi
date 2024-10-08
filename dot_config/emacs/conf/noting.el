@@ -60,7 +60,7 @@
   'normal
   :prefix "<leader> n c"
   :prefix-command 'Capture
-  "c c"
+  "c"
   '("Org capture" . org-capture))
 
 (general-def
@@ -186,8 +186,6 @@
   :prefix-command 'Node
   "n"
   '("New node" . org-id-get-create))
-
-
 
 (general-def
   :states 'normal
