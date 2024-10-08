@@ -101,6 +101,8 @@
     :prefix-command 'Actions
     "a" '("Embark act" . embark-act)
     "d" '("Embark dwim" . embark-dwim);; alternative for `describe-bindings'
+    "s" '("Shell command" . shell-command)
+    "k" '("Async shell command" . async-shell-command)
     )
 
   :init

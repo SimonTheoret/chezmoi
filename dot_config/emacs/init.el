@@ -45,5 +45,4 @@
 (config-load-file-no-extension "compi")
 (config-load-file-no-extension "spelling")
 (config-load-file-no-extension "envir")
-(config-load-file-no-extension "dock")
-(config-load-file-no-extension "typeoffiles")
+(config-load-file-no-extension "file_types")

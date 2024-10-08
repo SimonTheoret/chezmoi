@@ -28,6 +28,10 @@
   (interactive)
   (ido-find-file-in-dir "~/.local/share/chezmoi" ))
 
+(defun search-home-dir ()
+  (interactive)
+  (ido-find-file-in-dir "~/" ))
+
 (add-hook 'dired-mode-hook (lambda () (setq display-line-numbers 'relative)))
 
 (general-def
@@ -57,6 +61,8 @@
   '("Dired here" . dired-jump)
   "l"
   '("Chezmoi files" . search-chezmoi-dir)
+  "h"
+  '("Home files" . search-home-dir)
   )
 
 (general-def
