@@ -58,10 +58,10 @@
 (general-def
   :states
   'normal
-  :prefix "<leader> n c"
-  :prefix-command 'Capture
+  :prefix "<leader> n"
+  :prefix-command 'Notes
   "c"
-  '("Org capture" . org-capture))
+  '("Org capture" . org-roam-capture))
 
 (general-def
   :states
@@ -247,8 +247,17 @@
   )
 
 ;; Org capture templates
-;; (setq
-;;  org-roam-capture-templates
+(setq
+ org-roam-capture-templates
+ '(
+  ("d" "default" plain "%?" :target
+   (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title} ")
+   :unnarrowed t)
+  ("a" "article" plain "%? " :target
+   (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n* Article ${title}\n[[%^{Article Link}][Original Article]]\n** Related articles:\n- \n** Follow up articles:\n- ")
+   :unnarrowed t)
+  )
+)
 
 ;;  '(("r" "Évènements récurrents" plain
 ;;     (file+headline
