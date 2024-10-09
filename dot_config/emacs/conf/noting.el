@@ -247,57 +247,57 @@
   )
 
 ;; Org capture templates
-(setq
- org-capture-templates
+;; (setq
+;;  org-roam-capture-templates
 
- '(("r" "Évènements récurrents" plain
-    (file+headline
-     "~/org/agenda/agenda.org" "Évènements récurrents")
-    "** %?%(org-insert-time-stamp nil nil nil nil nil \" +1w\")")
+;;  '(("r" "Évènements récurrents" plain
+;;     (file+headline
+;;      "~/org/agenda/agenda.org" "Évènements récurrents")
+;;     "** %?%(org-insert-time-stamp nil nil nil nil nil \" +1w\")")
 
-   ("u" "Évènements uniques" plain
-    (file+headline
-     "~/org/agenda/agenda.org" "Évènements uniques")
-    "** %?%^T")
+;;    ("u" "Évènements uniques" plain
+;;     (file+headline
+;;      "~/org/agenda/agenda.org" "Évènements uniques")
+;;     "** %?%^T")
 
-   ("t"
-    "Tâches uniques"
-    plain
-    (file+headline "~/org/agenda/agenda.org" "Tâches uniques")
-    "** TODO %? DEADLINE: %^T")
-   ("g"
-    "Tâches récurrentes"
-    plain
-    (file+headline "~/org/agenda/agenda.org" "Tâches récurrentes")
-    "** TODO %? DEADLINE: %(org-insert-time-stamp nil nil nil nil nil \" +1w\")")
+;;    ("t"
+;;     "Tâches uniques"
+;;     plain
+;;     (file+headline "~/org/agenda/agenda.org" "Tâches uniques")
+;;     "** TODO %? DEADLINE: %^T")
+;;    ("g"
+;;     "Tâches récurrentes"
+;;     plain
+;;     (file+headline "~/org/agenda/agenda.org" "Tâches récurrentes")
+;;     "** TODO %? DEADLINE: %(org-insert-time-stamp nil nil nil nil nil \" +1w\")")
 
-   ("e"
-    "École"
-    plain
-    (file+headline "~/org/agenda/agenda.org" "École")
-    "** TODO %? DEADLINE: %^t :école:")
+;;    ("e"
+;;     "École"
+;;     plain
+;;     (file+headline "~/org/agenda/agenda.org" "École")
+;;     "** TODO %? DEADLINE: %^t :école:")
 
-   ("i"
-    "Inbox"
-    plain
-    (file+headline "~/org/todo.org" "Inbox")
-    "** TODO %?")
+;;    ("i"
+;;     "Inbox"
+;;     plain
+;;     (file+headline "~/org/todo.org" "Inbox")
+;;     "** TODO %?")
 
-   ("c" "Tâche contextuelles" plain
-    (file+headline
-     "~/org/agenda/agenda.org" "Tâches contextuelles")
-    "** %?")
+;;    ("c" "Tâche contextuelles" plain
+;;     (file+headline
+;;      "~/org/agenda/agenda.org" "Tâches contextuelles")
+;;     "** %?")
 
-   ("a" "Tâches en attentes" plain
-    (file+headline
-     "~/org/agenda/agenda.org" "Tâches en attentes")
-    "** %?")
+;;    ("a" "Tâches en attentes" plain
+;;     (file+headline
+;;      "~/org/agenda/agenda.org" "Tâches en attentes")
+;;     "** %?")
 
-   ("p"
-    "Projets"
-    plain
-    (file+headline "~/org/agenda/agenda.org" "Projets")
-    "** %?")))
+;;    ("p"
+;;     "Projets"
+;;     plain
+;;     (file+headline "~/org/agenda/agenda.org" "Projets")
+;;     "** %?")))
 ;; (use-package obsidian
 ;;   :config
 ;;   (obsidian-specify-path "~/org")
