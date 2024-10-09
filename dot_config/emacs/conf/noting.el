@@ -19,7 +19,7 @@
  ;; Org styling, hide markup etc.
  org-hide-emphasis-markers t
  org-pretty-entities t
- ;;org-ellipsis "…"
+ ;; ;;org-ellipsis "…"
  org-ellipsis " "
 
  ;; Agenda styling
@@ -48,11 +48,11 @@
 ;;   (add-to-list 'org-src-lang-modes '("rust" . rustic) )
 ;;   )
 
-(use-package org-modern
-  :after org)
+;; (use-package org-modern
+;;   :after org)
 
-(add-hook 'org-mode-hook #'org-modern-mode)
-(add-hook 'org-agenda-finalize-hook #'org-modern-agenda)
+;; (add-hook 'org-mode-hook #'org-modern-mode)
+;; (add-hook 'org-agenda-finalize-hook #'org-modern-agenda)
 
 
 (general-def
