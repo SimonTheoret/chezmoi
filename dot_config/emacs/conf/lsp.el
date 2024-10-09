@@ -1,7 +1,7 @@
 ;; -*- lexical-binding: t -*-
 (defun dotfiles--lsp-if-supported ()
   "Run `lsp' if it's a supported mode."
-  (unless (derived-mode-p 'emacs-lisp-mode)
+  (unless (or (derived-mode-p 'emacs-lisp-mode) (derived-mode-p 'json-mode))
     (lsp)))
 
 (add-hook 'hack-local-variables-hook
