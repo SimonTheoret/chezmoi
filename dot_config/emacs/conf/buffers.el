@@ -1,4 +1,4 @@
-;; -*- lexical-binding: t -*- 
+;; -*- lexical-binding: t -*-
 
 
 (general-def
@@ -19,5 +19,23 @@
 
 (use-package popwin
   :config
-  (popwin-mode 1))
+  (popwin-mode 1)
+  :init
+  (setq popwin:special-display-config '(("*Miniedit Help*" :noselect t)
+				       (help-mode :stick t)
+				       (completion-list-mode :noselect t)
+				       (compilation-mode :noselect t :stick t)
+				       (grep-mode :noselect t)
+				       (occur-mode :noselect t)
+				       ("*Pp Macroexpand Output*" :noselect t)
+				       "*Shell Command Output*" "*vc-diff*" "*vc-change-log*"
+				       (" *undo-tree*" :width 60 :position right)
+				       ("^\\*anything.*\\*$" :regexp t)
+				       "*slime-apropos*" "*slime-macroexpansion*" "*slime-description*"
+				       ("*slime-compilation*" :noselect t)
+				       "*slime-xref*"
+				       (sldb-mode :stick t)
+				       slime-repl-mode slime-connection-list-mode)
 
+	)
+  )

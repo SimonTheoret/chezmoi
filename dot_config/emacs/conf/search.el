@@ -93,7 +93,6 @@
 
 (use-package
   embark
-
   :general
   (general-def
     :states 'normal
@@ -104,9 +103,7 @@
     "s" '("Shell command" . shell-command)
     "k" '("Async shell command" . async-shell-command)
     )
-
   :init
-
   ;; Optionally replace the key help with a completing-read interface
   (setq prefix-help-command #'embark-prefix-help-command)
 
@@ -118,15 +115,15 @@
 
   ;; (add-hook 'eldoc-documentation-functions #'embark-eldoc-first-target)
   ;; (setq eldoc-documentation-strategy #'eldoc-documentation-compose-eagerly)
-
   :config
-
   ;; Hide the mode line of the Embark live/completions buffers
   (add-to-list
    'display-buffer-alist
    '("\\`\\*Embark Collect \\(Live\\|Completions\\)\\*"
      nil
      (window-parameters (mode-line-format . none)))))
+
+(setq async-shell-command-display-buffer nil)
 
 ;; Consult users will also want the embark-consult package.
 (use-package
