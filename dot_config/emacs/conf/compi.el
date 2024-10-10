@@ -16,11 +16,18 @@
 (with-eval-after-load 'compile
   (fancy-compilation-mode))
 
+(defun smart-compilation ()
+  (interative)
+  (if (projectile-project-buffer-p ))
+  )
+
 (general-def
   :states
   'normal
   :prefix "<leader> c"
   "c"
+  '("compile project" . projectile-compile-project)
+  "q"
   '("compile" . compile)
   "r"
   '("recompile" . recompile)
