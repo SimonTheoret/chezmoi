@@ -27,5 +27,9 @@
     'normal
     "<leader> SPC" '("Find file in project" . project-find-file)
     )
+  (general-def
+    :states
+    'normal
+    "<leader> y" '("Projectile commands" . projectile-command-map)
+    )
   )
-
