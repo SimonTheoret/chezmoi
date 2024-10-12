@@ -256,6 +256,10 @@
   ("a" "article" plain "%? " :target
    (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n* Article ${title}\n[[%^{Article Link}][Original Article]]\n** Related articles:\n- \n** Follow up articles:\n- \n** Abstract\n** Key Points\n*** ")
    :unnarrowed t)
+  ("s" "subject" plain "%? " :target
+   (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n* ${title}\n- [[%^{Reference}][Reference]]\n** Related notes:\n- \n** Key points\n- ")
+   :unnarrowed t)
+
   )
 )
 
