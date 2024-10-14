@@ -5,7 +5,9 @@
   :states 'normal
   :prefix "<leader> b"
   :prefix-command 'Buffers
-  "i" '("Ibuffer" . ibuffer)
+  "i" '("Ibuffer" . projectile-ibuffer)
+  "p" '("Ibuffer" . projectile-ibuffer-by-project)
+  "w" '("Ibuffer" . ibuffer)
   "l" '("Buffer list" . consult-buffer)
   "r" '("Rename buffer" . rename-buffer)
   "f" '("Rename buffer and file" . crux-rename-buffer-and-file)
