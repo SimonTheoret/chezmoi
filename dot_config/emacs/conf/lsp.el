@@ -63,6 +63,7 @@
   (setq lsp-signature-auto-activate t)
   (setq lsp-signature-render-documentation nil)
   (setq lsp-ui-doc-use-childframe nil)
+  (setq lsp-enable-snippet t)
   ;; (setq lsp-ui-doc-show-with-cursor t)
   ;; (setq lsp-ui-doc-position 'at-point)
   ;; (setq lsp-headerline-breadcrumb-segments '(symbols))
