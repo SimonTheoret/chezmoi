@@ -29,7 +29,7 @@
 				       (grep-mode :noselect t)
 				       (occur-mode :noselect t)
 				       ("*Pp Macroexpand Output*" :noselect t)
-				        "*Async Shell Command*" "*Shell Command Output*" "*vc-diff*" "*vc-change-log*"
+				        "*Shell Command Output*" "*vc-diff*" "*vc-change-log*"
 				       (" *undo-tree*" :width 60 :position right)
 				       ("^\\*anything.*\\*$" :regexp t)
 				       "*slime-apropos*" "*slime-macroexpansion*" "*slime-description*"
