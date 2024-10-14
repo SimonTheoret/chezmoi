@@ -39,3 +39,8 @@
 
 	)
   )
+(defun maybe-set-quit-key ()
+  (when (string= (buffer-name) "*Async Shell Command*")
+    (local-set-key (kbd "q") #'quit-window)))
+
+(add-hook 'shell-mode-hook #'maybe-set-quit-key)
