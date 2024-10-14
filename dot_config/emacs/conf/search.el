@@ -100,10 +100,10 @@
     :prefix-command 'Actions
     "a" '("Embark act" . embark-act)
     "d" '("Embark dwim" . embark-dwim);; alternative for `describe-bindings'
-    "s" '("Shell command" . projectile-run-shell-command-in-root)
-    "k" '("Async shell command" . projectile-run-async-shell-command-in-root)
-    "w" '("Shell command buffer" . shell-command)
-    "i" '("Async shell command buffer" . async-shell-command)
+    "s" '("Shell project command" . projectile-run-shell-command-in-root)
+    "k" '("Async project command" . projectile-run-async-shell-command-in-root)
+    "w" '("Shell buffer command " . shell-command)
+    "i" '("Async buffer command" . async-shell-command)
     )
   :init
   ;; Optionally replace the key help with a completing-read interface

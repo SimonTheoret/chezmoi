@@ -6,7 +6,6 @@
   :prefix "<leader> b"
   :prefix-command 'Buffers
   "i" '("Ibuffer" . projectile-ibuffer)
-  "p" '("Ibuffer" . projectile-ibuffer-by-project)
   "w" '("Ibuffer" . ibuffer)
   "l" '("Buffer list" . consult-buffer)
   "r" '("Rename buffer" . rename-buffer)
@@ -30,7 +29,7 @@
 				       (grep-mode :noselect t)
 				       (occur-mode :noselect t)
 				       ("*Pp Macroexpand Output*" :noselect t)
-				       "*Shell Command Output*" "*vc-diff*" "*vc-change-log*"
+				        "*Async Shell Command*" "*Shell Command Output*" "*vc-diff*" "*vc-change-log*"
 				       (" *undo-tree*" :width 60 :position right)
 				       ("^\\*anything.*\\*$" :regexp t)
 				       "*slime-apropos*" "*slime-macroexpansion*" "*slime-description*"
@@ -41,8 +40,12 @@
 
 	)
   )
-(defun maybe-set-quit-key ()
-  (when (string= (buffer-name) "*Async Shell Command*")
-    (local-set-key (kbd "q") #'quit-window)))
 
-(add-hook 'shell-mode-hook #'maybe-set-quit-key)
+;; (defun maybe-quit ()
+;;   (when (string= (buffer-name) "*Async Shell Command*")
+;;     (quit-window)))
+
+;; (general-def
+;;   :states 'normal
+;;   :)
+;; (add-hook 'shell-mode-hook #'maybe-set-quit-key)
