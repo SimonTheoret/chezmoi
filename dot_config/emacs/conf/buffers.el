@@ -5,7 +5,7 @@
   :states 'normal
   :prefix "<leader> b"
   :prefix-command 'Buffers
-  "i" '("Ibuffer" . projectile-ibuffer)
+  "i" '("Ibuffer project" . projectile-ibuffer)
   "w" '("Ibuffer" . ibuffer)
   "l" '("Buffer list" . consult-buffer)
   "r" '("Rename buffer" . rename-buffer)
