@@ -246,3 +246,7 @@
   (interactive)
   (let ((enable-local-variables :all))
     (hack-dir-local-variables-non-file-buffer)))
+
+
+(use-package gleam-ts-mode
+  :mode (rx ".gleam" eos))

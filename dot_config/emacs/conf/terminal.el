@@ -39,6 +39,7 @@
   "t" '("Toggle vterm" . vterm-toggle)
   "b" '("Open terminal" . term)
   "e" '("Open eat" . eat)
+  "a" '("Open ansi-term" . ansi-term)
   "s" '("Shell" . shell)
   "n" '("Next vterm" . multi-vterm-next)
   "p" '("Previous vterm" . multi-vterm-prev)
