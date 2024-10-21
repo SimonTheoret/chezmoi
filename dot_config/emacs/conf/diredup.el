@@ -20,7 +20,9 @@
 
 (use-package casual-dired)
 
-(dired-async-mode)
+(use-package async
+  :init
+  (dired-async-mode 1))
 
 (defun search-emacs-dir ()
   (interactive)
