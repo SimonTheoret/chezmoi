@@ -20,6 +20,8 @@
 
 (use-package casual-dired)
 
+(dired-async-mode 1)
+
 (defun search-emacs-dir ()
   (interactive)
   (ido-find-file-in-dir "~/.local/share/chezmoi/dot_config/emacs/" ))
