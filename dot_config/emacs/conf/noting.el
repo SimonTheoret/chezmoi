@@ -195,7 +195,7 @@
   "s"
   '("Org store link" . org-store-link)
   "i"
-  '("Org store link" . org-insert-link))
+  '("Org insert link" . org-insert-link))
 
 (general-def
   :states 'normal
