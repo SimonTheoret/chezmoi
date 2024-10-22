@@ -55,3 +55,8 @@
   :keymaps 'isearch-mode-map
   "C-o" '("Casual isearch" . casual-isearch-tmenu)
   )
+(require 'casual-editkit) ; optional if using autoloaded menu
+
+(general-def :states 'normal
+  "<leader> C-o" '("Casual edikit" . casual-editkit-main-tmenu)
+  )
