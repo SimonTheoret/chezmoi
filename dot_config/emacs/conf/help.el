@@ -49,3 +49,9 @@
   :keymaps 'org-agenda-mode-map
   "C-o" '("Casual agenda" . casual-agenda-tmenu)
   )
+
+(require 'casual-isearch)
+(general-def :states 'normal
+  :keymaps 'isearch-mode-map
+  "C-o" '("Casual isearch" . casual-isearch-tmenu)
+  )
