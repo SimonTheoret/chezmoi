@@ -18,7 +18,6 @@
   :bind
   (:map dired-mode-map ("<leader> r t" . dired-rsync-transient)))
 
-(use-package casual-dired)
 
 (use-package async
   :init
@@ -69,13 +68,6 @@
   '("Home files" . search-home-dir)
   )
 
-(general-def
-  :states
-  'normal
-  :keymaps 'dired-mode-map
-  "C-o"
-  '("Casual dired" .  casual-dired-tmenu)
-  )
 
 
 (general-def

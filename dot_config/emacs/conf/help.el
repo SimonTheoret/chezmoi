@@ -12,16 +12,40 @@
    )
   )
 
-
-(use-package casual-calc
+(use-package casual
   :general
   (general-def
     :states 'normal
     "<leader> a c" '("Calc" . calc)
     )
   )
+
 (general-def
   :states 'normal
   :keymaps 'calc-mode-map
   "C-o" '("Calc transient" . casual-calc-tmenu)
+  )
+
+(general-def
+  :states 'normal
+  :keymaps 'reb-mode-map
+  "C-o" '("Casual REbuilder" . casual-re-builder-tmenu)
+  )
+
+(general-def
+  :states 'normal
+  :keymaps 'ibuffer-mode-map
+  "C-o" '("Transient ibuffer" . casual-ibuffer-tmenu))
+
+(general-def
+  :states
+  'normal
+  :keymaps 'dired-mode-map
+  "C-o"
+  '("Casual dired" .  casual-dired-tmenu)
+  )
+
+(general-def :states 'normal
+  :keymaps 'org-agenda-mode-map
+  "C-o" '("Casual agenda" . casual-agenda-tmenu)
   )

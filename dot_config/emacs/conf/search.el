@@ -138,15 +138,6 @@
 
 (use-package deadgrep)
 
-(use-package casual-re-builder
-  :general
-  (general-def
-    :states 'normal
-    :keymaps 'reb-mode-map
-    "C-o" '("Casual REbuilder" . casual-re-builder-tmenu)
-    )
-  )
-
 (general-def
   :states
   'normal
