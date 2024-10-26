@@ -15,16 +15,16 @@
 
 
 ;; Laptop
-(if (and (string= "simon" (system-name)) (string= "linux" (system-type)))
+(if (and (string= "simon" (system-name)) (string= "gnu/linux" system-type))
     (add-to-list 'default-frame-alist '(font . "JetBrainsMonoNL Nerd Font Mono-14")))
 ;; Desktop
-(if (and (string= "Simon-Ubuntu-24" (system-name)) (string= "linux" (system-type)))
-    (add-to-list 'default-frame-alist '(font . "JetBrainsMonoNL Nerd Font Mono-13")))
+(if (and (string= "Simon-Ubuntu-24" (system-name)) (string= "gnu/linux" system-type))
+    (add-to-list 'default-frame-alist '(font . "JetBrainsMonoNL Nerd Font Mono-14")))
 ;; Serveur druide
-(if (and (string= "stheoret" (system-name)) (string= "linux" (system-type)))
+(if (and (string= "stheoret" (system-name)) (string= "gnu/linux" system-type))
     (add-to-list 'default-frame-alist '(font . "JetBrainsMonoNL Nerd Font Mono-13")))
 ;; MacOS Druide
-(if (and (string= "stheoret" (system-name)) (string= "darwin" (system-type)))
+(if (and (string= "stheoret" (system-name)) (string= "darwin" system-type))
     (add-to-list 'default-frame-alist '(font . "JetBrainsMonoNL Nerd Font Mono-14")))
 
 ;; Scrolling
