@@ -14,15 +14,18 @@
 ;; (set-frame-font "JetBrainsMono Nerd Font Mono 100" nil t)
 
 
-
-(if (string= "laptop" (system-name))
-    (add-to-list 'default-frame-alist '(font . "JetBrainsMonoNL Nerd Font Mono-14"))
-  (if (string= "darwin" system-type)
-      (add-to-list 'default-frame-alist '(font . "JetBrainsMonoNL NerdFont Mono-13"))
-    (add-to-list 'default-frame-alist '(font . "JetBrainsMonoNL Nerd Font Mono-14"))
-    )
-  )
-
+;; Laptop
+(if (and (string= "simon" (system-name)) (string= "linux" (system-type)))
+    (add-to-list 'default-frame-alist '(font . "JetBrainsMonoNL Nerd Font Mono-14")))
+;; Desktop
+(if (and (string= "Simon-Ubuntu-24" (system-name)) (string= "linux" (system-type)))
+    (add-to-list 'default-frame-alist '(font . "JetBrainsMonoNL Nerd Font Mono-13")))
+;; Serveur druide
+(if (and (string= "stheoret" (system-name)) (string= "linux" (system-type)))
+    (add-to-list 'default-frame-alist '(font . "JetBrainsMonoNL Nerd Font Mono-13")))
+;; MacOS Druide
+(if (and (string= "stheoret" (system-name)) (string= "darwin" (system-type)))
+    (add-to-list 'default-frame-alist '(font . "JetBrainsMonoNL Nerd Font Mono-14")))
 
 ;; Scrolling
 (pixel-scroll-mode 1)
