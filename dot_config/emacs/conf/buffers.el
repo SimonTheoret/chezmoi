@@ -7,7 +7,8 @@
   :prefix-command 'Buffers
   "i" '("Ibuffer project" . projectile-ibuffer)
   "w" '("Ibuffer" . ibuffer)
-  "l" '("Buffer list" . consult-buffer)
+  "l" '("Buffer list" . consult-project-buffer)
+  "a" '("Buffer list" . consult-buffer)
   "r" '("Rename buffer" . rename-buffer)
   "f" '("Rename buffer and file" . crux-rename-buffer-and-file)
   )
