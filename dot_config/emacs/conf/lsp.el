@@ -108,7 +108,7 @@
   "n"
   '("Rename" . lsp-rename)
   "f"
-  '("Format buffer" . format-all-buffer)
+  '("Format buffer" . (lambda () (interactive)(format-all-buffer)(font-lock-debug-fontify)(revert-buffer nil t)))
   "k"
   '("Describe" . lsp-ui-doc-glance)
   "m"
