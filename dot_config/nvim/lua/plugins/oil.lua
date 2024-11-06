@@ -15,7 +15,7 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     keys = {
         {
-            "<leader>ff",
+            "<leader>fo",
             ":Oil<CR> --float .",
             desc = "Toggle Oil"
         }

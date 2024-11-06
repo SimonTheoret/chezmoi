@@ -19,7 +19,7 @@ return {
                     useLibraryCodeForTypes = true, } }
             }
         }
-        lspconfig.ruff_lsp.setup {
+        lspconfig.ruff.setup {
             init_options = {
                 settings = {
                     -- Any extra CLI arguments for `ruff` goes here.
@@ -156,18 +156,18 @@ return {
                 -- See `:help vim.lsp.*` for documentation on any of the below functions
                 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = "Lsp declaration", buffer = ev.buf })
 
-                vim.keymap.set('n', 'gd', function() require('telescope.builtin').lsp_definitions() end,
+                vim.keymap.set('n', 'gd', function() require('fzf-lua').lsp_definitions() end,
                     { desc = "LSP definition", buffer = ev.buf })
 
                 vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>',
                     { desc = "Lsp informations", buffer = ev.buf })
 
-                vim.keymap.set('n', 'gI', function() require('telescope.builtin').lsp_implementations() end,
+                vim.keymap.set('n', 'gI', function() require('fzf-lua').lsp_implementations() end,
                     { desc = "LSP implementations", buffer = ev.buf })
 
                 vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { desc = "Lsp signature", buffer = ev.buf })
 
-                vim.keymap.set('n', '<leader>cf', vim.lsp.buf.add_workspace_folder,
+                vim.keymap.set('n', '<leader>ce', vim.lsp.buf.add_workspace_folder,
                     { desc = "Lsp add workspace folder", buffer = ev.buf })
 
                 vim.keymap.set('n', '<leader>cw', vim.lsp.buf.remove_workspace_folder,
@@ -177,7 +177,7 @@ return {
                     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
                 end, { desc = "Lsp list workspace folders", buffer = ev.buf })
 
-                vim.keymap.set('n', '<leader>D', function() require('telescope.builtin').lsp_type_definitions() end,
+                vim.keymap.set('n', '<leader>D', function() require('fzf-lua').lsp_typedefs() end,
                     { desc = "LSP type definition", buffer = ev.buf })
 
                 vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, { desc = "Lsp rename", buffer = ev.buf })
@@ -185,28 +185,28 @@ return {
                 vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action,
                     { desc = "Lsp code action", buffer = ev.buf })
 
-                vim.keymap.set('n', 'gr', function() require('telescope.builtin').lsp_references() end,
+                vim.keymap.set('n', 'gr', function() require('fzf-lua').lsp_references() end,
                     { desc = "Lsp references", buffer = ev.buf })
 
-                vim.keymap.set('n', '<space>fo', function()
+                vim.keymap.set('n', '<leader>bf', function()
                     vim.lsp.buf.format { async = true }
                 end, { desc = "Lsp format buffer", buffer = ev.buf })
 
                 vim.keymap.set('n', '<leader>fi',
-                    function() require('telescope.builtin').lsp_dynamic_workspace_symbols {} end,
+                    function() require('fzf-lua').lsp_live_workspace_symbols {} end,
                     { desc = "Lsp workspace symbols", buffer = ev.buf })
 
-                vim.keymap.set('n', '<leader>fj', function() require('telescope.builtin').lsp_document_symbols() end,
+                vim.keymap.set('n', '<leader>fj', function() require('fzf-lua').lsp_document_symbols() end,
                     { desc = "Lsp document symbols", buffer = ev.buf })
 
-                vim.keymap.set('n', '<leader>co', function() require('telescope.builtin').lsp_outgoing_calls() end,
+                vim.keymap.set('n', '<leader>co', function() require('fzf-lua').lsp_outgoing_calls() end,
                     { desc = "LSP outgoing calls", buffer = ev.buf })
 
-                vim.keymap.set('n', '<leader>cs', function() require('telescope.builtin').lsp_incoming_calls() end,
+                vim.keymap.set('n', '<leader>cs', function() require('fzf-lua').lsp_incoming_calls() end,
                     { desc = "LSP incoming calls", buffer = ev.buf })
 
-                vim.keymap.set('n', '<leader>fq', function() require('telescope.builtin').diagnostics() end,
-                    { desc = "Telescope diagnostics", buffer = ev.buf })
+                vim.keymap.set('n', '<leader>cs', function() require('fzf-lua').lsp_finder() end,
+                    { desc = "LSP finder", buffer = ev.buf })
 
                 vim.keymap.set('n', '<leader>th',
                     function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end,
