@@ -33,14 +33,14 @@ return {
             function()
                 require('fzf-lua').lines()
             end,
-            desc = "List buffer lines"
+            desc = "List all buffers' lines"
         },
         {
             "<leader>fl",
             function()
                 require('fzf-lua').blines()
             end,
-            desc = "List buffers' lines"
+            desc = "List current buffer lines"
         },
         {
             "<leader>fb",
