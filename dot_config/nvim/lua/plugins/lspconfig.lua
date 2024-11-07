@@ -10,15 +10,6 @@ return {
         local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
         -- python LSP
-        lspconfig.pyright.setup {
-            capabilities = capabilities,
-            settings = {
-                pyright = { autoImportCompletion = true, },
-                python = { analysis = { autoSearchPaths = true,
-                    diagnosticMode = "workspace",
-                    useLibraryCodeForTypes = true, } }
-            }
-        }
         lspconfig.ruff.setup {
             init_options = {
                 settings = {
@@ -27,6 +18,25 @@ return {
                 }
             }
         }
+        lspconfig.pylsp.setup({})
+        -- lspconfig.basedpyright.setup {
+        --     capabilities = capabilities,
+        --     settings = {
+        --         pyright = { autoImportCompletion = true, },
+        --         python = { analysis = { autoSearchPaths = true,
+        --             diagnosticMode = "workspace",
+        --             useLibraryCodeForTypes = true, } }
+        --     }
+        -- }
+        -- lspconfig.pyright.setup {
+        --     capabilities = capabilities,
+        --     settings = {
+        --         pyright = { autoImportCompletion = true, },
+        --         python = { analysis = { autoSearchPaths = true,
+        --             diagnosticMode = "workspace",
+        --             useLibraryCodeForTypes = true, } }
+        --     }
+        -- }
 
         lspconfig.rust_analyzer.setup({
             { -- rust LSP
