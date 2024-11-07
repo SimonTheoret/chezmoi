@@ -205,7 +205,7 @@ return {
                 vim.keymap.set('n', '<leader>cs', function() require('fzf-lua').lsp_incoming_calls() end,
                     { desc = "LSP incoming calls", buffer = ev.buf })
 
-                vim.keymap.set('n', '<leader>cs', function() require('fzf-lua').lsp_finder() end,
+                vim.keymap.set('n', '<leader>cf', function() require('fzf-lua').lsp_finder() end,
                     { desc = "LSP finder", buffer = ev.buf })
 
                 vim.keymap.set('n', '<leader>th',

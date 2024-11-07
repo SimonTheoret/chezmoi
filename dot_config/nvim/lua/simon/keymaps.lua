@@ -32,8 +32,6 @@ vmap.set("n", "<leader>cd", ":cd %:h<CR>", { desc = "Make file's path as working
 
 vmap.set("n", "<leader><tab>", "%", { desc = "Switch delimiters" })
 
-vmap.set("n", "<leader>cc", function() require("simon.compilua").compilua() end, { desc = "Fast compile" })
-vmap.set("n", "<leader>cr", function() require("simon.compilua").recompilua() end, { desc = "Fast re-compile" })
 
 vmap.set("n", "<leader>sr", function() require("simon.neosearch").search() end, { desc = "Search and replace" })
 
