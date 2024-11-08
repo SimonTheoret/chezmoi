@@ -25,7 +25,8 @@ return {
                 pyright = { autoImportCompletion = true, },
                 python = { analysis = { autoSearchPaths = true,
                     diagnosticMode = "workspace",
-                    useLibraryCodeForTypes = true, } }
+                    useLibraryCodeForTypes = true,
+                    typeCheckingMode="recommended"} }
             }
         }
         -- lspconfig.pyright.setup {
