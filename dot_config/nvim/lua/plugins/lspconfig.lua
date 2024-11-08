@@ -18,16 +18,16 @@ return {
                 }
             }
         }
-        lspconfig.pylsp.setup({})
-        -- lspconfig.basedpyright.setup {
-        --     capabilities = capabilities,
-        --     settings = {
-        --         pyright = { autoImportCompletion = true, },
-        --         python = { analysis = { autoSearchPaths = true,
-        --             diagnosticMode = "workspace",
-        --             useLibraryCodeForTypes = true, } }
-        --     }
-        -- }
+        -- lspconfig.pylsp.setup({})
+        lspconfig.basedpyright.setup {
+            capabilities = capabilities,
+            settings = {
+                pyright = { autoImportCompletion = true, },
+                python = { analysis = { autoSearchPaths = true,
+                    diagnosticMode = "workspace",
+                    useLibraryCodeForTypes = true, } }
+            }
+        }
         -- lspconfig.pyright.setup {
         --     capabilities = capabilities,
         --     settings = {
