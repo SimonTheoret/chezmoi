@@ -3,7 +3,6 @@ return {
     dependencies = {
         "nvim-lua/plenary.nvim",  -- required
         "sindrets/diffview.nvim", -- optional - Diff integration
-        "isakbm/gitgraph.nvim",
 
         -- Only one of these is needed, not both.
         "nvim-telescope/telescope.nvim", -- optional
@@ -11,7 +10,8 @@ return {
     config = function()
         local neogit = require("neogit")
         neogit.setup {
-            graph_style = "unicode"
+            graph_style = "unicode",
+            commit_editor = { kind = "tab", staged_diff_split_kind = "auto" }
         }
     end,
     keys = {
