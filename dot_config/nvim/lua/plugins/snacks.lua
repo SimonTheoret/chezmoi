@@ -16,7 +16,8 @@ return {
             notification = {
                 wo = { wrap = true } -- Wrap notifications
             }
-        }
+        },
+        terminal = {enabled = true}
     },
     keys = {
         { "<leader>un", function() Snacks.notifier.hide() end,           desc = "Dismiss All Notifications" },
