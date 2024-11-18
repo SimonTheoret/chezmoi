@@ -185,6 +185,9 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
+        local opts = {dark_style_background = "dark"} -- options should be setted through a setup call:
+        require("monokai-nightasty").setup(opts) -- ...and then load the theme:
+        require("monokai-nightasty").load()
         vim.opt.background = "dark" -- default to dark or light style
         vim.cmd.colorscheme("monokai-nightasty")
     end
