@@ -52,6 +52,7 @@
    (lsp-mode . lsp-enable-which-key-integration)
    (LaTeX-mode . lsp)
    (kill-emacs . lsp-workspace-remove-all-folders)
+   (lsp-mode . (lambda () (setq lsp-inlay-hints-mode -1)))
    )
   :commands (lsp lsp-deferred)
   :config
@@ -74,6 +75,8 @@
   (setq lsp-modeline-diagnostics-scope :workspace)
   (setq lsp-enable-on-type-formatting nil)
   (setq lsp-idle-delay 0.250)
+  (setq lsp-inlay-hint-enable t)
+  (setq lsp-inlay-hints-mode -1)
   )
 
 ;; Make the help buffer smaller
@@ -113,6 +116,8 @@
   '("Describe" . lsp-ui-doc-glance)
   "m"
   '("Lsp Imenu" . lsp-ui-imenu)
+  "h"
+  '("Hinlay hints" . lsp-inlay-hints-mode)
   )
 
 ;; This function filters any diagnostics coming from the virtual env of python
