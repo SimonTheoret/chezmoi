@@ -72,6 +72,9 @@
   (require 'evil-org-agenda)
   (evil-org-agenda-set-keys))
 
+(use-package evil-tex)
+(add-hook 'LaTeX-mode-hook #'evil-tex-mode)
+
 ;; easy-motion for moving fast af
 (use-package evil-easymotion
   :init
@@ -161,5 +164,5 @@
 ;; (defun join-and-fill ()
 ;;   (evil-join))
 (with-eval-after-load 'dired
-(evil-collection-define-key 'normal 'dired-mode-map " " nil))
+  (evil-collection-define-key 'normal 'dired-mode-map " " nil))
 (global-unset-key (kbd "M-SPC") )

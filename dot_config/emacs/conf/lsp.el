@@ -197,9 +197,12 @@
   (setq-default lsp-rust-analyzer-cargo-watch-command "clippy")
   (setq-default lsp-rust-all-features t)
   (setq rust-mode-treesitter-derive t)
-  ;; (add-to-list 'org-src-lang-modes '("rust" . rustic) )
   )
-
+(use-package rustic
+  :config (setq rustic-format-on-save nil)
+  :custom
+  (rustic-cargo-use-last-stored-argument t)
+  :after (rust-mode))
 
 ;; Latex
 (use-package
