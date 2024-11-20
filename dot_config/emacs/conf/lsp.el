@@ -79,9 +79,9 @@
 ;; Make the help buffer smaller
 (add-to-list 'display-buffer-alist
              '((lambda (buffer _) (with-current-buffer buffer
-			       (seq-some (lambda (mode)
-					   (derived-mode-p mode))
-                                         '(help-mode))))
+				    (seq-some (lambda (mode)
+						(derived-mode-p mode))
+                                              '(help-mode))))
 	       (display-buffer-reuse-window display-buffer-below-selected)
 	       (reusable-frames . visible)
 	       (window-height . 0.33)))
@@ -108,7 +108,7 @@
   "n"
   '("Rename" . lsp-rename)
   "f"
-  '("Format buffer" . format-all-buffer)
+  '("Format buffer" . apheleia-format-buffer)
   "k"
   '("Describe" . lsp-ui-doc-glance)
   "m"
