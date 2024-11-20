@@ -108,7 +108,7 @@
   "n"
   '("Rename" . lsp-rename)
   "f"
-  '("Format buffer" . apheleia-format-buffer)
+  '("Format buffer" .  apheleia-format-buffer)
   "k"
   '("Describe" . lsp-ui-doc-glance)
   "m"

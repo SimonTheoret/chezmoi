@@ -17,3 +17,6 @@
 
 (use-package apheleia)
 (apheleia-global-mode +1)
+(setf (alist-get 'python-mode apheleia-mode-alist)
+      '(ruff))
+
