@@ -74,7 +74,7 @@
   (setq lsp-modeline-diagnostics-scope :workspace)
   (setq lsp-enable-on-type-formatting nil)
   (setq lsp-idle-delay 0.250)
-  (setq lsp-inlay-hint-enable t)
+  (setq lsp-inlay-hint-enable nil)
   (setq lsp-inlay-hints-mode -1)
   )
 

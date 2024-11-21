@@ -38,6 +38,7 @@
   :states 'normal
   :prefix "<leader> c s"
   :prefix-command 'SearchCode
-    "i" '("Search symbols in workspace" . consult-lsp-symbols)
-    "j" '("Search symbol in file" . consult-lsp-file-symbols)
+  "i" '("Search symbols in workspace" . consult-lsp-symbols)
+  "j" '("Search symbol in file" . consult-lsp-file-symbols)
+  "a" '("Search symbol everywhere" . lsp-ui-find-workspace-symbol)
   )
