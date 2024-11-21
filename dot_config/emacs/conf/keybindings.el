@@ -72,8 +72,6 @@
   (require 'evil-org-agenda)
   (evil-org-agenda-set-keys))
 
-(use-package evil-tex)
-(add-hook 'LaTeX-mode-hook #'evil-tex-mode)
 
 ;; easy-motion for moving fast af
 (use-package evil-easymotion

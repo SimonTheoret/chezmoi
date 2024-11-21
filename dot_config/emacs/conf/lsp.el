@@ -227,12 +227,6 @@
     'flycheck
   '(add-hook 'flycheck-mode-hook #'flycheck-golangci-lint-setup))
 
-(use-package
-  lsp-latex
-  :init (setq lsp-latex-forward-search-executable "zathura")
-  (setq lsp-latex-forward-search-args
-	'("--synctex-forward" "%l:1:%f" "%p")))
-
 (use-package casual-symbol-overlay
   :general
   (general-def

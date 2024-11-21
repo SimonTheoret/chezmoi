@@ -26,6 +26,7 @@
     '("Latex master" . TeX-command-master)
     )
   )
+(add-to-list 'auto-mode-alist '("\\.tex\\'" . LaTeX-mode))
 (add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer)
 (global-auto-revert-mode)
 
@@ -38,3 +39,7 @@
   :hook
   (LaTeX-mode . cdlatex-mode)
   )
+
+
+(use-package evil-tex)
+(add-hook 'LaTeX-mode-hook #'evil-tex-mode)
