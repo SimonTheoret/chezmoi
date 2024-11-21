@@ -30,10 +30,10 @@
 (add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer)
 (global-auto-revert-mode)
 
-(add-to-list `TeX-command-list `("LaTeXMkServer"
-				 "latexmk -pvc -view=none %(latexmk-out) %(file-line-error) %(output-dir) %`%(extraopts) %S%(mode)%' %t"
-				 TeX-run-format nil (LaTeX-mode docTeX-mode)
-				 :help "Run LaTeXMk Continuously"))
+;; (add-to-list `TeX-command-list `("LaTeXMkServer"
+;; 				 "latexmk -pvc -view=none %(latexmk-out) %(file-line-error) %(output-dir) %`%(extraopts) %S%(mode)%' %t"
+;; 				 TeX-run-format nil (LaTeX-mode docTeX-mode)
+;; 				 :help "Run LaTeXMk Continuously"))
 
 (use-package cdlatex
   :hook

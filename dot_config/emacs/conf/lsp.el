@@ -52,7 +52,6 @@
    (lsp-mode . lsp-enable-which-key-integration)
    (LaTeX-mode . lsp)
    (kill-emacs . lsp-workspace-remove-all-folders)
-   (lsp-mode . (lambda () (setq lsp-inlay-hints-mode -1)))
    )
   :commands (lsp lsp-deferred)
   :config
