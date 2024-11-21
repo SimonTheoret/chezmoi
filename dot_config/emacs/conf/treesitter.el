@@ -69,6 +69,6 @@
 
 ;; (add-hook 'python-mode-hook #'set-python-colors)
 (add-hook 'python-ts-mode-hook #'set-python-colors)
-
 (add-hook 'rust-ts-mode-hook #'set-rust-colors)
-;; (add-hook 'rustic-ts-mode-hook #'set-rust-colors)
+(add-hook 'rustic-ts-mode-hook #'set-rust-colors)
+(add-hook 'rustic-mode-hook #'set-rust-colors)
