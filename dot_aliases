@@ -20,3 +20,4 @@ alias tree='tree -C'
 alias grsync="rsync -av --filter=':- .gitignore'"
 alias cm="chezmoi"
 alias cmcd="chezmoi cd"
+alias cma="chezmoi apply"

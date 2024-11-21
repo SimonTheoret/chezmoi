@@ -21,7 +21,6 @@ style = "Regular"
 opacity = 0.80
 blur = true
 
-[general]
 import = [
 "~/.config/alacritty/monokai-dark.toml"
 ]
