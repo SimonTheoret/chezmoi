@@ -1,5 +1,8 @@
+import = [ "~/.config/alacritty/theme.toml" ]
+live_config_reload = true
+
 [font]
-size = 13.0
+size = 11.0
 
 [font.bold]
 family = "JetBrainsMono Nerd Font"
@@ -21,4 +24,3 @@ style = "Regular"
 opacity = 0.80
 blur = true
 
-import = [ "theme.toml" ]
