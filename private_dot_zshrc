@@ -146,6 +146,8 @@ export PATH="$PATH:$HOME/.cache/rebar3/bin"
 export PATH="$PATH:/opt/nvim-linux64/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/bin/nvim-linux64/bin"
+export PATH="$PATH:$HOME/.elixir-install/installs/elixir/1.17.3-otp-27/bin"
+export PATH="$PYENV_ROOT/bin:$PATH"
 export PATH="$PYENV_ROOT/bin:$PATH"
 . "$HOME/.asdf/asdf.sh"
 

@@ -5,13 +5,13 @@ return {
     ---@diagnostic disable-next-line: missing-fields
     config = function()
         require('nvim-treesitter.configs').setup({
-            ensure_installed = { "lua", "vim", "vimdoc", "regex", "markdown", "markdown_inline", "bash", },
+            ensure_installed = { "lua", "vim", "vimdoc", "regex", "markdown", "markdown_inline", "bash","latex", "bibtex" },
             sync_install = false,
             ignore_install = {},
             auto_install = true,
             highlight = {
                 enable = true,
-                disable = { "latex", "bibtex" }
+                -- disable = { "latex", "bibtex" }
             },
         })
     end

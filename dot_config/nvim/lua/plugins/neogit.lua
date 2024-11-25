@@ -35,13 +35,6 @@ return {
             desc = "List git status"
         },
         {
-            "<leader>gc",
-            function()
-                require('fzf-lua').git_commits()
-            end,
-            desc = "List commits"
-        },
-        {
             "<leader>gt",
             function()
                 require('fzf-lua').git_stash()
