@@ -45,6 +45,21 @@
    "H"
    '("Previous arg" . evil-backward-arg)))
 
+(use-package evil-traces
+  :config
+  (evil-traces-use-diff-faces) ; if you want to use diff's faces
+  (evil-traces-mode))
+
+(use-package evil-goggles
+  :config
+  (evil-goggles-mode)
+
+  ;; optionally use diff-mode's faces; as a result, deleted text
+  ;; will be highlighed with `diff-removed` face which is typically
+  ;; some red color (as defined by the color theme)
+  ;; other faces such as `diff-added` will be used for other actions
+  (evil-goggles-use-diff-faces))
+
 (use-package evil-easymotion :after evil)
 
 (use-package casual-avy
