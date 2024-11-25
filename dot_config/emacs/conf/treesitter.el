@@ -23,8 +23,6 @@
 ;; (treesit-install-language-grammar 'python)
 
 
-(setq treesit-font-lock-level 3)
-(treesit-font-lock-recompute-features)
 
 (setq major-mode-remap-alist
       '((python-mode . python-ts-mode)
@@ -41,8 +39,7 @@
   (font-lock-debug-fontify)
   )
 
-(defun set-python-colors ()
-  (interactive)
+(defun set-ts-colors ()
   (setq treesit-font-lock-feature-list
         '((comment definition)
           (keyword string type)
@@ -53,22 +50,28 @@
            escape-sequence
            number
            string-interpolation
-           function)
-          (bracket delimiter operator variable property)))
+	   type
+           function
+	   variable)
+          (bracket delimiter error operator property)))
   (treesit-font-lock-recompute-features))
 
-(defun set-rust-colors ()
-  (interactive)
-  (setq treesit-font-lock-feature-list
-	'((comment definition)
-	  (keyword string)
-	  (assignment attribute builtin constant escape-sequence number type function)
-	  (bracket delimiter error operator property variable))
-	)
-  (treesit-font-lock-recompute-features))
+
+;; (customize-set-variable treesit-font-lock-level 3)
+(set-ts-colors)
+
+;; (defun set-rust-colors ()
+;;   (interactive)
+;;   (setq treesit-font-lock-feature-list
+;; 	'((comment definition)
+;; 	  (keyword string)
+;; 	  (assignment attribute builtin constant escape-sequence number type function)
+;; 	  (bracket delimiter error operator property variable))
+;; 	)
+;;   (treesit-font-lock-recompute-features))
 
 ;; (add-hook 'python-mode-hook #'set-python-colors)
-(add-hook 'python-ts-mode-hook #'set-python-colors)
-(add-hook 'rust-ts-mode-hook #'set-rust-colors)
-(add-hook 'rustic-ts-mode-hook #'set-rust-colors)
-(add-hook 'rustic-mode-hook #'set-rust-colors)
+;; (add-hook 'python-ts-mode-hook #'set-python-colors)
+;; (add-hook 'rust-ts-mode-hook #'set-rust-colors)
+;; (add-hook 'rustic-ts-mode-hook #'set-rust-colors)
+;; (add-hook 'rustic-mode-hook #'set-rust-colors)

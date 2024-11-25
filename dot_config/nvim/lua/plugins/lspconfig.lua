@@ -123,7 +123,6 @@ return {
 
         -- Gleam lsp
         lspconfig.gleam.setup({
-
             capabilities = capabilities,
         })
 
@@ -132,7 +131,6 @@ return {
 
         -- Latex Texlab
         lspconfig.texlab.setup({
-
             capabilities = capabilities,
         })
 
@@ -141,13 +139,20 @@ return {
 
         -- bash lsp
         lspconfig.bashls.setup({
-
             capabilities = capabilities,
         })
 
         -- clang lsp
         lspconfig.clangd.setup({
+            capabilities = capabilities,
+        })
 
+        -- Web lsps
+        lspconfig.html.setup({
+            capabilities = capabilities,
+        })
+
+        lspconfig.cssls.setup({
             capabilities = capabilities,
         })
 
