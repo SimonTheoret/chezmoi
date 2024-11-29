@@ -4,13 +4,20 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
         -- calling `setup` is optional for customization
-        require("fzf-lua").setup({"fzf-native"})
+        require("fzf-lua").setup({ "fzf-native" })
     end,
     keys = {
         {
             "<leader><leader>",
             function()
                 require('fzf-lua').files()
+            end,
+            desc = "List files"
+        },
+        {
+            "<leader>fp",
+            function()
+                require('fzf-lua').files({ cwd = "~/.local/share/chezmoi/" })
             end,
             desc = "List files"
         },
