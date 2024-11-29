@@ -4,6 +4,11 @@ return {
     keys = {
 
         {
+            '<leader>fp',
+            ":Telescope file_browser path=~/.local/share/chezmoi/ select_buffer=true<CR>",
+            desc = 'Browse config'
+        },
+        {
             '<leader>ff',
             ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
             desc = 'Telescope file browser'
