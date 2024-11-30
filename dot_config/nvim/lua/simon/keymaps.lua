@@ -24,6 +24,9 @@ vmap.set("n", "<leader>mod",
     [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
     { desc = "Modify word in whole file" })
 
+-- Emacs
+vmap.set("n", "M-x", "q:", { desc = "Commands" })
+
 -- Insert blank lines
 vmap.set("n", "<leader>o", "o<Esc>k", { desc = "Whitespace under cursor" })
 vmap.set("n", "<leader>O", 'O<Esc>j', { desc = "Whitespace above cursor" })
