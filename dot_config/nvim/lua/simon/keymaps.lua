@@ -25,7 +25,7 @@ vmap.set("n", "<leader>mod",
     { desc = "Modify word in whole file" })
 
 -- Emacs
-vmap.set("n", "M-x", "q:", { desc = "Commands" })
+vmap.set("n", "<M-x>", "q:", { desc = "Commands" })
 
 -- Insert blank lines
 vmap.set("n", "<leader>o", "o<Esc>k", { desc = "Whitespace under cursor" })
