@@ -18,6 +18,7 @@ return {
     config = function()
         require('lualine').setup {
             theme = 'molokai',
+            lualine_x = { "overseer" },
         }
     end,
 }
