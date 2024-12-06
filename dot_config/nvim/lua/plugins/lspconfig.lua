@@ -26,7 +26,7 @@ return {
                 python = { analysis = { autoSearchPaths = true,
                     diagnosticMode = "workspace",
                     useLibraryCodeForTypes = true,
-                    typeCheckingMode="basic"} }
+                    typeCheckingMode = "basic" } }
             }
         }
         -- lspconfig.pyright.setup {
