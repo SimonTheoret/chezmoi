@@ -1,13 +1,11 @@
 return {
     "neovim/nvim-lspconfig",
-    -- dependencies = {
-    --     'nvimdev/lspsaga.nvim',
-    -- },
+  dependencies = { 'saghen/blink.cmp' },
     config = function()
         local lspconfig = require('lspconfig')
 
         -- Set up cmp with lspconfig.
-        local capabilities = require('cmp_nvim_lsp').default_capabilities()
+        local capabilities = require('blink.cmp').get_lsp_capabilities()
 
         -- python LSP
         lspconfig.ruff.setup {
