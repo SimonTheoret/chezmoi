@@ -1,11 +1,10 @@
 return {
     'saghen/blink.cmp',
-    lazy = false, -- lazy loading handled internally
     -- optional: provides snippets for the snippet source
     dependencies = { 'rafamadriz/friendly-snippets', "L3MON4D3/LuaSnip" },
 
     -- use a release tag to download pre-built binaries
-    version = 'v0.7.*', --TODO: upgrade to more recent version
+    version = 'v0.7.*',
     -- OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
     -- build = 'cargo build --release',
     -- If you use nix, you can build from source using latest nightly rust with:
@@ -44,13 +43,12 @@ return {
         -- default list of enabled providers defined so that you can extend it
         -- elsewhere in your config, without redefining it, via `opts_extend`
         sources = {
-            default = { 'lsp', 'path', 'snippets', 'buffer', "luasnip" },
+            default = { 'lsp', 'path',  "luasnip", 'buffer' },
             -- optionally disable cmdline completions
-            -- cmdline = {},
         },
+      -- optionally disable cmdline completions
+      -- cmdline={}
 
-        -- experimental signature help support
-        signature = { enabled = true }
     },
     -- allows extending the providers array elsewhere in your config
     -- without having to redefine it
