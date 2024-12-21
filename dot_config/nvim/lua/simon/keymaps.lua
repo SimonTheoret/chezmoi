@@ -33,8 +33,6 @@ vmap.set("n", "<leader>O", 'O<Esc>j', { desc = "Whitespace above cursor" })
 
 vmap.set("n", "<leader>cd", ":cd %:h<CR>", { desc = "Make file's path as working dir" })
 
-vmap.set("n", "<leader><tab>", "%", { desc = "Switch delimiters" })
-
 
 vmap.set("n", "<leader>sr", function() require("simon.neosearch").search() end, { desc = "Search and replace" })
 
