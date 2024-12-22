@@ -43,12 +43,12 @@ return {
         -- default list of enabled providers defined so that you can extend it
         -- elsewhere in your config, without redefining it, via `opts_extend`
         sources = {
-            default = { 'lsp', 'path',  "luasnip", 'buffer' },
-            -- optionally disable cmdline completions
-        },
-      -- optionally disable cmdline completions
-      -- cmdline={}
+            default = { 'lsp', 'path', "luasnip", 'buffer' },
 
+            -- Disable cmdline completions
+            cmdline = {},
+
+        },
     },
     -- allows extending the providers array elsewhere in your config
     -- without having to redefine it
