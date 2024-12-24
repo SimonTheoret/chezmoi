@@ -17,25 +17,25 @@ return {
             }
         }
         -- lspconfig.pylsp.setup({})
-        lspconfig.basedpyright.setup {
-            capabilities = capabilities,
-            settings = {
-                pyright = { autoImportCompletion = true, },
-                python = { analysis = { autoSearchPaths = true,
-                    diagnosticMode = "workspace",
-                    useLibraryCodeForTypes = true,
-                    typeCheckingMode = "basic" } }
-            }
-        }
-        -- lspconfig.pyright.setup {
+        -- lspconfig.basedpyright.setup {
         --     capabilities = capabilities,
         --     settings = {
         --         pyright = { autoImportCompletion = true, },
         --         python = { analysis = { autoSearchPaths = true,
         --             diagnosticMode = "workspace",
-        --             useLibraryCodeForTypes = true, } }
+        --             useLibraryCodeForTypes = true,
+        --             typeCheckingMode = "basic" } }
         --     }
         -- }
+        lspconfig.pyright.setup {
+            capabilities = capabilities,
+            settings = {
+                pyright = { autoImportCompletion = true, },
+                python = { analysis = { autoSearchPaths = true,
+                    diagnosticMode = "workspace",
+                    useLibraryCodeForTypes = true, } }
+            }
+        }
 
         lspconfig.rust_analyzer.setup({
             { -- rust LSP
