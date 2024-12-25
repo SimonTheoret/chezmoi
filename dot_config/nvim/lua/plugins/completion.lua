@@ -3,8 +3,10 @@ return {
     -- optional: provides snippets for the snippet source
     dependencies = { 'rafamadriz/friendly-snippets', "L3MON4D3/LuaSnip" },
 
+    build = "cargo build --release",
+
     -- use a release tag to download pre-built binaries
-    version = 'v0.*',
+    -- version = '*',
     -- OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
     -- build = 'cargo build --release',
     -- If you use nix, you can build from source using latest nightly rust with:
@@ -49,6 +51,13 @@ return {
             cmdline = {},
 
         },
+
+        enabled = function()
+            return not vim.tbl_contains({ "lua", "markdown", "TelescopePrompt","telescopeprompt"}, vim.bo.filetype)
+                and vim.bo.buftype ~= "prompt"
+                and vim.b.completion ~= false
+        end,
+
     },
     -- allows extending the providers array elsewhere in your config
     -- without having to redefine it
