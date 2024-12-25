@@ -44,12 +44,11 @@ return {
         -- elsewhere in your config, without redefining it, via `opts_extend`
         sources = {
             default = { 'lsp', 'path', "luasnip", 'buffer' },
-
-            -- Disable cmdline completions
-            cmdline = {},
-
         },
     },
+
+    signature = { enabled = true },
+
     -- allows extending the providers array elsewhere in your config
     -- without having to redefine it
     opts_extend = { "sources.default" },

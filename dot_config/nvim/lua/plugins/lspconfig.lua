@@ -1,6 +1,6 @@
 return {
     "neovim/nvim-lspconfig",
-  dependencies = { 'saghen/blink.cmp' },
+    dependencies = { 'saghen/blink.cmp' },
     config = function()
         local lspconfig = require('lspconfig')
 
@@ -125,15 +125,20 @@ return {
         })
 
         -- Nix lsp
-        lspconfig.nil_ls.setup({})
+        lspconfig.nil_ls.setup({
+
+            capabilities = capabilities,
+        })
 
         -- Latex Texlab
         lspconfig.texlab.setup({
             capabilities = capabilities,
         })
 
-        -- -- markdown
-        -- lspconfig.marksman.setup({})
+        lspconfig.elixirls.setup({
+
+            capabilities = capabilities,
+        })
 
         -- bash lsp
         lspconfig.bashls.setup({
