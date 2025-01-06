@@ -41,12 +41,15 @@
 (use-package
   lsp-mode
   ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
+  :init
+  (add-to-list 'exec-path "~/bin/elixir-ls/")
   :hook
   ( ;; replace XXX-mode with concrete major-mode(e. g. python--tsmode)
    ;; (python-ts-mode . lsp-deferred) ;;already taken care of
    (go-ts-mode . lsp)
    (rust-ts-mode . lsp) ;;already taken care of
    (sh-mode . lsp)
+   (elixir-mode . lsp)
    ;;(rustic-mode . lsp-deferred) ;;already taken care of
    ;; if you want which-key integration
    (lsp-mode . lsp-enable-which-key-integration)
@@ -252,3 +255,5 @@
 
 (use-package gleam-ts-mode
   :mode (rx ".gleam" eos))
+
+(use-package elixir-ts-mode)

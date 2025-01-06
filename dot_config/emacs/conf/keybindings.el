@@ -58,7 +58,9 @@
   ;; will be highlighed with `diff-removed` face which is typically
   ;; some red color (as defined by the color theme)
   ;; other faces such as `diff-added` will be used for other actions
-  (evil-goggles-use-diff-faces))
+  (evil-goggles-use-diff-faces)
+  (setq evil-goggles-duration 0.050) ;; default is 0.200
+  )
 
 (use-package evil-easymotion :after evil)
 
@@ -77,16 +79,6 @@
   :config
   (evil-snipe-mode +1)
   (evil-snipe-override-mode +1))
-
-;; ;; org evil
-(use-package
-  evil-org
-  :after org
-  :hook (org-mode . (lambda () evil-org-mode))
-  :config
-  (require 'evil-org-agenda)
-  (evil-org-agenda-set-keys))
-
 
 ;; easy-motion for moving fast af
 (use-package evil-easymotion

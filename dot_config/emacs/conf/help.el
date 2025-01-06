@@ -45,11 +45,6 @@
   '("Casual dired" .  casual-dired-tmenu)
   )
 
-(general-def :states 'normal
-  :keymaps 'org-agenda-mode-map
-  "C-o" '("Casual agenda" . casual-agenda-tmenu)
-  )
-
 (require 'casual-isearch)
 (general-def :states 'normal
   :keymaps 'isearch-mode-map

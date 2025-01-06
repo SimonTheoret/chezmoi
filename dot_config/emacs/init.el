@@ -16,13 +16,14 @@
 
 (load (locate-user-emacs-file "packages.el"))
 
+(setq org-agenda-skip-unavailable-files t)
+
 ;;--------- Does require packages.el -----------;;
 (config-load-file-no-extension "keybindings")
 (config-load-file-no-extension "looks")
 (config-load-file-no-extension "completion")
 (config-load-file-no-extension "diredup")
 (config-load-file-no-extension "search")
-(config-load-file-no-extension "noting")
 (config-load-file-no-extension "lsp")
 (config-load-file-no-extension "dap")
 (config-load-file-no-extension "treesitter")
