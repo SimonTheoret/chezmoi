@@ -37,12 +37,3 @@
 
 	)
   )
-
-;; (defun maybe-quit ()
-;;   (when (string= (buffer-name) "*Async Shell Command*")
-;;     (quit-window)))
-
-;; (general-def
-;;   :states 'normal
-;;   :)
-;; (add-hook 'shell-mode-hook #'maybe-set-quit-key)

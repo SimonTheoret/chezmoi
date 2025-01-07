@@ -1,27 +1,6 @@
 ;; -*- lexical-binding: t -*-
 
 ;; Tree-sitter for emacs
-
-;; (defun tree-sitter-on ()
-;;   "Turns on tree-sitter in all its glory"
-;;   (turn-on-tree-sitter-mode)
-;;   (tree-sitter-hl-mode))
-
-
-;; ;; Tree-sitter
-;; (use-package tree-sitter
-;;   :hook
-;;   (python-ts-mode . tree-sitter-on))
-;;   :config
-;;   (require 'tree-sitter-langs)
-
-;; (use-package tree-sitter-langs
-;;   :after tree-sitter)
-
-;; (treesit-install-language-grammar 'rust)
-;; (treesit-install-language-grammar 'go)
-;; (treesit-install-language-grammar 'python)
-
 (setq major-mode-remap-alist
       '((python-mode . python-ts-mode)
 	(rust-mode . rust-ts-mode)
@@ -57,5 +36,5 @@
   (mapc #'treesit-install-language-grammar (mapcar #'car treesit-language-source-alist))
   )
 
-(add-hook 'prog-mode-hook (lambda () 
+(add-hook 'prog-mode-hook (lambda ()
 			    (treesit-font-lock-recompute-features '(function variable))))

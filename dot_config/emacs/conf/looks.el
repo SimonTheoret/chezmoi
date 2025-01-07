@@ -4,19 +4,6 @@
 
 ;; Makes emacs good looking
 
-;; Smooth scrolling
-;; (use-package smooth-scrolling
-;;   :init
-;;   (smooth-scrolling-mode 1))
- ;; (defun frame-transparency ()
-;;   (interactive)
-;;   (set-frame-parameter nil 'alpha-background 70)
-;;   (add-to-list 'default-frame-alist '(alpha-background . 70))
-;;   )
-
-;; (if (string= "gnu/linux" system-type)
-;; 	(frame-transparency)
-;;  )
 ;; Theme
 (use-package doom-themes
   :config
@@ -26,26 +13,14 @@
   (load-theme 'doom-molokai-sick t)
   )
 
-;; (use-package all-the-icons
-;;   :if (display-graphic-p))
-
-
-;;   :init
-;;   (all-the-icons-completion-mode)
-;;   (add-hook 'marginalia-mode-hook #'all-the-icons-completion-marginalia-setup))
 
 (use-package all-the-icons
   :if (display-graphic-p))
-;; (use-package all-the-icons-dired
-;;   :after all-the-icons
-;; (add-hook 'dired-mode-hook 'all-the-icons-dired-mode))
 
 (use-package nerd-icons)
 (use-package nerd-icons-dired
   :init
   (nerd-icons-dired-mode))
-;; :hook
-;; (dired-mode . nerd-icons-dired-mode))
 
 ;; The essential modeline
 (use-package doom-modeline
