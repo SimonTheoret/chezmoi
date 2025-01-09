@@ -26,8 +26,8 @@
   (straight-use-package-by-default t))
 
 (use-package gcmh
-  :init (gcmh-mode 1)
-  )
+  :init
+  (gcmh-mode 1))
 
 ;; General magic!
 (use-package general

@@ -1,4 +1,5 @@
 ;; -*- lexical-binding: t -*-
+(setq gc-cons-threshold (* 1024 1024 100)) ; 100 MiB
 (setq use-package-compute-statistics t)
 (setq custom-file (concat user-emacs-directory "custom.el"))
 (when (file-exists-p custom-file)

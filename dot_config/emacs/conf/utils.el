@@ -19,6 +19,7 @@
 ;;   (gcmh-mode 1))
 
 (use-package crux
+  :defer 3
   :general-config
   (general-def
     :states 'normal
