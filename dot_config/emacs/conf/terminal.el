@@ -2,11 +2,13 @@
 
 
 (use-package vterm
+  :defer 2
   :config
   (setq vterm-kill-buffer-on-exit t))
 
 (use-package
   vterm-toggle
+  :defer 2
   :config
   (setq vterm-toggle-fullscreen-p nil)
   (add-to-list
@@ -25,6 +27,7 @@
      (reusable-frames . visible) (window-height . 0.3))))
 
 (use-package multi-vterm
+  :defer 2
   :config
   (add-hook 'vterm-mode-hook
 	    (lambda ()
@@ -33,6 +36,7 @@
 
 
 (use-package eat
+  :defer 2
   :straight (eat
 	     :type git
 	     :host codeberg

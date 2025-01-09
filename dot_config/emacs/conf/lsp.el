@@ -201,6 +201,7 @@
   (setq rust-mode-treesitter-derive t)
   )
 (use-package rustic
+  :defer 1
   :config (setq rustic-format-on-save nil)
   :custom
   (rustic-cargo-use-last-stored-argument t)
