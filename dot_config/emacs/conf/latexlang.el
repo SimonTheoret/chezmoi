@@ -41,5 +41,6 @@
   )
 
 
-(use-package evil-tex)
-(add-hook 'LaTeX-mode-hook #'evil-tex-mode)
+(use-package evil-tex
+  ;; :defer t
+  :hook (LaTeX-mode . evil-tex-mode))

@@ -21,20 +21,23 @@
         corfu-on-exact-match nil
         corfu-quit-no-match corfu-quit-at-boundary
         tab-always-indent 'complete)
-  :init
-  (global-corfu-mode))
+  :hook ((prog-mode . corfu-mode)(prog-mode . corfu-echo-mode))
+  )
 
 (use-package corfu-terminal
   :straight (corfu-terminal
 	     :type git
-	     :repo "https://codeberg.org/akib/emacs-corfu-terminal.git"))
+	     :repo "https://codeberg.org/akib/emacs-corfu-terminal.git")
+  )
 
-(unless (display-graphic-p)
-  (corfu-terminal-mode +1))
+;; (when-eval-after-load 'corfu  lambda () ((unless (display-graphic-p)
+;; 				   (corfu-terminal-mode +1)))
+;; 		    )
 
 ;; Add extensions
+;; CAPE is not really a mode. Rather, it provides some useful completion functions for Corfu.
 (use-package cape
-  :bind ("C-c p" . cape-prefix-map) 
+  :bind ("C-c p" . cape-prefix-map)
   :init
   (add-hook 'completion-at-point-functions #'cape-dabbrev)
   (add-hook 'completion-at-point-functions #'cape-file)
@@ -50,10 +53,11 @@
 
   (read-extended-command-predicate #'command-completion-default-include-p))
 
+
 ;; Snippets
 (use-package yasnippet
-  :init
-  (yas-global-mode 1)
+  ;; :hook (prog-mode yas-minor-mode)
+  :defer t
   :general
   (general-def
     :states 'normal
@@ -61,8 +65,11 @@
     :prefix-command 'Insert
     "s" '("Insert snippet" . yas-insert-snippet)))
 
-(use-package yasnippet-snippets)
+;; Not really a mode
+(use-package yasnippet-snippets :after yasnippet)
 
+;; Not really a mode either
 (use-package doom-snippets
+  :defer t
   :after yasnippet
   :straight (doom-snippets :type git :host github :repo "doomemacs/snippets" :files ("*.el" "*")))

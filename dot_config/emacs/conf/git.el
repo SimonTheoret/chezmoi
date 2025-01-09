@@ -1,7 +1,5 @@
 ;; -*- lexical-binding: t -*-
 
-;; test.ipynb
-
 ;; git magic!
 
 ;; Ediff
@@ -10,10 +8,10 @@
 ;; magit
 (use-package
   magit
+  :defer 2 
   :after evil-collection
   :config
   (setq magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1)
-  (setq magit-todos-exclude-globs '("*.ipynb"))
   :general-config
   (general-def
     :states 'normal
@@ -27,7 +25,7 @@
 (add-hook 'magit-pre-refresh-hook 'diff-hl-magit-pre-refresh) ;;compatibility with diff-hl
 (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh) ;;compatibility with diff-hl
 
-(use-package magit-todos :after magit :config (magit-todos-mode 1))
+(use-package magit-todos :after magit :config (magit-todos-mode 1) (setq magit-todos-exclude-globs '("*.ipynb")))
 
 (use-package git-modes)
 
@@ -44,4 +42,4 @@
   "l" '("SMerge keep lower" . smerge-keep-lower)
   "u" '("SMerge keep upper" . smerge-keep-upper)
   "a" '("SMerge keep all" . smerge-keep-all)
- )
+  )
