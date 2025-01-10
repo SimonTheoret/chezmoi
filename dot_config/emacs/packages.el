@@ -1,6 +1,8 @@
 ;; -*- lexical-binding: t -*-
 ;; Package init
 
+(setq straight-check-for-modifications '(check-on-save find-when-checking))
+
 (defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name
