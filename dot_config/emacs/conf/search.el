@@ -134,7 +134,7 @@
 
 (use-package browse-at-remote)
 
-(use-package tldr)
+(use-package tldr :defer 1)
 
 (use-package deadgrep)
 

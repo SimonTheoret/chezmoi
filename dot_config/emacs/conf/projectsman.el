@@ -5,6 +5,7 @@
 ;; projectile
 (use-package
   projectile
+  :defer 0.5
   :config
   (projectile-mode +1)
   (setq projectile-project-search-path '("~/Documents"))
