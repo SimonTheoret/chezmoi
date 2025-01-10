@@ -21,7 +21,9 @@
         corfu-on-exact-match nil
         corfu-quit-no-match corfu-quit-at-boundary
         tab-always-indent 'complete)
-  :hook ((prog-mode . corfu-mode)(prog-mode . corfu-echo-mode))
+  :hook ((prog-mode . corfu-mode)(prog-mode . corfu-echo-mode)
+	 (LaTeX-mode . corfu-mode)(LaTeX-mode . corfu-echo-mode)
+	 )
   )
 
 (use-package corfu-terminal
