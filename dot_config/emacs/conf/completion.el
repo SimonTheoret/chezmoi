@@ -55,26 +55,32 @@
 
   (read-extended-command-predicate #'command-completion-default-include-p))
 
-
-(defvar yasnippet-defer-time 1 "'Yasnippet-Defer-Time' is the defer duration for 'yasnippet'")
+;; (defvar yasnippet-defer-time 1 "'Yasnippet-Defer-Time' is the defer duration for 'yasnippet'")
 
 ;; Snippets
 (use-package yasnippet
-  ;; :hook ((prog-mode yas-minor-mode)(LaTeX-mode yas-minor-mode))
-  :defer yasnippet-defer-time
+  :hook (
+	 (prog-mode . yas-minor-mode)(LaTeX-mode . yas-minor-mode)
+	 (prog-mode . yas-reload-all)(LaTeX-mode . yas-reload-all)
+	 )
+  :defer t
   :general
   (general-def
     :states 'normal
     :prefix "<leader> i"
     :prefix-command 'Insert
-    "s" '("Insert snippet" . yas-insert-snippet)))
+    "s" '("Insert snippet" . yas-insert-snippet))
+  )
 
 ;; Not really a mode
-(use-package yasnippet-snippets :after yasnippet)
+(use-package yasnippet-snippets
+  :after yasnippet
+  ;; :defer (+ yasnippet-defer-time 1)
+  )
 
 ;; Not really a mode either
 (use-package doom-snippets
   ;; :hook ((prog-mode yas-minor-mode)(LaTeX-mode yas-minor-mode))
-  :defer (+ yasnippet-defer-time 1)
+  ;; :defer (+ yasnippet-defer-time 1)
   :after yasnippet
   :straight (doom-snippets :type git :host github :repo "doomemacs/snippets" :files ("*.el" "*")))
