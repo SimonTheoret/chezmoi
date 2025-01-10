@@ -3,7 +3,7 @@
 (use-package
   exec-path-from-shell
   :defer 1
-  :init
+  :config
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize))
   (when (daemonp)

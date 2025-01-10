@@ -56,10 +56,12 @@
   (read-extended-command-predicate #'command-completion-default-include-p))
 
 
+(defvar yasnippet-defer-time 1 "'Yasnippet-Defer-Time' is the defer duration for 'yasnippet'")
+
 ;; Snippets
 (use-package yasnippet
-  ;; :hook (prog-mode yas-minor-mode)
-  :defer t
+  ;; :hook ((prog-mode yas-minor-mode)(LaTeX-mode yas-minor-mode))
+  :defer yasnippet-defer-time
   :general
   (general-def
     :states 'normal
@@ -72,6 +74,7 @@
 
 ;; Not really a mode either
 (use-package doom-snippets
-  :defer t
+  ;; :hook ((prog-mode yas-minor-mode)(LaTeX-mode yas-minor-mode))
+  :defer (+ yasnippet-defer-time 1)
   :after yasnippet
   :straight (doom-snippets :type git :host github :repo "doomemacs/snippets" :files ("*.el" "*")))

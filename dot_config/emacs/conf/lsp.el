@@ -120,6 +120,8 @@
   '("Lsp Imenu" . lsp-ui-imenu)
   "h"
   '("Hinlay hints" . lsp-inlay-hints-mode)
+  "o"
+  '("Casual Overlay" . casual-symbol-overlay-tmenu)
   )
 
 ;; This function filters any diagnostics coming from the virtual env of python
@@ -130,27 +132,6 @@
 				param
 				)
 			      ))
-
-
-;; source:
-;; (setf lsp-diagnostic-filter (lambda (param work)
-;; 			      (puthash "diagnostics"
-;; 				       (cl-remove-if (lambda (diag) (gethash "tags" diag))
-;; 						     (gethash "diagnostics" param))
-;; 				       param)
-;; 			      param))
-
-
-;; (defun smart-lsp-ui-doc ()
-;;   (interactive)
-;;   (if lsp-ui-doc-frame-mode
-;;       ((lsp-ui-doc-show)
-;;        (lsp-ui-doc-focus-frame)
-;;        (lsp-ui-doc-enable nil))
-;;     ((lsp-ui-doc-hide)
-;;      (setq lsp-ui-doc-enable t))
-;;     )
-;;   )
 
 (general-def
   :states
@@ -230,21 +211,7 @@
     'flycheck
   '(add-hook 'flycheck-mode-hook #'flycheck-golangci-lint-setup))
 
-(use-package casual-symbol-overlay
-  :general
-  (general-def
-    :states 'normal
-    :prefix "<leader> c o"
-    :prefix-command 'SymbolOverlay
-    "m" '("SymbolOverlay mode" . symbol-overlay-mode )
-    "p" '("SymbolOverlay put" . symbol-overlay-put )
-    "f" '("SymbolOverlay forward" . symbol-overlay-switch-forward )
-    "b" '("SymbolOverlay backward" . symbol-overlay-switch-backward )
-    "r" '("SymbolOverlay remove" . symbol-overlay-switch-remove-all )
-    )
-  :bind (:map
-         symbol-overlay-map
-         ("C-o" . casual-symbol-overlay-tmenu)))
+(use-package casual-symbol-overlay)
 
 
 (defun my-reload-dir-locals-for-current-buffer ()
