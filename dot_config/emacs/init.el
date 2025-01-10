@@ -47,3 +47,4 @@
 (config-load-file-no-extension "spelling")
 (config-load-file-no-extension "envir")
 (config-load-file-no-extension "file_types")
+(config-load-file-no-extension "mail")

@@ -11,6 +11,7 @@
   "a" '("Buffer list" . consult-buffer)
   "r" '("Rename buffer" . rename-buffer)
   "f" '("Rename buffer and file" . crux-rename-buffer-and-file)
+  "d" '("Delete current buffer" . kill-current-buffer)
   )
 
 (use-package popwin
