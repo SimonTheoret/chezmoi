@@ -33,7 +33,7 @@
     "t" '("Daily note" . obsidian-daily-note)
     "j" '("Obsidian jump" . obsidian-jump)
     "s" '("Search notes" . obsidian-search)
-    "c" '("Captur note" . obsidian-capture)
+    "c" '("Capture note" . obsidian-capture)
     ;; TODO: Add kb for toggling and inserting checkboxes, smart adding `-` and checkboxes
     )
   )
