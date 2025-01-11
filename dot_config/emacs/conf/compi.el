@@ -27,5 +27,5 @@
   "r"
   '("recompile" . recompile)
   "l"
-  '("kill" . kill-compilation)
+  '("kill compilation" . kill-compilation)
   )
