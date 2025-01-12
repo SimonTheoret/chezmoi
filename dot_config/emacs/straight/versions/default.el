@@ -15,7 +15,7 @@
  ("cfrs" . "f3a21f237b2a54e6b9f8a420a9da42b4f0a63121")
  ("cmake" . "0cc144ecfdd0c82f8507e32aba6d2fa364d48941")
  ("compat" . "6926fcc1c891d4ff677515c0eaadf84d3ab364b1")
- ("consult" . "90a403e6610acaae61a0158b50e9778e857a18f8")
+ ("consult" . "fd85f17d6f9931b76f4f4630c08e690e52b548ac")
  ("consult-flycheck" . "3bc2141daf8cfad7e4d2e2f78b15d45033f707a5")
  ("consult-lsp" . "68583913168bf66fd4d542b2517a2dcab19c447c")
  ("consult-todo" . "bd67bca32a69bf09f137cacb01c0310da9e76575")
