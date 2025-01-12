@@ -120,7 +120,7 @@
  ("straight.el" . "33fb4695066781c634ff1c3c81ba96e880deccf7")
  ("symbol-overlay" . "6151f4279bd94b5960149596b202cdcb45cacec2")
  ("tablist" . "fcd37147121fabdf003a70279cf86fbe08cfac6f")
- ("themes" . "3c03f525d5c0ac0859f31231778f97e10a705e0d")
+ ("themes" . "e506a8724156da3b1e62cb8136265e9705549d04")
  ("tldr.el" . "1b09d2032491d3904bd7ee9bf5ba7c7503db6593")
  ("transient" . "69202c123205f396fefd35acdbc66fe8d0dfad12")
  ("treemacs" . "32bb3dd02ddfca85661614b3b227e770fab821e2")
