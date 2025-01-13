@@ -49,3 +49,4 @@
 (config-load-file-no-extension "file_types")
 (config-load-file-no-extension "mail")
 (config-load-file-no-extension "obsid")
+(config-load-file-no-extension "conf_end")

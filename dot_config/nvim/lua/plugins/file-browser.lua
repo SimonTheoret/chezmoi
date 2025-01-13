@@ -10,6 +10,20 @@ return {
         },
     }
 }
+-- return {
+--     "michel-garcia/fzf-lua-file-browser.nvim",
+--     dependencies = {
+--         "ibhagwan/fzf-lua"
+--     },
+--     keys = {
+--
+--         {
+--             '<leader>ff',
+--             function() require("fzf-lua-file-browser").browse() end,
+--             desc = 'Telescope file browser'
+--         },
+--     }
+-- }
 
 -- KEYBINDING:
 -- Insert / Normal 	fb_actions 	Description

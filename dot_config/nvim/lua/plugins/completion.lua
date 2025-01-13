@@ -6,7 +6,7 @@ return {
     build = "cargo build --release",
 
     -- use a release tag to download pre-built binaries
-    -- version = '*',
+    version = '0.10.*',
     -- OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
     -- build = 'cargo build --release',
     -- If you use nix, you can build from source using latest nightly rust with:
@@ -33,6 +33,7 @@ return {
         },
 
         snippets = {
+            preset = "luasnip",
             expand = function(snippet) require('luasnip').lsp_expand(snippet) end,
             active = function(filter)
                 if filter and filter.direction then
@@ -45,7 +46,7 @@ return {
         -- default list of enabled providers defined so that you can extend it
         -- elsewhere in your config, without redefining it, via `opts_extend`
         sources = {
-            default = { 'lsp', 'path', "luasnip", 'buffer' },
+            default = { 'lsp', 'path', "snippets", 'buffer' },
 
             -- Disable cmdline completions
             cmdline = {},
@@ -53,11 +54,12 @@ return {
         },
 
         enabled = function()
-            return not vim.tbl_contains({ "lua", "markdown", "TelescopePrompt","telescopeprompt"}, vim.bo.filetype)
+            return not vim.tbl_contains({ "lua", "markdown", "TelescopePrompt", "telescopeprompt" }, vim.bo.filetype)
                 and vim.bo.buftype ~= "prompt"
                 and vim.b.completion ~= false
         end,
 
+        -- completion = {ghost_text.enabled = true}
     },
     -- allows extending the providers array elsewhere in your config
     -- without having to redefine it

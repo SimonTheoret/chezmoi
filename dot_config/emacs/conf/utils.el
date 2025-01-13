@@ -14,10 +14,6 @@
 ;;   (message "%s" (concat "mkdir" default-directory "/" dirstr)
 ;; 	   ))
 
-;; (use-package gcmh
-;;   :config
-;;   (gcmh-mode 1))
-
 (use-package crux
   :defer 3
   :general-config

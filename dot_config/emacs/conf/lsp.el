@@ -59,6 +59,7 @@
   :commands (lsp lsp-deferred)
   :config
   (setq lsp-ui-sideline-show-code-actions t)
+  (setq lsp-completion-provider :none)
   (setq lsp-headerline-breadcrumb-enable t)
   (setq lsp-lens-enable nil)
   (lsp-signature-mode t)
