@@ -1,1 +1,10 @@
 theme = "molokai"
+
+[editor]
+default-yank-register="+"
+mouse=false
+line-number="relative"
+bufferline="multiple"
+
+[keys.normal]
+C-b = ":reflow"
