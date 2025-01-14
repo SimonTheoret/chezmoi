@@ -11,7 +11,8 @@
   :after lsp-mode)
 
 (use-package flycheck-hl-todo
-  :defer 5 ; Need to be initialized after the rest of checkers
+  :defer 3 ; Need to be initialized after the rest of checkers
+  :after flycheck
   :straight (:host github :repo "alvarogonzalezsotillo/flycheck-hl-todo")
   :config
   (flycheck-hl-todo-setup))

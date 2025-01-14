@@ -14,7 +14,24 @@
   (evil-set-leader
    '(normal visual replace operator motion emacs)
    (kbd "SPC")) ;; leader declaration
-  (evil-set-leader 'normal (kbd "SPC m") t)) ;; Local leader declaration
+  (evil-set-leader 'normal (kbd "SPC m") t) ;; Local leader declaration
+  :bind (
+	 :map evil-insert-state-map
+	 ("<down-mouse-1>" . nil)
+	 ("<mouse-1>" . nil)
+	 ("<down-mouse-3>" . nil)
+	 ("<mouse-3>" . nil)
+	 :map evil-normal-state-map
+	 ("<down-mouse-1>" . nil)
+	 ("<mouse-1>" . nil)
+	 ("<down-mouse-3>" . nil)
+	 ("<mouse-3>" . nil)
+	 :map    evil-motion-state-map
+	 ("<down-mouse-1>" . nil)
+	 ("<mouse-1>" . nil)
+	 ("<down-mouse-3>" . nil)
+	 ("<mouse-3>" . nil)
+	 ))
 
 (use-package evil-commentary :config (evil-commentary-mode))
 
