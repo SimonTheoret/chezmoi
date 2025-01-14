@@ -132,7 +132,7 @@ unset key
 # }}} End configuration added by Zim install
 
 eval "$(starship init zsh)"
-export EDITOR='nvim'
+export EDITOR='helix'
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
