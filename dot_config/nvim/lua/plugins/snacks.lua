@@ -4,22 +4,37 @@ return {
     lazy = false,
     ---@type snacks.Config
     opts = {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
         bigfile = { enabled = true },
-        notifier = {
-            enabled = false,
-            timeout = 3000,
-        },
+        dashboard = { enabled = false },
+        indent = { enabled = true },
+        input = { enabled = true },
+        picker = { enabled = true },
+        notifier = { enabled = false },
         quickfile = { enabled = true },
+        scroll = { enabled = false },
         statuscolumn = { enabled = true },
         words = { enabled = true },
-        styles = {
-            notification = {
-                wo = { wrap = true } -- Wrap notifications
-            }
-        },
-        terminal = {enabled = true}
     },
+    -- opts = {
+    --     bigfile = { enabled = true },
+    --     notifier = {
+    --         enabled = false,
+    --     },
+    --     quickfile = { enabled = true },
+    --     statuscolumn = { enabled = true },
+    --     words = { enabled = true },
+    --     styles = {
+    --         notification = {
+    --             wo = { wrap = true } -- Wrap notifications
+    --         }
+    --     },
+    --     terminal = { enabled = true }
+    -- },
     keys = {
+        { "<leader>fm", function() Snacks.picker() end,           desc = "Show all Snacks pickers" },
         { "<leader>un", function() Snacks.notifier.hide() end,           desc = "Dismiss All Notifications" },
         { "<leader>bd", function() Snacks.bufdelete() end,               desc = "Delete Buffer" },
         { "<leader>gb", function() Snacks.git.blame_line() end,          desc = "Git Blame Line" },
