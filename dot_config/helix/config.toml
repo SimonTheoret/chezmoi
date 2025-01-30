@@ -6,5 +6,8 @@ mouse=false
 line-number="relative"
 bufferline="multiple"
 
+[editor.soft-wrap]
+enable=true
+
 [keys.normal]
 C-b = ":reflow"
