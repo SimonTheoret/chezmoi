@@ -81,14 +81,6 @@
 
 (use-package evil-easymotion :after evil)
 
-(use-package casual-avy
-  :general
-  (general-def
-    :states
-    'normal
-    "<leader> a v"
-    '("Transient avy" . casual-avy-tmenu))
-  )
 
 (use-package
   evil-snipe
@@ -117,7 +109,7 @@
   :states
   'normal
   "<leader> w"
-  '("Jump to word" . avy-goto-word-0)
+  '("Jump to word" . avy-goto-word-1)
   )
 (general-def
   :states
@@ -188,3 +180,13 @@
 (with-eval-after-load 'dired
   (evil-collection-define-key 'normal 'dired-mode-map " " nil))
 (global-unset-key (kbd "M-SPC") )
+
+
+(use-package casual-avy
+  :general
+  (general-def
+    :states
+    'normal
+    "<leader> a v"
+    '("Transient avy" . casual-avy-tmenu))
+  )

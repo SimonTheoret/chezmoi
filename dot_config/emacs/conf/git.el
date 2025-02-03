@@ -22,8 +22,8 @@
     "t" '("Git TimeMachine" . git-timemachine)
     ))
 
-(add-hook 'magit-pre-refresh-hook 'diff-hl-magit-pre-refresh) ;;compatibility with diff-hl
-(add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh) ;;compatibility with diff-hl
+;; (add-hook 'magit-pre-refresh-hook 'diff-hl-magit-pre-refresh) ;;compatibility with diff-hl
+;; (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh) ;;compatibility with diff-hl
 
 (use-package magit-todos :after magit :config (magit-todos-mode 1) (setq magit-todos-exclude-globs '("*.ipynb")))
 
