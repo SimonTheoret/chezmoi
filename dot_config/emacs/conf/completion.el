@@ -1,81 +1,120 @@
 ;; -*- lexical-binding: t -*-
 
 ;; Makes emacs write code in my place
-;;
-(use-package corfu
-  :config
-  (setq corfu-auto t
-        corfu-auto-delay 0.14
-        corfu-auto-prefix 2
-        global-corfu-modes
-        '((not erc-mode
-               circe-mode
-               help-mode
-               gud-mode
-               vterm-mode)
-          t)
-        corfu-cycle t
-        corfu-preselect 'prompt
-        corfu-count 16
-        corfu-max-width 120
-        corfu-on-exact-match nil
-        corfu-quit-no-match corfu-quit-at-boundary
-        tab-always-indent 'complete)
-  :hook ((prog-mode . corfu-mode)(prog-mode . corfu-echo-mode)
-	 (LaTeX-mode . corfu-mode)(LaTeX-mode . corfu-echo-mode)
-	 )
-  )
 
-(use-package corfu-terminal
-  :straight (corfu-terminal
-	     :type git
-	     :repo "https://codeberg.org/akib/emacs-corfu-terminal.git")
-  )
-
-;; (when-eval-after-load 'corfu  lambda () ((unless (display-graphic-p)
-;; 				   (corfu-terminal-mode +1)))
-;; 		    )
-
-;; Add extensions
-;; CAPE is not really a mode. Rather, it provides some useful completion functions for Corfu.
-(use-package cape
-  :bind ("C-c p" . cape-prefix-map)
+;; ;; Company Completion
+(use-package company
   :init
-  (add-hook 'completion-at-point-functions #'cape-dabbrev)
-  (add-hook 'completion-at-point-functions #'cape-file)
-  (add-hook 'completion-at-point-functions #'cape-elisp-block)
-  )
+  (add-hook 'after-init-hook 'global-company-mode)
+  :config
+  (setq company-minimum-prefix-length 2)
+  (setq company-idle-delay 0.05)
+  (setq company-backends '((company-capf  company-files company-keywords company-dabbrev-code :with company-yasnippet)))
+  :general-config
+  (general-def company-active-map
+    "<backtab>" (lambda () (interactive) (company-complete-common-or-cycle -1))
+    "S-TAB" (lambda () (interactive) (company-complete-common-or-cycle -1))
+    "TAB" #'company-complete-common-or-cycle
+    "<tab>" #'company-complete-common-or-cycle
+    "RET" #'newline
+    "<return>" #'newline
+    "C-<return>" #'company-complete-selection
+    "C-<RET>" #'company-complete-selection
+    "C-b" #'company-complete-selection
+    ))
+;; (evil-global-set-key 'insert (kbd "TAB") 'company-select-next)
+;; (evil-global-set-key 'insert (kbd "S-TAB") 'company-select-previous)
+;; (evil-global-set-key 'insert (kbd "C-RET") 'company-complete-common))
+;; (with-eval-after-load 'company
+;;   (general-def (
+;; 		:states 'insert
+;; 		"<backtab>" (lambda () (interactive) (company-complete-common-or-cycle -1))
+;; 		"<tab>" #'company-complete-common-or-cycle
+;; 		       )))
+;; (define-key company-active-map
+;;             (kbd "<tab>")
+;;             #'company-complete-common-or-cycle)
+;; (define-key company-active-map
+;;             (kbd "<backtab>")
+;;             (lambda ()
+;;               (interactive)
+;;               (company-complete-common-or-cycle -1))))
 
-
-(use-package emacs
-  :custom
-  (tab-always-indent 'complete)
-
-  (text-mode-ispell-word-completion nil)
-
-  (read-extended-command-predicate #'command-completion-default-include-p))
-
-(defvar yasnippet-defer-time 1 "'Yasnippet-Defer-Time' is the defer duration for 'yasnippet'")
+(use-package company-quickhelp
+  :after company
+  :config
+  (setq company-quickhelp-delay 0)
+  :hook
+  (company-mode . company-quickhelp-mode))
 
 ;; Snippets
 (use-package yasnippet
-  :defer yasnippet-defer-time
-  :hook ((prog-mode . yas-minor-mode) (LaTeX-mode . yas-minor-mode))
-  :config (yas-reload-all)
+  :init
+  (yas-global-mode 1)
   :general
   (general-def
     :states 'normal
     :prefix "<leader> i"
     :prefix-command 'Insert
-    "s" '("Insert snippet" . yas-insert-snippet))
-  )
+    "s" '("Insert snippet" . yas-insert-snippet)))
 
-;; Not really a mode
-(use-package yasnippet-snippets
-  :after yasnippet
-  )
+(use-package yasnippet-snippets)
+;; :config
+;; (evil-global-set-key 'normal (kbd "<leader> i s") 'yas-insert-snippet))
 
-;; Not really a mode either
 (use-package doom-snippets
   :after yasnippet
   :straight (doom-snippets :type git :host github :repo "doomemacs/snippets" :files ("*.el" "*")))
+
+;; (use-package corfu
+;;   ;; Optional customizations
+;;   :custom
+;;   (corfu-cycle t)                ;; Enable cycling for `corfu-next/previous'
+;;   ;; (corfu-auto t)                 ;; Enable auto completion
+;;   (corfu-separator ?\s)          ;; Orderless field separator
+;;   ;; (corfu-quit-at-boundary nil)   ;; Never quit at completion boundary
+;;   ;; (corfu-quit-no-match nil)      ;; Never quit, even if there is no match
+;;   ;; (corfu-preview-current nil)    ;; Disable current candidate preview
+;;   ;; (corfu-preselect 'prompt)      ;; Preselect the prompt
+;;   ;; (corfu-on-exact-match nil)     ;; Configure handling of exact matches
+;;   (corfu-scroll-margin 5)        ;; Use scroll margin
+;;   ;; Enable Corfu only for certain modes. See also `global-corfu-modes'.
+;;   ;; :hook ((prog-mode . corfu-mode)
+;;   ;;        (shell-mode . corfu-mode)
+;;   ;;        (eshell-mode . corfu-mode))
+
+;;   ;; Recommended: Enable Corfu globally.  This is recommended since Dabbrev can
+;;   ;; be used globally (M-/).  See also the customization variable
+;;   ;; `global-corfu-modes' to exclude certain modes.
+;;   :init
+;;   (global-corfu-mode))
+
+;; (add-to-list 'load-path (concat user-emacs-directory "conf/corfu-popupinfo.el"))
+;; (require 'corfu-popupinfo (concat user-emacs-directory "conf/corfu-popupinfo.el"))
+;; ;; (require 'corfu-popupinfo-mode)
+;; ;; (if (not corfu-popupinfo-mode)
+;; ;;     ((require 'corfu-popupinfo-mode)
+;; ;;      (corfu-popupinfo-mode 1))
+;; ;; )
+
+;; (use-package corfu-terminal
+;;   :straight (corfu-terminal :type git :repo "https://codeberg.org/akib/emacs-corfu-terminal.git")
+;;   )
+
+;; (use-package corfu-candidate-overlay
+;;   :straight (:type git
+;; 		   :repo "https://code.bsdgeek.org/adam/corfu-candidate-overlay"
+;; 		   :files (:defaults "*.el"))
+;;   :after corfu
+;;   :config
+;;   (corfu-candidate-overlay-mode +1)
+;;   ;; enable corfu-candidate-overlay mode globally
+;;   ;; this relies on having corfu-aut
+;;   )
+
+(use-package emacs
+  :custom
+  ;; Emacs 28 and newer: Hide commands in M-x which do not apply to the current
+  ;; mode.  Corfu commands are hidden, since they are not used via M-x. This
+  ;; setting is useful beyond Corfu.
+  (read-extended-command-predicate #'command-completion-default-include-p))

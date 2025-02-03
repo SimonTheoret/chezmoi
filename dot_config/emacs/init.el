@@ -19,6 +19,9 @@
 
 (setq org-agenda-skip-unavailable-files t)
 
+;; Avoids bunch of warnings when loading or compiling
+(setq warning-minimum-level :error)
+
 ;;--------- Does require packages.el -----------;;
 (config-load-file-no-extension "keybindings")
 (config-load-file-no-extension "looks")
