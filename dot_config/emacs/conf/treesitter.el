@@ -1,12 +1,12 @@
 ;; -*- lexical-binding: t -*-
 
 ;; Tree-sitter for emacs
-(setq major-mode-remap-alist
-      '((python-mode . python-ts-mode)
-	(rust-mode . rust-ts-mode)
-	(go-mode . go-ts-mode)
-	(dockerfile-mode . dockerfile-ts-mode)))
-
+;; (setq major-mode-remap-alist
+;;       '((python-mode . python-ts-mode)
+;; 	(rust-mode . rust-ts-mode)
+;; 	(go-mode . go-ts-mode)
+;; 	(dockerfile-mode . dockerfile-ts-mode)))
+;;
 (setq treesit-language-source-alist
       '((bash "https://github.com/tree-sitter/tree-sitter-bash")
 	(cmake "https://github.com/uyha/tree-sitter-cmake")
@@ -38,3 +38,10 @@
 
 (add-hook 'prog-mode-hook (lambda ()
 			    (treesit-font-lock-recompute-features '(function variable))))
+
+(use-package treesit-auto
+  :custom
+  (treesit-auto-install 'prompt)
+  :config
+  (treesit-auto-add-to-auto-mode-alist 'all)
+  (global-treesit-auto-mode))
