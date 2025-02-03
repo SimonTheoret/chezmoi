@@ -10,12 +10,15 @@
   (add-hook 'python-ts-mode-hook 'eglot-ensure)
   (add-hook 'LaTeX-mode-hook 'eglot-ensure)
   (add-to-list 'eglot-stay-out-of 'flymake)
+  ;; Disable inlay hints mode by default. Toggle to activate
   :hook
   ((eglot-managed-mode . manually-activate-flymake))
   :custom
   (eglot-autoshutdown t)  ;; shutdown language server after closing last file
   (eglot-confirm-server-initiated-edits nil)  ;; allow edits without confirmation
   )
+
+;; (add-hook 'eglot-managed-mode-hook ())
 
 (use-package eglot-booster
   :straight (eglot-booster :type git

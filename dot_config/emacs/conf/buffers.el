@@ -38,3 +38,11 @@
 
 	)
   )
+
+(winner-mode)
+(general-def
+  :states 'normal
+  :prefix "<leader> b"
+  :prefix-command 'Buffers
+  "b" '("Focus buffer" . delete-other-windows)
+  "m" '("Winner undo" . winner-undo))
