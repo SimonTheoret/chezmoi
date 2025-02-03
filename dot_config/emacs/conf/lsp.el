@@ -45,6 +45,11 @@
   (add-hook 'flymake-diagnostic-functions #'eglot-flymake-backend nil t)
   (flymake-mode 1))
 
+(use-package flymake-diagnostic-at-point
+  :after flymake
+  :config
+  (add-hook 'flymake-mode-hook #'flymake-diagnostic-at-point-mode))
+
 (use-package consult-eglot
   :after (:all eglot consult))
 
@@ -84,8 +89,8 @@
   '("Flymake buffer" . flymake-show-buffer-diagnostics)
   "a"
   '("Flymake project" . flymake-show-project-diagnostics)
-  "a"
-  '("Flymake project" . flymake-show-project-diagnostics)
+  "e"
+  '("Flymake at point" . flymake-diagnostic-at-point-display-minibuffer)
   )
 
 ;;
