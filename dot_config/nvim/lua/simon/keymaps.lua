@@ -35,7 +35,7 @@ vmap.set("n", "<leader>cd", ":cd %:h<CR>", { desc = "Make file's path as working
 
 
 vmap.set("n", "<leader>sr", function() require("simon.neosearch").search() end, { desc = "Search and replace" })
-vmap.set("n", "<leader>bb", ":%bd|e<CR>#", { desc = "Focus buffer" })
+vmap.set("n", "<leader>bb", ":only<CR>", { desc = "Focus buffer" })
 
 function _G.set_terminal_keymaps()
     local opts = { buffer = 0 }
