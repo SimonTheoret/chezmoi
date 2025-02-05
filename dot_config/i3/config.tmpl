@@ -54,6 +54,8 @@ exec_always --no-startup-id ~/.fehbg &
 # No borders
 for_window [class="^.*"] border pixel 0
 
+exec --no-startup-id "eval $(ssh-agent)"
+
 # exec --no-startup-id syncthing --no-browser
 
 # Use pactl to adjust volume in PulseAudio.
