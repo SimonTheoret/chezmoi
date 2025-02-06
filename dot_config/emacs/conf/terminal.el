@@ -3,6 +3,8 @@
 
 (use-package vterm
   :defer 2
+  :init
+  (setq vterm-always-compile-module t)
   :config
   (setq vterm-kill-buffer-on-exit t))
 

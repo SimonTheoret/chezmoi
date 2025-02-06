@@ -81,6 +81,8 @@
   '("Hinlay hints" . eglot-inlay-hints-mode)
   "o"
   '("Casual Overlay" . casual-symbol-overlay-tmenu)
+  "s"
+  '("LSP search symbols" . consult-eglot-symbols)
   )
 
 (general-def
