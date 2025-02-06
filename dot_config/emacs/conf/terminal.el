@@ -77,13 +77,13 @@
   :prefix "<leader> t"
   :prefix-command 'Term
   "T" '("Toggle vterm" . vterm-toggle)
-  "T" '("Toggle vterm" . vterm-other-window)
+  "T" '("Open vterm other window" . vterm-other-window)
   "b" '("Open terminal" . term)
   "e" '("Open eat" . eat)
-  "E" '("Open eat" . eat-other-window)
+  "E" '("Open eat other window" . eat-other-window)
   "a" '("Open ansi-term" . ansi-term)
-  "s" '("Shell" . shell)
-  "S" '("Shell" . shell-other-window)
+  "s" '("Open shell" . shell)
+  "S" '("Open shell other window" . shell-other-window)
   "n" '("Next vterm" . multi-vterm-next)
   "p" '("Previous vterm" . multi-vterm-prev)
   )
