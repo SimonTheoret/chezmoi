@@ -1,5 +1,25 @@
 ;; -*- lexical-binding: t -*-
 
+(defun shell-other-window ()
+  "Open a `shell' in a new window."
+  (interactive)
+  (let ((buf (shell)))
+    (switch-to-buffer (other-buffer buf))
+    (switch-to-buffer-other-window buf)))
+
+(defun eat-other-window ()
+  "Open a `eat' in a new window."
+  (interactive)
+  (let ((buf (eat)))
+    (switch-to-buffer (other-buffer buf))
+    (switch-to-buffer-other-window buf)))
+
+(defun vterm-other-window ()
+  "Open a `shell' in a new window."
+  (interactive)
+  (let ((buf (vterm)))
+    (switch-to-buffer (other-buffer buf))
+    (switch-to-buffer-other-window buf)))
 
 (use-package vterm
   :defer 2
@@ -56,12 +76,14 @@
   :states 'normal
   :prefix "<leader> t"
   :prefix-command 'Term
-  "o" '("Open vterm other window" . multi-vterm)
-  "t" '("Toggle vterm" . vterm-toggle)
+  "T" '("Toggle vterm" . vterm-toggle)
+  "T" '("Toggle vterm" . vterm-other-window)
   "b" '("Open terminal" . term)
   "e" '("Open eat" . eat)
+  "E" '("Open eat" . eat-other-window)
   "a" '("Open ansi-term" . ansi-term)
   "s" '("Shell" . shell)
+  "S" '("Shell" . shell-other-window)
   "n" '("Next vterm" . multi-vterm-next)
   "p" '("Previous vterm" . multi-vterm-prev)
   )

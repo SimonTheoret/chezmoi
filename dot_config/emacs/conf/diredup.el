@@ -5,8 +5,6 @@
 
 (setq dired-listing-switches "-alh")
 
-;; (use-package diff-hl :config (global-diff-hl-mode))
-
 (use-package diredfl :config (diredfl-global-mode))
 
 (use-package
@@ -27,6 +25,10 @@
   (interactive)
   (ido-find-file-in-dir "~/.local/share/chezmoi/dot_config/emacs/" ))
 
+(defun search-emacs-dir-other-window ()
+  (interactive)
+  (ido-find-file-in-dir "~/.local/share/chezmoi/dot_config/emacs/" ))
+
 (defun search-chezmoi-dir ()
   (interactive)
   (ido-find-file-in-dir "~/.local/share/chezmoi" ))
@@ -44,6 +46,8 @@
   :prefix-command 'Files
   "f"
   '("Find files" . ido-find-file)
+  "F"
+  '("Find files other window" . ido-find-file-other-window)
   "p"
   '("Search conf" . search-emacs-dir)
   "d"
@@ -62,6 +66,8 @@
   '("Change current dir" . cd)
   "o"
   '("Dired here" . dired-jump)
+  "O"
+  '("Dired here other window" . dired-jump-other-window)
   "l"
   '("Chezmoi files" . search-chezmoi-dir)
   "h"
@@ -80,25 +86,3 @@
   "d"
   '("Remove file" . delete-file)
   )
-
-(use-package fzf
-  :general
-  (general-def
-    :prefix "<leader> z"
-    :prefix-command 'Fzf
-    "f" '("Fzf file" . fzf-find-file)
-    "d" '("Fzf file in dir" . fzf-find-file-in-dir)
-    )
-  ;; :bind
-  ;; Don't forget to set keybinds!
-  :config
-  (setq fzf/args "-x --color bw --print-query --margin=1,0 --no-hscroll"
-        fzf/executable "fzf"
-        fzf/git-grep-args "-i --line-number %s"
-        ;; command used for `fzf-grep-*` functions
-        ;; example usage for ripgrep:
-        ;; fzf/grep-command "rg --no-heading -nH"
-        fzf/grep-command "grep -nrH"
-        ;; If nil, the fzf buffer will appear at the top of the window
-        fzf/position-bottom t
-        fzf/window-height 15))

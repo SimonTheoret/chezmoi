@@ -44,5 +44,5 @@
   :states 'normal
   :prefix "<leader> b"
   :prefix-command 'Buffers
-  "b" '("Focus buffer" . delete-other-windows)
+  "b" '("Focus current buffer" . delete-other-windows)
   "m" '("Winner undo" . winner-undo))

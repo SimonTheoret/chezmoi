@@ -82,7 +82,9 @@
   "o"
   '("Casual Overlay" . casual-symbol-overlay-tmenu)
   "s"
-  '("LSP search symbols" . consult-eglot-symbols)
+  '("Consult search symbols" . consult-eglot-symbols)
+  "S"
+  '("Eglot search symbols" . xref-find-apropos)
   )
 
 (general-def
