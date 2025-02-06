@@ -14,7 +14,7 @@
     (switch-to-buffer (other-buffer buf))
     (switch-to-buffer-other-window buf)))
 
-(defun vterm-other-window ()
+(defun dots--vterm-other-window ()
   "Open a `shell' in a new window."
   (interactive)
   (let ((buf (vterm)))
@@ -22,15 +22,21 @@
     (switch-to-buffer-other-window buf)))
 
 (use-package vterm
-  :defer 2
+  :defer 1.5
   :init
   (setq vterm-always-compile-module t)
   :config
-  (setq vterm-kill-buffer-on-exit t))
+  (setq vterm-kill-buffer-on-exit t)
+  (setq vterm-max-scrollback 10000)
+  (setq vterm-timer-delay 0.01)
+  )
+
+(add-hook 'evil-insert-state-entry-hook #'vterm-reset-cursor-point nil t)
 
 (use-package
   vterm-toggle
-  :defer 2
+  :defer 1.5
+  :after (vterm)
   :config
   (setq vterm-toggle-fullscreen-p nil)
   (add-to-list
@@ -49,7 +55,7 @@
      (reusable-frames . visible) (window-height . 0.3))))
 
 (use-package multi-vterm
-  :defer 2
+  :defer 1.5
   :config
   (add-hook 'vterm-mode-hook
 	    (lambda ()
@@ -58,7 +64,7 @@
 
 
 (use-package eat
-  :defer 2
+  :defer 1.5
   :straight (eat
 	     :type git
 	     :host codeberg
@@ -70,14 +76,12 @@
 		     (:exclude ".dir-locals.el" "*-tests.el")))
   )
 
-
-
 (general-def
   :states 'normal
   :prefix "<leader> t"
   :prefix-command 'Term
-  "T" '("Toggle vterm" . vterm-toggle)
-  "T" '("Open vterm other window" . vterm-other-window)
+  "t" '("Toggle vterm" . vterm-toggle)
+  "T" '("Open vterm other window" . dots--vterm-other-window)
   "b" '("Open terminal" . term)
   "e" '("Open eat" . eat)
   "E" '("Open eat other window" . eat-other-window)

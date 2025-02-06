@@ -12,6 +12,7 @@
   "r" '("Rename buffer" . rename-buffer)
   "f" '("Rename buffer and file" . crux-rename-buffer-and-file)
   "d" '("Delete current buffer" . kill-current-buffer)
+  "s" '("Scratch buffer" . scratch-buffer)
   )
 
 (use-package popwin
