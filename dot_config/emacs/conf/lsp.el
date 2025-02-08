@@ -2,6 +2,25 @@
 
 (use-package rust-mode)
 
+(use-package gleam-ts-mode
+  :after (eglot projectile)
+  :mode (rx ".gleam" eos)
+  :config
+  (add-to-list 'eglot-server-programs '(gleam-ts-mode . ("gleam" "lsp")))
+  (add-to-list 'eglot-server-programs '(gleam-mode . ("gleam" "lsp")))
+  (projectile-register-project-type 'gleam '("gleam.toml")
+                                    :project-file "gleam.toml"
+				    :compile "gleam build"
+				    :test "gleam test"
+				    :run "gleam run"
+                                    :src-dir "src/"
+                                    :test-dir "test/"
+				    :test-suffix "_test")
+  :hook
+  (gleam-ts-mode . eglot-ensure)
+  (gleam-mode . eglot-ensure)
+  )
+
 (use-package eglot
   :defer 1
   :straight (:type built-in)

@@ -9,6 +9,8 @@
 (add-hook 'rust-mode-hook (apply-partially #'change-compile-command "cargo "))
 (add-hook 'go-ts-mode (apply-partially #'change-compile-command "go "))
 (add-hook 'sh-mode (apply-partially #'change-compile-command "bash "))
+(add-hook 'gleam-ts-mode (apply-partially #'change-compile-command "gleam "))
+(add-hook 'gleam-mode (apply-partially #'change-compile-command "gleam "))
 
 (use-package fancy-compilation
   :commands (fancy-compilation-mode))
@@ -22,7 +24,7 @@
   :prefix "<leader> c"
   "c"
   '("compile project" . projectile-compile-project)
-  "q"
+  "C"
   '("compile buffer" . compile)
   "r"
   '("recompile" . recompile)

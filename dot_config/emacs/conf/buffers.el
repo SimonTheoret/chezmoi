@@ -6,9 +6,9 @@
   :prefix "<leader> b"
   :prefix-command 'Buffers
   "i" '("Ibuffer project" . projectile-ibuffer)
-  "w" '("Ibuffer" . ibuffer)
-  "l" '("Buffer list" . consult-project-buffer)
-  "a" '("Buffer list" . consult-buffer)
+  "I" '("Ibuffer" . ibuffer)
+  "l" '("Buffer project list" . consult-project-buffer)
+  "L" '("Buffer list" . consult-buffer)
   "r" '("Rename buffer" . rename-buffer)
   "f" '("Rename buffer and file" . crux-rename-buffer-and-file)
   "d" '("Delete current buffer" . kill-current-buffer)
@@ -41,6 +41,7 @@
   )
 
 (winner-mode)
+
 (general-def
   :states 'normal
   :prefix "<leader> b"

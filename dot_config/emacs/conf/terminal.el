@@ -31,6 +31,8 @@
   (setq vterm-timer-delay 0.01)
   )
 
+;; This hack makes it possible to edit the current vterm command
+;; without going to the end of the line
 (add-hook 'evil-insert-state-entry-hook #'vterm-reset-cursor-point nil t)
 
 (use-package

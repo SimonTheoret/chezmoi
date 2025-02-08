@@ -45,3 +45,13 @@
   :config
   (treesit-auto-add-to-auto-mode-alist 'all)
   (global-treesit-auto-mode))
+
+;; (setq gleam-config
+;;       (make-treesit-auto-recipe
+;;        :lang 'gleam
+;;        :ts-mode 'gleam-ts-mode
+;;        :remap '( js-mode javascript-mode)
+;;        :url "https://github.com/tree-sitter/tree-sitter-javascript"
+;;        :revision "master"
+;;        :source-dir "src"
+;;        :ext "\\.js\\'"))

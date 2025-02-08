@@ -185,9 +185,9 @@
 (use-package casual-avy
   :general
   (general-def
-    :states
-    'normal
-    "<leader> a v"
+    :states 'normal
+    :prefix "<leader> a"
+    "v"
     '("Transient avy" . casual-avy-tmenu))
   )
 
