@@ -9,6 +9,7 @@
   (setq evil-want-keybinding nil)
   (setq evil-overrifing-maps nil)
   (setq evil-want-C-u-scroll t)
+  (setq evil-want-minibuffer t)
   :config (evil-mode 1)
 
   (evil-set-leader
