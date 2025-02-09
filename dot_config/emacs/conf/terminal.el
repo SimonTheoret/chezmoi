@@ -7,6 +7,13 @@
     (switch-to-buffer (other-buffer buf))
     (switch-to-buffer-other-window buf)))
 
+(defun eshell-other-window ()
+  "Open a `eshell' in a new window."
+  (interactive)
+  (let ((buf (eshell)))
+    (switch-to-buffer (other-buffer buf))
+    (switch-to-buffer-other-window buf)))
+
 (defun eat-other-window ()
   "Open a `eat' in a new window."
   (interactive)
@@ -28,26 +35,27 @@
 ;; without going to the end of the line
 (add-hook 'evil-insert-state-entry-hook #'vterm-reset-cursor-point nil t)
 
-(use-package
-  vterm-toggle
-  :defer 1.5
-  :after (vterm)
-  :config
-  (setq vterm-toggle-fullscreen-p nil)
-  (add-to-list
-   'display-buffer-alist
-   '((lambda (buffer-or-name _)
-       (let ((buffer (get-buffer buffer-or-name)))
-         (with-current-buffer buffer
-           (or (equal major-mode 'vterm-mode)
-               (string-prefix-p
-		vterm-buffer-name (buffer-name buffer))))))
-     (display-buffer-reuse-window display-buffer-at-bottom)
-     ;;(display-buffer-reuse-window display-buffer-in-direction)
-     ;;display-buffer-in-direction/direction/dedicated is added in emacs27
-     ;;(direction . bottom)
-     ;;(dedicated . t) ;dedicated is supported in emacs27
-     (reusable-frames . visible) (window-height . 0.3))))
+;; Vterm toggle can often be annoyting
+;; (use-package
+;;   vterm-toggle
+;;   :defer 1.5
+;;   :after (vterm)
+;;   :config
+;;   (setq vterm-toggle-fullscreen-p nil)
+;;   (add-to-list
+;;    'display-buffer-alist
+;;    '((lambda (buffer-or-name _)
+;;        (let ((buffer (get-buffer buffer-or-name)))
+;;          (with-current-buffer buffer
+;;            (or (equal major-mode 'vterm-mode)
+;;                (string-prefix-p
+;; 		vterm-buffer-name (buffer-name buffer))))))
+;;      (display-buffer-reuse-window display-buffer-at-bottom)
+;;      ;;(display-buffer-reuse-window display-buffer-in-direction)
+;;      ;;display-buffer-in-direction/direction/dedicated is added in emacs27
+;;      ;;(direction . bottom)
+;;      ;;(dedicated . t) ;dedicated is supported in emacs27
+;;      (reusable-frames . visible) (window-height . 0.3))))
 
 (use-package multi-vterm
   :defer 1.5
@@ -75,7 +83,7 @@
   :states 'normal
   :prefix "<leader> t"
   :prefix-command 'Term
-  "t" '("Toggle vterm" . vterm-toggle)
+  "t" '("Toggle vterm" . vterm)
   "T" '("Open vterm other window" . vterm-other-window)
   "b" '("Open terminal" . term)
   "e" '("Open eat" . eat)
@@ -85,4 +93,5 @@
   "S" '("Open shell other window" . shell-other-window)
   "n" '("Next vterm" . multi-vterm-next)
   "p" '("Previous vterm" . multi-vterm-prev)
+  "c" '("Previous vterm" . multi-vterm)
   )
