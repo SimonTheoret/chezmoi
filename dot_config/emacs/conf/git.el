@@ -8,7 +8,7 @@
 ;; magit
 (use-package
   magit
-  :defer 1 
+  :defer 0.3 
   :after evil-collection
   :config
   (setq magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1)
@@ -20,6 +20,13 @@
     "/" '("Magit" . magit)
     "l" '("Magit status" . magit-log)
     "t" '("Git TimeMachine" . git-timemachine)
+    "s s" '("SMerge mode" . smerge-mode)
+    "s n" '("SMerge next" . smerge-next)
+    "s p" '("SMerge previous" . smerge-prev)
+    "s k" '("SMerge keep current" . smerge-keep-current)
+    "s l" '("SMerge keep lower" . smerge-keep-lower)
+    "s u" '("SMerge keep upper" . smerge-keep-upper)
+    "s a" '("SMerge keep all" . smerge-keep-all)
     ))
 
 (use-package magit-todos :after magit :config (magit-todos-mode 1) (setq magit-todos-exclude-globs '("*.ipynb")))
@@ -28,15 +35,3 @@
 
 (use-package git-timemachine)
 
-(general-def
-  :states 'normal
-  :prefix "<leader> g s"
-  :prefix-command 'Smerge
-  "s" '("SMerge" . smerge-mode)
-  "n" '("SMerge next" . smerge-next)
-  "p" '("SMerge previous" . smerge-prev)
-  "k" '("SMerge keep current" . smerge-keep-current)
-  "l" '("SMerge keep lower" . smerge-keep-lower)
-  "u" '("SMerge keep upper" . smerge-keep-upper)
-  "a" '("SMerge keep all" . smerge-keep-all)
-  )

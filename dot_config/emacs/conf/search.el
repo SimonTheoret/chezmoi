@@ -74,8 +74,6 @@
 
 (use-package consult)
 
-(use-package consult-todo :after consult)
-
 ;; Enable rich annotations using the Marginalia package
 (use-package marginalia
   ;; Bind `marginalia-cycle' locally in the minibuffer.  To make the binding

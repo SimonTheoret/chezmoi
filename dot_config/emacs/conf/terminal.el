@@ -14,13 +14,6 @@
     (switch-to-buffer (other-buffer buf))
     (switch-to-buffer-other-window buf)))
 
-(defun dots--vterm-other-window ()
-  "Open a `shell' in a new window."
-  (interactive)
-  (let ((buf (vterm)))
-    (switch-to-buffer (other-buffer buf))
-    (switch-to-buffer-other-window buf)))
-
 (use-package vterm
   :defer 1.5
   :init
@@ -83,7 +76,7 @@
   :prefix "<leader> t"
   :prefix-command 'Term
   "t" '("Toggle vterm" . vterm-toggle)
-  "T" '("Open vterm other window" . dots--vterm-other-window)
+  "T" '("Open vterm other window" . vterm-other-window)
   "b" '("Open terminal" . term)
   "e" '("Open eat" . eat)
   "E" '("Open eat other window" . eat-other-window)
