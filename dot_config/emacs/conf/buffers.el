@@ -13,6 +13,7 @@
   "f" '("Rename buffer and file" . crux-rename-buffer-and-file)
   "d" '("Delete current buffer" . kill-current-buffer)
   "s" '("Scratch buffer" . scratch-buffer)
+  "m" '("Ibuffer mark by name" . ibuffer-mark-by-file-name-regexp)
   )
 
 (use-package popwin
