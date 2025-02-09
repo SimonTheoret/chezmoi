@@ -12,21 +12,23 @@
 
   ;; Show more candidates
   (setq vertico-count 15)
+  (setq vertico-resize nil)
+  (setq vertico-cycle t)
   :general-config
-  (:keymaps
-   'vertico-map
+  (
+   :keymaps 'vertico-map
+   :states 'insert
    "RET"
    #'vertico-directory-enter
    "DEL"
    #'vertico-directory-delete-char
    "M-DEL"
-   #'vertico-directory-delete-word)
-
-  ;; Grow and shrink the Vertico minibuffer
-  ;; (setq vertico-resize t)
-
-  ;; Optionally enable cycling for `vertico-next' and `vertico-previous'.
-  ;; (setq vertico-cycle t)
+   #'vertico-directory-delete-word
+   "C-n"
+   #'vertico-next
+   "C-p"
+   #'vertico-previous
+   )
   )
 
 
