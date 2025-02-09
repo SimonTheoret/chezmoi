@@ -2,6 +2,14 @@
 
 (use-package rust-mode)
 
+(use-package elixir-mode
+  :hook
+  (elixir-mode . eglot-ensure)
+  (elixir-ts-mode . eglot-ensure)
+  :init
+  (add-to-list 'eglot-server-programs '(elixir-mode (concat (getenv "HOME") "/bin/elixir-lsp/language_server.sh")))
+  )
+
 (use-package gleam-ts-mode
   :after (eglot projectile)
   :mode (rx ".gleam" eos)

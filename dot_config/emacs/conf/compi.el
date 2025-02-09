@@ -23,11 +23,11 @@
   'normal
   :prefix "<leader> c"
   "c"
-  '("compile project" . projectile-compile-project)
+  '("Compile project" . projectile-compile-project)
   "C"
-  '("compile buffer" . compile)
+  '("Compile buffer" . compile)
   "r"
-  '("recompile" . recompile)
+  '("Recompile" . recompile)
   "l"
-  '("kill compilation" . kill-compilation)
+  '("Kill compilation" . kill-compilation)
   )
