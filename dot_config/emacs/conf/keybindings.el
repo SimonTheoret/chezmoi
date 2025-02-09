@@ -220,3 +220,5 @@
 	  (if this-win-2nd (other-window 1))))))
 
 (evil-global-set-key 'normal (kbd "C-w R") 'toggle-window-split)
+(evil-global-set-key 'insert (kbd "C-c p") 'evil-paste-after)
+(evil-global-set-key 'insert (kbd "C-c P") 'evil-paste-before)
