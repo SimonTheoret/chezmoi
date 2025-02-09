@@ -2,13 +2,14 @@
 
 (use-package rust-mode)
 
+;; NOTE: To make the language server functional, I symlinked
+;; `language_server.sh` out of the directory, and into the `bin`
+;; folder. This folder is on the `PATH` env. var.
 (use-package elixir-mode
-  :after eglot
+  :after (eglot)
   :hook
   (elixir-mode . eglot-ensure)
   (elixir-ts-mode . eglot-ensure)
-  :config
-  (add-to-list 'eglot-server-programs '(elixir-mode (concat (getenv "HOME") "/bin/elixir-lsp/language_server.sh")))
   )
 
 (use-package gleam-ts-mode

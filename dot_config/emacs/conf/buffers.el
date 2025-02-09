@@ -1,5 +1,6 @@
 ;; -*- lexical-binding: t -*-
 
+(winner-mode)
 
 (general-def
   :states 'normal
@@ -13,7 +14,9 @@
   "f" '("Rename buffer and file" . crux-rename-buffer-and-file)
   "d" '("Delete current buffer" . kill-current-buffer)
   "s" '("Scratch buffer" . scratch-buffer)
-  "m" '("Ibuffer mark by name" . ibuffer-mark-by-file-name-regexp)
+  "n" '("Ibuffer mark by name" . ibuffer-mark-by-file-name-regexp)
+  "b" '("Focus current buffer" . delete-other-windows)
+  "m" '("Winner undo" . winner-undo)
   )
 
 (use-package popwin
@@ -41,11 +44,4 @@
 	)
   )
 
-(winner-mode)
 
-(general-def
-  :states 'normal
-  :prefix "<leader> b"
-  :prefix-command 'Buffers
-  "b" '("Focus current buffer" . delete-other-windows)
-  "m" '("Winner undo" . winner-undo))
