@@ -12,7 +12,7 @@
 
   ;; Show more candidates
   (setq vertico-count 15)
-  (setq vertico-resize nil)
+  (setq vertico-resize 'grow-only)
   (setq vertico-cycle t)
   :general-config
   (
