@@ -3,10 +3,11 @@
 (use-package rust-mode)
 
 (use-package elixir-mode
+  :after eglot
   :hook
   (elixir-mode . eglot-ensure)
   (elixir-ts-mode . eglot-ensure)
-  :init
+  :config
   (add-to-list 'eglot-server-programs '(elixir-mode (concat (getenv "HOME") "/bin/elixir-lsp/language_server.sh")))
   )
 
