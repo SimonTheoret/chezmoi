@@ -38,7 +38,9 @@
 (use-package
   evil-collection
   :after evil
-  :config (evil-collection-init))
+  :init (evil-collection-init)
+  :custom (setq evil-collection-setup-minibuffer t)
+  )
 
 (use-package
   evil-surround
