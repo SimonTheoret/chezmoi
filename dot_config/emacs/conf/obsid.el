@@ -8,7 +8,7 @@
   (global-obsidian-mode t)
   :custom
   ;; This directory will be used for `obsidian-capture' if set.
-  (obsidian-inbox-directory nil)
+  (obsidian-inbox-directory "pile")
   ;; Create missing files in inbox? - when clicking on a wiki link
   ;; t: in inbox, nil: next to the file with the link
   ;; default: t
@@ -32,8 +32,47 @@
     "i" '("Insert link" . obsidian-insert-link)
     "t" '("Daily note" . obsidian-daily-note)
     "j" '("Obsidian jump" . obsidian-jump)
-    "s" '("Search notes" . obsidian-search)
+    "s" '("Regex notes" . obsidian-search)
     "c" '("Capture note" . obsidian-capture)
-    ;; TODO: Add kb for toggling and inserting checkboxes, smart adding `-` and checkboxes
+    "f" '("Search dir" . search-org-dir)
+    "u" '("Update obsidian.el" . obsidian-update)
+    "y" '("Yesterday daily" . obsidian-yesterday-file)
+    "n" '("Tomorrow daily" . obsidian-tomorrow-file)
     )
+  )
+
+(defun search-org-dir ()
+  (interactive)
+  (ido-find-file-in-dir "~/org" ))
+
+
+(defun yesterday-yyyy-mm-dd-string ()
+  "Returns back yesterday date in the `yyyy-mm-dd` format, as a string"
+  (interactive)
+
+  (message "%s" (format-time-string "%Y-%m-%d"  (encode-time (decoded-time-add (decode-time) (make-decoded-time :day -1 )))))
+  )
+
+(defun tomorrow-yyyy-mm-dd-string ()
+  "Returns back tomorrow date in the `yyyy-mm-dd` format, as a string"
+  (interactive)
+  (message "%s" (format-time-string "%Y-%m-%d"  (encode-time (decoded-time-add (decode-time) (make-decoded-time :day 1 )))))
+  )
+
+(defun obsidian-tomorrow-file ()
+  (interactive)
+  (find-file (concat "~/org/daily/"  
+		     (tomorrow-yyyy-mm-dd-string)
+		     ".md"
+		     )
+	     )
+  )
+
+(defun obsidian-yesterday-file ()
+  (interactive)
+  (find-file (concat "~/org/daily/"  
+		     (yesterday-yyyy-mm-dd-string)
+		     ".md"
+		     )
+	     )
   )
