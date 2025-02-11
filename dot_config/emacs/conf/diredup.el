@@ -23,15 +23,27 @@
 
 (defun search-emacs-dir ()
   (interactive)
-  (ido-find-file-in-dir "~/.local/share/chezmoi/dot_config/emacs/" ))
+  (ido-file-file-in-dir "~/.local/share/chezmoi/dot_config/emacs/" ))
+
+(defun search-emacs-dir-other-window ()
+  (interactive)
+  (ido-file-internal 'other-window 'find-file-other-window  "~/.local/share/chezmoi/dot_config/emacs/" ))
 
 (defun search-chezmoi-dir ()
   (interactive)
-  (ido-find-file-in-dir "~/.local/share/chezmoi" ))
+  (ido-file-file-in-dir "~/.local/share/chezmoi" ))
+
+(defun search-chezmoi-dir-other-window ()
+  (interactive)
+  (ido-file-internal 'other-window 'find-file-other-window  "~/.local/share/chezmoi" ))
 
 (defun search-home-dir ()
   (interactive)
   (ido-find-file-in-dir "~/" ))
+
+(defun search-home-dir-other-window ()
+  (interactive)
+  (ido-file-internal 'other-window 'find-file-other-window "~/" ))
 
 (add-hook 'dired-mode-hook (lambda () (setq display-line-numbers 'relative)))
 
@@ -66,8 +78,12 @@
   '("Dired here other window" . dired-jump-other-window)
   "l"
   '("Chezmoi files" . search-chezmoi-dir)
+  "L"
+  '("Chezmoi files other window" . search-chezmoi-dir-other-window)
   "h"
   '("Home files" . search-home-dir)
+  "h"
+  '("Home files other window" . search-home-dir-other-window)
   )
 
 
