@@ -36,11 +36,13 @@
 
 (use-package evil-commentary :config (evil-commentary-mode))
 
+;; evil-collection-setup-minibuffer must be set BEFORE loading evil-collection
+(setq-default evil-collection-setup-minibuffer t )
 (use-package
   evil-collection
   :after evil
   :init (evil-collection-init)
-  :custom (evil-collection-setup-minibuffer t)
+  ;; :custom (evil-collection-setup-minibuffer t)
   )
 
 (use-package
