@@ -112,6 +112,8 @@
   '("Casual Overlay" . casual-symbol-overlay-tmenu)
   "s"
   '("Consult search symbols" . consult-eglot-symbols)
+  "j"
+  '("Consult IMenu" . consult-imenu)
   "S"
   '("Eglot search symbols" . xref-find-apropos)
   )

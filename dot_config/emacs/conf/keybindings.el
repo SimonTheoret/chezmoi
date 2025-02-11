@@ -185,14 +185,7 @@
 (global-unset-key (kbd "M-SPC") )
 
 
-(use-package casual-avy
-  :general
-  (general-def
-    :states 'normal
-    :prefix "<leader> a"
-    "v"
-    '("Transient avy" . casual-avy-tmenu))
-  )
+(use-package casual-avy)
 
 (defun toggle-window-split ()
   (interactive)
@@ -206,7 +199,7 @@
 				     (<= (cadr this-win-edges)
 					 (cadr next-win-edges)))))
              (splitter
-              (if (= (car this-win-edges)
+	      (if (= (car this-win-edges)
 		     (car (window-edges (next-window))))
 		  'split-window-horizontally
 		'split-window-vertically)))

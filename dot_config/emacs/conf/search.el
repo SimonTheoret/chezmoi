@@ -104,6 +104,7 @@
     "k" '("Async project command" . projectile-run-async-shell-command-in-root)
     "w" '("Shell buffer command " . shell-command)
     "i" '("Async buffer command" . async-shell-command)
+    "v" '("Transient avy" . casual-avy-tmenu)
     )
   :init
   ;; Optionally replace the key help with a completing-read interface
@@ -147,8 +148,6 @@
   '("Filter search current dir" . lgrep)
   "d"
   '("Search current dir" . consult-ripgrep)
-  "i"
-  '("Consult IMenu" . consult-imenu)
   "m"
   '("Multi occur" . multi-occur-in-matching-buffers)
   "o"

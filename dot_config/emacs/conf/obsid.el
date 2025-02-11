@@ -1,6 +1,13 @@
 ;; -*- lexical-binding: t -*-
 
 
+(defun obsidian-daily-note-other-window ()
+  "Open a `obsidian-daily-note' in a new window."
+  (interactive)
+  (let ((buf (obsidian-daily-note)))
+    (switch-to-buffer (other-buffer buf))
+    (switch-to-buffer-other-window buf)))
+
 (use-package obsidian
   :defer 3
   :config
@@ -31,13 +38,16 @@
     ;; If you prefer you can use `obsidian-insert-link'
     "i" '("Insert link" . obsidian-insert-link)
     "t" '("Daily note" . obsidian-daily-note)
+    "T" '("Daily note" . obsidian-daily-note-other-window)
     "j" '("Obsidian jump" . obsidian-jump)
     "s" '("Regex notes" . obsidian-search)
     "c" '("Capture note" . obsidian-capture)
     "f" '("Search dir" . search-org-dir)
     "u" '("Update obsidian.el" . obsidian-update)
-    "y" '("Yesterday daily" . obsidian-yesterday-file)
-    "n" '("Tomorrow daily" . obsidian-tomorrow-file)
+    "y" '("Yesterday daily" . obsidian-yesterday-note)
+    "n" '("Tomorrow daily" . obsidian-tomorrow-note)
+    "Y" '("Yesterday daily" . obsidian-yesterday-note-other-window)
+    "N" '("Tomorrow daily" . obsidian-tomorrow-note-other-window)
     )
   )
 
@@ -50,29 +60,134 @@
   "Returns back yesterday date in the `yyyy-mm-dd` format, as a string"
   (interactive)
 
-  (message "%s" (format-time-string "%Y-%m-%d"  (encode-time (decoded-time-add (decode-time) (make-decoded-time :day -1 )))))
+  (format-time-string "%Y-%m-%d"  (encode-time (decoded-time-add (decode-time) (make-decoded-time :day -1 ))))
   )
 
 (defun tomorrow-yyyy-mm-dd-string ()
   "Returns back tomorrow date in the `yyyy-mm-dd` format, as a string"
   (interactive)
-  (message "%s" (format-time-string "%Y-%m-%d"  (encode-time (decoded-time-add (decode-time) (make-decoded-time :day 1 )))))
+  (format-time-string "%Y-%m-%d"  (encode-time (decoded-time-add (decode-time) (make-decoded-time :day 1 ))))
   )
 
-(defun obsidian-tomorrow-file ()
-  (interactive)
-  (find-file (concat "~/org/daily/"  
-		     (tomorrow-yyyy-mm-dd-string)
-		     ".md"
-		     )
-	     )
-  )
+;; (defun obsidian-tomorrow-file ()
+;;   (interactive)
+;;   (find-file (concat "~/org/daily/"  
+;; 		     (tomorrow-yyyy-mm-dd-string)
+;; 		     ".md"
+;; 		     )
+;; 	     )
+;;   )
 
-(defun obsidian-yesterday-file ()
+;; (defun obsidian-tomorrow-note-other-window ()
+;;   (interactive)
+;;   (find-file-other-window (concat "~/org/daily/"  
+;; 				  (tomorrow-yyyy-mm-dd-string)
+;; 				  ".md"
+;; 				  )
+;; 			  )
+;;   )
+
+;; (defun obsidian-yesterday-file ()
+;;   (interactive)
+;;   (find-file (concat "~/org/daily/"  
+;; 		     (yesterday-yyyy-mm-dd-string)
+;; 		     ".md"
+;; 		     )
+;; 	     )
+;;   )
+;; (defun obsidian-yesterday-note-other-window ()
+;;   (interactive)
+;;   (find-file-other-window (concat "~/org/daily/"  
+;; 				  (yesterday-yyyy-mm-dd-string)
+;; 				  ".md"
+;; 				  )
+;; 			  )
+;;   )
+
+(defun obsidian-yesterday-note-other-window ()
+  "Create new obsidian daily note.
+
+In the `obsidian-daily-notes-directory' if set otherwise in `obsidian-inbox-directory' - if that's also unset,
+in `obsidian-directory' root. Opens the file in an other window."
   (interactive)
-  (find-file (concat "~/org/daily/"  
-		     (yesterday-yyyy-mm-dd-string)
-		     ".md"
-		     )
-	     )
-  )
+  (let* ((title (yesterday-yyyy-mm-dd-string))
+         (filename (s-concat obsidian-directory "/" obsidian-daily-notes-directory "/" title ".md"))
+         (clean-filename (s-replace "//" "/" filename)))
+    (find-file-other-window (expand-file-name clean-filename) t)
+    (save-buffer)
+    (if (and obsidian-templates-directory obsidian-daily-note-template (eq (buffer-size) 0))
+        (progn
+          (obsidian-apply-template (s-concat obsidian-directory "/" obsidian-templates-directory "/" obsidian-daily-note-template))
+          (save-buffer)))
+    (add-to-list 'obsidian-files-cache clean-filename)))
+
+(defun obsidian-yesterday-note ()
+  "Create new obsidian daily note from yesterday.
+
+In the `obsidian-daily-notes-directory' if set otherwise in `obsidian-inbox-directory' - if that's also unset,
+in `obsidian-directory' root. Opens the file in an other window."
+  (interactive)
+  (let* ((title (yesterday-yyyy-mm-dd-string))
+         (filename (s-concat obsidian-directory "/" obsidian-daily-notes-directory "/" title ".md"))
+         (clean-filename (s-replace "//" "/" filename)))
+    (find-file (expand-file-name clean-filename) t)
+    (save-buffer)
+    (if (and obsidian-templates-directory obsidian-daily-note-template (eq (buffer-size) 0))
+        (progn
+          (obsidian-apply-template (s-concat obsidian-directory "/" obsidian-templates-directory "/" obsidian-daily-note-template))
+          (save-buffer)))
+    (add-to-list 'obsidian-files-cache clean-filename)))
+
+
+(defun obsidian-tomorrow-note ()
+  "Create new obsidian daily note from tomorrow.
+
+In the `obsidian-daily-notes-directory' if set otherwise in `obsidian-inbox-directory' - if that's also unset,
+in `obsidian-directory' root. Opens the file in an other window."
+  (interactive)
+  (let* ((title (tomorrow-yyyy-mm-dd-string))
+         (filename (s-concat obsidian-directory "/" obsidian-daily-notes-directory "/" title ".md"))
+         (clean-filename (s-replace "//" "/" filename)))
+    (find-file (expand-file-name clean-filename) t)
+    (save-buffer)
+    (if (and obsidian-templates-directory obsidian-daily-note-template (eq (buffer-size) 0))
+        (progn
+          (obsidian-apply-template (s-concat obsidian-directory "/" obsidian-templates-directory "/" obsidian-daily-note-template))
+          (save-buffer)))
+    (add-to-list 'obsidian-files-cache clean-filename)))
+
+
+(defun obsidian-tomorrow-note-other-window ()
+  "Create new obsidian daily note from tomorrow.
+
+In the `obsidian-daily-notes-directory' if set otherwise in `obsidian-inbox-directory' - if that's also unset,
+in `obsidian-directory' root. Opens the file in an other window."
+  (interactive)
+  (let* ((title (tomorrow-yyyy-mm-dd-string))
+         (filename (s-concat obsidian-directory "/" obsidian-daily-notes-directory "/" title ".md"))
+         (clean-filename (s-replace "//" "/" filename)))
+    (find-file-other-window (expand-file-name clean-filename) t)
+    (save-buffer)
+    (if (and obsidian-templates-directory obsidian-daily-note-template (eq (buffer-size) 0))
+        (progn
+          (obsidian-apply-template (s-concat obsidian-directory "/" obsidian-templates-directory "/" obsidian-daily-note-template))
+          (save-buffer)))
+    (add-to-list 'obsidian-files-cache clean-filename)))
+
+(defun obsidian-daily-note-other-window ()
+  "Create new obsidian daily note.
+
+In the `obsidian-daily-notes-directory' if set otherwise in `obsidian-inbox-directory' - if that's also unset,
+in `obsidian-directory' root. Opens the file in an other window.
+."
+  (interactive)
+  (let* ((title (format-time-string "%Y-%m-%d"))
+         (filename (s-concat obsidian-directory "/" obsidian-daily-notes-directory "/" title ".md"))
+         (clean-filename (s-replace "//" "/" filename)))
+    (find-file-other-window (expand-file-name clean-filename) t)
+    (save-buffer)
+    (if (and obsidian-templates-directory obsidian-daily-note-template (eq (buffer-size) 0))
+        (progn
+          (obsidian-apply-template (s-concat obsidian-directory "/" obsidian-templates-directory "/" obsidian-daily-note-template))
+          (save-buffer)))
+    (add-to-list 'obsidian-files-cache clean-filename)))

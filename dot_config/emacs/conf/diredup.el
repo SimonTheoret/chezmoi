@@ -25,10 +25,6 @@
   (interactive)
   (ido-find-file-in-dir "~/.local/share/chezmoi/dot_config/emacs/" ))
 
-(defun search-emacs-dir-other-window ()
-  (interactive)
-  (ido-find-file-in-dir "~/.local/share/chezmoi/dot_config/emacs/" ))
-
 (defun search-chezmoi-dir ()
   (interactive)
   (ido-find-file-in-dir "~/.local/share/chezmoi" ))
