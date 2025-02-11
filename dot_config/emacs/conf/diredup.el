@@ -23,7 +23,7 @@
 
 (defun search-emacs-dir ()
   (interactive)
-  (ido-file-file-in-dir "~/.local/share/chezmoi/dot_config/emacs/" ))
+  (ido-find-file-in-dir "~/.local/share/chezmoi/dot_config/emacs/" ))
 
 (defun search-emacs-dir-other-window ()
   (interactive)
@@ -31,7 +31,7 @@
 
 (defun search-chezmoi-dir ()
   (interactive)
-  (ido-file-file-in-dir "~/.local/share/chezmoi" ))
+  (ido-find-file-in-dir "~/.local/share/chezmoi" ))
 
 (defun search-chezmoi-dir-other-window ()
   (interactive)
@@ -58,6 +58,8 @@
   '("Find files other window" . ido-find-file-other-window)
   "p"
   '("Search conf" . search-emacs-dir)
+  "P"
+  '("Search conf other window" . search-emacs-dir-other-window)
   "d"
   '("Create dir" . make-directory)
   "D"
@@ -82,7 +84,7 @@
   '("Chezmoi files other window" . search-chezmoi-dir-other-window)
   "h"
   '("Home files" . search-home-dir)
-  "h"
+  "H"
   '("Home files other window" . search-home-dir-other-window)
   )
 
