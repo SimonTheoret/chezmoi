@@ -40,7 +40,7 @@
   evil-collection
   :after evil
   :init (evil-collection-init)
-  :custom (setq evil-collection-setup-minibuffer t)
+  :custom (evil-collection-setup-minibuffer t)
   )
 
 (use-package
