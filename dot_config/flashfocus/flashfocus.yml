@@ -90,3 +90,7 @@ flash-lone-windows: 'always'
 # rules:
 #   - window-name: ^(?!termite)$
 #     default-opacity: 0.8
+
+rules:
+  - window-class: ^(emacs|emacsclient|Emacs|Emacsclient|EmacsClient)$
+    flash-on-focus: False
