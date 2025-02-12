@@ -12,10 +12,14 @@
   (elixir-ts-mode . eglot-ensure)
   )
 
+(use-package nix-mode
+  :mode "\\.nix\\'")
+
 (use-package gleam-ts-mode
   :after (eglot projectile)
   :mode (rx ".gleam" eos)
   :config
+  (add-to-list 'eglot-server-programs '(nix-mode . ("nil")))
   (add-to-list 'eglot-server-programs '(gleam-ts-mode . ("gleam" "lsp")))
   (add-to-list 'eglot-server-programs '(gleam-mode . ("gleam" "lsp")))
   (projectile-register-project-type 'gleam '("gleam.toml")
@@ -29,6 +33,7 @@
   :hook
   (gleam-ts-mode . eglot-ensure)
   (gleam-mode . eglot-ensure)
+  (nix-mode . eglot-ensure)
   )
 
 (use-package eglot
@@ -130,5 +135,3 @@
   )
 
 
-(use-package nix-mode
-  :mode "\\.nix\\'")

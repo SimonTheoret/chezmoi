@@ -12,45 +12,59 @@
    )
   )
 
-(use-package casual
-  :general
-  (general-def
-    :states 'normal
-    "<leader> a c" '("Calc" . calc)
-    )
-  )
+
+(use-package casual)
 
 (general-def
   :states 'normal
-  :keymaps 'calc-mode-map
-  "C-o" '("Calc transient" . casual-calc-tmenu)
-  )
-
-(general-def
-  :states 'normal
-  :keymaps 'reb-mode-map
-  "C-o" '("Casual REbuilder" . casual-re-builder-tmenu)
-  )
-
-(general-def
-  :states 'normal
-  :keymaps 'ibuffer-mode-map
-  "C-o" '("Transient ibuffer" . casual-ibuffer-tmenu))
-
-(general-def
-  :states
-  'normal
-  :keymaps 'dired-mode-map
-  "C-o"
-  '("Casual dired" .  casual-dired-tmenu)
+  "<leader> a c" '("Calc" . calc)
   )
 
 (general-def
   :states 'normal
   :keymaps 'isearch-mode-map
-  "C-o" '("Casual isearch" . casual-isearch-tmenu)
+  "<leader> C-o"
+  '("Casual isearch" . casual-isearch-tmenu)
   )
 
-(general-def :states 'normal
-  "<leader> C-o" '("Casual edikit" . casual-editkit-main-tmenu)
+(general-def
+  :states 'normal
+  :keymaps 'calc-mode-map
+  "<leader> C-o"
+  '("Casual Calc" . casual-calc-tmenu)
   )
+
+(general-def
+  :states 'normal
+  :keymaps 'reb-mode-map
+  "<leader> C-o"
+  '("Casual REbuilder" . casual-re-builder-tmenu)
+  )
+
+(general-def
+  :states 'normal
+  :keymaps 'ibuffer-mode-map
+  "<leader> C-o"
+  '("Casual ibuffer" . casual-ibuffer-tmenu)
+  )
+
+(general-def
+  :states 'normal
+  :keymaps 'dired-mode-map
+  "<leader> C-o"
+  '("Casual dired" .  casual-dired-tmenu)
+  )
+
+
+(general-def
+  :states 'normal
+  "<leader> C-o"
+  '("Casual edikit" . casual-editkit-main-tmenu)
+  )
+
+
+(defun get-buffer-mode ()
+  "Returns the major mode associated with the current buffer."
+  (interactive)
+  (message "%s" major-mode))
+
