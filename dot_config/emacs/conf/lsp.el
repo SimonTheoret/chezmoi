@@ -128,3 +128,7 @@
   "a"
   '("Flymake project" . flymake-show-project-diagnostics)
   )
+
+
+(use-package nix-mode
+  :mode "\\.nix\\'")
