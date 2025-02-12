@@ -3,8 +3,6 @@
 
 ;; Nice Hooks bro
 
-
-
 (defun activate-word-wrap ()
   "Activate word wrap"
   (setq word-wrap t))
