@@ -11,12 +11,12 @@
 #
 # Productivity
 #
-zmodule asdf
-zmodule direnv
-zmodule exa
-zmodule fzf
-zmodule joke/zim-chezmoi
-zmodule kiesman99/zim-zoxide
+#zmodule asdf
+#zmodule direnv
+#zmodule exa
+#zmodule fzf
+#zmodule joke/zim-chezmoi
+#zmodule kiesman99/zim-zoxide
 
 # Sets sane Zsh built-in environment options.
 zmodule environment
