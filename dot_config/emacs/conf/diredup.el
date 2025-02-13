@@ -93,7 +93,7 @@
   '("Chezmoi files other window" . search-chezmoi-dir-other-window)
   "u"
   '("Nixdots files" . search-nixdots)
-  "u"
+  "U"
   '("Nixdots files other window" . search-nixdots-other-window)
   "h"
   '("Home files" . search-home-dir)
