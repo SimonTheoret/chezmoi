@@ -13,6 +13,7 @@
   "r" '("Rename buffer" . rename-buffer)
   "f" '("Rename buffer and file" . crux-rename-buffer-and-file)
   "d" '("Delete current buffer" . kill-current-buffer)
+  "d" '("Delete current buffer and window" . kill-buffer-and-window)
   "s" '("Scratch buffer" . scratch-buffer)
   "n" '("Ibuffer mark by name" . ibuffer-mark-by-file-name-regexp)
   "b" '("Focus current buffer" . delete-other-windows)
