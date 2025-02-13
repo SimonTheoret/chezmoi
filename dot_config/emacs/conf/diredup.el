@@ -21,6 +21,15 @@
   :init
   (dired-async-mode 1))
 
+
+(defun search-nixdots ()
+  (interactive)
+  (ido-find-file-in-dir "~/nixdots/" ))
+
+(defun search-nixdots-other-window ()
+  (interactive)
+  (ido-file-internal 'other-window 'find-file-other-window  "~/nixdots/" ))
+
 (defun search-emacs-dir ()
   (interactive)
   (ido-find-file-in-dir "~/.local/share/chezmoi/dot_config/emacs/" ))
@@ -82,6 +91,10 @@
   '("Chezmoi files" . search-chezmoi-dir)
   "L"
   '("Chezmoi files other window" . search-chezmoi-dir-other-window)
+  "u"
+  '("Nixdots files" . search-nixdots)
+  "u"
+  '("Nixdots files other window" . search-nixdots-other-window)
   "h"
   '("Home files" . search-home-dir)
   "H"
