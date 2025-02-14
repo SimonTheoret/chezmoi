@@ -47,7 +47,7 @@ exec_always --no-startup-id autotiling
 
 # Autorandr and feh
 # feh is loaded twice to first allow the wallpaper to be placed in the right spots and then allow to reload the wallpapers with mo4+r
-exec --no-startup-id "autorandr.py --load 3screens; ~/.fehbg &"
+exec --no-startup-id "autorandr.py --change ; ~/.fehbg &"
 exec_always --no-startup-id ~/.fehbg &
 
 # No borders
@@ -147,8 +147,6 @@ bindsym $mod+a focus parent
 # Switching between keyboard layout:
 bindsym $mod+o exec "setxkbmap -layout ca multix"
 bindsym $mod+Shift+o exec "setxkbmap -layout us"
-# focus the child container
-#bindsym $mod+d focus child
 # Keyboard layout:
 exec --no-startup-id setxkbmap -model pc104 -layout "us,ca" -variant ",multix" -option "grp:ctrl_space_toggle"
 
@@ -231,3 +229,4 @@ bar {
 
 # Monitors display and background
 
+exec --no-startup-id setxkbmap -model pc104 -layout "us,ca" -variant ",multix" -option "grp:ctrl_space_toggle"
