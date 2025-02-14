@@ -21,5 +21,6 @@
     :prefix "<leader> l"
     :prefix-command 'Feed
     "l" '("Elfeed" . elfeed)
+    "u" '("Elfeed update" . elfeed-update)
     )
   )
