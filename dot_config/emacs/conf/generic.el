@@ -87,3 +87,13 @@
   (font-lock-debug-fontify)
   (hl-todo-mode)
   )
+
+;; This function removes the `bell` sound when scrollin to limits
+(defun my-bell-function ()
+  (unless (memq this-command
+		'(isearch-abort abort-recursive-edit exit-minibuffer
+				keyboard-quit mwheel-scroll down up next-line previous-line
+				backward-char forward-char))
+    (ding)))
+;; This applies my new bell function
+(setq ring-bell-function 'my-bell-function)
