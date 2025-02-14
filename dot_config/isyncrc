@@ -1,25 +1,21 @@
-
-IMAPAccount hotmail
+IMAPAccount proton
+Host 127.0.0.1
+Port 1143
+SSLType STARTTLS
+SSLVersions TLSv1.2
 CertificateFile /etc/ssl/certs/ca-certificates.crt
-Host outlook.office365.com
-PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/.mymail.gpg"
-Port 993
-TLSType IMAPS
-User simonteoret@hotmail.com
 
-IMAPStore hotmail-remote
-Account hotmail
+IMAPStore proton-remote
+Account proton
 
-MaildirStore hotmail-local
-Inbox /home/simon/Maildir/hotmail/Inbox
-Path /home/simon/Maildir/hotmail/
-SubFolders Verbatim
+MaildirStore proton-local
+Subfolders Verbatim
+Path ~/Maildir/proton
+Inbox ~/Maildir/proton/inbox
 
-Channel hotmail
-Create Near
-Expunge Both
-Far :hotmail-remote:
-Near :hotmail-local:
+Channel proton
+Far :proton-remote:
+Near :proton-local:
 Patterns *
-Remove None
+Create Both
 SyncState *
