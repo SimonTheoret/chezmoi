@@ -1,0 +1,13 @@
+
+account hotmail
+auth on
+from simonteoret@hotmail.com
+host smtp.office365.com
+passwordeval gpg2 -q --for-your-eyes-only --no-tty -d ~/.mymail.gpg
+port 587
+tls on
+tls_starttls on
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+user simonteoret@hotmail.com
+account default : hotmail
+
