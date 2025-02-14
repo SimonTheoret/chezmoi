@@ -93,5 +93,5 @@
   "S" '("Open shell other window" . shell-other-window)
   "n" '("Next vterm" . multi-vterm-next)
   "p" '("Previous vterm" . multi-vterm-prev)
-  "c" '("Previous vterm" . multi-vterm)
+  "c" '("New vterm" . multi-vterm)
   )
