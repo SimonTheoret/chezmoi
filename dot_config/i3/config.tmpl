@@ -47,8 +47,8 @@ exec_always --no-startup-id autotiling
 
 # Autorandr and feh
 # feh is loaded twice to first allow the wallpaper to be placed in the right spots and then allow to reload the wallpapers with mo4+r
-exec --no-startup-id "autorandr.py --change ; ~/.fehbg &"
-exec_always --no-startup-id ~/.fehbg &
+exec --no-startup-id "autorandr --change; ~/.fehbg &"
+exec_always --no-startup-id "~/.fehbg &"
 
 # No borders
 for_window [class="^.*"] border pixel 0

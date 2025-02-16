@@ -19,7 +19,14 @@ return {
             function()
                 require('fzf-lua').files({ cwd = "~/.local/share/chezmoi/" })
             end,
-            desc = "List files"
+            desc = "Open chezmoi config"
+        },
+        {
+            "<leader>fP",
+            function()
+                require('fzf-lua').files({ cwd = "~/nixdots" })
+            end,
+            desc = "Open nixdots config"
         },
         {
             "<C-x><C-f>",

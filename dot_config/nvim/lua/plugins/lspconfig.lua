@@ -1,6 +1,6 @@
 return {
     "neovim/nvim-lspconfig",
-  dependencies = { 'saghen/blink.cmp' },
+    dependencies = { 'saghen/blink.cmp' },
     config = function()
         local lspconfig = require('lspconfig')
 
@@ -125,7 +125,16 @@ return {
         })
 
         -- Nix lsp
-        lspconfig.nil_ls.setup({})
+        lspconfig.nil_ls.setup({
+            capabilities = capabilities,
+            settings = {
+                ['nil'] = {
+                    formatting = {
+                        command = { "nixfmt" },
+                    },
+                },
+            },
+        })
 
         -- Latex Texlab
         lspconfig.texlab.setup({
@@ -212,12 +221,6 @@ return {
 
                 vim.keymap.set('n', '<leader>fj', function() require('fzf-lua').lsp_document_symbols() end,
                     { desc = "Lsp document symbols", buffer = ev.buf })
-
-                vim.keymap.set('n', '<leader>co', function() require('fzf-lua').lsp_outgoing_calls() end,
-                    { desc = "LSP outgoing calls", buffer = ev.buf })
-
-                vim.keymap.set('n', '<leader>cs', function() require('fzf-lua').lsp_incoming_calls() end,
-                    { desc = "LSP incoming calls", buffer = ev.buf })
 
                 vim.keymap.set('n', '<leader>cf', function() require('fzf-lua').lsp_finder() end,
                     { desc = "LSP finder", buffer = ev.buf })
