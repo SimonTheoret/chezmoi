@@ -32,3 +32,4 @@ fish_add_path ~/.local/bin/
 fzf --fish | source
 direnv hook fish | source
 zoxide init fish | source
+starship init fish | source

@@ -3,8 +3,12 @@ return {
     dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
     config = function()
         require("telescope").setup {
-            respect_gitignore = vim.fn.executable "fd" == 1,
-            no_ignore = false,
+            respect_gitignore = false,
+            no_ignore = true,
+            hidden = {
+                file_browser = true,
+                folder_browser = true
+            },
         }
     end,
     keys = {
