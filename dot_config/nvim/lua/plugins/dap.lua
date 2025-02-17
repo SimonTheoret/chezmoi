@@ -4,7 +4,6 @@ return {
         'theHamsta/nvim-dap-virtual-text',
         "rcarriga/nvim-dap-ui",
         'mfussenegger/nvim-dap-python',
-        "Joakker/lua-json5",
         "ibhagwan/fzf-lua",
     },
     config = function()

@@ -8,6 +8,11 @@ return {
             ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
             desc = 'Telescope file browser'
         },
+        {
+            '<leader>fh',
+            ":Telescope file_browser path=~ select_buffer=true<CR>",
+            desc = 'Browse HOME'
+        },
     }
 }
 -- return {
