@@ -1,0 +1,22 @@
+source ~/.aliases
+
+zoxide init fish | source
+
+{{if not (eq .chezmoi.hostname "nixos")}}
+starship init fish | source
+
+direnv hook fish | source
+
+# Set up fzf key bindings
+fzf --fish | source
+
+{{end}}
+
+
+export BROWSER='firefox'
+fish_add_path ~/bin/
+fish_add_path ~/bin/nvim-linux64/bin/
+fish_add_path ~/.cargo/bin/
+fish_add_path ~/.local/bin/
+
+

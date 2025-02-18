@@ -1,6 +1,6 @@
 # Aliases for some common commands (don't forget to add its 'old' counterpart):
 alias ls='eza --icons'
-#alias cd='z'
+alias cd='z'
 alias ec='emacsclient -r -a "emacs"'
 alias ect='emacsclient -nw'
 alias icat='kitten icat'
@@ -23,13 +23,3 @@ alias cmcd="chezmoi cd"
 alias cma="chezmoi apply"
 alias hx="helix"
 alias yz="yazi"
-
-fish_add_path ~/bin/
-fish_add_path ~/bin/nvim-linux64/bin/
-fish_add_path ~/.cargo/bin/
-fish_add_path ~/.local/bin/
-
-fzf --fish | source
-direnv hook fish | source
-zoxide init fish | source
-starship init fish | source
