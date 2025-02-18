@@ -41,5 +41,18 @@ return {
                 ui = { enable = false, },
             }
         )
-    end
+    end,
+    keys = {
+        { "<leader>np",  ":ObsidianNew ",                  desc = "New note in pile" },
+        { "<leader>nf",  ":ObsidianQuickSwitch<CR>",       desc = "Switch note" },
+        { "<leader>ngs", ":ObsidianFollowLink hsplit<CR>", desc = "Follow link (horizontal split)" },
+        { "<leader>ngv", ":ObsidianFollowLink vsplit<CR>", desc = "Follow link (vertical split)" },
+        { "<leader>nr",  ":ObsidianBacklinks<CR>",         desc = "Reference to current buffer" },
+        { "<leader>nt",  ":ObsidianToday<CR>",             desc = "Today daily" },
+        { "<leader>ny",  ":ObsidianToday -1<CR>",          desc = "Yesterday daily" },
+        { "<leader>nn",  ":ObsidianToday 1<CR>",           desc = "Tomorrow daily" },
+        { "<leader>nd",  ":ObsidianDailies<CR>",           desc = "Tomorrow daily" },
+        { "<leader>nc",  ":ObsidianExtractNote<CR>",       desc = "Capture text",                  mode = "v" },
+        { "<leader>mc",  ":ObsidianToggleCheckbox<CR>",    desc = "Toggle checkbox",               mode = "v" },
+    },
 }

@@ -18,7 +18,6 @@ return {
     -- version = "*"
     --
     keys = {
-
-        { '<leader>nf', ":lua require('neogen').generate()<CR>", desc = "Generate documentation" },
+        { '<leader>gf', ":lua require('neogen').generate()<CR>", desc = "Generate documentation" },
     }
 }
