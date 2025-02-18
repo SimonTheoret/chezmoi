@@ -9,17 +9,17 @@ crtc 0
 mode 1920x1080
 pos 0x0
 primary
-rate 60.00
+rate 120.00
 x-prop-non_desktop 0
 output DP-2
 crtc 1
 mode 1920x1080
 pos 1920x539
-rate 60.00
+rate 120.00
 x-prop-non_desktop 0
 output DP-0
 crtc 2
 mode 1920x1080
 pos 0x1080
-rate 60.00
+rate 120.00
 x-prop-non_desktop 0
