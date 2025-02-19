@@ -6,16 +6,16 @@ bold_italic_font auto
 
 {{ if eq .chezmoi.os "darwin"  }}
 ## Macos
-font_size=13
-{{else if (and (eq .chezmoi.os "linux") (eq .chezmoi.hostname "simon") (eq .chezmoi.osRelease.name "Arch Linux"))}}
-## Laptop
-font_size=9
+font_size 13
+{{else if (and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.name "NixOS"))}}
+## NixOS
+font_size 10
 {{else if (and (eq .chezmoi.os "linux") (eq .chezmoi.hostname "stheoret") )}}
 ## Serveur druide
-font_size=13
+font_size 13
 {{else}}
 ## Autre
-font_size=10
+font_size 10
 {{end}}
 
 
