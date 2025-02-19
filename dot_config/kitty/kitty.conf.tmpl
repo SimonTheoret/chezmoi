@@ -4,22 +4,19 @@ bold_font        auto
 italic_font      auto
 bold_italic_font auto
 
- {{ if eq .chezmoi.os "darwin"  }}
+{{ if eq .chezmoi.os "darwin"  }}
 ## Macos
- font_size 13
- {{else if (and (eq .chezmoi.os "linux") (eq .chezmoi.hostname "simon") (eq .chezmoi.osRelease.name "Arch Linux"))}}
+font_size=13
+{{else if (and (eq .chezmoi.os "linux") (eq .chezmoi.hostname "simon") (eq .chezmoi.osRelease.name "Arch Linux"))}}
 ## Laptop
- font_size 13
- {{else if (and (eq .chezmoi.os "linux") (eq .chezmoi.hostname "Simon-Ubuntu-24") (eq .chezmoi.osRelease.name "Ubuntu"))}}
-## Desktop
- font_size 11
- {{else if (and (eq .chezmoi.os "linux") (eq .chezmoi.hostname "stheoret") )}}
+font_size=9
+{{else if (and (eq .chezmoi.os "linux") (eq .chezmoi.hostname "stheoret") )}}
 ## Serveur druide
- font_size 13
- {{else}}
+font_size=13
+{{else}}
 ## Autre
- font_size 10
- {{end}}
+font_size=10
+{{end}}
 
 
 background_opacity 0.80
