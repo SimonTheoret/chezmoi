@@ -3,13 +3,21 @@ return {
     dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
     config = function()
         require("telescope").setup {
-            respect_gitignore = false,
-            no_ignore = true,
-            hidden = {
-                file_browser = true,
-                folder_browser = true
+            extensions = {
+                file_browser = {
+                    theme = "ivy",
+                    -- disables netrw and use telescope-file-browser in its place
+                    hijack_netrw = true,
+                },
+                respect_gitignore = false,
+                no_ignore = true,
+                hidden = {
+                    file_browser = true,
+                    folder_browser = true
+                },
             },
         }
+        require("telescope").load_extension "file_browser"
     end,
     keys = {
 
