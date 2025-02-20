@@ -1,6 +1,6 @@
 # Aliases for some common commands (don't forget to add its 'old' counterpart):
 alias ls='eza --icons'
-alias cd='z'
+# alias cd='z'
 alias ec='emacsclient -r -a "emacs"'
 alias ect='emacsclient -nw'
 alias icat='kitten icat'
