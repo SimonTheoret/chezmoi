@@ -4,13 +4,13 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
         -- calling `setup` is optional for customization
-        require("fzf-lua").setup({ "fzf-native" })
+        require("fzf-lua").setup({ { "fzf-native", "ivy" } })
     end,
     keys = {
         {
             "<leader><leader>",
             function()
-                require('fzf-lua').files()
+                require('fzf-lua').files({ split = "belowright new" })
             end,
             desc = "List files"
         },
