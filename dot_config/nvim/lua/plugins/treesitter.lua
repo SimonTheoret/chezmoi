@@ -11,7 +11,7 @@ return {
                 "bash", "latex", "bibtex",
                 "css", "html", "javascript",
                 "python", "rust", "go",
-                "gleam", "elixir" },
+                "gleam", "elixir", "xml" },
             sync_install = false,
             ignore_install = {},
             auto_install = true,
