@@ -230,3 +230,11 @@ bar {
 # Monitors display and background
 
 exec --no-startup-id setxkbmap -model pc104 -layout "us,ca" -variant ",multix" -option "grp:ctrl_space_toggle"
+
+{{if (and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.name "NixOS") (eq (env "NIXOS_CONF") "desktop"))}}
+## NixOS Desktop
+# Workspace and monitors
+workspace $ws1 output DP-2
+workspace $ws2 output DP-0
+workspace $ws3 output HDMI-0
+{{end}}
