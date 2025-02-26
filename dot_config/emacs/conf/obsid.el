@@ -11,9 +11,11 @@
 (use-package obsidian
   :defer 3
   :config
-  (obsidian-specify-path "~/org")
   (global-obsidian-mode t)
+  ;; (obsidian-backlinks-mode t)
   :custom
+  (markdown-enable-wiki-links t)
+  (obsidian-directory "~/org")
   ;; This directory will be used for `obsidian-capture' if set.
   (obsidian-inbox-directory "pile")
   ;; Create missing files in inbox? - when clicking on a wiki link
