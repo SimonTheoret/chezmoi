@@ -37,7 +37,7 @@
   )
 
 (add-hook 'prog-mode-hook (lambda ()
-			    (treesit-font-lock-recompute-features '(function variable))))
+			    (treesit-font-lock-recompute-features '(function))))
 
 (use-package treesit-auto
   :custom
