@@ -71,40 +71,6 @@
   (format-time-string "%Y-%m-%d"  (encode-time (decoded-time-add (decode-time) (make-decoded-time :day 1 ))))
   )
 
-;; (defun obsidian-tomorrow-file ()
-;;   (interactive)
-;;   (find-file (concat "~/org/daily/"  
-;; 		     (tomorrow-yyyy-mm-dd-string)
-;; 		     ".md"
-;; 		     )
-;; 	     )
-;;   )
-
-;; (defun obsidian-tomorrow-note-other-window ()
-;;   (interactive)
-;;   (find-file-other-window (concat "~/org/daily/"  
-;; 				  (tomorrow-yyyy-mm-dd-string)
-;; 				  ".md"
-;; 				  )
-;; 			  )
-;;   )
-
-;; (defun obsidian-yesterday-file ()
-;;   (interactive)
-;;   (find-file (concat "~/org/daily/"  
-;; 		     (yesterday-yyyy-mm-dd-string)
-;; 		     ".md"
-;; 		     )
-;; 	     )
-;;   )
-;; (defun obsidian-yesterday-note-other-window ()
-;;   (interactive)
-;;   (find-file-other-window (concat "~/org/daily/"  
-;; 				  (yesterday-yyyy-mm-dd-string)
-;; 				  ".md"
-;; 				  )
-;; 			  )
-;;   )
 
 (defun obsidian-yesterday-note-other-window ()
   "Create new obsidian daily note.
@@ -117,11 +83,12 @@ in `obsidian-directory' root. Opens the file in an other window."
          (clean-filename (s-replace "//" "/" filename)))
     (find-file-other-window (expand-file-name clean-filename) t)
     (save-buffer)
-    (if (and obsidian-templates-directory obsidian-daily-note-template (eq (buffer-size) 0))
-        (progn
-          (obsidian-apply-template (s-concat obsidian-directory "/" obsidian-templates-directory "/" obsidian-daily-note-template))
-          (save-buffer)))
-    (add-to-list 'obsidian-files-cache clean-filename)))
+    (when (and obsidian-templates-directory obsidian-daily-note-template (eq (buffer-size) 0))
+      (obsidian-apply-template
+       (s-concat obsidian-directory "/"
+                 obsidian-templates-directory "/"
+                 obsidian-daily-note-template))
+      (save-buffer))))
 
 (defun obsidian-yesterday-note ()
   "Create new obsidian daily note from yesterday.
@@ -134,11 +101,12 @@ in `obsidian-directory' root. Opens the file in an other window."
          (clean-filename (s-replace "//" "/" filename)))
     (find-file (expand-file-name clean-filename) t)
     (save-buffer)
-    (if (and obsidian-templates-directory obsidian-daily-note-template (eq (buffer-size) 0))
-        (progn
-          (obsidian-apply-template (s-concat obsidian-directory "/" obsidian-templates-directory "/" obsidian-daily-note-template))
-          (save-buffer)))
-    (add-to-list 'obsidian-files-cache clean-filename)))
+    (when (and obsidian-templates-directory obsidian-daily-note-template (eq (buffer-size) 0))
+      (obsidian-apply-template
+       (s-concat obsidian-directory "/"
+                 obsidian-templates-directory "/"
+                 obsidian-daily-note-template))
+      (save-buffer))))
 
 
 (defun obsidian-tomorrow-note ()
@@ -152,11 +120,12 @@ in `obsidian-directory' root. Opens the file in an other window."
          (clean-filename (s-replace "//" "/" filename)))
     (find-file (expand-file-name clean-filename) t)
     (save-buffer)
-    (if (and obsidian-templates-directory obsidian-daily-note-template (eq (buffer-size) 0))
-        (progn
-          (obsidian-apply-template (s-concat obsidian-directory "/" obsidian-templates-directory "/" obsidian-daily-note-template))
-          (save-buffer)))
-    (add-to-list 'obsidian-files-cache clean-filename)))
+    (when (and obsidian-templates-directory obsidian-daily-note-template (eq (buffer-size) 0))
+      (obsidian-apply-template
+       (s-concat obsidian-directory "/"
+                 obsidian-templates-directory "/"
+                 obsidian-daily-note-template))
+      (save-buffer))))
 
 
 (defun obsidian-tomorrow-note-other-window ()
@@ -170,11 +139,12 @@ in `obsidian-directory' root. Opens the file in an other window."
          (clean-filename (s-replace "//" "/" filename)))
     (find-file-other-window (expand-file-name clean-filename) t)
     (save-buffer)
-    (if (and obsidian-templates-directory obsidian-daily-note-template (eq (buffer-size) 0))
-        (progn
-          (obsidian-apply-template (s-concat obsidian-directory "/" obsidian-templates-directory "/" obsidian-daily-note-template))
-          (save-buffer)))
-    (add-to-list 'obsidian-files-cache clean-filename)))
+    (when (and obsidian-templates-directory obsidian-daily-note-template (eq (buffer-size) 0))
+      (obsidian-apply-template
+       (s-concat obsidian-directory "/"
+                 obsidian-templates-directory "/"
+                 obsidian-daily-note-template))
+      (save-buffer))))
 
 (defun obsidian-daily-note-other-window ()
   "Create new obsidian daily note.
@@ -188,8 +158,9 @@ in `obsidian-directory' root. Opens the file in an other window.
          (clean-filename (s-replace "//" "/" filename)))
     (find-file-other-window (expand-file-name clean-filename) t)
     (save-buffer)
-    (if (and obsidian-templates-directory obsidian-daily-note-template (eq (buffer-size) 0))
-        (progn
-          (obsidian-apply-template (s-concat obsidian-directory "/" obsidian-templates-directory "/" obsidian-daily-note-template))
-          (save-buffer)))
-    (add-to-list 'obsidian-files-cache clean-filename)))
+    (when (and obsidian-templates-directory obsidian-daily-note-template (eq (buffer-size) 0))
+      (obsidian-apply-template
+       (s-concat obsidian-directory "/"
+                 obsidian-templates-directory "/"
+                 obsidian-daily-note-template))
+      (save-buffer))))
