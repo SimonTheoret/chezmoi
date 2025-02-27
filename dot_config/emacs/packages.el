@@ -35,3 +35,5 @@
 (use-package general
   :config
   (general-evil-setup t))
+
+(straight-use-package 'project)
