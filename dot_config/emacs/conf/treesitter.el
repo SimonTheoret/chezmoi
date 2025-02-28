@@ -23,7 +23,7 @@
 	)
       )
 
-(defun install-ts-langs ()
+(defun install-treesit-langs ()
   "Installs all the Treesitter parsers for the languages in `treesit-language-source-alist`"
   (interactive)
   (mapc #'treesit-install-language-grammar (mapcar #'car treesit-language-source-alist))
@@ -38,35 +38,6 @@
   (global-treesit-auto-mode)
   )
 
-
-(defun my--python-ts-highlight ()
-  (setq  python--treesit-settings
-	 (append python--treesit-settings
-		 (treesit-font-lock-rules
-		  :feature 'constant-value
-		  :language 'python
-		  :override t
-		  '(((identifier) @font-lock-constant-face
-                     (:match "^_?[A-Z][A-Z_0-9]*$" @font-lock-constant-face)))
-		  )
-		 )
-
-	 )
-  (unless (member 'constant-value (nth 2 treesit-font-lock-feature-list))
-    (push 'constant-value (nth 2 treesit-font-lock-feature-list)))
-  )
-
-
-(add-hook 'python-ts-mode-hook (lambda ()
-			    (my--python-ts-highlight)
-			    ))
-
 (add-hook 'prog-mode-hook (lambda ()
-			    ;; (my--python-ts-highlight)
 			    (treesit-font-lock-recompute-features '(function constant-value))))
 
-;; (add-hook 'prog-mode-hook 'treesit-major-mode-setup)
-;; ;; TODO: Add these lines
-;; (setq-local treesit-font-lock-settings
-;;             (apply #'treesit-font-lock-rules
-;;                    python--treesit-settings)))
