@@ -39,5 +39,5 @@
   )
 
 (add-hook 'prog-mode-hook (lambda ()
-			    (treesit-font-lock-recompute-features '(function constant-value))))
+			    (treesit-font-lock-recompute-features '(function custom))))
 
