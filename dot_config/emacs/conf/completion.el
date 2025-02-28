@@ -9,7 +9,7 @@
   :config
   (setq company-minimum-prefix-length 2)
   (setq company-idle-delay 0.15)
-  (setq company-backends '((company-capf  company-files company-keywords :with company-yasnippet)))
+  ;; (setq company-backends '((company-capf  company-files company-keywords :with company-yasnippet)))
   :general-config
   (general-def company-active-map
     "<backtab>" (lambda () (interactive) (company-complete-common-or-cycle -1))
@@ -21,7 +21,12 @@
     "C-<return>" #'company-complete-selection
     "C-<RET>" #'company-complete-selection
     "C-b" #'company-complete-selection
-    ))
+    )
+  :general
+  (general-def
+    :states 'insert
+    "C-x C-f" '("Complete files". company-files) )
+  )
 ;; (evil-global-set-key 'insert (kbd "TAB") 'company-select-next)
 ;; (evil-global-set-key 'insert (kbd "S-TAB") 'company-select-previous)
 ;; (evil-global-set-key 'insert (kbd "C-RET") 'company-complete-common))
