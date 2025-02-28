@@ -54,3 +54,4 @@
 ;; (config-load-file-no-extension "mail")
 (config-load-file-no-extension "obsid")
 (config-load-file-no-extension "conf_end")
+(config-load-file-no-extension "pythonmode")

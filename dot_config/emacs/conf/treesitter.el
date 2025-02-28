@@ -1,12 +1,5 @@
 ;; -*- lexical-binding: t -*-
 
-;; Tree-sitter for emacs
-;; (setq major-mode-remap-alist
-;;       '((python-mode . python-ts-mode)
-;; 	(rust-mode . rust-ts-mode)
-;; 	(go-mode . go-ts-mode)
-;; 	(dockerfile-mode . dockerfile-ts-mode)))
-;;
 (setq treesit-language-source-alist
       '((bash "https://github.com/tree-sitter/tree-sitter-bash")
 	(cmake "https://github.com/uyha/tree-sitter-cmake")
@@ -36,22 +29,44 @@
   (mapc #'treesit-install-language-grammar (mapcar #'car treesit-language-source-alist))
   )
 
-(add-hook 'prog-mode-hook (lambda ()
-			    (treesit-font-lock-recompute-features '(function))))
 
 (use-package treesit-auto
   :custom
   (treesit-auto-install 'prompt)
   :config
   (treesit-auto-add-to-auto-mode-alist 'all)
-  (global-treesit-auto-mode))
+  (global-treesit-auto-mode)
+  )
 
-;; (setq gleam-config
-;;       (make-treesit-auto-recipe
-;;        :lang 'gleam
-;;        :ts-mode 'gleam-ts-mode
-;;        :remap '( js-mode javascript-mode)
-;;        :url "https://github.com/tree-sitter/tree-sitter-javascript"
-;;        :revision "master"
-;;        :source-dir "src"
-;;        :ext "\\.js\\'"))
+
+(defun my--python-ts-highlight ()
+  (setq  python--treesit-settings
+	 (append python--treesit-settings
+		 (treesit-font-lock-rules
+		  :feature 'constant-value
+		  :language 'python
+		  :override t
+		  '(((identifier) @font-lock-constant-face
+                     (:match "^_?[A-Z][A-Z_0-9]*$" @font-lock-constant-face)))
+		  )
+		 )
+
+	 )
+  (unless (member 'constant-value (nth 2 treesit-font-lock-feature-list))
+    (push 'constant-value (nth 2 treesit-font-lock-feature-list)))
+  )
+
+
+(add-hook 'python-ts-mode-hook (lambda ()
+			    (my--python-ts-highlight)
+			    ))
+
+(add-hook 'prog-mode-hook (lambda ()
+			    ;; (my--python-ts-highlight)
+			    (treesit-font-lock-recompute-features '(function constant-value))))
+
+;; (add-hook 'prog-mode-hook 'treesit-major-mode-setup)
+;; ;; TODO: Add these lines
+;; (setq-local treesit-font-lock-settings
+;;             (apply #'treesit-font-lock-rules
+;;                    python--treesit-settings)))
