@@ -2,6 +2,7 @@
 
 ;; Projects manager
 
+;; TODO: Switch projectile for project.el!
 ;; projectile
 (use-package
   projectile
@@ -35,3 +36,16 @@
     )
   )
 
+
+
+(use-package docker
+  :defer 1
+  :general-config
+  (general-def
+    :states
+    'normal
+    :prefix "<leader> d"
+    :prefix-command 'Docker
+    "d" '("Docker" . docker)
+    )
+  )
