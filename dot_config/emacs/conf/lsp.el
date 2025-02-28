@@ -56,10 +56,7 @@
 (setq eldoc-echo-area-use-multiline-p nil)
 
 (use-package eglot-booster
-  :straight (eglot-booster :type git
-			   :host github
-			   :repo "jdtsmith/eglot-booster"
-			   )
+  :straight (eglot-booster :type git :host github :repo "jdtsmith/eglot-booster")
   :after eglot
   :config
   (eglot-booster-mode)

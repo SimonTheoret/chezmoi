@@ -2,7 +2,7 @@
 
 ;; Projects manager
 
-;; TODO: Switch projectile for project.el!
+;; TODO: Switch projectile for project.el?
 ;; projectile
 (use-package
   projectile
@@ -37,6 +37,10 @@
   )
 
 
+;; TODO: Configure project?
+;; (use-package project
+;;   :straight (:type built-in)
+;;   )
 
 (use-package docker
   :defer 1
