@@ -2,8 +2,11 @@
 
 ;; Projects manager
 
-;; TODO: Switch projectile for project.el?
-;; projectile
+;; Projectile needs project before loading itself
+(use-package project
+  :straight (:type built-in)
+  )
+
 (use-package
   projectile
   :defer 0.5
@@ -36,11 +39,6 @@
     )
   )
 
-
-;; TODO: Configure project?
-;; (use-package project
-;;   :straight (:type built-in)
-;;   )
 
 (use-package docker
   :defer 1
