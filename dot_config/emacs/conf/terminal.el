@@ -35,16 +35,21 @@
 		     ("terminfo/65" "terminfo/65/*")
 		     ("integration" "integration/*")
 		     (:exclude ".dir-locals.el" "*-tests.el")))
+  :hook(
+	(eshell-load . eat-eshell-mode)
+	(eshell-load . eat-eshell-visual-command-mode)
+	)
   )
 
 (general-def
   :states 'normal
   :prefix "<leader> t"
   :prefix-command 'Term
-  "t" '("Toggle shell" . shell)
-  "T" '("Open shell other window" . shell-other-window)
+  "t" '("Toggle eshell" . eshell)
+  "T" '("Open eshell other window" . eshell-other-window)
   "b" '("Open terminal" . term)
   "e" '("Open eat" . eat)
   "E" '("Open eat other window" . eat-other-window)
   "a" '("Open ansi-term" . ansi-term)
   )
+
