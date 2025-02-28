@@ -21,6 +21,8 @@
   :init
   (dired-async-mode 1))
 
+(use-package ido
+  :straight (:type built-in))
 
 (defun search-nixdots ()
   (interactive)
