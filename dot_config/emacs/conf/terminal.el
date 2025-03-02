@@ -47,6 +47,8 @@
 	(eshell-load . eat-eshell-mode)
 	(eshell-load . eat-eshell-visual-command-mode)
 	)
+  ;; :init
+  ;; (setenv "EAT_FISH_INTEGRATION_DIR" (concat user-emacs-directory "fish_integration"))
   :config
   (setq-default eat-kill-buffer-on-exit t)
   )
