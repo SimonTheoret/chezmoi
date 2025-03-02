@@ -6,7 +6,6 @@
 			    "http://feeds.feedburner.com/martinkl"
 			    "https://www.allthingsdistributed.com/atom.xml"
 			    "https://jvns.ca/atom.xml"
-			    "https://simonwillison.net/atom/everything/"
 			    "http://feeds.feedburner.com/ThePragmaticEngineer"
 			    "https://feeds.feedburner.com/TheDailyWtf"
 			    "https://danluu.com/atom.xml"
@@ -24,3 +23,4 @@
     "u" '("Elfeed update" . elfeed-update)
     )
   )
+
