@@ -21,8 +21,16 @@
     (switch-to-buffer (other-buffer buf))
     (switch-to-buffer-other-window buf)))
 
+(use-package shell
+  :config
+  (setq-default shell-kill-buffer-on-exit t)
+  )
 
 
+(use-package vterm
+  :config
+  (setq-default vterm-kill-buffer-on-exit t)
+  )
 
 (use-package eat
   :defer 1.5
@@ -39,6 +47,8 @@
 	(eshell-load . eat-eshell-mode)
 	(eshell-load . eat-eshell-visual-command-mode)
 	)
+  :config
+  (setq-default eat-kill-buffer-on-exit t)
   )
 
 (general-def
@@ -51,5 +61,7 @@
   "e" '("Open eat" . eat)
   "E" '("Open eat other window" . eat-other-window)
   "a" '("Open ansi-term" . ansi-term)
+  "v" '("Toggle vterm" . vterm)
+  "V" '("Open vterm other window" . vterm-other-window)
   )
 
