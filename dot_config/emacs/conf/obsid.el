@@ -12,6 +12,7 @@
   :defer 5
   :config
   (global-obsidian-mode t)
+  (setq obsidian-update-idle-wait 10)
   ;; (obsidian-backlinks-mode t)
   :custom
   (markdown-enable-wiki-links t)
