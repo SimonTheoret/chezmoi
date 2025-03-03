@@ -1,6 +1,5 @@
 ;; -*- lexical-binding: t -*-
 
-(use-package rust-mode)
 
 ;; NOTE: To make the language server functional, I symlinked
 ;; `language_server.sh` out of the directory, and into the `bin`
@@ -44,9 +43,13 @@
   (add-hook 'python-ts-mode-hook 'eglot-ensure)
   (add-hook 'LaTeX-mode-hook 'eglot-ensure)
   (add-to-list 'eglot-stay-out-of 'flymake)
+  (setq-default eglot-inlay-hints-mode nil)
   ;; Disable inlay hints mode by default. Toggle to activate
   :hook
-  ((eglot-managed-mode . manually-activate-flymake))
+  (
+   (eglot-managed-mode . manually-activate-flymake)
+   (eglot-managed-mode . (lambda () (setq-default eglot-inlay-hints-mode -1) ) )
+   )
   :custom
   (eglot-autoshutdown t)  ;; shutdown language server after closing last file
   (eglot-confirm-server-initiated-edits nil)  ;; allow edits without confirmation
