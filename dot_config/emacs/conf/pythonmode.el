@@ -23,6 +23,13 @@
 		    ((identifier) @font-lock-constant-face
 		     (:match "^_?[A-Z][A-Z_0-9]*$" @font-lock-constant-face))
 		    )
+
+		  :feature 'custom
+		  :language 'python
+		  :override t
+		  '(expression_statement
+		    (assignment left: (identifier) @font-lock-constant-face)
+		    (:match "^_?[A-Z][A-Z_0-9]*$" @font-lock-constant-face))
 		  ;; ;; imports
 		  ;; :feature 'custom
 		  ;; :language 'python
