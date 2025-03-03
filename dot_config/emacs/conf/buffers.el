@@ -1,5 +1,9 @@
 ;; -*- lexical-binding: t -*-
 
+(customize-set-variable 'display-buffer-base-action '((display-buffer-reuse-window display-buffer-same-window)
+						      (reusable-frames . t)))
+(customize-set-variable 'even-window-sizes nil)
+
 (winner-mode)
 
 (general-def
@@ -26,6 +30,7 @@
   :init
   (setq popwin:special-display-config '(("*Miniedit Help*" :noselect t)
 					("*eldoc*" :position bottom )
+					("*Help*" :position bottom )
 					("*Flymake diagnostics for .*/*" :noselect nil :position bottom )
 					("*xref*" :noselect nil :position bottom )
 					(help-mode :stick t)
