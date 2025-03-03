@@ -20,3 +20,6 @@
 (setf (alist-get 'python-mode apheleia-mode-alist)
       '(ruff))
 
+(setf (alist-get 'python-ts-mode apheleia-mode-alist)
+      '(ruff))
+
