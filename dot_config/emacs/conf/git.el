@@ -10,8 +10,8 @@
   magit
   :defer 1.5 
   :after evil-collection
-  ;; :config
-  ;; (setq magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1)
+  :config
+  (setq magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)
   :general-config
   (general-def
     :states 'normal
@@ -29,7 +29,9 @@
     "s a" '("SMerge keep all" . smerge-keep-all)
     ))
 
-(use-package magit-todos :after magit :config (magit-todos-mode 1) (setq magit-todos-exclude-globs '("*.ipynb")))
+(use-package magit-todos
+  :after magit
+  :config (magit-todos-mode 1) (setq magit-todos-exclude-globs '("*.ipynb")))
 
 (use-package git-modes)
 
