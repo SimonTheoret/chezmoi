@@ -126,6 +126,13 @@
 (general-def
   :states
   'normal
+  "K" '("Documentation" . eldoc)
+  )
+
+
+(general-def
+  :states
+  'normal
   :prefix "<leader> c e"
   :prefix-command 'Errors
   "b"

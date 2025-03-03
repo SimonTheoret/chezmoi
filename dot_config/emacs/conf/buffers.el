@@ -25,7 +25,7 @@
   (popwin-mode 1)
   :init
   (setq popwin:special-display-config '(("*Miniedit Help*" :noselect t)
-					("*eldoc*" :noselect nil :position bottom :stick t)
+					("*eldoc*" :noselect nil :position bottom )
 					(help-mode :stick t)
 					(completion-list-mode :noselect t)
 					(compilation-mode :noselect t :stick t)
