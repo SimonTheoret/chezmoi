@@ -8,7 +8,7 @@
   (add-hook 'after-init-hook 'global-company-mode)
   :config
   (setq company-minimum-prefix-length 2)
-  (setq company-idle-delay 0.15)
+  (setq company-idle-delay 0.10)
   ;; (setq company-backends '((company-capf  company-files company-keywords :with company-yasnippet)))
   :general-config
   (general-def company-active-map
