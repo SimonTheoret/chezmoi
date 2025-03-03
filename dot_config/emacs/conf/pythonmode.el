@@ -19,33 +19,33 @@
 		  :feature 'custom
 		  :language 'python
 		  :override nil
-		  '((
-		     (identifier) @font-lock-constant-face
-		     (:match "^_?[A-Z][A-Z_0-9]*$" @font-lock-constant-face)
-		     ))
+		  '(
+		    ((identifier) @font-lock-constant-face
+		     (:match "^_?[A-Z][A-Z_0-9]*$" @font-lock-constant-face))
+		    )
 		  )
 		 ;; imports
 		 (treesit-font-lock-rules
 		  :feature 'custom
 		  :language 'python
 		  :override nil
-		  '((
-		     import_statement name: (dotted_name (identifier) @font-lock-constant-face)
-		     ))
+		  '(
+		    (import_statement name:
+				      (dotted_name (identifier) @font-lock-constant-face))
+		    )
 		  )
 		 ;; import with alias 
 		 (treesit-font-lock-rules
 		  :feature 'custom
 		  :language 'python
 		  :override nil
-		  '((
-		     import_statement
+		  '(
+		    (import_statement
 		     name: (aliased_import
 			    name:
 			    (dotted_name (identifier) @font-lock-constant-face
 					 alias:
-					 (identifier) @font-lock-constant-face)
-			    ))
+					 (identifier) @font-lock-constant-face)))
 		    )
 		  )
 		 ;; import from 
@@ -53,9 +53,10 @@
 		  :feature 'custom
 		  :language 'python
 		  :override nil
-		  '((
-		     import_from_statement module_name: (dotted_name (identifier) @font-lock-constant-face)
-		     )
+		  '(
+		    (import_from_statement module_name:
+					   (dotted_name (identifier)
+							@font-lock-constant-face))
 		    )
 		  )
 		 ;; import from 
@@ -63,11 +64,10 @@
 		  :feature 'custom
 		  :language 'python
 		  :override nil
-		  '((
-		     import_from_statement module_name:
-		     (relative_import
-		      (dotted_name (identifier) @font-lock-constant-face))
-		     )
+		  '(
+		    (import_from_statement module_name:
+					   (relative_import
+					    (dotted_name (identifier) @font-lock-constant-face)))
 		    )
 		  )
 		 ;; Types 
@@ -75,10 +75,11 @@
 		  :feature 'custom
 		  :language 'python
 		  :override t
-		  '((
+		  '(
+		    (
 		     (identifier) @font-lock-type-face
-		     (:match "^[A-Z].*[a-z]" @font-lock-type-face)
-		     ))
+		     (:match "^[A-Z].*[a-z]" @font-lock-type-face))
+		    )
 		  )
 		 )
 
