@@ -187,7 +187,8 @@
 (global-unset-key (kbd "M-SPC") )
 
 
-(use-package casual-avy)
+(use-package casual-avy
+  :defer 1.5)
 
 (defun toggle-window-split ()
   (interactive)

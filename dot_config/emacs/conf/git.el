@@ -8,7 +8,7 @@
 ;; magit
 (use-package
   magit
-  :defer 0.3 
+  :defer 1.5 
   :after evil-collection
   ;; :config
   ;; (setq magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1)

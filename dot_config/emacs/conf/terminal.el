@@ -28,6 +28,7 @@
 
 
 (use-package vterm
+  :defer 1.5
   :config
   (setq-default vterm-kill-buffer-on-exit t)
   )

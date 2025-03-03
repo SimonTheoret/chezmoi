@@ -9,7 +9,7 @@
     (switch-to-buffer-other-window buf)))
 
 (use-package obsidian
-  :defer 3
+  :defer 5
   :config
   (global-obsidian-mode t)
   ;; (obsidian-backlinks-mode t)

@@ -1,4 +1,5 @@
 (use-package elfeed
+  :defer 3
   :init
   (setq elfeed-feeds '(
 		       "https://fasterthanli.me/index.xml"
