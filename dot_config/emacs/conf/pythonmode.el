@@ -18,7 +18,7 @@
 		 (treesit-font-lock-rules
 		  :feature 'custom
 		  :language 'python
-		  :override nil
+		  :override t
 		  '(
 		    ((identifier) @font-lock-constant-face
 		     (:match "^_?[A-Z][A-Z_0-9]*$" @font-lock-constant-face))
