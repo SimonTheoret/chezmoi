@@ -37,7 +37,7 @@
 					(completion-list-mode :noselect t)
 					(compilation-mode :noselect t :stick t)
 					(grep-mode :noselect t)
-					(occur-mode :noselect t)
+					(occur-mode :noselect nil)
 					("*Pp Macroexpand Output*" :noselect t)
 					("*Async Shell Command*" :noselect t)
 					"*Shell Command Output*"
