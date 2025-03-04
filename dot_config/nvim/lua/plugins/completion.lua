@@ -31,14 +31,35 @@ return {
             -- Adjusts spacing to ensure icons are aligned
             nerd_font_variant = 'mono'
         },
-        completion {
-            ghost_text = { enabled = true },
-        }
+        -- completion {
+        --     ghost_text = { enabled = true },
+        -- },
+
+        signature = { enabled = true },
+
+        completion = { ghost_text = {enabled = true} },
 
         sources = {
             default = { 'lsp', 'path', 'snippets', 'buffer' },
         },
         snippets = { preset = 'luasnip' },
+        cmdline = {
+            keymap = {
+
+                ['<C-b>'] = { 'select_and_accept' },
+                ['<C-n>'] = { 'select_next' },
+                ['<C-p>'] = { 'select_prev' },
+                ['<C-e>'] = { 'cancel' },
+            },
+            completion = {
+                menu = {
+                    auto_show = function(_)
+                        return vim.fn.getcmdtype() == ':' or vim.fn.getcmdtype() == '@'
+                    end,
+                },
+            }
+        }
+
     },
     opts_extend = { "sources.default" }
 
