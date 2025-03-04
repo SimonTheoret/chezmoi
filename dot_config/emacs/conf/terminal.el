@@ -67,7 +67,7 @@
   "e" '("Open eat" . eat)
   "E" '("Open eat other window" . eat-other-window)
   "a" '("Open ansi-term" . ansi-term)
-  "v" '("Toggle vterm" . vterm)
+  "v" '("Open vterm" . vterm)
   "V" '("Open vterm other window" . vterm-other-window)
   )
 
