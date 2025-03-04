@@ -14,14 +14,8 @@
 		  :override t
 		  '(
 		    ((identifier) @font-lock-constant-face
-		     (:match "^_?[A-Z][A-Z_0-9]*$" @font-lock-constant-face))
+		     (:match "^[A-Z][A-Z_0-9]*$" @font-lock-constant-face))
 		    )
-
-		  :feature 'custom
-		  :language 'python
-		  :override t
-		  "(identifier) @font-lock-constant-face
-		    (#match? @font-lock-constant-face \"^__[a-zA-Z0-9_]*__$\")" ;; OK
 
 		  ;; Types 
 		  :feature 'custom
