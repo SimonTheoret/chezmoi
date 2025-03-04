@@ -1,13 +1,6 @@
 ;; -*- lexical-binding: t -*-
 
 
-;; (defun my--python-ts-highlight ()
-;;   (
-;;    )
-;;   (unless (member 'constant-value (nth 2 treesit-font-lock-feature-list))
-;;     (push 'constant-value (nth 2 treesit-font-lock-feature-list)))
-;;   )
-
 
 (use-package python
   :straight (:type built-in)
