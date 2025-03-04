@@ -31,6 +31,9 @@ return {
             -- Adjusts spacing to ensure icons are aligned
             nerd_font_variant = 'mono'
         },
+        completion {
+            ghost_text = { enabled = true },
+        }
 
         sources = {
             default = { 'lsp', 'path', 'snippets', 'buffer' },

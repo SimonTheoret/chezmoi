@@ -14,7 +14,7 @@
   :config
   (setq  python--treesit-settings
 	 (append python--treesit-settings
-		 ;; constants
+		 ;; Constants
 		 (treesit-font-lock-rules
 		  :feature 'custom
 		  :language 'python
@@ -27,45 +27,9 @@
 		  :feature 'custom
 		  :language 'python
 		  :override t
-		  '(expression_statement
-		    (assignment left: (identifier) @font-lock-constant-face)
-		    (:match "^_?[A-Z][A-Z_0-9]*$" @font-lock-constant-face))
-		  ;; ;; imports
-		  ;; :feature 'custom
-		  ;; :language 'python
-		  ;; :override nil
-		  ;; '(
-		  ;;   (import_statement name:
-		  ;; 		      (dotted_name (identifier) @font-lock-constant-face))
-		  ;;   )
-		  ;; ;; import with alias 
-		  ;; :feature 'custom
-		  ;; :language 'python
-		  ;; :override nil
-		  ;; '(
-		  ;;   "(import_statement
-                  ;;      name: (aliased_import
-                  ;;        name: (dotted_name
-                  ;;          (identifier) @module)
-                  ;;        alias: (identifier) @module))")
-		  ;; ;; import from 
-		  ;; :feature 'custom
-		  ;; :language 'python
-		  ;; :override nil
-		  ;; '(
-		  ;;   (import_from_statement module_name:
-		  ;; 			   (dotted_name (identifier)
-		  ;; 					@font-lock-constant-face))
-		  ;;   )
-		  ;; ;; import from 
-		  ;; :feature 'custom
-		  ;; :language 'python
-		  ;; :override nil
-		  ;; '(
-		  ;;   (import_from_statement module_name:
-		  ;; 			   (relative_import
-		  ;; 			    (dotted_name (identifier) @font-lock-constant-face)))
-		  ;;   )
+		  "(identifier) @font-lock-constant-face
+		    (#match? @font-lock-constant-face \"^__[a-zA-Z0-9_]*__$\")" ;; OK
+
 		  ;; Types 
 		  :feature 'custom
 		  :language 'python
