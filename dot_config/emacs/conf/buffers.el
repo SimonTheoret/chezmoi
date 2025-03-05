@@ -29,7 +29,7 @@
   (popwin-mode 1)
   :init
   (setq popwin:special-display-config '(("*Miniedit Help*" :noselect t)
-					("*eldoc*" :position bottom )
+					("*eldoc*" :position bottom :dedicated t )
 					("*Help*" :stick t :position bottom )
 					(help-mode :stick t :position bottom )
 					("*Flymake diagnostics for .*/*" :noselect nil :position bottom )
