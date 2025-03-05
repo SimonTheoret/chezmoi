@@ -101,6 +101,8 @@
   '("Home files" . search-home-dir)
   "H"
   '("Home files other window" . search-home-dir-other-window)
+  "a"
+  '("Find file at point" . find-file-at-point)
   )
 
 
