@@ -10,9 +10,13 @@ font_size 13
 {{else if (and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.name "NixOS") (eq (env "NIXOS_CONF") "laptop" ))}}
 ## NixOS Laptop
 font_size 12
+background_opacity 0.80
+background_blur 32
 {{else if (and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.name "NixOS") (eq (env "NIXOS_CONF") "desktop"))}}
 ## NixOS Desktop
 font_size 10
+background_opacity 0.80
+background_blur 32
 {{else if (and (eq .chezmoi.os "linux") (eq .chezmoi.hostname "stheoret") )}}
 ## Serveur druide
 font_size 13
@@ -22,9 +26,6 @@ font_size 10
 {{end}}
 
 
-background_opacity 0.80
-
-background_blur 32
 
 
 

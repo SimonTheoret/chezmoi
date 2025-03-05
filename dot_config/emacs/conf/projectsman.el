@@ -51,3 +51,8 @@
     "d" '("Docker" . docker)
     )
   )
+
+
+(use-package prodigy
+  :defer 5)
+;; Define services here
