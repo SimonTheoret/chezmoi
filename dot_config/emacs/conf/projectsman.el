@@ -7,6 +7,7 @@
   :straight (:type built-in)
   )
 
+;; TODO: Switch for project instead of projectile
 (use-package
   projectile
   :defer 0.5

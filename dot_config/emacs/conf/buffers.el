@@ -40,7 +40,7 @@
 	       ))
 
 (add-to-list 'display-buffer-alist
-	     '("\\*Flymmake diagnostics for .*\\*"
+	     '("\\*Flymake diagnostics for .*\\*"
 	       (display-buffer-reuse-mode-window display-buffer-at-bottom) 
 	       (window-height . 0.33)
 	       (post-command-select-window . nil)
@@ -128,9 +128,8 @@
           "\\*Shell Command Output\\*"
 	  "\\*WoMan .*\\*"
 	  "\\*Man .*\\*"
-	  "\\*Flymmake diagnostics for .*\\*"
 	  "\\*tldr*\\*"
-	  "\\*Flymmake diagnostics for .*\\*"
+	  "\\*Flymake diagnostics for .*\\*"
 	  "\\*xref\\*"
 	  ;; "\\*eldoc\\*"
           help-mode
