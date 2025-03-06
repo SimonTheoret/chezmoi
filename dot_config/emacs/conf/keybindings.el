@@ -187,6 +187,9 @@
 (global-unset-key (kbd "M-SPC") )
 
 
+(use-package ace-window
+  :defer 1.5)
+
 (use-package casual-avy
   :defer 1.5)
 
