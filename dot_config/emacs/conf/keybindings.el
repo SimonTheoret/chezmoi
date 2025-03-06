@@ -110,11 +110,20 @@
   :init
   (global-evil-mc-mode 1))
 
+
+(use-package ace-window
+  :defer 1.5)
+
+(use-package casual-avy
+  :defer 1.5)
+
 (general-def
   :states
   'normal
   "<leader> w"
   '("Jump to word" . avy-goto-word-1)
+  "<leader> W"
+  '("Jump to window" . ace-window)
   )
 (general-def
   :states
@@ -187,11 +196,6 @@
 (global-unset-key (kbd "M-SPC") )
 
 
-(use-package ace-window
-  :defer 1.5)
-
-(use-package casual-avy
-  :defer 1.5)
 
 (defun toggle-window-split ()
   (interactive)
