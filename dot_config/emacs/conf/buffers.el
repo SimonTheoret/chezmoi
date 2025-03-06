@@ -18,14 +18,17 @@
 	       ;; '("\\*compilation\\*"
 	       (display-buffer-reuse-mode-window display-buffer-at-bottom) 
 	       (window-height . 0.33)
+	       (post-command-select-window . nil)
 	       (dedicated . nil)
 	       ))
 
 (add-to-list 'display-buffer-alist
 	     '("\\*eldoc\\*"
-	       (display-buffer-reuse-mode-window display-buffer-at-bottom) 
-	       (window-height . 0.33)
-	       (dedicated . nil)
+	       (display-buffer-reuse-mode-window display-buffer-in-direction) 
+	       (window-height . 0.30)
+	       (direction . bottom)
+	       (post-command-select-window . nil)
+	       ;; (dedicated . t)
 	       ))
 
 (add-to-list 'display-buffer-alist
@@ -40,6 +43,7 @@
 	     '("\\*Flymmake diagnostics for .*\\*"
 	       (display-buffer-reuse-mode-window display-buffer-at-bottom) 
 	       (window-height . 0.33)
+	       (post-command-select-window . nil)
 	       (dedicated . nil)
 	       ))
 
@@ -95,6 +99,7 @@
 	     '("\\*Async Shell Command\\*"
 	       (display-buffer-reuse-mode-window display-buffer-at-bottom) 
 	       (window-height . 0.33)
+	       (post-command-select-window . nil)
 	       (dedicated . nil)
 	       ))
 
@@ -102,6 +107,7 @@
 	     '("\\*Shell Command Output\\*"
 	       (display-buffer-reuse-mode-window display-buffer-at-bottom) 
 	       (window-height . 0.33)
+	       (post-command-select-window . nil)
 	       (dedicated . nil)
 	       ))
 
@@ -126,7 +132,7 @@
 	  "\\*tldr*\\*"
 	  "\\*Flymmake diagnostics for .*\\*"
 	  "\\*xref\\*"
-	  "\\*eldoc\\*"
+	  ;; "\\*eldoc\\*"
           help-mode
 	  "\\*Occur*\\*"
 	  "\\*grep*\\*"
@@ -149,7 +155,7 @@
   "r" '("Rename buffer" . rename-buffer)
   "f" '("Rename buffer and file" . crux-rename-buffer-and-file)
   "d" '("Delete current buffer" . kill-current-buffer)
-  "d" '("Delete current buffer and window" . kill-buffer-and-window)
+  "D" '("Delete current buffer and window" . kill-buffer-and-window)
   "s" '("Scratch buffer" . scratch-buffer)
   "n" '("Ibuffer mark by name" . ibuffer-mark-by-file-name-regexp)
   "b" '("Focus current buffer" . delete-other-windows)
@@ -157,7 +163,7 @@
   "t" '("Popper toggle" . popper-toggle)
   "c" '("Popper cycle" . popper-cycle)
   "T" '("Popper toggle type" . popper-toggle-type)
-  "b" '("Prefix for other window" . other-window-prefix)
+  "B" '("Prefix for other window" . other-window-prefix)
   )
 
 ;; (use-package popwin
