@@ -87,6 +87,17 @@
 	       (post-command-select-window . t)
 	       ))
 
+
+(add-to-list 'display-buffer-alist
+	     '((major-mode . helpful-mode)
+	       (display-buffer-reuse-mode-window display-buffer-in-side-window) 
+	       (side . right)
+	       (window-width . 0.33)
+	       (slot . 0)
+	       (dedicated . t)
+	       (post-command-select-window . t)
+	       ))
+
 (add-to-list 'display-buffer-alist
 	     '("\\*Occur*\\*"
 	       (display-buffer-reuse-mode-window display-buffer-at-bottom) 
@@ -123,18 +134,18 @@
   :defer 0.5
   :init
   (setq popper-reference-buffers
-        '("Output\\*$"
-          "\\*Async Shell Command\\*"
+        '("\\*Async Shell Command\\*"
           "\\*Shell Command Output\\*"
 	  "\\*WoMan .*\\*"
 	  "\\*Man .*\\*"
 	  "\\*tldr*\\*"
 	  "\\*Flymake diagnostics for .*\\*"
 	  "\\*xref\\*"
-	  ;; "\\*eldoc\\*"
-          help-mode
+	  "\\*eldoc\\*"
 	  "\\*Occur*\\*"
 	  "\\*grep*\\*"
+          help-mode
+	  helpful-mode
           compilation-mode))
   (popper-mode +1)
   (setq-default popper-display-control nil) 
