@@ -124,6 +124,10 @@
   '("Jump to word" . avy-goto-word-1)
   "<leader> W"
   '("Jump to window" . ace-window)
+  "<leader> x"
+  '("Swap window" . ace-swap-window)
+  "<leader> X"
+  '("Delete window" . ace-delete-window)
   )
 (general-def
   :states

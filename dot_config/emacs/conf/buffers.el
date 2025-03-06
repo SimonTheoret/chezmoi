@@ -15,7 +15,6 @@
 
 (add-to-list 'display-buffer-alist
 	     '((major-mode . compilation-mode )
-	       ;; '("\\*compilation\\*"
 	       (display-buffer-reuse-mode-window display-buffer-at-bottom) 
 	       (window-height . 0.33)
 	       (post-command-select-window . nil)
@@ -40,7 +39,7 @@
 	       ))
 
 (add-to-list 'display-buffer-alist
-	     '("\\*Flymake diagnostics for .*\\*"
+	     '((major-mode . flymake-diagnostics-buffer-mode)
 	       (display-buffer-reuse-mode-window display-buffer-at-bottom) 
 	       (window-height . 0.33)
 	       (post-command-select-window . nil)
@@ -116,6 +115,7 @@
 
 (add-to-list 'display-buffer-alist
 	     '("\\*Shell Command Output\\*"
+	       
 	       (display-buffer-reuse-mode-window display-buffer-at-bottom) 
 	       (window-height . 0.33)
 	       (post-command-select-window . nil)
@@ -134,19 +134,19 @@
   :defer 0.5
   :init
   (setq popper-reference-buffers
-        '("\\*Async Shell Command\\*"
-          "\\*Shell Command Output\\*"
+	'("\\*Async Shell Command\\*"
+	  "\\*Shell Command Output\\*"
 	  "\\*WoMan .*\\*"
 	  "\\*Man .*\\*"
 	  "\\*tldr*\\*"
-	  "\\*Flymake diagnostics for .*\\*"
 	  "\\*xref\\*"
 	  "\\*eldoc\\*"
 	  "\\*Occur*\\*"
 	  "\\*grep*\\*"
-          help-mode
+	  flymake-diagnostics-buffer-mode
+	  help-mode
 	  helpful-mode
-          compilation-mode))
+	  compilation-mode))
   (popper-mode +1)
   (setq-default popper-display-control nil) 
   (popper-echo-mode +1)) ; For echo area hints
