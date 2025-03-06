@@ -12,22 +12,128 @@
 (setq switch-to-buffer-in-dedicated-window 'pop)
 
 
+
 (add-to-list 'display-buffer-alist
-	     '("\\*compilation\\*"
-	       (display-buffer-reuse-window display-buffer-in-direction) 
-	       (direction . below)
+	     '((major-mode . compilation-mode )
+	       ;; '("\\*compilation\\*"
+	       (display-buffer-reuse-mode-window display-buffer-at-bottom) 
 	       (window-height . 0.33)
+	       (dedicated . nil)
 	       ))
 
-;; TODO: problem: this config does not allow me to move around the compilation buffer
-;; (add-to-list 'display-buffer-alist
+(add-to-list 'display-buffer-alist
+	     '("\\*eldoc\\*"
+	       (display-buffer-reuse-mode-window display-buffer-at-bottom) 
+	       (window-height . 0.33)
+	       (dedicated . nil)
+	       ))
 
-;; 	       (display-buffer-in-side-window display-buffer-same-window) 
-;; 	       (side . bottom)
-;; 	       (slot . 0)
-;; 	       (window-height . 0.25)
-;; 	       (dedicated . nil)
-;; 	       ))
+(add-to-list 'display-buffer-alist
+	     '("\\*xref\\*"
+	       (display-buffer-reuse-mode-window display-buffer-at-bottom) 
+	       (window-height . 0.33)
+	       (post-command-select-window . t)
+	       (dedicated . nil)
+	       ))
+
+(add-to-list 'display-buffer-alist
+	     '("\\*Flymmake diagnostics for .*\\*"
+	       (display-buffer-reuse-mode-window display-buffer-at-bottom) 
+	       (window-height . 0.33)
+	       (dedicated . nil)
+	       ))
+
+(add-to-list 'display-buffer-alist
+	     '("\\*tldr\\*"
+	       (display-buffer-reuse-mode-window display-buffer-in-side-window) 
+	       (side . right)
+	       (window-width . 0.33)
+	       (slot . 0)
+	       (dedicated . t)
+	       (post-command-select-window . t)
+	       ))
+
+(add-to-list 'display-buffer-alist
+	     '("\\*Man .*\\*"
+	       (display-buffer-reuse-mode-window display-buffer-in-side-window) 
+	       (side . right)
+	       (window-width . 0.33)
+	       (slot . 0)
+	       (dedicated . t)
+	       (post-command-select-window . t)
+	       ))
+
+(add-to-list 'display-buffer-alist
+	     '("\\*WoMan .*\\*"
+	       (display-buffer-reuse-mode-window display-buffer-in-side-window) 
+	       (side . right)
+	       (window-width . 0.33)
+	       (slot . 0)
+	       (dedicated . t)
+	       (post-command-select-window . t)
+	       ))
+
+(add-to-list 'display-buffer-alist
+	     '((major-mode . help-mode)
+	       (display-buffer-reuse-mode-window display-buffer-in-side-window) 
+	       (side . right)
+	       (window-width . 0.33)
+	       (slot . 0)
+	       (dedicated . t)
+	       (post-command-select-window . t)
+	       ))
+
+(add-to-list 'display-buffer-alist
+	     '("\\*Occur*\\*"
+	       (display-buffer-reuse-mode-window display-buffer-at-bottom) 
+	       (window-height . 0.33)
+	       (post-command-select-window . t)
+	       (dedicated . nil)
+	       ))
+
+(add-to-list 'display-buffer-alist
+	     '("\\*Async Shell Command\\*"
+	       (display-buffer-reuse-mode-window display-buffer-at-bottom) 
+	       (window-height . 0.33)
+	       (dedicated . nil)
+	       ))
+
+(add-to-list 'display-buffer-alist
+	     '("\\*Shell Command Output\\*"
+	       (display-buffer-reuse-mode-window display-buffer-at-bottom) 
+	       (window-height . 0.33)
+	       (dedicated . nil)
+	       ))
+
+(add-to-list 'display-buffer-alist
+	     '("\\*grep*\\*"
+	       (display-buffer-reuse-mode-window display-buffer-at-bottom) 
+	       (window-height . 0.33)
+	       (post-command-select-window . t)
+	       (dedicated . nil)
+	       ))
+
+(use-package popper
+  :defer 0.5
+  :init
+  (setq popper-reference-buffers
+        '("Output\\*$"
+          "\\*Async Shell Command\\*"
+          "\\*Shell Command Output\\*"
+	  "\\*WoMan .*\\*"
+	  "\\*Man .*\\*"
+	  "\\*Flymmake diagnostics for .*\\*"
+	  "\\*tldr*\\*"
+	  "\\*Flymmake diagnostics for .*\\*"
+	  "\\*xref\\*"
+	  "\\*eldoc\\*"
+          help-mode
+	  "\\*Occur*\\*"
+	  "\\*grep*\\*"
+          compilation-mode))
+  (popper-mode +1)
+  (setq-default popper-display-control nil) 
+  (popper-echo-mode +1)) ; For echo area hints
 
 
 (winner-mode)
@@ -39,7 +145,7 @@
   "i" '("Ibuffer project" . projectile-ibuffer)
   "I" '("Ibuffer" . ibuffer)
   "l" '("Buffer project list" . consult-project-buffer)
-  "L" '("Buffer list" . consult-buffer)
+  "L" '("Buffer list" . switch-to-buffer)
   "r" '("Rename buffer" . rename-buffer)
   "f" '("Rename buffer and file" . crux-rename-buffer-and-file)
   "d" '("Delete current buffer" . kill-current-buffer)
@@ -48,6 +154,10 @@
   "n" '("Ibuffer mark by name" . ibuffer-mark-by-file-name-regexp)
   "b" '("Focus current buffer" . delete-other-windows)
   "m" '("Winner undo" . winner-undo)
+  "t" '("Popper toggle" . popper-toggle)
+  "c" '("Popper cycle" . popper-cycle)
+  "T" '("Popper toggle type" . popper-toggle-type)
+  "b" '("Prefix for other window" . other-window-prefix)
   )
 
 ;; (use-package popwin
