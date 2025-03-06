@@ -160,8 +160,7 @@
    (get-buffers-matching-mode major-mode)
    (car (occur-read-primary-args))))
 
-;; global key for `multi-occur-in-this-mode' - you should change this.
-(global-set-key (kbd "C-<f2>") 'multi-occur-in-this-mode)
+(setq reb-re-syntax 'string)
 
 (general-def
   :states
