@@ -3,8 +3,8 @@
 ;; switching.
 (setq switch-to-buffer-obey-display-actions t)
 
-(customize-set-variable 'display-buffer-base-action '((display-buffer-reuse-window display-buffer-same-window)
-						      (reusable-frames . t)))
+;; (customize-set-variable 'display-buffer-base-action '((display-buffer-reuse-window display-buffer-same-window)
+;; 						      (reusable-frames . t)))
 (customize-set-variable 'even-window-sizes nil)
 
 (setq switch-to-buffer-obey-display-actions t)
