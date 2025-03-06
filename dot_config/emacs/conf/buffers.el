@@ -160,7 +160,7 @@
   :prefix-command 'Buffers
   "i" '("Ibuffer project" . projectile-ibuffer)
   "I" '("Ibuffer" . ibuffer)
-  "l" '("Buffer project list" . consult-project-buffer)
+  "l" '("Buffer project list" . project-switch-to-buffer)
   "L" '("Buffer list" . switch-to-buffer)
   "r" '("Rename buffer" . rename-buffer)
   "f" '("Rename buffer and file" . crux-rename-buffer-and-file)
