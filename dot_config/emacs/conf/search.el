@@ -139,6 +139,29 @@
 
 (use-package deadgrep)
 
+(eval-when-compile
+  (require 'cl-lib))
+
+
+(defun get-buffers-matching-mode (mode)
+  "Returns a list of buffers where their major-mode is equal to MODE"
+  (let ((buffer-mode-matches '()))
+    (dolist (buf (buffer-list))
+      (with-current-buffer buf
+        (when (eq mode major-mode)
+          (push buf buffer-mode-matches))))
+    buffer-mode-matches))
+
+
+(defun multi-occur-in-this-mode ()
+  "Show all lines matching REGEXP in buffers with this major mode."
+  (interactive)
+  (multi-occur
+   (get-buffers-matching-mode major-mode)
+   (car (occur-read-primary-args))))
+
+;; global key for `multi-occur-in-this-mode' - you should change this.
+(global-set-key (kbd "C-<f2>") 'multi-occur-in-this-mode)
 
 (general-def
   :states
@@ -151,6 +174,8 @@
   '("Search current dir" . consult-ripgrep)
   "m"
   '("Multi occur" . multi-occur-in-matching-buffers)
+  "M"
+  '("Multi occur mode" . multi-occur-in-this-mode)
   "o"
   '("Occur" . occur)
   "l"
