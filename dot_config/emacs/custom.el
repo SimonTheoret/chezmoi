@@ -7,7 +7,6 @@
  ;; If there is more than one, they won't work right.
  '(safe-local-variable-values
    '((comment-fill-column . 80)
-     '(list-matching-lines-default-context-lines 1)
      (deadgrep-extra-arguments quote
 			       ("--no-config --L --hidden"))
      (eval setq consult-ripgrep-args
