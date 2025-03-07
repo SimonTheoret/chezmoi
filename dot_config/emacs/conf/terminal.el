@@ -31,6 +31,7 @@
   :defer 1.5
   :config
   (setq-default vterm-kill-buffer-on-exit t)
+  (setq vterm-timer-delay 0.01)
   ;; :hook
   ;; (evil-insert-state-entry . (lambda () (vterm-reset-cursor-point nil t)))
   )
