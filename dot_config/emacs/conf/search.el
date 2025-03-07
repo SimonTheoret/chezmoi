@@ -100,9 +100,7 @@
     :prefix-command 'Actions
     "a" '("Embark act" . embark-act)
     "d" '("Embark dwim" . embark-dwim);; alternative for `describe-bindings'
-    "s" '("Shell project command" . projectile-run-shell-command-in-root)
-    "k" '("Async project command" . projectile-run-async-shell-command-in-root)
-    "w" '("Shell buffer command " . shell-command)
+    "k" '("Shell buffer command " . shell-command)
     "i" '("Async buffer command" . async-shell-command)
     "v" '("Transient avy" . casual-avy-tmenu)
     )

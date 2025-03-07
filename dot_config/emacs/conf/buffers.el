@@ -158,8 +158,7 @@
   :states 'normal
   :prefix "<leader> b"
   :prefix-command 'Buffers
-  "i" '("Ibuffer project" . projectile-ibuffer)
-  "I" '("Ibuffer" . ibuffer)
+  "i" '("Ibuffer" . ibuffer)
   "l" '("Buffer project list" . project-switch-to-buffer)
   "L" '("Buffer list" . switch-to-buffer)
   "r" '("Rename buffer" . rename-buffer)

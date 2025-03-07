@@ -23,10 +23,12 @@
   'normal
   :prefix "<leader> c"
   "c"
-  '("Compile project" . projectile-compile-project) ;;TODO: Switcht to project
+  '("Compile project" . project-compile) ;;TODO: Switcht to project
   "C"
   '("Compile buffer" . compile)
   "r"
+  '("Recompile project" . project-recompile)
+  "R"
   '("Recompile" . recompile)
   "l"
   '("Kill compilation" . kill-compilation)

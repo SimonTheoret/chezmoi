@@ -5,41 +5,24 @@
 ;; Projectile needs project before loading itself
 (use-package project
   :straight (:type built-in)
-  )
-
-;; TODO: Switch for project instead of projectile
-(use-package
-  projectile
   :defer 0.5
-  :config
-  (projectile-mode +1)
-  (setq projectile-project-search-path '("~/Documents"))
-  (add-to-list 'projectile-globally-ignored-directories "nix")
-  (add-to-list 'projectile-globally-ignored-directories ".cargo")
+  ;; :config
+
   :general-config
   (general-def
     :states
     'normal
     :prefix "<leader> p"
     :prefix-command 'Projectile
-    "m" '("Projectile command map" . projectile-command-map)
-    "p" '("Project switch project" . projectile-switch-project)
-    "a" '("Project add project" . projectile-add-known-project)
-    "d" '("Project remove project" . projectile-remove-known-project)
+    "p" '("Project switch project" . project-switch-project)
+    "d" '("Project remove project" . project-forget-project)
     )
   (general-def
     :states
     'normal
-    "<leader> SPC" '("Find file in project" . projectile-find-file)
-    "<leader> M-SPC" '("Find file in project" . projectile-find-file-other-window)
-    )
-  (general-def
-    :states
-    'normal
-    "<leader> y" '("Projectile commands" . projectile-command-map)
+    "<leader> SPC" '("Find file in project" . project-find-file)
     )
   )
-
 
 (use-package docker
   :defer 1

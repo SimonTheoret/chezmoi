@@ -15,7 +15,7 @@
   :mode "\\.nix\\'")
 
 (use-package gleam-ts-mode
-  :after (eglot projectile)
+  :after (eglot)
   :mode (rx ".gleam" eos)
   :config
   (add-to-list 'eglot-server-programs '(nix-mode . ("nil")))

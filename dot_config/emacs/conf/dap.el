@@ -37,7 +37,7 @@
   ;; (add-hook 'dape-compile-hook 'kill-buffer)
 
   ;; Projectile users
-  ;; (setq dape-cwd-function 'projectile-project-root)
+  ;; (setq dape-cwd-function 'project-root)
   )
 
 
