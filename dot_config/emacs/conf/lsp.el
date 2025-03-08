@@ -57,6 +57,7 @@
 
 ;; Compromise between having no info and too much info
 (setq eldoc-echo-area-use-multiline-p nil)
+(setq eldoc-idle-delay 30)
 
 (use-package eglot-booster
   :straight (eglot-booster :type git :host github :repo "jdtsmith/eglot-booster")
