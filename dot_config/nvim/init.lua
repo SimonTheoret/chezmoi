@@ -18,14 +18,15 @@ vim.g.maplocalleader = "m"    -- local leader key
 
 vim.opt.cursorline = true
 vim.opt.signcolumn = "yes"
-vim.opt.relativenumber = true --relative numbers
+vim.opt.relativenumber = false --relative numbers
+vim.opt.number = false --absolute numbers
+
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.smarttab = true
 vim.opt.expandtab = true
 -- vim.opt.smartindent = true
-vim.opt.nu = true
 vim.opt.autoindent = true
 vim.opt.formatoptions = "tcqjron"
 vim.opt.clipboard = "unnamedplus"
