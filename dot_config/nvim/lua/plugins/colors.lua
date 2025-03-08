@@ -183,9 +183,14 @@
 return {
     'navarasu/onedark.nvim',
     priority = 1000, -- Ensure it loads first
+    lazy = false,
     config = function()
         require('onedark').setup {
-            style = 'darker'
+            style = 'darker',
+            code_style = { keywords = "bold" },
+            lualine = {
+                transparent = false, -- lualine center bar transparency
+            },
         }
         require('onedark').load()
     end
