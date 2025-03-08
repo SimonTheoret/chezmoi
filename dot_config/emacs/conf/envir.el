@@ -1,5 +1,6 @@
 ;; -*- lexical-binding: t -*-
 
+
 (use-package envrc
   :init
   (envrc-global-mode)
@@ -7,3 +8,5 @@
   (general-def :states
     'normal
     "<leader> e e" '("Reload env vars" . envrc-reload)))
+
+(use-package inheritenv)

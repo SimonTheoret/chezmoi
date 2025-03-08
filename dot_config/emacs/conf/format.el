@@ -24,4 +24,6 @@
 	'(ruff))
   :hook
   (python-ts-mode . apheleia-mode)
+  (rustic-mode . apheleia-mode)
+  (emacs-lisp-mode . apheleia-mode)
   )
