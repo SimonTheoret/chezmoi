@@ -12,6 +12,8 @@ if not vim.loop.fs_stat(lazypath) then
     })
 end
 
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 vim.opt.rtp:prepend(lazypath) -- do not touch
 vim.g.mapleader = " "         -- leader key
 vim.g.maplocalleader = "m"    -- local leader key
@@ -45,8 +47,6 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.opt.inccommand = "split"
 
-vim.g.loaded_netrwPlugin = 1
-vim.g.loaded_netrw = 1
 
 
 require("lazy").setup("plugins") --load *.lua in the plugins directory

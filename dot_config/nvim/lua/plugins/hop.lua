@@ -10,8 +10,14 @@ return {
         },
         {
             '<leader>k',
-            ':HopLine<CR>',
-            desc = "Hop to line",
+            ':HopVerticalBC<CR>',
+            desc = "Hop vertical before",
+            mode = { "n", "v" },
+        },
+        {
+            '<leader>j',
+            ':HopVerticalAC<CR>',
+            desc = "Hop vertical after",
             mode = { "n", "v" },
         },
     }
