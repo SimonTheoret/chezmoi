@@ -15,12 +15,13 @@
 ;; 		  ("LaTeX" (latexindent) (auctex)))))
 
 
+
 (use-package apheleia
-  :init
-  (apheleia-global-mode +1)
   :config
   (setf (alist-get 'python-mode apheleia-mode-alist)
 	'(ruff))
   (setf (alist-get 'python-ts-mode apheleia-mode-alist)
 	'(ruff))
+  :hook
+  (python-ts-mode . apheleia-mode)
   )

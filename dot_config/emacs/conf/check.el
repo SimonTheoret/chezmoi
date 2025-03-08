@@ -1,6 +1,7 @@
 ;; -*- lexical-binding: t -*- 
 
 (use-package flycheck
+  :defer 1
   ;; :custom
   ;; (flycheck-highlighting-mode nil) ;; remove highlighting
   ;; :hook
@@ -18,6 +19,7 @@
 ;;   (flycheck-hl-todo-setup))
 
 (use-package hl-todo
+  :defer 0.5
   :init
   (global-hl-todo-mode))
 
