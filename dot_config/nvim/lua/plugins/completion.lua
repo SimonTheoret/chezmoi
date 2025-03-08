@@ -37,7 +37,7 @@ return {
 
         signature = { enabled = true },
 
-        completion = { ghost_text = {enabled = true} },
+        completion = { ghost_text = {enabled = false} },
 
         sources = {
             default = { 'lsp', 'path', 'snippets', 'buffer' },

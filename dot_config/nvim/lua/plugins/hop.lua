@@ -1,6 +1,8 @@
 return {
     'smoka7/hop.nvim',
-    opts = {},
+    config = function()
+        vim.o.number = false
+    end,
     keys = {
         {
             '<leader>w',
