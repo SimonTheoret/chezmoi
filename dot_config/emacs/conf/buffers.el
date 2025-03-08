@@ -123,7 +123,23 @@
 	       ))
 
 (add-to-list 'display-buffer-alist
-	     '("\\*grep*\\*"
+	     '("\\*grep\\*"
+	       (display-buffer-reuse-mode-window display-buffer-at-bottom) 
+	       (window-height . 0.33)
+	       (post-command-select-window . t)
+	       (dedicated . nil)
+	       ))
+
+(add-to-list 'display-buffer-alist
+	     '("\\*Incoming Call Hierarchy\\*"
+	       (display-buffer-reuse-mode-window display-buffer-at-bottom) 
+	       (window-height . 0.33)
+	       (post-command-select-window . t)
+	       (dedicated . nil)
+	       ))
+
+(add-to-list 'display-buffer-alist
+	     '("\\*Errors List\\*"
 	       (display-buffer-reuse-mode-window display-buffer-at-bottom) 
 	       (window-height . 0.33)
 	       (post-command-select-window . t)
@@ -143,6 +159,8 @@
 	  "\\*eldoc\\*"
 	  "\\*Occur*\\*"
 	  "\\*grep*\\*"
+	  "\\*Incoming Call Hierarchy\\*"
+	  "\\*Errors List\\*"
 	  flymake-diagnostics-buffer-mode
 	  help-mode
 	  helpful-mode

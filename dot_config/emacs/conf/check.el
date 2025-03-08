@@ -1,11 +1,11 @@
 ;; -*- lexical-binding: t -*- 
 
-;; (use-package flycheck
-;;   ;; :custom
-;;   ;; (flycheck-highlighting-mode nil) ;; remove highlighting
-;;   ;; :hook
-;;   ;; (lsp-mode . flycheck-mode)
-;;   ) 
+(use-package flycheck
+  ;; :custom
+  ;; (flycheck-highlighting-mode nil) ;; remove highlighting
+  ;; :hook
+  ;; (lsp-mode . flycheck-mode)
+  ) 
 
 ;; (use-package consult-lsp
 ;;   :after lsp-mode)
