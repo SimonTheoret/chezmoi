@@ -2,6 +2,7 @@ return {
     'smoka7/hop.nvim',
     config = function()
         vim.o.number = false
+        vim.o.relativenumber = false
     end,
     keys = {
         {
