@@ -85,11 +85,11 @@ return {
             desc = "List keymaps"
         },
         {
-            "<leader>fk",
+            "<leader>fh",
             function()
-                require('fzf-lua').keymaps()
+                require('fzf-lua').manpages()
             end,
-            desc = "List keymaps"
+            desc = "Man pages"
         },
 
     },

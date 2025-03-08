@@ -6,13 +6,13 @@ return {
             '<leader>w',
             ':HopWord<CR>',
             desc = "Hop to word",
-            mode = {"n", "v"},
-        }, 
+            mode = { "n", "v" },
+        },
         {
             '<leader>k',
             ':HopLine<CR>',
             desc = "Hop to line",
-            mode = {"n", "v"},
-        }, 
-        }
+            mode = { "n", "v" },
+        },
+    }
 }
