@@ -6,6 +6,7 @@ return {
         'mfussenegger/nvim-dap-python',
         "ibhagwan/fzf-lua",
     },
+    version = "0.9.*",
     config = function()
         local dap = require("dap")
         require('dap.ext.vscode').json_decode = require 'json5'.parse

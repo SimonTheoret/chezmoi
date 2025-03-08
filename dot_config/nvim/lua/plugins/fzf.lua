@@ -10,7 +10,7 @@ return {
         {
             "<leader><leader>",
             function()
-                require('fzf-lua').files({})
+                require('fzf-lua').files()
             end,
             desc = "List files"
         },

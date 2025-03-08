@@ -8,8 +8,8 @@
   (add-hook 'after-init-hook 'global-company-mode)
   :config
   (setq company-minimum-prefix-length 2)
-  (setq company-idle-delay 0.075)
-  ;; (setq company-backends '((company-capf  company-files company-keywords :with company-yasnippet)))
+  (setq company-idle-delay 0.050)
+  (setq company-backends '((company-capf  company-files company-keywords :with company-yasnippet)))
   :general-config
   (general-def company-active-map
     "<backtab>" (lambda () (interactive) (company-complete-common-or-cycle -1))
