@@ -21,8 +21,7 @@ vim.opt.mouse = ""
 
 vim.opt.cursorline = true
 vim.opt.signcolumn = "yes"
-vim.opt.relativenumber = false --relative numbers
-vim.opt.number = false --absolute numbers
+vim.opt.relativenumber = true --relative numbers
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -34,6 +33,7 @@ vim.opt.autoindent = true
 vim.opt.formatoptions = "tcqjron"
 vim.opt.clipboard = "unnamedplus"
 vim.opt.foldlevel = 99
+vim.opt.textwidth = 80
 vim.opt.indentkeys = "0{,0},0),0],:,0#,!^F,O,e"
 
 -- vim.go.conceallevel = 3
