@@ -17,6 +17,7 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.rtp:prepend(lazypath) -- do not touch
 vim.g.mapleader = " "         -- leader key
 vim.g.maplocalleader = "m"    -- local leader key
+vim.opt.mouse = ""
 
 vim.opt.cursorline = true
 vim.opt.signcolumn = "yes"
