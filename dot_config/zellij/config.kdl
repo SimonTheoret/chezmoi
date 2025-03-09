@@ -246,23 +246,7 @@ load_plugins {
 // Choose the theme that is specified in the themes section.
 // Default: default
 //
-// theme "dracula"
-
-themes {
-    default {
-        fg 248 248 240
-        bg 27 29 30
-        black 0 0 0
-        red 255 0 0
-        green 166 226 46
-        yellow 255 255 0
-        blue 102 217 239
-        magenta 174 129 255
-        cyan 0 255 255
-        white 255 255 255
-        orange 253 151 31
-    }
-}
+theme "onedark"
 
 // Choose the base input mode of zellij.
 // Default: normal
