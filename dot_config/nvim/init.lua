@@ -33,7 +33,7 @@ vim.opt.autoindent = true
 vim.opt.formatoptions = "tcqjron"
 vim.opt.clipboard = "unnamedplus"
 vim.opt.foldlevel = 99
-vim.opt.textwidth = 80
+-- vim.opt.textwidth = 80
 vim.opt.indentkeys = "0{,0},0),0],:,0#,!^F,O,e"
 
 -- vim.go.conceallevel = 3
