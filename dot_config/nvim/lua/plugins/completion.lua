@@ -47,8 +47,6 @@ return {
             keymap = {
 
                 ['<C-b>'] = { 'select_and_accept' },
-                ['<C-n>'] = { 'select_next' },
-                ['<C-p>'] = { 'select_prev' },
                 ['<C-e>'] = { 'cancel' },
             },
             completion = {
