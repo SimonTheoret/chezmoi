@@ -8,7 +8,10 @@ return {
                 "size",
                 "mtime",
             },
-            delete_to_trash = true
+            delete_to_trash = true,
+            keymaps = {
+                ["<BS>"] = { "actions.parent", mode = "n" }
+            }
         }
     end,
     -- Optional dependencies
