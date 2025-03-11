@@ -1,5 +1,6 @@
 return {
     'akinsho/git-conflict.nvim',
+    version = "2",
     lazy = false,
     config = function()
         require('git-conflict').setup({ default_mapping = false })
