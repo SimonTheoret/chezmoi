@@ -12,12 +12,12 @@ return {
         }
     end,
     -- Optional dependencies
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    dependencies = { "nvim-tree/nvim-web-devicons", { "echasnovski/mini.icons", opts = {} } },
     keys = {
         {
             "<leader>fo",
             ":Oil<CR> --float .",
             desc = "Toggle Oil"
-        }
+        },
     },
 }
