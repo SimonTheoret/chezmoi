@@ -25,6 +25,7 @@ return {
 
                 -- bash
                 null_ls.builtins.formatting.shfmt,
+                null_ls.builtins.formatting.shellharden,
 
                 --cmake
                 null_ls.builtins.formatting.cmake_format,
