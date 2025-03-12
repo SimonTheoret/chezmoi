@@ -11,7 +11,8 @@ return {
         })
     end,
     keys = {
-        { "<leader>fe", ":lua MiniFiles.open()<CR>", desc = "File browser"
+        { "<leader>fe", ":lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<CR>", desc = "File browser"
+  
         }
     }
 }
