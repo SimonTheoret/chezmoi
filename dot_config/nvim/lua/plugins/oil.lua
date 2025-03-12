@@ -19,7 +19,7 @@ return {
     keys = {
         {
             "<leader>fo",
-            ":Oil<CR> --float .",
+            ":Oil . <CR>",
             desc = "Toggle Oil"
         },
     },
