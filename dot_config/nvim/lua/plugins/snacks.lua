@@ -22,7 +22,7 @@ return {
     },
     keys = {
         { "<leader>fm", function() Snacks.picker() end,                  desc = "Show all Snacks pickers" },
-        { "<leader>un", function() Snacks.notifier.hide() end,           desc = "Dismiss All Notifications" },
+        { "<leader>bs", function() Snacks.scratch() end,                 desc = "Toggle scratch buffer" },
         { "<leader>bd", function() Snacks.bufdelete() end,               desc = "Delete Buffer" },
         { "<leader>gb", function() Snacks.git.blame_line() end,          desc = "Git Blame Line" },
         { "<leader>gB", function() Snacks.gitbrowse() end,               desc = "Git Browse" },
@@ -30,24 +30,6 @@ return {
         { "<leader>tt", function() Snacks.terminal() end,                desc = "Toggle Terminal" },
         { "]]",         function() Snacks.words.jump(vim.v.count1) end,  desc = "Next Reference" },
         { "[[",         function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference" },
-        {
-            "<leader>N",
-            desc = "Neovim News",
-            function()
-                Snacks.win({
-                    file = vim.api.nvim_get_runtime_file("doc/news.txt", false)[1],
-                    width = 0.6,
-                    height = 0.6,
-                    wo = {
-                        spell = false,
-                        wrap = false,
-                        signcolumn = "yes",
-                        statuscolumn = " ",
-                        conceallevel = 3,
-                    },
-                })
-            end,
-        }
     },
     init = function()
         vim.api.nvim_create_autocmd("User", {
@@ -69,6 +51,36 @@ return {
                     :map("<leader>uc")
                 Snacks.toggle.treesitter():map("<leader>uT")
                 Snacks.toggle.inlay_hints():map("<leader>uh")
+            end,
+        })
+
+        vim.api.nvim_create_autocmd("User", {
+            pattern = "MiniFilesActionRename",
+            callback = function(event)
+                Snacks.rename.on_rename_file(event.data.from, event.data.to)
+            end,
+        })
+
+        vim.api.nvim_create_autocmd("User", {
+            pattern = "OilActionsPost",
+            callback = function(event)
+                if event.data.actions.type == "move" then
+                    Snacks.rename.on_rename_file(event.data.actions.src_url, event.data.actions.dest_url)
+                end
+            end,
+        })
+
+        local prev = { new_name = "", old_name = "" } -- Prevents duplicate events
+        vim.api.nvim_create_autocmd("User", {
+            pattern = "NvimTreeSetup",
+            callback = function()
+                local events = require("nvim-tree.api").events
+                events.subscribe(events.Event.NodeRenamed, function(data)
+                    if prev.new_name ~= data.new_name or prev.old_name ~= data.old_name then
+                        data = data
+                        Snacks.rename.on_rename_file(data.old_name, data.new_name)
+                    end
+                end)
             end,
         })
     end,
