@@ -141,11 +141,13 @@ return {
             capabilities = capabilities,
         })
 
-        -- -- markdown
-        -- lspconfig.marksman.setup({})
-
         -- bash lsp
         lspconfig.bashls.setup({
+            capabilities = capabilities,
+        })
+
+        -- sql lsp
+        lspconfig.sqls.setup({
             capabilities = capabilities,
         })
 

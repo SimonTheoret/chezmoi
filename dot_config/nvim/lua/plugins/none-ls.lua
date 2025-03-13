@@ -34,7 +34,10 @@ return {
                 null_ls.builtins.formatting.clang_format,
 
                 --web
-                null_ls.builtins.formatting.prettier
+                null_ls.builtins.formatting.prettier,
+
+                -- sql
+                null_ls.builtins.sqlfmt,
             }
         })
     end,
