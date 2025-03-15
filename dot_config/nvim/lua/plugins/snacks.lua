@@ -24,7 +24,6 @@ return {
         { "<leader>fm", function() Snacks.picker() end,                  desc = "Show all Snacks pickers" },
         { "<leader>bs", function() Snacks.scratch() end,                 desc = "Toggle scratch buffer" },
         { "<leader>bd", function() Snacks.bufdelete() end,               desc = "Delete Buffer" },
-        { "<leader>gb", function() Snacks.git.blame_line() end,          desc = "Git Blame Line" },
         { "<leader>gB", function() Snacks.gitbrowse() end,               desc = "Git Browse" },
         { "<c-/>",      function() Snacks.terminal() end,                desc = "Toggle Terminal" },
         { "<leader>tt", function() Snacks.terminal() end,                desc = "Toggle Terminal" },

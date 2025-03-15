@@ -92,6 +92,13 @@ return {
             desc = "List keymaps"
         },
         {
+            "<leader>fH",
+            function()
+                require('fzf-lua').helptags()
+            end,
+            desc = "Man pages"
+        },
+        {
             "<leader>fh",
             function()
                 require('fzf-lua').manpages()
