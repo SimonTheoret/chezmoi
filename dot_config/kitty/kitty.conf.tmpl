@@ -6,7 +6,7 @@ bold_italic_font auto
 
 {{ if eq .chezmoi.os "darwin"  }}
 ## Macos
-font_size 13
+font_size 14
 {{else if (and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.name "NixOS") (eq (env "NIXOS_CONF") "laptop" ))}}
 ## NixOS Laptop
 font_size 13
