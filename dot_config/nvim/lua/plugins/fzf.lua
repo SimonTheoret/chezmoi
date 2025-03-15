@@ -4,7 +4,7 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
         -- calling `setup` is optional for customization
-        require("fzf-lua").setup({ { "ivy", "borderless" } })
+        require("fzf-lua").setup({ { "ivy", "borderless" }, grep = { rg_glob = true } })
     end,
     keys = {
         {
