@@ -7,3 +7,4 @@ vim.api.nvim_create_autocmd({ "BufNewFile" }, {
         vim.api.nvim_buf_set_lines(0, 0, 0, true, { "#!/usr/bin/env sh" })
     end
 })
+

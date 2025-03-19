@@ -49,8 +49,6 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.opt.inccommand = "split"
 
-
-
 require("lazy").setup("plugins") --load *.lua in the plugins directory
 require("simon.keymaps")         -- load keymaps
 require("simon.autocmd")         -- load autocommands
