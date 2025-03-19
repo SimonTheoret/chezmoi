@@ -25,6 +25,7 @@ return {
         { "<leader>bs", function() Snacks.scratch() end,                 desc = "Toggle scratch buffer" },
         { "<leader>bd", function() Snacks.bufdelete() end,               desc = "Delete Buffer" },
         { "<leader>gB", function() Snacks.gitbrowse() end,               desc = "Git Browse" },
+        { "<leader>gg", function() Snacks.lazygit() end,                 desc = "Lazygit" },
         { "<c-/>",      function() Snacks.terminal() end,                desc = "Toggle Terminal" },
         { "<leader>tt", function() Snacks.terminal() end,                desc = "Toggle Terminal" },
         { "]]",         function() Snacks.words.jump(vim.v.count1) end,  desc = "Next Reference" },
