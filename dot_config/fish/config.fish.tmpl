@@ -25,9 +25,8 @@ fish_add_path ~/.local/bin/
 export BROWSER='firefox'
 
 
-{{ if eq .chezmoi.os "darwin"  }}
-export LANG=fr_CA
-export LC_ALL=fr_CA
+{{if (and (eq .chezmoi.os "linux") (eq .chezmoi.username "stheoret") )}}
+export LC_ALL=fr_CA.UTF-8
 {{end}}
 
 ## if [ "$INSIDE_EMACS" = 'vterm' ]
