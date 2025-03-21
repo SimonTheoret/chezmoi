@@ -1,0 +1,16 @@
+[user]
+    {{ if (or (eq .chezmoi.os "darwin") (and (eq .chezmoi.os "linux") (eq .chezmoi.username "stheoret") ))  }}
+	email = stheoret@druide.com
+    {{else}}
+    email = simonteoret@hotmail.com
+    {{end}}
+	name = Simon Théorêt
+[pull]
+	rebase = true
+
+[difftool]
+    prompt = true
+[diff]
+    tool = nvimdiff
+[difftool "nvimdiff"]
+    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
