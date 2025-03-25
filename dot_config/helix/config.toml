@@ -5,6 +5,7 @@ default-yank-register="+"
 mouse=false
 line-number="relative"
 bufferline="multiple"
+completion-timeout = 50
 
 [editor.soft-wrap]
 enable=true
