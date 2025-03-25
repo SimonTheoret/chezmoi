@@ -21,3 +21,8 @@ gui: # onedarker theme
       - "bold"
 os:
   editPreset: "nvim-remote"
+
+git:
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never
