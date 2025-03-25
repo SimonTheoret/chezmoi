@@ -10,4 +10,5 @@ bufferline="multiple"
 enable=true
 
 [keys.normal]
-C-b = ":reflow"
+C-r = ":reflow"
+esc = ["collapse_selection", "keep_primary_selection"]
