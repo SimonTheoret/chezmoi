@@ -1,0 +1,16 @@
+[[language]]
+name = "python"
+auto-format = true
+language-servers = [
+    {name = "pyright"},
+    {name = "ruff"},
+]
+
+[language-server.pyright]
+command = "pyright-langserver"
+args = ["--stdio"]
+config = {}
+
+[language-server.ruff]
+command = "ruff"
+args = ["server"]
