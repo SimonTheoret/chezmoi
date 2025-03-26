@@ -188,8 +188,9 @@ return {
         require('onedark').setup {
             style = 'darker',
             code_style = { keywords = "bold" },
+            transparent = true,
             lualine = {
-                transparent = false, -- lualine center bar transparency
+                transparent = true, -- lualine center bar transparency
             },
         }
         require('onedark').load()
