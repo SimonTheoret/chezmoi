@@ -29,9 +29,9 @@
 monitor=,preferred,auto,auto
 {{else if (and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.name "NixOS") (eq (env "NIXOS_CONF") "desktop"))}}
 ## NixOS Desktop
-monitor= desc:ASUSTek COMPUTER INC VG278 R5LMQS04170, 1920x1080@165, 0x0, 1 # DP2
+monitor= desc:ASUSTek COMPUTER INC VG278 R5LMQS04170, 1920x1080@165, 0x0, 1 # DP1
 monitor= desc:ASUSTek COMPUTER INC VG278 L8LMQS074722, 1920x1080@120, auto-up, 1 # HDM1
-monitor= desc:ASUSTek COMPUTER INC VG278 N3LMQS172460, 1920x1080@165, auto-left, 1 # DP1
+monitor= desc:ASUSTek COMPUTER INC VG278 N3LMQS172460, 1920x1080@165, auto-right, 1 # DP2
 
 workspace = 2, monitor:desc:ASUSTek COMPUTER INC VG278 R5LMQS04170
 workspace = 1, monitor:desc:ASUSTek COMPUTER INC VG278 N3LMQS172460, default:true
@@ -197,7 +197,7 @@ input {
 
     sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
     # NEED FOR SPEED
-    repeat_delay = 120
+    repeat_delay = 140
     repeat_rate = 80
 
     touchpad {
