@@ -29,7 +29,7 @@
 monitor=,preferred,auto,auto
 {{else if (and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.name "NixOS") (eq (env "NIXOS_CONF") "desktop"))}}
 ## NixOS Desktop
-monitor= desc:ASUSTek COMPUTER INC VG278 R5LMQS04170, 1920x1080@165, 0x0, 1 # DP1
+monitor= desc:ASUSTek COMPUTER INC VG278 R5LMQS04170, 1920x1080@165, 0x0, 1 # DP2
 monitor= desc:ASUSTek COMPUTER INC VG278 L8LMQS074722, 1920x1080@120, auto-up, 1 # HDM1
 monitor= desc:ASUSTek COMPUTER INC VG278 N3LMQS172460, 1920x1080@165, auto-right, 1 # DP2
 
@@ -187,11 +187,9 @@ misc {
 
 # https://wiki.hyprland.org/Configuring/Variables/#input
 input {
-    kb_layout = us
-    kb_variant =
-    kb_model =
-    kb_options =
-    kb_rules =
+    kb_layout = us, ca
+    kb_variant = , multix
+    kb_options = grp:ctrl_space_toggle
 
     follow_mouse = 1
 
