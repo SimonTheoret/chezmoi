@@ -37,7 +37,7 @@ return {
 
         signature = { enabled = true },
 
-        completion = { ghost_text = {enabled = false} },
+        completion = { ghost_text = { enabled = false } },
 
         sources = {
             default = { 'lsp', 'path', 'snippets', 'buffer' },
@@ -59,6 +59,7 @@ return {
         }
 
     },
-    opts_extend = { "sources.default" }
-
+    opts_extend = { "sources.default" },
+    event = "InsertEnter",
+    lazy = true,
 }
