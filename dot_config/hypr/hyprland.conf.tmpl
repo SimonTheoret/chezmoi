@@ -21,8 +21,20 @@
 ### MONITORS ###
 ################
 
+
 # See https://wiki.hyprland.org/Configuring/Monitors/
-monitor=,preferred,auto,auto 
+# monitor = name, resolution, position, scale
+{{if (and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.name "NixOS") (eq (env "NIXOS_CONF") "laptop" ))}}
+## NixOS Laptop
+monitor=,preferred,auto,auto
+{{else if (and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.name "NixOS") (eq (env "NIXOS_CONF") "desktop"))}}
+## NixOS Desktop
+monitor= desc:ASUSTek COMPUTER INC VG278 R5LMQS04170, 1920x1080@165, 0x0, 1 # DP2
+monitor= desc:ASUSTek COMPUTER INC VG278 L8LMQS074722, 1920x1080@120, auto-up, 1 # HDM1
+monitor= desc:ASUSTek COMPUTER INC VG278 N3LMQS172460, 1920x1080@165, auto-left, 1 # DP1
+{{end}}
+
+
 
 
 ###################
@@ -85,7 +97,7 @@ general {
 
 # https://wiki.hyprland.org/Configuring/Variables/#decoration
 decoration {
-    rounding = 5
+    rounding = 10
     # rounding_power = 2
 
     # Change transparency of focused and unfocused windows
