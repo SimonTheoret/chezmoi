@@ -33,8 +33,8 @@ monitor= desc:ASUSTek COMPUTER INC VG278 R5LMQS04170, 1920x1080@165, 0x0, 1 # DP
 monitor= desc:ASUSTek COMPUTER INC VG278 L8LMQS074722, 1920x1080@120, auto-up, 1 # HDM1
 monitor= desc:ASUSTek COMPUTER INC VG278 N3LMQS172460, 1920x1080@165, auto-left, 1 # DP1
 
-workspace = 1, monitor:desc:ASUSTek COMPUTER INC VG278 R5LMQS04170, default:true
-workspace = 2, monitor:desc:ASUSTek COMPUTER INC VG278 N3LMQS172460
+workspace = 2, monitor:desc:ASUSTek COMPUTER INC VG278 R5LMQS04170
+workspace = 1, monitor:desc:ASUSTek COMPUTER INC VG278 N3LMQS172460, default:true
 workspace = 3, monitor:desc:ASUSTek COMPUTER INC VG278 L8LMQS074722
 {{end}}
 
@@ -162,15 +162,6 @@ animations {
     animation = workspacesOut, 1, 1.94, almostLinear, fade
 }
 
-# Ref https://wiki.hyprland.org/Configuring/Workspace-Rules/
-# "Smart gaps" / "No gaps when only"
-# uncomment all if you wish to use that.
-# workspace = w[tv1], gapsout:0, gapsin:0
-# workspace = f[1], gapsout:0, gapsin:0
-# windowrule = bordersize 0, floating:0, onworkspace:w[tv1]
-# windowrule = rounding 0, floating:0, onworkspace:w[tv1]
-# windowrule = bordersize 0, floating:0, onworkspace:f[1]
-# windowrule = rounding 0, floating:0, onworkspace:f[1]
 
 # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
 dwindle {
@@ -205,6 +196,9 @@ input {
     follow_mouse = 1
 
     sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
+    # NEED FOR SPEED
+    repeat_delay = 120
+    repeat_rate = 80
 
     touchpad {
         natural_scroll = false
@@ -235,7 +229,7 @@ $mainMod = SUPER # Sets "Windows" key as main modifier
 bind = $mainMod, M, exec, $terminal
 bind = $mainMod, G, exec, $browser
 bind = $mainMod, Q, killactive,
-bind = $mainMod, E, exit,
+bind = $mainMod SHIFT, E, exit,
 bind = $mainMod, V, togglefloating,
 bind = $mainMod, D, exec, $menu
 bind = $mainMod, P, pseudo, # dwindle
