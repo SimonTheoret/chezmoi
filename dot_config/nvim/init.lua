@@ -19,8 +19,7 @@ vim.opt.rtp:prepend(lazypath) -- do not touch
 vim.g.mapleader = " "         -- leader key
 vim.g.maplocalleader = "m"    -- local leader key
 vim.opt.mouse = ""
-
-vim.opt.cursorline = true
+vim.opt.cursorline = false
 vim.opt.signcolumn = "yes"
 vim.opt.relativenumber = true --relative numbers
 vim.wo.breakindent = true
