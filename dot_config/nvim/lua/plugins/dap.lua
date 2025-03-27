@@ -4,7 +4,6 @@ return {
         'theHamsta/nvim-dap-virtual-text',
         "rcarriga/nvim-dap-ui",
         'mfussenegger/nvim-dap-python',
-        "ibhagwan/fzf-lua",
     },
     version = "0.9.*",
     config = function()
@@ -43,20 +42,6 @@ return {
                 widgets.centered_float(widgets.frames)
             end,
             desc = "DAP frames"
-        },
-        {
-            "<leader>dl",
-            function()
-                require('fzf-lua').dap_commands()
-            end,
-            desc = "List dap command"
-        },
-        {
-            "<leader>db",
-            function()
-                require('fzf-lua').dap_breakpoints()
-            end,
-            desc = "List dap breakpoints"
         },
         {
             "<leader>dq",
