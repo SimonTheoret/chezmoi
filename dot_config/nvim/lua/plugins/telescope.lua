@@ -107,7 +107,6 @@ return {
                         previewer = true,
                         layout_config = { height = 0.33 },
                     },
-
                 },
                 extensions = {
                     fzf = {
@@ -116,10 +115,18 @@ return {
                         override_file_sorter = true,    -- override the file sorter
                         case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
                         -- the default case_mode is "smart_case"
+                    },
+                    file_browser = {
+                        theme = "ivy",
+                        previewer = false,
+                        layout_config = { height = 0.33 },
+                        -- disables netrw and use telescope-file-browser in its place
+                        hijack_netrw = true,
                     }
                 }
             }
             require('telescope').load_extension('fzf')
+            require('telescope').load_extension('file_browser')
         end,
         keys = {
             {
@@ -210,6 +217,18 @@ return {
                 end,
                 desc = "Open nixdots config"
             },
+            {
+                "<leader>fF",
+                function()
+                    require('telescope').extensions.file_browser.file_browser()
+                end,
+                desc = "File browser"
+            },
+            {
+                "<leader>ff",
+                ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
+                desc = "Browse CWD"
+            },
         },
     },
     -- Better sorting performance
@@ -217,4 +236,8 @@ return {
         'nvim-telescope/telescope-fzf-native.nvim',
         build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release'
     },
+    {
+        "nvim-telescope/telescope-file-browser.nvim",
+        dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+    }
 }
