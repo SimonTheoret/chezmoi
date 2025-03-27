@@ -155,11 +155,11 @@ return {
                 desc = "Live grep"
             },
             {
-                "<leader>fa",
+                "<leader>fl",
                 function()
                     require('telescope.builtin').current_buffer_fuzzy_find()
                 end,
-                desc = "List all buffers' lines"
+                desc = "Search buffer"
             },
             {
                 "<leader>fb",
