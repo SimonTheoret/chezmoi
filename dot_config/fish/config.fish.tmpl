@@ -10,8 +10,7 @@ direnv hook fish | source
 
 # Set up fzf key bindings
 fzf --fish | source
-export FZF_DEFAULT_COMMAND="fd --type file --color=always"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_T_COMMAND="fd . --type file -L --color=always \$dir 2> /dev/null | sed '1d; s#^\./##'"
 export FZF_DEFAULT_OPTS="--ansi"
 
 fish_add_path ~/bin/
