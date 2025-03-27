@@ -55,8 +55,9 @@ windowrule = rounding 0, floating:0, onworkspace:f[1]
 # See https://wiki.hyprland.org/Configuring/Keywords/
 
 # Set programs that you use
-$terminal = kitty
-$menu = wofi --show drun
+$terminal = alacritty
+$menu = wofi --show run
+$dmenu = wofi --show drun
 $browser = firefox
 
 
@@ -230,6 +231,7 @@ bind = $mainMod, Q, killactive,
 bind = $mainMod SHIFT, E, exit,
 bind = $mainMod, V, togglefloating,
 bind = $mainMod, D, exec, $menu
+bind = $mainMod SHIFT, D, exec, $dmenu
 bind = $mainMod, P, pseudo, # dwindle
 bind = $mainMod, F, fullscreen,
 
@@ -312,3 +314,4 @@ windowrule = suppressevent maximize, class:.*
 # Fix some dragging issues with XWayland
 windowrule = nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0
 windowrule = opacity 0.8 0.8 1.0,class:kitty
+windowrule = opacity 0.8 0.8 1.0,class:alacritty
