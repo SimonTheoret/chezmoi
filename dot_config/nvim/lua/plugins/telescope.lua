@@ -137,6 +137,17 @@ return {
                 desc = "List files"
             },
             {
+                "<leader>fA",
+                function()
+                    require('telescope.builtin').find_files({
+                        hidden = true,
+                        no_ignore = true,
+                        no_ignore_parent = true
+                    })
+                end,
+                desc = "List all files"
+            },
+            {
                 "<leader>fd",
                 function()
                     require('telescope.builtin').git_files({
