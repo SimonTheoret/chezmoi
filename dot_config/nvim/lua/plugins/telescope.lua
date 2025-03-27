@@ -210,13 +210,6 @@ return {
                 end,
                 desc = "Open nixdots config"
             },
-            -- {
-            --     "<C-x><C-f>",
-            --     function() require("fzf-lua").complete_path() end,
-            --     silent = true,
-            --     desc = "Fuzzy complete path",
-            --     mode = { "n", "v", "i" }
-            -- },
         },
     },
     -- Better sorting performance
