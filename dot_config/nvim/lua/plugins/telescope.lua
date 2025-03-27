@@ -9,9 +9,9 @@ return {
             local actions = require("telescope.actions")
             require('telescope').setup {
                 defaults = {
-                    layout_config = {
-                        vertical = { height = 0.25 },
-                    },
+                    -- layout_config = {
+                    --     height = 0.25,
+                    -- },
                     mappings = {
                         i = {
                             ["<esc>"] = actions.close
@@ -25,70 +25,87 @@ return {
                     find_files = {
                         theme = "ivy",
                         previewer = false,
+                        layout_config = { height = 0.33 },
                     },
                     git_files = {
                         theme = "ivy",
                         previewer = false,
+                        layout_config = { height = 0.33 },
                     },
                     grep_string = {
                         theme = "ivy",
                         previewer = true,
+                        layout_config = { height = 0.33 },
                     },
                     live_grep = {
                         theme = "ivy",
                         previewer = true,
+                        layout_config = { height = 0.33 },
                     },
                     current_buffer_fuzzy_find = {
                         theme = "ivy",
                         previewer = true,
+                        layout_config = { height = 0.33 },
                     },
                     buffers = {
                         theme = "ivy",
                         previewer = false,
+                        layout_config = { height = 0.33 },
                     },
                     commands = {
                         theme = "ivy",
                         previewer = true,
+                        layout_config = { height = 0.33 },
                     },
                     help_tags = {
                         theme = "ivy",
                         previewer = false,
+                        layout_config = { height = 0.33 },
                     },
                     man_pages = {
                         theme = "ivy",
                         previewer = false,
+                        layout_config = { height = 0.33 },
                     },
                     keymaps = {
                         theme = "ivy",
                         previewer = true,
+                        layout_config = { height = 0.33 },
                     },
                     lsp_definitions = {
                         theme = "ivy",
                         previewer = true,
+                        layout_config = { height = 0.33 },
                     },
                     lsp_implementations = {
                         theme = "ivy",
                         previewer = true,
+                        layout_config = { height = 0.33 },
                     },
                     lsp_type_definitions = {
                         theme = "ivy",
                         previewer = true,
+                        layout_config = { height = 0.33 },
                     },
                     lsp_references = {
                         theme = "ivy",
                         previewer = true,
+                        layout_config = { height = 0.33 },
                     },
                     lsp_workspace_symbols = {
                         theme = "ivy",
                         previewer = true,
+                        layout_config = { height = 0.33 },
                     },
                     lsp_document_symbols = {
                         theme = "ivy",
                         previewer = true,
+                        layout_config = { height = 0.33 },
                     },
                     lsp_dynamic_workspace_symbols = {
                         theme = "ivy",
                         previewer = true,
+                        layout_config = { height = 0.33 },
                     },
 
                 },
@@ -200,7 +217,6 @@ return {
             --     desc = "Fuzzy complete path",
             --     mode = { "n", "v", "i" }
             -- },
-
         },
     },
     -- Better sorting performance
