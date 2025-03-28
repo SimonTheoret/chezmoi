@@ -8,10 +8,8 @@ starship init fish | source
 
 direnv hook fish | source
 
-# Set up fzf key bindings
+# Set up Fzf key bindings
 fzf --fish | source
-export FZF_CTRL_T_COMMAND="fd . --type file -L --color=always \$dir 2> /dev/null | sed '1d; s#^\./##'"
-export FZF_DEFAULT_OPTS="--ansi"
 
 fish_add_path ~/bin/
 fish_add_path ~/bin/nvim-linux64/bin/
@@ -19,6 +17,10 @@ fish_add_path ~/.cargo/bin/
 fish_add_path ~/.local/bin/
 
 {{end}}
+
+# Fzf configuration
+export FZF_CTRL_T_COMMAND="fd . --type file -L --color=always \$dir 2> /dev/null | sed '1d; s#^\./##'"
+export FZF_DEFAULT_OPTS="--ansi"
 
 export BROWSER='firefox'
 export EDITOR='nvim'
