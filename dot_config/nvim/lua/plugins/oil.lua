@@ -19,8 +19,13 @@ return {
     keys = {
         {
             "<leader>fo",
-            ":Oil . <CR>",
+            ":Oil %:h <CR>",
             desc = "Toggle Oil"
+        },
+        {
+            "<leader>fO",
+            ":Oil . <CR>",
+            desc = "Toggle Oil cwd"
         },
     },
 }
