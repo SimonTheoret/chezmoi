@@ -13,9 +13,6 @@ return {
                     --     height = 0.25,
                     -- },
                     mappings = {
-                        i = {
-                            ["<esc>"] = actions.close
-                        },
                     },
                     preview = {
                         enable = false
