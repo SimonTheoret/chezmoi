@@ -104,6 +104,7 @@ return {
             capabilities = capabilities,
             settings = {
                 gopls = {
+                    symbolScope = "workspace",
                     analyses = {
                         unusedparams = true,
                         useany = true,
@@ -215,14 +216,14 @@ return {
                     vim.lsp.buf.format { async = true }
                 end, { desc = "Lsp format buffer", buffer = ev.buf })
 
-                vim.keymap.set('n', '<leader>fi',
-                    function() require('telescope.builtin').lsp_workspace_symbols {} end,
+                vim.keymap.set('n', '<leader>cf',
+                    function() require('telescope.builtin').lsp_workspace_symbols() end,
                     { desc = "Lsp workspace symbols", buffer = ev.buf })
 
                 vim.keymap.set('n', '<leader>fj', function() require('telescope.builtin').lsp_document_symbols() end,
                     { desc = "Lsp document symbols", buffer = ev.buf })
 
-                vim.keymap.set('n', '<leader>cf',
+                vim.keymap.set('n', '<leader>fi',
                     function() require('telescope.builtin').lsp_dynamic_workspace_symbols() end,
                     { desc = "LSP finder", buffer = ev.buf })
 
