@@ -29,6 +29,12 @@ export TERM='alacritty'
 
 # Use vi key keybings in fish
 fish_vi_key_bindings
+# change the cursor’s shape depending on the mode
+fish_vi_cursor
+# Set the normal and visual mode cursors to a block
+set fish_cursor_default block
+# Set the insert mode cursor to a line
+set fish_cursor_insert line
 
 {{if (and (eq .chezmoi.os "linux") (eq .chezmoi.username "stheoret") )}}
 export LC_ALL=en_US.UTF-8
