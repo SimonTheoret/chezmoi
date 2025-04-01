@@ -134,7 +134,7 @@ return {
                 desc = "List files"
             },
             {
-                "<leader>fA",
+                "<leader>fa",
                 function()
                     require('telescope.builtin').find_files({
                         hidden = true,
