@@ -228,13 +228,13 @@ return {
             {
                 "<leader>fF",
                 function()
-                    require('telescope').extensions.file_browser.file_browser()
+                    require('telescope').extensions.file_browser.file_browser({ respect_gitignore = false })
                 end,
                 desc = "File browser"
             },
             {
                 "<leader>ff",
-                ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
+                ":Telescope file_browser path=%:p:h select_buffer=true respect_gitignore=false<CR>",
                 desc = "Browse CWD"
             },
         },
