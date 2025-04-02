@@ -9,6 +9,9 @@ return {
             local actions = require("telescope.actions")
             require('telescope').setup {
                 defaults = {
+                    -- layout_config = {
+                    --     height = 0.25,
+                    -- },
                     mappings = {
                     },
                     preview = {

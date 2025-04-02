@@ -182,13 +182,13 @@ return {
                 -- See `:help vim.lsp.*` for documentation on any of the below functions
                 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = "Lsp declaration", buffer = ev.buf })
 
-                vim.keymap.set('n', 'gd', vim.lsp.buf.definition,
+                vim.keymap.set('n', 'gd', function() require('telescope.builtin').lsp_definitions() end,
                     { desc = "LSP definition", buffer = ev.buf })
 
-                vim.keymap.set('n', 'K', vim.lsp.buf.hover,
+                vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>',
                     { desc = "Lsp informations", buffer = ev.buf })
 
-                vim.keymap.set('n', 'gI', vim.lsp.buf.implementation,
+                vim.keymap.set('n', 'gI', function() require('telescope.builtin').lsp_implementations() end,
                     { desc = "LSP implementations", buffer = ev.buf })
 
                 vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { desc = "Lsp signature", buffer = ev.buf })
@@ -203,7 +203,7 @@ return {
                     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
                 end, { desc = "Lsp list workspace folders", buffer = ev.buf })
 
-                vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition,
+                vim.keymap.set('n', '<leader>D', function() require('telescope.builtin').lsp_type_definitions() end,
                     { desc = "LSP type definition", buffer = ev.buf })
 
                 vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, { desc = "Lsp rename", buffer = ev.buf })
@@ -211,18 +211,23 @@ return {
                 vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action,
                     { desc = "Lsp code action", buffer = ev.buf })
 
-                vim.keymap.set('n', 'gr', vim.lsp.buf.references,
+                vim.keymap.set('n', 'gr', function() require('telescope.builtin').lsp_references() end,
                     { desc = "Lsp references", buffer = ev.buf })
 
                 vim.keymap.set('n', '<leader>bf', function()
                     vim.lsp.buf.format { async = true }
                 end, { desc = "Lsp format buffer", buffer = ev.buf })
 
-                vim.keymap.set('n', '<leader>fj', vim.lsp.buf.document_symbol,
+                vim.keymap.set('n', '<leader>cf',
+                    function() require('telescope.builtin').lsp_workspace_symbols() end,
+                    { desc = "Lsp workspace symbols", buffer = ev.buf })
+
+                vim.keymap.set('n', '<leader>fj', function() require('telescope.builtin').lsp_document_symbols() end,
                     { desc = "Lsp document symbols", buffer = ev.buf })
 
-                vim.keymap.set('n', '<leader>fi', vim.lsp.buf.workspace_symbol,
-                    { desc = "LSP workspace symbols", buffer = ev.buf })
+                vim.keymap.set('n', '<leader>fi',
+                    function() require('telescope.builtin').lsp_dynamic_workspace_symbols() end,
+                    { desc = "LSP finder", buffer = ev.buf })
 
                 vim.keymap.set('n', '<leader>th',
                     function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end,
