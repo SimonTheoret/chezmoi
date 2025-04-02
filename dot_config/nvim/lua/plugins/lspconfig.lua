@@ -32,9 +32,11 @@ return {
             capabilities = capabilities,
             settings = {
                 pyright = { autoImportCompletion = true, },
-                python = { analysis = { autoSearchPaths = true,
+                python = { analysis = {
+                    autoSearchPaths = true,
                     diagnosticMode = "workspace",
-                    useLibraryCodeForTypes = true, } }
+                    useLibraryCodeForTypes = true, }
+                }
             }
         }
         -- rust LSP
