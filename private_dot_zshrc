@@ -24,6 +24,8 @@ fi
 export BROWSER='firefox'
 export PATH="$HOME/.config/emacs/bin:$PATH"
 
+export PATH="$PATH:$HOME/.cargo/bin"
+
 
 bindkey -r '^T'
 bindkey '^F' fzf-file-widget
