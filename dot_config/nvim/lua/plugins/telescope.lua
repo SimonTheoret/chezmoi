@@ -1,7 +1,7 @@
 return {
     {
         'nvim-telescope/telescope.nvim',
-        version = '*',
+        -- version = "*", -- Use lastest version to avoid some nvim 0.11 bug
         dependencies = { 'nvim-lua/plenary.nvim',
             "nvim-telescope/telescope-fzf-native.nvim",
             "nvim-tree/nvim-web-devicons" },
