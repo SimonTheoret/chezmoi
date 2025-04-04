@@ -172,6 +172,16 @@ return {
         vim.api.nvim_create_autocmd('LspAttach', {
             group = vim.api.nvim_create_augroup('UserLspConfig', {}),
             callback = function(ev)
+                local client = vim.lsp.get_client_by_id(ev.data.client_id)
+                if client == nil then
+                    return
+                end
+                if client.name == 'ruff' then
+                    -- Disable hover in favor of Pyright
+                    client.server_capabilities.hoverProvider = false
+                end
+
+                --
                 -- so gq might work again
                 vim.bo[ev.buf].formatexpr = nil
 
