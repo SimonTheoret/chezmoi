@@ -100,8 +100,6 @@ return {
         }
     end,
     keys = {
-        {
             { "<leader>h", "", desc = "Git hunks" },
-        }
     }
 }
