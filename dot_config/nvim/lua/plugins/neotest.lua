@@ -15,21 +15,29 @@ return {
             },
             quickfix = {
                 open = function()
-                    if LazyVim.has("trouble.nvim") then
-                        require("trouble").open({ mode = "quickfix", focus = false })
-                    else
-                        vim.cmd("copen")
-                    end
+                    require("trouble").open({ mode = "quickfix", focus = false })
                 end,
                 enabled = true,
             },
         })
     end,
     keys = {
-        { "<leader>t",  "",                                                                                         desc = "+test" },
-        { "<leader>tf", function() require("neotest").run.run(vim.fn.expand("%")) end,                              desc = "Run File (Neotest)" },
-        { "<leader>tT", function() require("neotest").run.run(vim.uv.cwd()) end,                                    desc = "Run All Test Files (Neotest)" },
-        { "<leader>tr", function() require("neotest").run.run() end,                                                desc = "Run Nearest (Neotest)" },
+        { "<leader>t",  "",                                                            desc = "Tests and terminal" },
+        { "<leader>tf", function() require("neotest").run.run(vim.fn.expand("%")) end, desc = "Run File (Neotest)" },
+        { "<leader>tT", function() require("neotest").run.run(vim.uv.cwd()) end,       desc = "Run All Test Files (Neotest)" },
+        { "<leader>tr", function() require("neotest").run.run() end,                   desc = "Run Nearest (Neotest)" },
+        {
+            "<leader>tc",
+            function()
+                require("neotest").run.run({
+                    suite = true,
+                    path = vim.uv.cwd(),
+                    extra_args = { vim.fn.input(
+                        "Runner Args: ") }
+                })
+            end,
+            desc = "Run all with custom args"
+        },
         { "<leader>tl", function() require("neotest").run.run_last() end,                                           desc = "Run Last (Neotest)" },
         { "<leader>ts", function() require("neotest").summary.toggle() end,                                         desc = "Toggle Summary (Neotest)" },
         { "<leader>tO", function() require("neotest").output_panel.toggle({ enter = true, auto_close = true }) end, desc = "Show Output (Neotest)" },
