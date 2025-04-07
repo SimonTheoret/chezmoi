@@ -51,7 +51,7 @@ return {
         { "<leader>nt",  ":ObsidianToday<CR>",             desc = "Today daily" },
         { "<leader>ny",  ":ObsidianToday -1<CR>",          desc = "Yesterday daily" },
         { "<leader>nn",  ":ObsidianToday 1<CR>",           desc = "Tomorrow daily" },
-        { "<leader>nd",  ":ObsidianDailies<CR>",           desc = "Tomorrow daily" },
+        { "<leader>nd",  ":ObsidianDailies<CR>",           desc = "This week dailies" },
         { "<leader>nc",  ":ObsidianExtractNote<CR>",       desc = "Capture text",                  mode = "v" },
         { "<leader>mc",  ":ObsidianToggleCheckbox<CR>",    desc = "Toggle checkbox",               mode = "v" },
     },
