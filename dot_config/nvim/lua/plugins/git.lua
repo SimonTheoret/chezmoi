@@ -1,5 +1,6 @@
 return {
     "lewis6991/gitsigns.nvim",
+    lazy = false,
     config = function()
         require('gitsigns').setup
         {
@@ -100,6 +101,6 @@ return {
         }
     end,
     keys = {
-            { "<leader>h", "", desc = "Git hunks" },
+        { "<leader>h", "", desc = "Git hunks" },
     }
 }

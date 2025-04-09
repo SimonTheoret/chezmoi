@@ -119,6 +119,27 @@ return {
                         layout_config = { height = 0.33 },
                         -- disables netrw and use telescope-file-browser in its place
                         hijack_netrw = true,
+                        mappings = {
+                            ["i"] = {
+                                ["<C-o>"] = function(prompt_bufnr)
+                                    local entry = require("telescope.actions.state").get_selected_entry()
+                                    local oil = require('oil')
+                                    actions.close(prompt_bufnr)
+                                    oil.open(entry.path)
+                                end,
+                                -- your custom insert mode mappings
+                            },
+                            ["n"] = {
+                                -- your custom normal mode mappings
+                                ["o"] = function(prompt_bufnr)
+                                    local entry = require("telescope.actions.state").get_selected_entry()
+                                    local oil = require('oil')
+                                    actions.close(prompt_bufnr)
+                                    oil.open(entry.path)
+                                end,
+                            },
+                            -- }
+                        },
                     }
                 }
             }
@@ -240,8 +261,8 @@ return {
             },
             {
                 "<leader>fu",
-                function ()
-                    require'telescope'.extensions.project.project{}
+                function()
+                    require 'telescope'.extensions.project.project {}
                 end,
                 desc = "Browse projects"
             }
@@ -254,7 +275,7 @@ return {
     },
     {
         "nvim-telescope/telescope-file-browser.nvim",
-        dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+        dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim", 'stevearc/oil.nvim' }
     },
     {
         'nvim-telescope/telescope-project.nvim',
