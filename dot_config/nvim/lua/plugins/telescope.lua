@@ -124,6 +124,7 @@ return {
             }
             require('telescope').load_extension('fzf')
             require('telescope').load_extension('file_browser')
+            require 'telescope'.load_extension('project')
         end,
         keys = {
             {
@@ -237,6 +238,13 @@ return {
                 ":Telescope file_browser path=%:p:h select_buffer=true respect_gitignore=false<CR>",
                 desc = "Browse CWD"
             },
+            {
+                "<leader>fu",
+                function ()
+                    require'telescope'.extensions.project.project{}
+                end,
+                desc = "Browse projects"
+            }
         },
     },
     -- Better sorting performance
@@ -247,5 +255,11 @@ return {
     {
         "nvim-telescope/telescope-file-browser.nvim",
         dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
-    }
+    },
+    {
+        'nvim-telescope/telescope-project.nvim',
+        dependencies = {
+            'nvim-telescope/telescope.nvim',
+        },
+    },
 }
