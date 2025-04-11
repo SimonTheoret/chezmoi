@@ -22,6 +22,8 @@ fish_add_path ~/.local/bin/
 export FZF_CTRL_T_COMMAND="fd . --type file -u -L --color=always \$dir 2> /dev/null | sed '1d; s#^\./##'"
 export FZF_DEFAULT_OPTS="--ansi"
 fzf_configure_bindings --directory=\cF
+bind ctrl-e - 'fd . --no-ignore -tf --color=always $HOME | fzf'
+bind -M insert ctrl-e - 'fd . --no-ignore -tf --color=always $HOME | fzf'
 
 export BROWSER='firefox'
 export EDITOR='nvim'
