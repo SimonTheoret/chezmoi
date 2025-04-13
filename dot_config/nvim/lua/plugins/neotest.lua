@@ -16,13 +16,12 @@ return {
             output = {
                 open_on_run = false
             },
-            quickfix = {
-                open = function()
-                    require("trouble").open({ mode = "quickfix", focus = false })
-                end,
-                enabled = true,
-                open_on_run = false
-            },
+            -- quickfix = {
+            --     open = function()
+            --         require("trouble").open({ mode = "quickfix", focus = false })
+            --     end,
+            --     enabled = true,
+            -- },
         })
     end,
     keys = {
