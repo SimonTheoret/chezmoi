@@ -13,6 +13,9 @@ return {
                 require('rustaceanvim.neotest'),
                 require("neotest-python")
             },
+            output = {
+                open_on_run = false
+            },
             quickfix = {
                 open = function()
                     require("trouble").open({ mode = "quickfix", focus = false })
