@@ -214,7 +214,7 @@ return {
                     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
                 end, { desc = "Lsp list workspace folders", buffer = ev.buf })
 
-                vim.keymap.set('n', '<leader>D', function() require('fzf-lua').lsp_typedef() end,
+                vim.keymap.set('n', '<leader>D', function() require('fzf-lua').lsp_typedefs() end,
                     { desc = "LSP type definition", buffer = ev.buf })
 
                 vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, { desc = "Lsp rename", buffer = ev.buf })
@@ -230,7 +230,7 @@ return {
                 end, { desc = "Lsp format buffer", buffer = ev.buf })
 
                 vim.keymap.set('n', '<leader>fi',
-                    function() require('fzf-lua').lsp_workspace_symbols() end,
+                    function() require('fzf-lua').lsp_live_workspace_symbols() end,
                     { desc = "Lsp workspace symbols", buffer = ev.buf })
 
                 vim.keymap.set('n', '<leader>fj', function() require('fzf-lua').lsp_document_symbols() end,
@@ -238,7 +238,7 @@ return {
 
 
                 vim.keymap.set('n', '<leader>cf',
-                    function() require('fzf-lua').lsp_live_workspace_symbols() end,
+                    function() require('fzf-lua').lsp_workspace_symbols() end,
                     { desc = "LSP finder", buffer = ev.buf })
 
                 vim.keymap.set('n', '<leader>th',
