@@ -18,6 +18,7 @@
     :prefix "<leader> g"
     :prefix-command 'Git
     "/" '("Magit" . magit)
+    "g" '("Magit" . magit)
     "l" '("Magit status" . magit-log)
     "t" '("Git TimeMachine" . git-timemachine)
     "s s" '("SMerge mode" . smerge-mode)
