@@ -50,11 +50,11 @@
 ;;   (add-to-list 'org-src-lang-modes '("rust" . rustic) )
 ;;   )
 
-;; (use-package org-modern
-;;   :after org)
+(use-package org-modern
+  :after org)
 
-;; (add-hook 'org-mode-hook #'org-modern-mode)
-;; (add-hook 'org-agenda-finalize-hook #'org-modern-agenda)
+(add-hook 'org-mode-hook #'org-modern-mode)
+(add-hook 'org-agenda-finalize-hook #'org-modern-agenda)
 
 
 (general-def
@@ -106,11 +106,11 @@
   ;; If you're using a vertical completion framework, you might want a more informative completion interface
   (setq org-roam-node-display-template
 	(concat
-         "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
+         "${title:*} " (propertize "${tags:10}" 'face 'orgomtag)))
   (org-roam-db-autosync-mode)
   ;; If using org-roam-protocol
   (require 'org-roam-protocol)
-  (setq org-roam-dailies-directory "org/daily")
+  (setq org-roam-dailies-directory "daily")
   (setq org-roam-completion-everywhere t)
   (cl-defmethod org-roam-node-hierarchy ((node org-roam-node))
     (let ((level (org-roam-node-level node)))

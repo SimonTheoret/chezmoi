@@ -23,7 +23,7 @@
 
 (use-package ido
   :straight (:type built-in))
-;; TODO: Add these functions to the config of ido
+
 (defun search-nixdots ()
   (interactive)
   (ido-find-file-in-dir "~/nixdots/" ))

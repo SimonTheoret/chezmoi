@@ -165,6 +165,8 @@
   'normal
   :prefix "<leader> s"
   :prefix-command 'Search
+  "j"
+  '("Jump marks" . evil-collection-consult-jump-list)
   "g"
   '("Filter search current dir" . lgrep)
   "d"
@@ -207,6 +209,9 @@
   "m"
   '("Manual with man" . man)
   )
+
+
+
 
 ;; (general-def
 ;;   :states
