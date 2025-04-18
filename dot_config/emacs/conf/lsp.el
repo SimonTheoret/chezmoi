@@ -69,8 +69,8 @@
 ;;   (elixir-ts-mode . eglot-ensure)
 ;;   )
 
-;; (use-package nix-mode
-;;   :mode "\\.nix\\'")
+(use-package nix-mode
+  :mode "\\.nix\\'")
 
 ;; (use-package gleam-ts-mode
 ;;   :after (eglot)
