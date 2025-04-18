@@ -1,4 +1,4 @@
--- return {
+return {
 --     {
 --         'nvim-telescope/telescope.nvim',
 --         -- version = "*", -- Use lastest version to avoid some nvim 0.11 bug
@@ -283,4 +283,4 @@
 --             'nvim-telescope/telescope.nvim',
 --         },
 --     },
--- }
+}
