@@ -53,6 +53,8 @@
     'normal
     :prefix "<leader> c"
     :prefix-command 'Code
+    "k"
+    '("Doc" . lsp-describe-thing-at-point)
     "f"
     '("Format buffer" .  apheleia-format-buffer)
     "m"
