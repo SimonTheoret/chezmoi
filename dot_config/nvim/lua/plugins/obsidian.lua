@@ -36,7 +36,7 @@ return {
                 mappings = {}, -- No mappings
                 picker = {
                     -- Set your preferred picker. Can be one of 'telescope.nvim', 'fzf-lua', or 'mini.pick'.
-                    name = "telescope.nvim",
+                    name = "fzf-lua",
                 },
                 ui = { enable = false, },
             }
