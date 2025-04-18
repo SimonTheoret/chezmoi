@@ -38,3 +38,6 @@
 
 (use-package git-timemachine)
 
+(use-package git-gutter :defer 0.5 )
+
+(use-package git-gutter-fringe :defer 0.5)
