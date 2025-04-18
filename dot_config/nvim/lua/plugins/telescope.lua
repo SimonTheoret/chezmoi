@@ -22,87 +22,87 @@ return {
                     find_files = {
                         theme = "ivy",
                         previewer = false,
-                        layout_config = { height = 0.33 },
+                        layout_config = { height = 0.43 },
                     },
                     git_files = {
                         theme = "ivy",
                         previewer = false,
-                        layout_config = { height = 0.33 },
+                        layout_config = { height = 0.43 },
                     },
                     grep_string = {
                         theme = "ivy",
                         previewer = true,
-                        layout_config = { height = 0.33 },
+                        layout_config = { height = 0.43 },
                     },
                     live_grep = {
                         theme = "ivy",
                         previewer = true,
-                        layout_config = { height = 0.33 },
+                        layout_config = { height = 0.43 },
                     },
                     current_buffer_fuzzy_find = {
                         theme = "ivy",
                         previewer = true,
-                        layout_config = { height = 0.33 },
+                        layout_config = { height = 0.43 },
                     },
                     buffers = {
                         theme = "ivy",
                         previewer = false,
-                        layout_config = { height = 0.33 },
+                        layout_config = { height = 0.43 },
                     },
                     commands = {
                         theme = "ivy",
                         previewer = true,
-                        layout_config = { height = 0.33 },
+                        layout_config = { height = 0.43 },
                     },
                     help_tags = {
                         theme = "ivy",
                         previewer = false,
-                        layout_config = { height = 0.33 },
+                        layout_config = { height = 0.43 },
                     },
                     man_pages = {
                         theme = "ivy",
                         previewer = false,
-                        layout_config = { height = 0.33 },
+                        layout_config = { height = 0.43 },
                     },
                     keymaps = {
                         theme = "ivy",
                         previewer = true,
-                        layout_config = { height = 0.33 },
+                        layout_config = { height = 0.43 },
                     },
                     lsp_definitions = {
                         theme = "ivy",
                         previewer = true,
-                        layout_config = { height = 0.33 },
+                        layout_config = { height = 0.43 },
                     },
                     lsp_implementations = {
                         theme = "ivy",
                         previewer = true,
-                        layout_config = { height = 0.33 },
+                        layout_config = { height = 0.43 },
                     },
                     lsp_type_definitions = {
                         theme = "ivy",
                         previewer = true,
-                        layout_config = { height = 0.33 },
+                        layout_config = { height = 0.43 },
                     },
                     lsp_references = {
                         theme = "ivy",
                         previewer = true,
-                        layout_config = { height = 0.33 },
+                        layout_config = { height = 0.43 },
                     },
                     lsp_workspace_symbols = {
                         theme = "ivy",
                         previewer = true,
-                        layout_config = { height = 0.33 },
+                        layout_config = { height = 0.43 },
                     },
                     lsp_document_symbols = {
                         theme = "ivy",
                         previewer = true,
-                        layout_config = { height = 0.33 },
+                        layout_config = { height = 0.43 },
                     },
                     lsp_dynamic_workspace_symbols = {
                         theme = "ivy",
                         previewer = true,
-                        layout_config = { height = 0.33 },
+                        layout_config = { height = 0.43 },
                     },
                 },
                 extensions = {
@@ -116,7 +116,7 @@ return {
                     file_browser = {
                         theme = "ivy",
                         previewer = false,
-                        layout_config = { height = 0.33 },
+                        layout_config = { height = 0.43 },
                         -- disables netrw and use telescope-file-browser in its place
                         hijack_netrw = true,
                         mappings = {
