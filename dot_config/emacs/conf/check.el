@@ -25,17 +25,17 @@
 
 ;; (use-package consult-flycheck)
 
-;; (general-def
-;;   :states 'normal
-;;   :prefix "<leader> c e"
-;;   :prefix-command 'Errors
-;;   "l" '("Search buffer errors" . consult-flycheck)
-;;   "b" '("Buffer errors" . list-flycheck-errors)
-;;   ;; "s" '("Search workspace errors" . consult-lsp-diagnostics)
-;;   ;; "e" '("Workspace errors" . lsp-ui-flycheck-list)
-;;   "x" '("Explain error here" . flycheck-explain-error-at-point)
-;;   "p" '("Display errors here" . flycheck-display-error-at-point)
-;;   )
+(general-def
+  :states 'normal
+  :prefix "<leader> c e"
+  :prefix-command 'Errors
+  "l" '("Search buffer errors" . consult-flycheck)
+  "b" '("Buffer errors" . list-flycheck-errors)
+  ;; "s" '("Search workspace errors" . consult-lsp-diagnostics)
+  ;; "e" '("Workspace errors" . lsp-ui-flycheck-list)
+  "x" '("Explain error here" . flycheck-explain-error-at-point)
+  "p" '("Display errors here" . flycheck-display-error-at-point)
+  )
 
 ;; (general-def ;; Search keybindings
 ;;   :states 'normal

@@ -31,7 +31,7 @@
       orig-result)))
 (advice-add 'lsp-resolve-final-command :around #'lsp-booster--advice-final-command)
 
-(setq read-process-output-max (* 1024 1024)) ;; 1mb
+(setq read-process-output-max (* 1024 1024 3)) ;; 1mb
 (setq gc-cons-threshold 10000000)
 (setq lsp-log-io nil) ; if set to true can cause a performance hit
 
@@ -46,7 +46,21 @@
   (setq-default lsp-signature-auto-activate nil) ;; you could manually request them via `lsp-signature-activate`
   (setq-default lsp-signature-render-documentation nil)
   :hook ((lsp-mode . lsp-enable-which-key-integration))
-  :commands lsp)
+  :commands lsp
+  :general
+  (general-def
+    :states
+    'normal
+    :prefix "<leader> c"
+    :prefix-command 'Code
+    "f"
+    '("Format buffer" .  apheleia-format-buffer)
+    "m"
+    '("Lsp Imenu" . imenu)
+    "o"
+    '("Casual Overlay" . casual-symbol-overlay-tmenu)
+    )
+  )
 
 ;; optionally
 ;; (use-package lsp-ui :commands lsp-ui-mode)

@@ -56,3 +56,4 @@
 (config-load-file-no-extension "conf_end")
 (config-load-file-no-extension "pythonmode")
 (config-load-file-no-extension "rustmode")
+(config-load-file-no-extension "gomode")
