@@ -1,0 +1,18 @@
+IMAPStore gmail
+Host imap.gmail.com
+User simon.theoret99@gmail.com
+PassCmd "gpg --no-tty --for-your-eyes-only -dq ~/.sec.gpg"
+TLSType IMAPS
+
+MaildirStore gmail-local
+Path ~/maildir/gmail/
+Inbox ~/maildir/gmail/INBOX
+SubFolders Verbatim
+
+Channel gmail
+Far :gmail:
+Near :gmail-local:
+Patterns *
+Create Both
+Expunge Both
+SyncState *

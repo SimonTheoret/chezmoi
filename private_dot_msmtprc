@@ -1,0 +1,19 @@
+# Set default values for all following accounts.
+defaults
+auth           on
+tls            on
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+logfile        ~/.msmtp.log
+
+# Gmail
+account        gmail
+host           smtp.gmail.com
+port           465
+tls_starttls   off
+auth           on
+from           simon.theoret99@gmail.com
+user           simon.theoret99@gmail.com
+passwordeval   gpg --no-tty --for-your-eyes-only -dq ~/.sec.gpg       
+
+# Set a default account
+account default: gmail
