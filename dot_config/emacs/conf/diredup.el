@@ -117,3 +117,11 @@
   "d"
   '("Remove file" . delete-file)
   )
+
+
+(general-def
+  :states 'normal
+  :map dired-mode-map
+  "DEL" '("Directory up" . dired-up-directory)
+  )
+

@@ -1,8 +1,14 @@
 ;; -*- lexical-binding: t -*-
+(setq mu4e-location
+      (if (string= (system-name) "nixos")
+	  "/run/current-system/sw/share/emacs/site-lisp/elpa/mu4e-1.12.7")
+      )
 
 (use-package mu4e
-  :straight (mu4e :host github :repo "emacsmirror/mu4e"
-                  :files (:defaults "mu4e/*.el"))
+  :straight
+  (:local-repo mu4e-location
+               :type built-in)
+  :commands (mu4e)
   :defer t
   :general 
   (general-def
@@ -11,4 +17,12 @@
     :prefix-command 'Mail
     "u" '("Mu4e" . mu4e)
     )
+  :config
+  (setq sendmail-program (executable-find "msmtp")
+	send-mail-function #'smtpmail-send-it
+	message-sendmail-f-is-evil t
+	message-sendmail-extra-arguments '("--read-envelope-from")
+	message-send-mail-function #'message-send-mail-with-sendmail
+	mu4e-maildir "~/maildir/"
+	)
   )
