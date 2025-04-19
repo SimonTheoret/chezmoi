@@ -3,7 +3,9 @@
 ;; ;;;;;;;;; org-mode ;;;;;;;;
 
 
-(use-package org)
+(use-package org
+  :straight (:type built-in)
+  :defer 3)
 
 (defun org--set-latex-scale ()
   (plist-put org-format-latex-options :scale 1.5)

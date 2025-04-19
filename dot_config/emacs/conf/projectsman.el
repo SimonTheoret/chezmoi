@@ -2,6 +2,19 @@
 
 ;; Projects manager
 
+;; Make use of fd.
+(use-package find-file-in-project
+  :defer 0.5
+  :config
+  (setq ffip-use-rust-fd t)
+  :general-config
+  (general-def
+    :states
+    'normal
+    "<leader> SPC" '("Find file in project" . find-file-in-project-by-selected)
+    )
+  )
+
 ;; Projectile needs project before loading itself
 (use-package project
   :straight (:type built-in)
@@ -13,7 +26,7 @@
     :states
     'normal
     :prefix "<leader> p"
-    :prefix-command 'Projectile
+    :prefix-command 'Projec
     "p" '("Project switch project" . project-switch-project)
     "d" '("Project remove project" . project-forget-project)
     )

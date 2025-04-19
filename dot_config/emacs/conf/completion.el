@@ -4,6 +4,7 @@
 
 ;; ;; Company Completion
 (use-package company
+  :defer 0.5
   :init
   (add-hook 'after-init-hook 'global-company-mode)
   :config
@@ -27,23 +28,6 @@
     :states 'insert
     "C-x C-f" '("Complete files". company-files) )
   )
-;; (evil-global-set-key 'insert (kbd "TAB") 'company-select-next)
-;; (evil-global-set-key 'insert (kbd "S-TAB") 'company-select-previous)
-;; (evil-global-set-key 'insert (kbd "C-RET") 'company-complete-common))
-;; (with-eval-after-load 'company
-;;   (general-def (
-;; 		:states 'insert
-;; 		"<backtab>" (lambda () (interactive) (company-complete-common-or-cycle -1))
-;; 		"<tab>" #'company-complete-common-or-cycle
-;; 		       )))
-;; (define-key company-active-map
-;;             (kbd "<tab>")
-;;             #'company-complete-common-or-cycle)
-;; (define-key company-active-map
-;;             (kbd "<backtab>")
-;;             (lambda ()
-;;               (interactive)
-;;               (company-complete-common-or-cycle -1))))
 
 (use-package company-quickhelp
   :after company
@@ -54,6 +38,7 @@
 
 ;; Snippets
 (use-package yasnippet
+  :defer 0.5
   :init
   (yas-global-mode 1)
   :general
@@ -64,6 +49,7 @@
     "s" '("Insert snippet" . yas-insert-snippet)))
 
 (use-package yasnippet-snippets
+  :after yasnippet
   :config
   (evil-global-set-key 'normal (kbd "<leader> i s") 'yas-insert-snippet))
 

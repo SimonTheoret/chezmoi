@@ -2,6 +2,7 @@
 
 
 (use-package envrc
+  :defer 1
   :init
   (envrc-global-mode)
   :general-config
@@ -9,4 +10,5 @@
     'normal
     "<leader> e e" '("Reload env vars" . envrc-reload)))
 
-(use-package inheritenv)
+(use-package inheritenv
+  :defer 1)

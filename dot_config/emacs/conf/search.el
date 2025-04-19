@@ -93,6 +93,7 @@
 
 (use-package
   embark
+  :defer 2
   :general
   (general-def
     :states 'normal
@@ -129,13 +130,14 @@
 ;; Consult users will also want the embark-consult package.
 (use-package
   embark-consult
+  :defer 1.5
   :hook (embark-collect-mode . consult-preview-at-point-mode))
 
-(use-package browse-at-remote)
+(use-package browse-at-remote :defer 3)
 
 (use-package tldr :defer 1)
 
-(use-package deadgrep)
+(use-package deadgrep :defer 2)
 
 (eval-when-compile
   (require 'cl-lib))
@@ -209,11 +211,3 @@
   "m"
   '("Manual with man" . man)
   )
-
-
-
-
-;; (general-def
-;;   :states
-;;   'normal
-;;   :pref)

@@ -1,13 +1,11 @@
 ;; -*- lexical-binding: t -*-
-(setq mu4e-location
-      (if (string= (system-name) "nixos")
-	  "/run/current-system/sw/share/emacs/site-lisp/elpa/mu4e-1.12.7")
-      )
+(setq mu4e-location "/run/current-system/sw/share/emacs/site-lisp/elpa/mu4e-1.12.7")
 
 (use-package mu4e
   :straight
   (:local-repo mu4e-location
-               :type built-in)
+	       :type built-in)
+  :if (string= (system-name) "nixos")
   :commands (mu4e)
   :defer t
   :general 

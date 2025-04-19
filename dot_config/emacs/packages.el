@@ -27,13 +27,11 @@
   :custom
   (straight-use-package-by-default t))
 
-(use-package gcmh
-  :init
-  (gcmh-mode 1))
+;; (use-package gcmh
+;;   :init
+;;   (gcmh-mode 1))
 
 ;; General magic!
 (use-package general
   :config
   (general-evil-setup t))
-
-(straight-use-package 'project)

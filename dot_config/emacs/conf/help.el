@@ -2,6 +2,7 @@
 
 
 (use-package helpful
+  :defer 1.5
   :general
   ("C-h f"   '("callable help" . helpful-callable)
    "C-h v"   '("variable help" . helpful-variable)
@@ -13,7 +14,9 @@
   )
 
 
-(use-package casual)
+(use-package casual
+  :defer 1.5
+  )
 
 (general-def
   :states 'normal

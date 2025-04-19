@@ -22,6 +22,7 @@
     (switch-to-buffer-other-window buf)))
 
 (use-package shell
+  :straight (:type built-in)
   :config
   (setq-default shell-kill-buffer-on-exit t)
   )
