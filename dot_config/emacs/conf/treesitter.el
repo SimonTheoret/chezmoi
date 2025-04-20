@@ -31,6 +31,7 @@
 
 
 (use-package treesit-auto
+  :defer 1
   :custom
   (treesit-auto-install 'prompt)
   :config

@@ -23,6 +23,10 @@
 (if (and (string= "stheoret" (system-name)) (string= "darwin" system-type))
     (add-to-list 'default-frame-alist '(font . "JetBrainsMonoNL Nerd Font Mono-14")))
 
+;; Optimization: https://www.reddit.com/r/emacs/comments/f3ed3r/how_is_doom_emacs_so_damn_fast/
+(setq frame-inhibit-implied-resize t)
+(setq initial-major-mode 'fundamental-mode)
+
 ;; Scrolling
 (pixel-scroll-mode 1)
 (setq scroll-step 1)

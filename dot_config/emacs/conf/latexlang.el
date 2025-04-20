@@ -1,6 +1,7 @@
 ;; -*- lexical-binding: t -*-
 
 (use-package tex
+  :defer 1
   :straight auctex
   :config
   ;; (setq-default TeX-master nil)
@@ -36,6 +37,7 @@
 ;; 				 :help "Run LaTeXMk Continuously"))
 
 (use-package cdlatex
+  :defer 1
   :hook
   (LaTeX-mode . cdlatex-mode)
   )

@@ -34,10 +34,21 @@
   :after magit
   :config (magit-todos-mode 1) (setq magit-todos-exclude-globs '("*.ipynb")))
 
-(use-package git-modes)
+(use-package git-modes :defer 1)
 
-(use-package git-timemachine)
+(use-package git-timemachine :defer 5)
 
-(use-package git-gutter :defer 0.5 )
-
-(use-package git-gutter-fringe :defer 0.5)
+(use-package git-gutter
+  :init
+  (global-git-gutter-mode +1) 
+  :defer 0.5
+  :general-config
+  (general-def
+    :states 'normal
+    :prefix "<leader> g h"
+    :prefix-command 'Hunks
+    "s" '("Stage hunk" . git-gutter:stage-hunk)
+    "p" '("Popup hunk" . git-gutter:popup-hunk)
+    "r" '("Revert hunk" . git-gutter:revert-hunk)
+    )
+  )
