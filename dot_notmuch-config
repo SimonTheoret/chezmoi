@@ -1,0 +1,15 @@
+[database]
+path=~/.local/share/email
+mail_root=Maildir
+[user]
+name=Simon Théorêt
+primary_email=simon.theoret99@gmail.com
+[new]
+tags=unread;inbox;
+ignore=
+[search]
+exclude_tags=deleted;spam;
+[maildir]
+synchronize_flags=true
+[crypto]
+gpg_path=gp

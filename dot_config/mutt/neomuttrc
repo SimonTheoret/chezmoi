@@ -1,0 +1,53 @@
+set from = simon.theoret99@gmail.com
+set mbox_type = Maildir
+set folder = "~/Maildir/gmail/"
+
+set sendmail = "msmtp -a simon.theoret99@gmail.com"
+
+
+# Where to put the stuff
+set header_cache = "~/Maildir/mutt/headers"
+set message_cachedir = "~/Maildir/mutt/bodies"
+set certificate_file = "~/Maildir/mutt/certificates"
+
+# mailbox settings
+set spoolfile = +INBOX
+set postponed = +Drafts
+set record = +Sent
+set trash = +Trash
+
+# Lynx support
+auto_view text/html
+set mailcap_path = ~/.config/mutt/mailcap
+
+macro index S "<shell-escape>mbsync -V gmail<enter><shell-escape>notmuch new<enter>" "sync email"
+
+macro index \Cf "<enter-command>unset wait_key<enter><shell-escape>read -p 'Enter a search term to find with notmuch: ' x; echo \$x >~/.cache/mutt_terms<enter><limit>~i \"\`notmuch search --output=messages \$(cat ~/.cache/mutt_terms) | head -n 600 | perl -le '@a=<>;s/\^id:// for@a;$,=\"|\";print@a' | perl -le '@a=<>; chomp@a; s/\\+/\\\\+/ for@a;print@a' \`\"<enter>" "show only messages matching a notmuch pattern"
+
+## Other Settings
+set mail_check_stats
+set sort = 'reverse-date'
+set sidebar_visible = no
+set sidebar_width = 20
+set sidebar_short_path = yes
+set sidebar_next_new_wrap = yes
+set sidebar_format = '%B%?F? [%F]?%* %?N?%N/? %?S?%S?'
+bind index,pager \Ck sidebar-prev
+bind index,pager \Cj sidebar-next
+bind index,pager \Cl sidebar-open
+bind index,pager b sidebar-toggle-visible
+set markers = no
+set mime_forward = yes # attachments are forwarded with mail
+set wait_key = no
+set fast_reply # skip to compose when replying
+set fcc_attach # save attachments with the body
+set forward_format = "Fwd: %s" # format of subject when forwarding
+set forward_quote # include message in forwards
+set reverse_name # reply as whomever it was to
+set include # include message in replies
+color header blue default ".*"
+color header brightgreen default "^(From)"
+color header brightcyan default "^(Subject)"
+color body brightred default "[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+" # Email addresses
+color header brightwhite default "^(To|CC|BCC)"
+color body brightblue default "(https?|ftp|file)://[\-\.,/%~_:?&=\#a-zA-Z0-9;+]+" # URL
