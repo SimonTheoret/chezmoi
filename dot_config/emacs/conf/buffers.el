@@ -146,6 +146,7 @@
 	       (dedicated . nil)
 	       ))
 
+;; TODO: Add flycheck buffers as popup
 (use-package popper
   :defer 0.5
   :init

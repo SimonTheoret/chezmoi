@@ -3,9 +3,8 @@
 ;; Managing perspectives/views
 
 ;; persp-mode
-(use-package
+(use-package persp-mode
   :defer 0.5
-  persp-mode
   :custom
   (persp-keymap-prefix (kbd "<leader> TAB"))
   (persp-auto-save-opt 0)
