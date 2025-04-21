@@ -22,6 +22,7 @@
     "C-<return>" #'company-complete-selection
     "C-<RET>" #'company-complete-selection
     "C-b" #'company-complete-selection
+    "C-w" #'evil-delete-backward-word
     )
   :general
   (general-def
