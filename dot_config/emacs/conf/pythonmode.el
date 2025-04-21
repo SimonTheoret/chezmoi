@@ -31,3 +31,19 @@
 
 	 )
   )
+
+
+(use-package lsp-pyright
+  :custom (lsp-pyright-langserver-command "pyright") ;; or basedpyright
+  :hook ((python-mode . (lambda ()
+                          (require 'lsp-pyright)
+                          (lsp-deferred))
+
+		      )
+
+	 (python-ts-mode . (lambda ()
+                             (require 'lsp-pyright)
+                             (lsp-deferred))
+
+			 )))  ; or lsp-deferred
+
