@@ -24,6 +24,7 @@ cargo install --locked zellij
 cargo install --locked tree-sitter-cli
 cargo install git-delta
 cargo install mcfly
+cargo install emacs-lsp-booster
 cargo install --locked yazi-fm yazi-cli
 
 npm install -g tldr
