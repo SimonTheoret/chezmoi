@@ -35,6 +35,8 @@
 (setq gc-cons-threshold 10000000)
 (setq lsp-log-io nil) ; if set to true can cause a performance hit
 
+;; TODO: Configure LSP to use  
+
 (use-package lsp-mode
   :defer 1
   :init
@@ -64,10 +66,6 @@
     )
   )
 
-;; optionally
-;; (use-package lsp-ui :commands lsp-ui-mode)
-;; if you are helm user
-
 ;; optionally if you want to use debugger
 (use-package dap-mode
   :defer 3)
@@ -84,9 +82,6 @@
 ;;   (elixir-mode . eglot-ensure)
 ;;   (elixir-ts-mode . eglot-ensure)
 ;;   )
-
-(use-package nix-mode
-  :mode "\\.nix\\'")
 
 ;; (use-package gleam-ts-mode
 ;;   :after (eglot)

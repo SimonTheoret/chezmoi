@@ -2,6 +2,7 @@
 
 ;; Managing perspectives/views
 
+;;TODO: Configure persp to be used by default for selecting buffers, instead of projects
 ;; persp-mode
 (use-package persp-mode
   :defer 0.5

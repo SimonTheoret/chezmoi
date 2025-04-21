@@ -37,13 +37,14 @@
   :custom (lsp-pyright-langserver-command "pyright") ;; or basedpyright
   :hook ((python-mode . (lambda ()
                           (require 'lsp-pyright)
-                          (lsp-deferred))
+                          (lsp-deferred)); or lsp-deferred
 
 		      )
 
 	 (python-ts-mode . (lambda ()
                              (require 'lsp-pyright)
-                             (lsp-deferred))
+                             (lsp-deferred)); or lsp-deferred
 
-			 )))  ; or lsp-deferred
+			 ))
+  )  
 
