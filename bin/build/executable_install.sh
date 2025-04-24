@@ -1,4 +1,6 @@
-#!/usr/bin/env sh
+#!/usr/bin/env fish
+
+#TODO: Add fzf installation 
 
 set -e
 echo "Installing dev environment"
@@ -11,6 +13,7 @@ command -v npm
 command -v go
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
+source "$HOME/.cargo/env.fish" || . "$HOME/.cargo/env"
 
 command -v cargo
 cargo install --locked bat
@@ -27,7 +30,7 @@ cargo install mcfly
 cargo install emacs-lsp-booster
 cargo install --locked yazi-fm yazi-cli
 
-npm install -g tldr
+sudo npm install -g tldr
 
 go install github.com/jesseduffield/lazygit@latest
 go install github.com/jesseduffield/lazydocker@latest
@@ -39,6 +42,7 @@ tar -xzf nvim-linux-x86_64
 
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 
+. $HOME/.config/fish/config.fish
 fisher install PatrickF1/fzf.fish
 
 curl -sfL https://direnv.net/install.sh | bash
