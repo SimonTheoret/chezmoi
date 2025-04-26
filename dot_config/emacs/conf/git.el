@@ -39,9 +39,9 @@
 (use-package git-timemachine :defer 5)
 
 (use-package git-gutter
+  :after magit
   :init
   (global-git-gutter-mode +1) 
-  :defer 0.5
   :general-config
   (general-def
     :states 'normal

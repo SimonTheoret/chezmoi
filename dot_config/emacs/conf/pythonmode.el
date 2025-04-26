@@ -34,6 +34,7 @@
 
 
 (use-package lsp-pyright
+  :defer 1
   :custom (lsp-pyright-langserver-command "pyright") ;; or basedpyright
   :hook ((python-mode . (lambda ()
                           (require 'lsp-pyright)
