@@ -1,4 +1,4 @@
-theme = "onedark"
+theme = "onedarker"
 
 [editor]
 default-yank-register="+"
