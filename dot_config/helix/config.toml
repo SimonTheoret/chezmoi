@@ -1,4 +1,4 @@
-theme = "onedark"
+theme = "molokai"
 
 [editor]
 default-yank-register="+"
