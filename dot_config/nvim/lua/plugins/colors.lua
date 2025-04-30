@@ -38,43 +38,44 @@
 --         Color_is = "sonokai"
 --     end
 -- }
--- return {
---     'loctvl842/monokai-pro.nvim',
---     lazy = false,
---     priority = 1000,
---     config = function()
---         require("monokai-pro").setup({
---             -- ...
---             --- @param filter "classic" | "machine" | "octagon" | "pro" | "ristretto" | "spectrum"
---             override = function(c)
---                 return {
---                     IndentBlanklineChar = { fg = c.base.dimmed4 },
---                 }
---             end,
---             overridePalette = function(filter)
---                 return {
---                     dark2 = "#101014",
---                     dark1 = "#16161E",
---                     background = "#1A1B26",
---                     text = "#ffffff",
---                     accent1 = "#f7768e", -- types
---                     accent2 = "#7aa2f7", -- ??
---                     accent3 = "#e0af68", -- Strings literal
---                     accent4 = "#9ece6a", -- Functions
---                     accent5 = "#0DB9D7", -- Types
---                     accent6 = "#9d7cd8", --
---                     dimmed1 = "#737aa2", --
---                     dimmed2 = "#787c99", --
---                     dimmed3 = "#363b54", -- Comments
---                     dimmed4 = "#363b54", -- Comments
---                     dimmed5 = "#16161e", --
---                 }
---             end
---             -- ...
---         })
---         vim.cmd([[colorscheme monokai-pro]])
---     end
--- }
+return {
+    'loctvl842/monokai-pro.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+        require("monokai-pro").setup({
+        fitler = "spectrum",
+            -- ...
+            --- @param filter "classic" | "machine" | "octagon" | "pro" | "ristretto" | "spectrum"
+        --     override = function(c)
+        --         return {
+        --             IndentBlanklineChar = { fg = c.base.dimmed4 },
+        --         }
+        --     end,
+        --     overridePalette = function(filter)
+        --         return {
+        --             dark2 = "#101014",
+        --             dark1 = "#16161E",
+        --             background = "#1A1B26",
+        --             text = "#ffffff",
+        --             accent1 = "#f7768e", -- types
+        --             accent2 = "#7aa2f7", -- ??
+        --             accent3 = "#e0af68", -- Strings literal
+        --             accent4 = "#9ece6a", -- Functions
+        --             accent5 = "#0DB9D7", -- Types
+        --             accent6 = "#9d7cd8", --
+        --             dimmed1 = "#737aa2", --
+        --             dimmed2 = "#787c99", --
+        --             dimmed3 = "#363b54", -- Comments
+        --             dimmed4 = "#363b54", -- Comments
+        --             dimmed5 = "#16161e", --
+        --         }
+        --     end
+        --     -- ...
+        })
+        vim.cmd([[colorscheme monokai-pro]])
+    end
+}
 -- return {
 --     'loctvl842/monokai-pro.nvim',
 --     lazy = false,
@@ -180,22 +181,22 @@
 --         vim.cmd.colorscheme('ofirkai')
 --     end
 -- }
-return {
-    'navarasu/onedark.nvim',
-    priority = 1000, -- Ensure it loads first
-    lazy = false,
-    config = function()
-        require('onedark').setup {
-            style = 'darker',
-            code_style = { keywords = "bold" },
-            transparent = true,
-            lualine = {
-                transparent = true, -- lualine center bar transparency
-            },
-        }
-        require('onedark').load()
-    end
-}
+-- return {
+--     'navarasu/onedark.nvim',
+--     priority = 1000, -- Ensure it loads first
+--     lazy = false,
+--     config = function()
+--         require('onedark').setup {
+--             style = 'darker',
+--             code_style = { keywords = "bold" },
+--             transparent = true,
+--             lualine = {
+--                 transparent = true, -- lualine center bar transparency
+--             },
+--         }
+--         require('onedark').load()
+--     end
+-- }
 
 -- somewhere in your config:
 -- return {
