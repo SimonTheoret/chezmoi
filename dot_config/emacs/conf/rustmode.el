@@ -7,15 +7,11 @@
 
 (use-package rustic
   :defer 1
-  :after (rust-mode)
   :config
   (setq lsp-rust-analyzer-cargo-watch-command "clippy")
   (setq rustic-format-on-save nil)
   :hook
   (rustic-mode . lsp-deferred)
-  (rust-mode . rustic-mode)
   :custom
   (rustic-cargo-use-last-stored-arguments t)
-  :mode
-  "\\.rs\\'"   
   )
