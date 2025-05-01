@@ -2,3 +2,4 @@
 --with-native-compilation\
 --with-tree-sitter\
 --with-modules
+CFAGS='-march=native -O3'
