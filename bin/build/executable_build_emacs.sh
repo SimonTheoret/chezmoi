@@ -4,9 +4,11 @@ set -e
 VERSION=$1
 DIRECTORY="https://ftp.gnu.org/pub/gnu/emacs/emacs-$VERSION.tar.xz"
 
-echo "Setup for Emacs, with version $VERSION from $DIRECTORY"
+echo "Setup for Emacs, with version $VERSION from $DIRECTORY, with configure args: $@"
 
-wget $DIRECTORY
+if [ ! -f ./emacs-$VERSION.tar.xz ]; then
+  wget $DIRECTORY
+fi
 
 tar -axvf emacs-$VERSION.tar.xz
 

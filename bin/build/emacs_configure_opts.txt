@@ -1,0 +1,4 @@
+--with-x-toolkit=no\
+--with-native-compilation\
+--with-tree-sitter\
+--with-modules
