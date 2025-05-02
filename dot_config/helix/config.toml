@@ -1,4 +1,4 @@
-theme = "monokai_aqua"
+theme = "onedark"
 
 [editor]
 default-yank-register="+"
