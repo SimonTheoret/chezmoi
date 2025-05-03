@@ -187,7 +187,7 @@ return {
     lazy = false,
     config = function()
         require('onedark').setup {
-            style = 'darker',
+            -- style = 'darker',
             code_style = { keywords = "bold" },
             transparent = false,
             lualine = {
