@@ -29,8 +29,10 @@ cargo install git-delta
 cargo install mcfly
 cargo install emacs-lsp-booster
 cargo install --locked yazi-fm yazi-cli
+cargo install shellharden
 
 sudo npm install -g tldr
+sudo npm i -g bash-language-server
 
 go install github.com/jesseduffield/lazygit@latest
 go install github.com/jesseduffield/lazydocker@latest
