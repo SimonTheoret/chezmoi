@@ -20,7 +20,7 @@ gui: # onedarker theme
     activeBorderColor:
       - "bold"
 os:
-  editPreset: "nvim-remote"
+  editPreset: 'hx'
 
 git:
   paging:
