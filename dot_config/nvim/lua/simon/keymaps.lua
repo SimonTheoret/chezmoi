@@ -27,6 +27,10 @@ vmap.set("n", "<leader>mod",
 -- Emacs
 vmap.set("n", "<M-x>", "q:", { desc = "Commands" })
 
+-- Helix
+vmap.set("n", "gl", "$" )
+vmap.set("n", "gh", "0" )
+
 -- Insert blank lines
 vmap.set("n", "<leader>o", "o<Esc>k", { desc = "Whitespace under cursor" })
 vmap.set("n", "<leader>O", 'O<Esc>j', { desc = "Whitespace above cursor" })
