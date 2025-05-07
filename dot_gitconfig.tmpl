@@ -6,7 +6,7 @@
     {{end}}
 	name = Simon Théorêt
 [pull]
-	rebase = false
+	rebase = true
 [core]
     editor = $EDITOR
     pager = delta
@@ -21,3 +21,7 @@
 
 [difftool]
     prompt = true
+[diff]
+    tool = nvimdiff
+[difftool "nvimdiff"]
+    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
