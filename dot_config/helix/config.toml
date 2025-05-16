@@ -19,5 +19,5 @@ x = "select_line_below"
 ';' = "repeat_last_motion"
 
 [editor.file-picker]
-git-ignore = true
+git-ignore = false
 hidden = false
