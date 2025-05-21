@@ -22,5 +22,5 @@ x = "select_line_below"
 git-ignore = false
 hidden = false
 
-[editor.statusline]
-primary-selection-length
+# [editor.statusline]
+# primary-selection-length = "right"
