@@ -28,17 +28,18 @@ return {
         --             typeCheckingMode = "basic" } }
         --     }
         -- }
-        lspconfig.pyright.setup {
-            capabilities = capabilities,
-            settings = {
-                pyright = { autoImportCompletion = true, },
-                python = { analysis = {
-                    autoSearchPaths = true,
-                    diagnosticMode = "workspace",
-                    useLibraryCodeForTypes = true, }
-                }
-            }
-        }
+        vim.lsp.enable('pyright')
+        -- lspconfig.pyright.setup {
+        --     capabilities = capabilities,
+            -- settings = {
+            --     pyright = { autoImportCompletion = true, },
+            --     python = { analysis = {
+            --         autoSearchPaths = true,
+            --         diagnosticMode = "workspace",
+            --         useLibraryCodeForTypes = true, }
+            --     }
+            -- }
+        -- }
         -- rust LSP
         -- Managed by rusteceanvim and therefore can be commented out
         -- lspconfig.rust_analyzer.setup({
