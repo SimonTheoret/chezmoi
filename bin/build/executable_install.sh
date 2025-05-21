@@ -30,6 +30,7 @@ cargo install mcfly
 cargo install emacs-lsp-booster
 cargo install --locked yazi-fm yazi-cli
 cargo install shellharden
+cargo install --locked csview
 
 sudo npm install -g tldr
 sudo npm i -g bash-language-server
