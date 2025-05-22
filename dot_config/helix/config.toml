@@ -5,11 +5,15 @@ default-yank-register="+"
 mouse=false
 line-number="relative"
 bufferline="multiple"
-completion-timeout = 50
+completion-timeout = 30
 true-color = true
+idle-timeout = 100
+
+[editor.lsp]
+display-progress-messages = true
 
 [editor.soft-wrap]
-enable=true
+enable = true
 
 [keys.normal]
 C-r = ":reflow"
