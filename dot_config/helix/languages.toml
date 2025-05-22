@@ -18,6 +18,7 @@ args = ["server"]
 [[language]]
 name = "csv"
 file-types = ["csv"]
+scope = "source.csv"
 
 [[grammar]]
 name = "csv"
