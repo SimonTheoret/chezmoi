@@ -2,6 +2,12 @@ source ~/.aliases
 
 zoxide init fish | source
 
+[font]
+{{ if eq .chezmoi.os "darwin"  }}
+## Macos
+fish_add_path /opt/homebrew/bin
+{{end}}
+
 # If not on nixos
 {{if not (eq .chezmoi.hostname "nixos")}}
 starship init fish | source
