@@ -42,7 +42,8 @@ go install github.com/jesseduffield/lazydocker@latest
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
 wget https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
-tar -xzf nvim-linux-x86_64
+tar -xzf nvim-linux-x86_64.tar.gz
+mv nvim-linux-x86_64 ~/bin/nvim-linux-x86_64
 
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 
