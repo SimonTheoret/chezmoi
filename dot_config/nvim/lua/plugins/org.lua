@@ -18,6 +18,7 @@ return {
     },
     {
         "chipsenkbeil/org-roam.nvim",
+        event = 'VeryLazy',
         config = function()
             require("org-roam").setup({
                 directory = "~/org/roam",

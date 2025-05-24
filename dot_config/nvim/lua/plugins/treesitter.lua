@@ -1,5 +1,6 @@
 return {
     "nvim-treesitter/nvim-treesitter",
+    event = 'VeryLazy',
     build = ":TSUpdate",
     --adds annotation to remove alerts about missing fields:
     ---@diagnostic disable-next-line: missing-fields
