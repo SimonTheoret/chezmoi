@@ -31,6 +31,7 @@ cargo install emacs-lsp-booster
 cargo install --locked yazi-fm yazi-cli
 cargo install shellharden
 cargo install --locked csview
+cargo install --git https://github.com/jgavris/rs-git-fsmonitor.git
 
 sudo npm install -g tldr
 sudo npm i -g bash-language-server
