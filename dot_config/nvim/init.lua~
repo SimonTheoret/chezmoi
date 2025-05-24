@@ -39,8 +39,8 @@ vim.opt.indentkeys = "0{,0},0),0],:,0#,!^F,O,e"
 
 -- vim.go.conceallevel = 3
 
-vim.opt.swapfile = false
-vim.opt.backup = false
+vim.opt.swapfile = true
+vim.opt.backup = true
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
