@@ -4,3 +4,5 @@ Host server
 Host github.com
     User git
     IdentityFile ~/.ssh/id_edgithub
+
+AddKeysToAgent yes
