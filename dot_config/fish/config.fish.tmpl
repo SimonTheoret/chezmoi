@@ -2,6 +2,12 @@ source ~/.aliases
 
 zoxide init fish | source
 
+[font]
+{{ if eq .chezmoi.os "darwin"  }}
+## Macos
+fish_add_path /opt/homebrew/bin
+{{end}}
+
 # If not on nixos
 {{if not (eq .chezmoi.hostname "nixos")}}
 starship init fish | source
@@ -35,7 +41,7 @@ export FZF_DEFAULT_OPTS="--ansi"
 fzf_configure_bindings --directory=\cF
 
 export BROWSER='firefox'
-export EDITOR='hx'
+export EDITOR='nvim'
 export TERM='alacritty'
 
 export MANPAGER='nvim +Man!'
