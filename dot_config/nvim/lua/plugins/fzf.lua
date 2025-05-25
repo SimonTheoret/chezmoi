@@ -5,7 +5,7 @@ return {
     config = function()
         -- calling `setup` is optional for customization
         require("fzf-lua").setup({
-            { "ivy" },
+            -- { "ivy" },
             grep = { rg_glob = true },
             fzf_colors = {
                 true,          -- auto generate rest of fzf’s highlights?
