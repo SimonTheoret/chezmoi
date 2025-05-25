@@ -7,7 +7,5 @@ return {
         })
         require('leap').create_default_mappings()
     end,
-
-    lazy = false,
-
+    event = "VeryLazy"
 }

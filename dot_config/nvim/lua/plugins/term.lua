@@ -14,4 +14,5 @@ return {
             open_mapping = [[<leader>tt]], -- or { [[<c-\>]], [[<c-¥>]] } if you also use a Japanese keyboard.
         }
     end,
+    event = "VeryLazy"
 }

@@ -13,6 +13,5 @@ return {
             opts = {}
         })
     end,
-    lazy = false
     -- keys = {"f", "F", "T", "t"}
 }
