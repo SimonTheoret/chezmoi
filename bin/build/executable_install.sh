@@ -51,3 +51,5 @@ curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fi
 fisher install PatrickF1/fzf.fish
 
 curl -sfL https://direnv.net/install.sh | bash
+
+./build_helix.sh
