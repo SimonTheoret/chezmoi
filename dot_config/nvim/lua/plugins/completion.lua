@@ -61,6 +61,5 @@ return {
 
     },
     opts_extend = { "sources.default" },
-    event = "InsertEnter",
-    lazy = true,
+    event = "VeryLazy",
 }
