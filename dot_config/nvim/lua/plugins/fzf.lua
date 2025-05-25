@@ -20,7 +20,7 @@ return {
             function()
                 require('fzf-lua').files({ no_ignore = true, winopts = { preview = { hidden = true } } })
             end,
-            desc = "List files"
+            desc = "List all files"
         },
         {
             "<leader><leader>",
