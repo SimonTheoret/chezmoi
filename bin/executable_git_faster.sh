@@ -15,6 +15,8 @@ else
   git fsmonitor--daemon status
 fi
 
+git gc
+
 git config fetch.writeCommitGraph true
 
 git commit-graph write --reachable
