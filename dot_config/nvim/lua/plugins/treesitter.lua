@@ -1,12 +1,13 @@
 return {
     "nvim-treesitter/nvim-treesitter",
-    event = 'VeryLazy',
+    -- event = "VeryLazy",
+    lazy = false,
     build = ":TSUpdate",
     branch = "main",
     --adds annotation to remove alerts about missing fields:
     ---@diagnostic disable-next-line: missing-fields
     config = function()
-        require('nvim-treesitter.configs').setup({
+        require('nvim-treesitter').setup({
             ensure_installed =
             { "lua", "vim", "vimdoc",
                 "regex", "markdown", "markdown_inline",
