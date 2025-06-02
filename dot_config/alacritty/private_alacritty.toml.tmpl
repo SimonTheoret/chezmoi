@@ -1,11 +1,8 @@
-{{ if eq .chezmoi.os "darwin"  }}
-# import = [ "~/.config/alacritty/theme.toml" ]
-live_config_reload = true
-{{else}}
 [general]
-# import = [ "~/.config/alacritty/theme.toml" ]
+import = [
+    "~/.config/alacritty/themes/themes/base16_default_dark.toml"
+]
 live_config_reload = true
-{{end}}
 
 [font]
 {{ if eq .chezmoi.os "darwin"  }}
