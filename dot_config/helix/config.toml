@@ -1,4 +1,4 @@
-theme = "onedark"
+theme = "base16_default"
 
 [editor]
 default-yank-register="+"
@@ -20,6 +20,8 @@ C-r = ":reflow"
 esc = ["collapse_selection", "keep_primary_selection"]
 X = "select_line_above"
 x = "select_line_below"
+H = "goto_previous_buffer"
+L = "goto_next_buffer"
 # ";" = "repeat_last_motion"
 
 [editor.file-picker]
