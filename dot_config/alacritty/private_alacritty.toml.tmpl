@@ -1,4 +1,7 @@
+
+{{ if not (eq .chezmoi.os "darwin")  }}
 [general]
+{{end}}
 import = [
     "~/.config/alacritty/themes/themes/base16_default_dark.toml"
 ]
