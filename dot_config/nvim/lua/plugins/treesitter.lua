@@ -1,28 +1,6 @@
 return {
-    "nvim-treesitter/nvim-treesitter",
-    -- event = "VeryLazy",
+    'nvim-treesitter/nvim-treesitter',
     lazy = false,
-    build = ":TSUpdate",
-    branch = "main",
-    version = "*",
-    -- adds annotation to remove alerts about missing fields:
-    -- @diagnostic disable-next-line: missing-fields
-    config = function()
-        require('nvim-treesitter').setup({
-            ensure_installed =
-            { "lua", "vim", "vimdoc",
-                "regex", "markdown", "markdown_inline",
-                "bash", "latex", "bibtex",
-                "css", "html", "javascript",
-                "python", "rust", "go",
-                "gleam", "elixir", "xml" },
-            -- sync_install = false,
-            ignore_install = {},
-            auto_install = true,
-            highlight = {
-                enable = true,
-                -- disable = { "latex", "bibtex" }
-            },
-        })
-    end
+    branch = 'main',
+    build = ':TSUpdate',
 }
