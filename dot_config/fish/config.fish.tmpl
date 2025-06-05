@@ -57,6 +57,8 @@ set fish_cursor_default block
 # Set the insert mode cursor to a line
 set fish_cursor_insert line
 
+bind \cz 'fg 2>/dev/null; commandline -f repaint'
+
 {{if (and (eq .chezmoi.os "linux") (eq .chezmoi.username "stheoret") )}}
 export LC_ALL=en_US.UTF-8
 {{end}}
