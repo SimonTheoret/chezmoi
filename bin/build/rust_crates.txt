@@ -1,0 +1,11 @@
+derive_more
+derive_new
+serde
+facet
+pretty_assertions
+color-eyre
+thiserror
+tracing
+itertools
+proptest
+clap
