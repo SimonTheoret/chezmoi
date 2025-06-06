@@ -4,7 +4,7 @@ return {
     config = function()
         require("toggleterm").setup {
             -- size can be a number or function which is passed the current terminal
-            function(term)
+            size  = function(term)
                 if term.direction == "horizontal" then
                     return 15
                 elseif term.direction == "vertical" then
@@ -12,6 +12,8 @@ return {
                 end
             end,
             open_mapping = [[<leader>tt]], -- or { [[<c-\>]], [[<c-¥>]] } if you also use a Japanese keyboard.
+            terminal_mappings = true,
+            insert_mappings = false,
         }
     end,
     event = "VeryLazy"

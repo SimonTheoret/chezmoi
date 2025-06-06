@@ -8,6 +8,7 @@ return {
         keymap = {
             preset = 'default',
             ['<C-b>'] = { 'select_and_accept' },
+            ['<C-space>'] = {},
         },
         appearance = {
             nerd_font_variant = 'mono'
