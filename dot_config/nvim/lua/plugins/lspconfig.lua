@@ -9,14 +9,16 @@ return {
         local capabilities = require('blink.cmp').get_lsp_capabilities()
 
         -- python LSP
-        lspconfig.ruff.setup {
-            init_options = {
-                settings = {
-                    -- Any extra CLI arguments for `ruff` goes here.
-                    args = {},
-                }
-            }
-        }
+        vim.lsp.enable("ruff")
+        -- lspconfig.ruff.setup {
+        --
+        --     init_options = {
+        --         settings = {
+        --             -- Any extra CLI arguments for `ruff` goes here.
+        --             args = {},
+        --         }
+        --     }
+        -- }
         -- lspconfig.pylsp.setup({})
         -- lspconfig.basedpyright.setup {
         --     capabilities = capabilities,
@@ -67,105 +69,114 @@ return {
         --     }
         -- })
         -- Lua lsp
-        lspconfig.lua_ls.setup {
-            capabilities = capabilities,
-            on_init = function(client)
-                local path = client.workspace_folders[1].name
-                if vim.loop.fs_stat(path .. '/.luarc.json') or vim.loop.fs_stat(path .. '/.luarc.jsonc') then
-                    return
-                end
+        vim.lsp.enable("lua_ls")
+        -- lspconfig.lua_ls.setup {
+        --     capabilities = capabilities,
+        --     on_init = function(client)
+        --         local path = client.workspace_folders[1].name
+        --         if vim.loop.fs_stat(path .. '/.luarc.json') or vim.loop.fs_stat(path .. '/.luarc.jsonc') then
+        --             return
+        --         end
+        --
+        --         client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
+        --             runtime = {
+        --                 -- Tell the language server which version of Lua you're using
+        --                 -- (most likely LuaJIT in the case of Neovim)
+        --                 version = 'LuaJIT'
+        --             },
+        --             diagnostics = {
+        --                 globals = { 'vim', 'require' }
+        --             },
+        --             -- Make the server aware of Neovim runtime files
+        --             workspace = {
+        --                 checkThirdParty = false,
+        --                 library = {
+        --                     vim.env.VIMRUNTIME
+        --                     -- Depending on the usage, you might want to add additional paths here.
+        --                     -- "${3rd}/luv/library"
+        --                     -- "${3rd}/busted/library",
+        --                 }
+        --                 -- or pull in all of 'runtimepath'. NOTE: this is a lot slower
+        --                 -- library = vim.api.nvim_get_runtime_file("", true)
+        --             }
+        --         })
+        --     end,
+        --     settings = {
+        --         Lua = {}
+        --     }
+        -- }
 
-                client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
-                    runtime = {
-                        -- Tell the language server which version of Lua you're using
-                        -- (most likely LuaJIT in the case of Neovim)
-                        version = 'LuaJIT'
-                    },
-                    diagnostics = {
-                        globals = { 'vim', 'require' }
-                    },
-                    -- Make the server aware of Neovim runtime files
-                    workspace = {
-                        checkThirdParty = false,
-                        library = {
-                            vim.env.VIMRUNTIME
-                            -- Depending on the usage, you might want to add additional paths here.
-                            -- "${3rd}/luv/library"
-                            -- "${3rd}/busted/library",
-                        }
-                        -- or pull in all of 'runtimepath'. NOTE: this is a lot slower
-                        -- library = vim.api.nvim_get_runtime_file("", true)
-                    }
-                })
-            end,
-            settings = {
-                Lua = {}
-            }
-        }
-
-        lspconfig.gopls.setup({ -- go LSP
-            capabilities = capabilities,
-            settings = {
-                gopls = {
-                    symbolScope = "workspace",
-                    analyses = {
-                        unusedparams = true,
-                        useany = true,
-                        unusedvariable = true,
-                    },
-                    staticcheck = true,
-                    gofumpt = true,
-                    completeUnimported = true,
-                    usePlaceholders = true,
-                },
-            },
-        })
+        vim.lsp.enable("gopls")
+        -- lspconfig.gopls.setup({ -- go LSP
+        --     capabilities = capabilities,
+        --     settings = {
+        --         gopls = {
+        --             symbolScope = "workspace",
+        --             analyses = {
+        --                 unusedparams = true,
+        --                 useany = true,
+        --                 unusedvariable = true,
+        --             },
+        --             staticcheck = true,
+        --             gofumpt = true,
+        --             completeUnimported = true,
+        --             usePlaceholders = true,
+        --         },
+        --     },
+        -- })
 
         -- Gleam lsp
-        lspconfig.gleam.setup({
-            capabilities = capabilities,
-        })
+        vim.lsp.enable("gleam")
+        -- lspconfig.gleam.setup({
+        --     capabilities = capabilities,
+        -- })
 
+        vim.lsp.enable("nix_ls")
         -- Nix lsp
-        lspconfig.nil_ls.setup({
-            capabilities = capabilities,
-            settings = {
-                ['nil'] = {
-                    formatting = {
-                        command = { "nixfmt" },
-                    },
-                },
-            },
-        })
+        -- lspconfig.nil_ls.setup({
+        --     capabilities = capabilities,
+        --     settings = {
+        --         ['nil'] = {
+        --             formatting = {
+        --                 command = { "nixfmt" },
+        --             },
+        --         },
+        --     },
+        -- })
 
         -- Latex Texlab
-        lspconfig.texlab.setup({
-            capabilities = capabilities,
-        })
+        -- lspconfig.texlab.setup({
+        --     capabilities = capabilities,
+        -- })
 
         -- bash lsp
-        lspconfig.bashls.setup({
-            capabilities = capabilities,
-        })
+        vim.lsp.enable("bashls")
+        -- lspconfig.bashls.setup({
+        --     capabilities = capabilities,
+        -- })
 
         -- sql lsp
-        lspconfig.sqls.setup({
-            capabilities = capabilities,
-        })
+        vim.lsp.enable("sqls")
+        -- lspconfig.sqls.setup({
+        --     capabilities = capabilities,
+        -- })
 
         -- clang lsp
-        lspconfig.clangd.setup({
-            capabilities = capabilities,
-        })
+        vim.lsp.enable("clangd")
+        -- lspconfig.clangd.setup({
+        --     capabilities = capabilities,
+        -- })
 
         -- Web lsps
-        lspconfig.html.setup({
-            capabilities = capabilities,
-        })
+        vim.lsp.enable("html")
+        -- lspconfig.html.setup({
+        --     capabilities = capabilities,
+        -- })
 
-        lspconfig.cssls.setup({
-            capabilities = capabilities,
-        })
+        vim.lsp.enable("cssls")
+        -- lspconfig.cssls.setup({
+        --     capabilities = capabilities,
+        -- })
 
         vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, { desc = "diagnostic" })
         vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, { desc = "loclist" })
