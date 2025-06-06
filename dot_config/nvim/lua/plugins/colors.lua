@@ -181,22 +181,22 @@
 --         vim.cmd.colorscheme('ofirkai')
 --     end
 -- }
-return {
-    'navarasu/onedark.nvim',
-    priority = 1000, -- Ensure it loads first
-    lazy = false,
-    config = function()
-        require('onedark').setup {
-            -- style = 'darker',
-            code_style = { keywords = "bold" },
-            transparent = false,
-            lualine = {
-                transparent = false, -- lualine center bar transparency
-            },
-        }
-        require('onedark').load()
-    end
-}
+-- return {
+--     'navarasu/onedark.nvim',
+--     priority = 1000, -- Ensure it loads first
+--     lazy = false,
+--     config = function()
+--         require('onedark').setup {
+--             -- style = 'darker',
+--             code_style = { keywords = "bold" },
+--             transparent = false,
+--             lualine = {
+--                 transparent = false, -- lualine center bar transparency
+--             },
+--         }
+--         require('onedark').load()
+--     end
+-- }
 
 -- somewhere in your config:
 -- return {
@@ -219,3 +219,14 @@ return {
 --         vim.cmd [[colorscheme molokai]]
 --     end
 -- }
+return {
+    "rebelot/kanagawa.nvim",
+    lazy = false,
+    config = function()
+        vim.cmd("colorscheme kanagawa")
+        require('kanagawa').setup({
+            compile = true, -- enable compiling the colorscheme
+        }
+        )
+    end
+}
