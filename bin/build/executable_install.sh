@@ -33,6 +33,7 @@ cargo install shellharden
 cargo install --locked csview
 cargo install --git https://github.com/jgavris/rs-git-fsmonitor.git
 cargo install scooter
+cargo install cargo-nextest --locked
 
 sudo npm install -g tldr
 sudo npm i -g bash-language-server
