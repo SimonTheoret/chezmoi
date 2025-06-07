@@ -1,1 +1,1 @@
-return { 'milanglacier/yarepl.nvim', config = true }
+return { 'milanglacier/yarepl.nvim', config = true, lazy = true }
