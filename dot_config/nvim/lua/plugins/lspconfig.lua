@@ -131,7 +131,7 @@ return {
         --     capabilities = capabilities,
         -- })
 
-        vim.lsp.enable("nix_ls")
+        vim.lsp.enable("nil_ls")
         -- Nix lsp
         -- lspconfig.nil_ls.setup({
         --     capabilities = capabilities,
