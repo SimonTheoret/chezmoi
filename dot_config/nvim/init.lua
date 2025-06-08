@@ -23,6 +23,7 @@ vim.opt.cursorline = false
 vim.opt.signcolumn = "yes"
 vim.opt.relativenumber = true --relative numbers
 vim.wo.breakindent = true
+vim.opt.splitright = true
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
