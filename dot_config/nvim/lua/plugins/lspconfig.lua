@@ -3,180 +3,94 @@ return {
     ft = { "rust", "python", "go", "lua", "bash", "nix", "gleam", "tex", "cpp", "sql", "css", "html", "cmake" },
     dependencies = { 'saghen/blink.cmp' },
     config = function()
-        local lspconfig = require('lspconfig')
-
-        -- Set up cmp with lspconfig.
-        local capabilities = require('blink.cmp').get_lsp_capabilities()
-
         -- python LSP
         vim.lsp.enable("ruff")
-        -- lspconfig.ruff.setup {
-        --
-        --     init_options = {
-        --         settings = {
-        --             -- Any extra CLI arguments for `ruff` goes here.
-        --             args = {},
-        --         }
-        --     }
-        -- }
-        -- lspconfig.pylsp.setup({})
-        -- lspconfig.basedpyright.setup {
-        --     capabilities = capabilities,
-        --     settings = {
-        --         pyright = { autoImportCompletion = true, },
-        --         python = { analysis = { autoSearchPaths = true,
-        --             diagnosticMode = "workspace",
-        --             useLibraryCodeForTypes = true,
-        --             typeCheckingMode = "basic" } }
-        --     }
-        -- }
         vim.lsp.enable('basedpyright')
-        -- lspconfig.pyright.setup {
-        --     capabilities = capabilities,
-            -- settings = {
-            --     pyright = { autoImportCompletion = true, },
-            --     python = { analysis = {
-            --         autoSearchPaths = true,
-            --         diagnosticMode = "workspace",
-            --         useLibraryCodeForTypes = true, }
-            --     }
-            -- }
-        -- }
-        -- rust LSP
-        -- Managed by rusteceanvim and therefore can be commented out
-        -- lspconfig.rust_analyzer.setup({
-        --     {
-        --         capabilities = capabilities,
-        --         settings = {
-        --             ['rust-analyzer'] = {
-        --                 -- completion = {
-        --                 --     fullFunctionSignatures = { enable = true }
-        --                 -- },
-        --                 hover = {
-        --                     actions = { enable = true }
-        --                 },
-        --                 check = {
-        --                     command = "clippy"
-        --                 },
-        --                 cargo = {
-        --                     allFeatures = true,
-        --                 },
-        --                 files = {
-        --                     excludeDirs = { os.getenv("HOME") .. "/.cargo/" }
-        --                 }
-        --             },
-        --         },
-        --     }
-        -- })
+        vim.lsp.config('basedpyright', {
+            settings = {
+                python = {
+                    analysis = {
+                        typeCheckingMode = 'basic'
+                    }
+                }
+            }
+        }
+        )
+
         -- Lua lsp
         vim.lsp.enable("lua_ls")
-        -- lspconfig.lua_ls.setup {
-        --     capabilities = capabilities,
-        --     on_init = function(client)
-        --         local path = client.workspace_folders[1].name
-        --         if vim.loop.fs_stat(path .. '/.luarc.json') or vim.loop.fs_stat(path .. '/.luarc.jsonc') then
-        --             return
-        --         end
-        --
-        --         client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
-        --             runtime = {
-        --                 -- Tell the language server which version of Lua you're using
-        --                 -- (most likely LuaJIT in the case of Neovim)
-        --                 version = 'LuaJIT'
-        --             },
-        --             diagnostics = {
-        --                 globals = { 'vim', 'require' }
-        --             },
-        --             -- Make the server aware of Neovim runtime files
-        --             workspace = {
-        --                 checkThirdParty = false,
-        --                 library = {
-        --                     vim.env.VIMRUNTIME
-        --                     -- Depending on the usage, you might want to add additional paths here.
-        --                     -- "${3rd}/luv/library"
-        --                     -- "${3rd}/busted/library",
-        --                 }
-        --                 -- or pull in all of 'runtimepath'. NOTE: this is a lot slower
-        --                 -- library = vim.api.nvim_get_runtime_file("", true)
-        --             }
-        --         })
-        --     end,
-        --     settings = {
-        --         Lua = {}
-        --     }
-        -- }
+        vim.lsp.config('lua_ls', {
+            on_init = function(client)
+                if client.workspace_folders then
+                    local path = client.workspace_folders[1].name
+                    if
+                        path ~= vim.fn.stdpath('config')
+                        and (vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc'))
+                    then
+                        return
+                    end
+                end
 
+                client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
+                    runtime = {
+                        -- Tell the language server which version of Lua you're using (most
+                        -- likely LuaJIT in the case of Neovim)
+                        version = 'LuaJIT',
+                        -- Tell the language server how to find Lua modules same way as Neovim
+                        -- (see `:h lua-module-load`)
+                        path = {
+                            'lua/?.lua',
+                            'lua/?/init.lua',
+                        },
+                    },
+                    -- Make the server aware of Neovim runtime files
+                    workspace = {
+                        checkThirdParty = false,
+                        library = {
+                            vim.env.VIMRUNTIME
+                            -- Depending on the usage, you might want to add additional paths
+                            -- here.
+                            -- '${3rd}/luv/library'
+                            -- '${3rd}/busted/library'
+                        }
+                        -- Or pull in all of 'runtimepath'.
+                        -- NOTE: this is a lot slower and will cause issues when working on
+                        -- your own configuration.
+                        -- See https://github.com/neovim/nvim-lspconfig/issues/3189
+                        -- library = {
+                        --   vim.api.nvim_get_runtime_file('', true),
+                        -- }
+                    }
+                })
+            end,
+            settings = {
+                Lua = {}
+            }
+        })
+
+        -- Go lsp
         vim.lsp.enable("gopls")
-        -- lspconfig.gopls.setup({ -- go LSP
-        --     capabilities = capabilities,
-        --     settings = {
-        --         gopls = {
-        --             symbolScope = "workspace",
-        --             analyses = {
-        --                 unusedparams = true,
-        --                 useany = true,
-        --                 unusedvariable = true,
-        --             },
-        --             staticcheck = true,
-        --             gofumpt = true,
-        --             completeUnimported = true,
-        --             usePlaceholders = true,
-        --         },
-        --     },
-        -- })
 
         -- Gleam lsp
         vim.lsp.enable("gleam")
-        -- lspconfig.gleam.setup({
-        --     capabilities = capabilities,
-        -- })
 
-        vim.lsp.enable("nil_ls")
         -- Nix lsp
-        -- lspconfig.nil_ls.setup({
-        --     capabilities = capabilities,
-        --     settings = {
-        --         ['nil'] = {
-        --             formatting = {
-        --                 command = { "nixfmt" },
-        --             },
-        --         },
-        --     },
-        -- })
-
-        -- Latex Texlab
-        -- lspconfig.texlab.setup({
-        --     capabilities = capabilities,
-        -- })
+        vim.lsp.enable("nil_ls")
 
         -- bash lsp
         vim.lsp.enable("bashls")
-        -- lspconfig.bashls.setup({
-        --     capabilities = capabilities,
-        -- })
 
         -- sql lsp
         vim.lsp.enable("sqls")
-        -- lspconfig.sqls.setup({
-        --     capabilities = capabilities,
-        -- })
 
         -- clang lsp
         vim.lsp.enable("clangd")
-        -- lspconfig.clangd.setup({
-        --     capabilities = capabilities,
-        -- })
 
-        -- Web lsps
+        -- html lsp
         vim.lsp.enable("html")
-        -- lspconfig.html.setup({
-        --     capabilities = capabilities,
-        -- })
 
+        -- CSS lsp
         vim.lsp.enable("cssls")
-        -- lspconfig.cssls.setup({
-        --     capabilities = capabilities,
-        -- })
 
         vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, { desc = "diagnostic" })
         vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, { desc = "loclist" })
