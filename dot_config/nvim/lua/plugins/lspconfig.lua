@@ -30,7 +30,7 @@ return {
         --             typeCheckingMode = "basic" } }
         --     }
         -- }
-        vim.lsp.enable('pyright')
+        vim.lsp.enable('basedpyright')
         -- lspconfig.pyright.setup {
         --     capabilities = capabilities,
             -- settings = {
