@@ -25,6 +25,10 @@ L = "goto_next_buffer"
 C-y = ":sh zellij run -n Yazi -c -f -x 5%% -y 5%% --width 90%% --height 90%% -- bash ~/.config/helix/yazi-picker.sh open %{buffer_name}"
 C-g = ":sh zellij run -f -x 5%% -y 5%% --width 90%% --height 90%% -- sh -c \"lazygit && zellij action close-pane\"" 
 C-t = ":sh zellij run -f -x 5%% -y 5%% --width 90%% --height 90%% -- sh -c \"scooter && zellij action close-pane\"" 
+
+
+[keys.normal.space.n]
+n = ":vs ./notes.md"
 # C-t = [ ":write-all", ":insert-output scooter >/dev/tty", ":redraw", ":reload-all" ]
 # C-l = [
 #     ":write-all",
