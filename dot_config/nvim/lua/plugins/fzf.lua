@@ -113,6 +113,10 @@ return {
             end,
             desc = "Man pages"
         },
-
+        {
+            '<leader>rv',
+            function() require('yarepl.extensions.fzf').repl_show() end,
+            desc = "REPL buffers"
+        }
     },
 }
