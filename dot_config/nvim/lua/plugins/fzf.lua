@@ -104,7 +104,7 @@ return {
             function()
                 require('fzf-lua').helptags()
             end,
-            desc = "Man pages"
+            desc = "Vim help"
         },
         {
             "<leader>fh",
