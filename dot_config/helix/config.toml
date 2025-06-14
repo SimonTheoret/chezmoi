@@ -24,6 +24,8 @@ L = "goto_next_buffer"
 C-y = ":sh zellij run -n Yazi -c -f -x 5%% -y 5%% --width 90%% --height 90%% -- bash ~/.config/helix/yazi-picker.sh open %{buffer_name}"
 C-g = ":sh zellij run -f -x 5%% -y 5%% --width 90%% --height 90%% -- sh -c \"lazygit && zellij action close-pane\"" 
 C-t = ":sh zellij run -f -x 5%% -y 5%% --width 90%% --height 90%% -- sh -c \"scooter && zellij action close-pane\"" 
+space.B = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}" 
+
 
 [keys.normal.space.t]
 t = ":sh zellij action new-pane -f -x 60%% -y 1%% --width 40%% --height 100%%" 
