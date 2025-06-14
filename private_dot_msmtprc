@@ -6,7 +6,7 @@ tls_trust_file /etc/ssl/certs/ca-certificates.crt
 logfile        ~/.msmtp.log
 
 # Gmail
-account        gmail
+account        simon.theoret99@gmail.com
 host           smtp.gmail.com
 port           465
 tls_starttls   off
@@ -16,4 +16,4 @@ user           simon.theoret99@gmail.com
 passwordeval   gpg --no-tty --for-your-eyes-only -dq ~/.sec.gpg
 
 # Set a default account
-account default: gmail
+account default: simon.theoret99@gmail.com
