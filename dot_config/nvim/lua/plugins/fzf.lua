@@ -5,6 +5,7 @@ return {
     config = function()
         -- calling `setup` is optional for customization
         require("fzf-lua").setup({
+            "max-perf",
             -- { "ivy" },
             grep = { rg_glob = true },
             fzf_colors = {
