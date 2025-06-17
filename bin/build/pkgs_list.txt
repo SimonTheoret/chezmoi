@@ -4,3 +4,4 @@ make
 node
 htop
 watchman
+mosh
