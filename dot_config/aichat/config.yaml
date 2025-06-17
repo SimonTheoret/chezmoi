@@ -6,3 +6,5 @@ clients:
       - name: qwen2.5-coder:32b
         max_input_tokens: 131072
         supports_reasoning: false
+      - name: deepcoder:14b
+        supports_reasoning: true
