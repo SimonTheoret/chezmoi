@@ -28,3 +28,13 @@ source.rev = "896e6d09b23a1b0d87e45bf97ca34a249f41495c"
 [[language]]
 name = "markdown"
 comment-tokens = ["-", "+", "*", "- [ ]", ">"]
+
+[[language]]
+name = "cpp"
+language-servers = ["clangd"]
+roots = [".git", "CMakeLists.txt"]
+
+[language-server.clangd]
+command = "clangd"
+args = ["--enable-config"]
+
