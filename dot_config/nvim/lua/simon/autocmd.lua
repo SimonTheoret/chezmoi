@@ -15,3 +15,13 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.bo.textwidth = 80
   end,
 })
+
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "REPL",
+  callback = function()
+      _G.set_terminal_keymaps()
+  end,
+})
+
+
