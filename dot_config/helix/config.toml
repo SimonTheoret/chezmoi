@@ -58,5 +58,7 @@ n = ":vs ./notes.md"
 git-ignore = false
 hidden = false
 
-# [editor.statusline]
-# primary-selection-length = "right"
+[editor.statusline]
+left = ["mode", "spinner", "file-modification-indicator"]
+center=["file-name", "version-control" ]
+right= ["position","position-percentage", "register", "spacer" ]
