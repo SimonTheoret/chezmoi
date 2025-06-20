@@ -58,7 +58,8 @@ n = ":vs ./notes.md"
 git-ignore = false
 hidden = false
 
-[editor.statusline]
-left = ["mode", "spinner", "file-modification-indicator"]
-center=["file-name", "version-control" ]
-right= ["position","position-percentage", "register", "spacer" ]
+
+[editor.indent-guides]
+render = true
+character = "⸽" # Some characters that work well: "▏", "┆", "┊", "⸽"
+skip-levels = 1
