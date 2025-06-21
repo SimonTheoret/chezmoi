@@ -86,6 +86,9 @@ return {
         -- clang lsp
         vim.lsp.enable("clangd")
 
+        -- cmake lsp
+        vim.lsp.enable('cmake')
+
         -- html lsp
         vim.lsp.enable("html")
 
