@@ -21,13 +21,18 @@ return {
         {
 
             "<leader>tt",
-            ":ToggleTerm<CR>",
-            desc = "Toggle term"
+            ":ToggleTerm direction=horizontal<CR>",
+            desc = "Toggle term horizontal"
         },
         {
             "<leader>tn",
             ":ToggleTerm direction=vertical<CR>",
-            desc = "Toggle term"
+            desc = "Toggle term vertical"
+        },
+        {
+            "<leader>ta",
+            ":TermSelect<CR>",
+            desc = "Select term"
         }
     }
 }
