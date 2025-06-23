@@ -1,6 +1,6 @@
 return {
     "neovim/nvim-lspconfig",
-    ft = { "rust", "python", "go", "lua", "bash", "nix", "gleam", "tex", "cpp", "sql", "css", "html", "cmake" },
+    ft = { "rust", "python", "go", "lua", "bash", "nix", "gleam", "tex", "cpp", "sql", "css", "html", "cmake", "sh" },
     dependencies = { 'saghen/blink.cmp' },
     config = function()
         -- python LSP
