@@ -58,3 +58,4 @@ curl -sfL https://direnv.net/install.sh | bash
 ./build_helix.sh
 
 uv tool install commitizen
+uv tool install pre-commit
