@@ -19,7 +19,7 @@ set -e
 # npm install ---save-dev conventional-changelog
 # npx conventional-changelog -p angular -r 0
 
-mkdir .github/workflows/
+mkdir -p .github/workflows/
 
 
 
