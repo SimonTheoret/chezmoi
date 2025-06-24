@@ -21,16 +21,14 @@ gui: # onedarker theme
       - "bold"
 os:
   editPreset: 'nvim'
-
 git:
   paging:
     colorArg: always
     pager: delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
-
 customCommands:
   - key: "C"
     command: "git cz c"
     description: "commit with commitizen"
     context: "files"
     loadingText: "opening commitizen commit tool"
-    subprocess: true
+    output: terminal
