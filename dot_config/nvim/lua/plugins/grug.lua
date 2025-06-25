@@ -18,7 +18,7 @@ return {
             end,
             desc = "Search and replace cword"
         },
-        { "<leader>sr", function() require('grug-far').open({ engine = 'astgrep' }) end,                        desc = "Search and replace" },
+        { "<leader>sr", function() require('grug-far').open({ engine = 'ripgrep' }) end,                        desc = "Search and replace" },
         { "<leader>si", function() require('grug-far').open({ transient = true }) end,                          desc = "Search interactive" },
         { "<leader>sl", function() require('grug-far').open({ prefills = { paths = vim.fn.expand("%") } }) end, desc = "Search current file" },
     }
