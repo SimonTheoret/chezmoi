@@ -10,3 +10,4 @@ itertools
 proptest
 clap
 spez
+insta
