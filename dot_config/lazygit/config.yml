@@ -19,12 +19,15 @@ gui: # onedarker theme
       - "#e55561"
     activeBorderColor:
       - "bold"
+
 os:
-  editPreset: 'nvim'
+  editPreset: 'helix'
+
 git:
   paging:
     colorArg: always
     pager: delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
+
 customCommands:
   - key: "C"
     command: "git cz c"
