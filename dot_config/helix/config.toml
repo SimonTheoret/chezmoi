@@ -63,6 +63,6 @@ character = "┆" # Some characters that work well: "▏", "┆", "┊", "⸽"
 skip-levels = 1
 
 [editor.statusline]
-left = ["mode", "spinner", "file-name", "read-only-indicator", "file-modification-indicator"]
+left = ["mode", "spinner", "file-name", "read-only-indicator", "file-modification-indicator","workspace-diagnostics"]
 center = ["version-control"]
-right = ["workspace-diagnostics", "diagnostics", "selections", "primary-selection-length", "register", "position", "position-percentage","total-line-numbers","file-encoding"]
+right = [ "diagnostics", "selections", "primary-selection-length", "register", "position", "position-percentage","total-line-numbers","file-encoding"]
