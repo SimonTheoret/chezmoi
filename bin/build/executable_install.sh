@@ -41,6 +41,7 @@ sudo npm i -g bash-language-server
 
 go install github.com/jesseduffield/lazygit@latest
 go install github.com/jesseduffield/lazydocker@latest
+go install mvdan.cc/sh/v3/cmd/shfmt@latest
 
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
