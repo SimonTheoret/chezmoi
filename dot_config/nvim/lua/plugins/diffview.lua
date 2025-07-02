@@ -1,6 +1,16 @@
 return {
     "sindrets/diffview.nvim",
-    config = true,
+    config = function()
+        require("diffview").setup({
+            view = {
+                merge_tool = {
+                    -- Config for conflicted files in diff views during a merge or rebase.
+                    layout = "diff3_mixed",
+                }
+            }
+
+        })
+    end,
     keys = {
         { "<leader>gd", ":DiffviewOpen<cr>",          desc = "Open diff view" },
         { "<leader>gh", ":DiffviewFileHistory %<cr>", desc = "Open diff current file history" },
