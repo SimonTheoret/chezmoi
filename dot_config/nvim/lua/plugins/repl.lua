@@ -1,9 +1,7 @@
 return {
     'milanglacier/yarepl.nvim',
-    config = function()
-        local yarepl = require 'yarepl'
-        yarepl.setup {}
-    end,
+    event = "VeryLazy",
+    config = true,
     keys = {
         {
             '<leader>rs', ":REPLStart<CR>", desc = "Start REPL"
