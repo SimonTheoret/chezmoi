@@ -12,7 +12,7 @@ return {
                 cmd = { adapter = "ollama" }
             },
             opts = {
-                send_code = false,
+                send_code = true,
             },
             display = {
                 action_palette = {
