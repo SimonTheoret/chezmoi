@@ -27,7 +27,13 @@ C-t = ":sh zellij run -f -x 5%% -y 5%% --width 90%% --height 90%% -- sh -c \"sco
 C-l = ":sh zellij run -f -x 5%% -y 5%% --width 90%% --height 90%% -- sh -c \"lazydocker && zellij action close-pane\"" 
 space.B = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}" 
 space.space = "file_picker"
-
+space.e = [
+      ":sh rm -f /tmp/unique-file-h21a434",
+      ":insert-output yazi '%{buffer_name}' --chooser-file=/tmp/unique-file-h21a434",
+      ":insert-output echo \"x1b[?1049h\" > /dev/tty",
+      ":open %sh{cat /tmp/unique-file-h21a434}",
+      ":redraw"
+ ]
 
 [keys.normal.space.n]
 n = ":vs ./notes.md"
@@ -38,13 +44,6 @@ n = ":vs ./notes.md"
 #     ":redraw",
 #     ":reload-all"
 # ]
-# [keys.normal.space]
-# e = [
-#       ":sh rm -f /tmp/unique-file-h21a434",
-#       ":insert-output yazi '%{buffer_name}' --chooser-file=/tmp/unique-file-h21a434",
-#       ":insert-output echo \"x1b[?1049h\" > /dev/tty",
-#       ":open %sh{cat /tmp/unique-file-h21a434}",
-#       ":redraw", ]
 # E = [
 #     ":sh rm -f /tmp/unique-file-u41ae14",
 #     ":insert-output yazi '%{workspace_directory}' --chooser-file=/tmp/unique-file-u41ae14",

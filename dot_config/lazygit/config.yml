@@ -21,7 +21,7 @@ gui: # onedarker theme
       - "bold"
 
 os:
-  editPreset: 'helix'
+  editPreset: 'helix (hx)'
 
 git:
   paging:
