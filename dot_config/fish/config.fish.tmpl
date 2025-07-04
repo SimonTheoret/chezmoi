@@ -4,7 +4,7 @@ zoxide init fish | source
 
 
 # Helix configuration
-bind ctrl-a 'fg 2>/dev/null; commandline -f repaint'
+bind ctrl-z 'fg 2>/dev/null; commandline -f repaint'
 
 {{ if eq .chezmoi.os "darwin"  }}
 ## Macos
