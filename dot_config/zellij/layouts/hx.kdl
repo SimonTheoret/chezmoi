@@ -4,45 +4,45 @@ layout {
             pane size=1 borderless=true {
                 plugin location="tab-bar"
             }
-            pane
+            pane 
             pane size=1 borderless=true {
                 plugin location="status-bar"
             }
         }
-    tab {
+    tab name="editor"{
     	pane size=1 borderless=true {
-        plugin location="tab-bar"
+            plugin location="tab-bar"
     	}
-    pane
-    pane size=1 borderless=true {
-        plugin location="status-bar"
+        pane split_direction="vertical" {
+            pane size="60%"
+            pane size="40%"
+        }
+        pane size=1 borderless=true {
+            plugin location="status-bar"
+        	}
+        }
+    tab name="yazi" {
+    	pane size=1 borderless=true {
+            plugin location="tab-bar"
+    	}
+        pane {
+            name   "yazi"
+            command "yazi"
+            }
+        pane size=1 borderless=true {
+            plugin location="status-bar"
     	}
     }
-    tab {
+    tab name="lazygit" {
     	pane size=1 borderless=true {
-        plugin location="tab-bar"
+            plugin location="tab-bar"
     	}
-    pane command="yazi"
-    pane size=1 borderless=true {
-        plugin location="status-bar"
-    	}
-    }
-    tab {
-    	pane size=1 borderless=true {
-        plugin location="tab-bar"
-    	}
-    pane command="lazygit"
-    pane size=1 borderless=true {
-        plugin location="status-bar"
-    	}
-    }
-    tab {
-    	pane size=1 borderless=true {
-        plugin location="tab-bar"
-    	}
-    pane
-    pane size=1 borderless=true {
-        plugin location="status-bar"
+        pane {
+            name "lazygit"
+            command "lazygit"
+            }
+        pane size=1 borderless=true {
+            plugin location="status-bar"
     	}
     }
 }
