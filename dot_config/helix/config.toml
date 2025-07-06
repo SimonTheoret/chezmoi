@@ -10,6 +10,8 @@ true-color = true
 
 [editor.lsp]
 display-progress-messages = true
+auto-signature-help = false
+
 
 [editor.soft-wrap]
 enable = true
@@ -34,6 +36,10 @@ space.e = [
       ":open %sh{cat /tmp/unique-file-h21a434}",
       ":redraw"
  ]
+C-h = "signature_help"
+
+[keys.insert]
+C-h = "signature_help"
 
 [keys.normal.space.n]
 n = ":vs ./notes.md"
