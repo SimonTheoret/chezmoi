@@ -4,7 +4,18 @@ auto-format = true
 language-servers = [
     {name = "basedpyright"},
     {name = "ruff"},
+    {name = "lsp-ai"}
 ]
+
+
+[[language]]
+name = "rust"
+auto-format = true
+language-servers = [
+    {name = "rust-analyzer"},
+    {name = "lsp-ai"}
+]
+
 
 [language-server.basedpyright]
 command = "basedpyright-langserver"
@@ -31,10 +42,16 @@ comment-tokens = ["-", "+", "*", "- [ ]", ">"]
 
 [[language]]
 name = "cpp"
-language-servers = ["clangd"]
+language-servers = [
+    {name = "clangd"},
+    {name = "lsp-ai"}
+]
 roots = [".git", "CMakeLists.txt"]
 
 [language-server.clangd]
 command = "clangd"
 args = ["--enable-config"]
 
+
+[language-server.lsp-ai]
+command = "lsp-ai"

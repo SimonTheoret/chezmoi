@@ -35,6 +35,7 @@ cargo install --git https://github.com/jgavris/rs-git-fsmonitor.git
 cargo install scooter
 cargo install cargo-nextest --locked
 cargo install aichat
+cargo install lsp-ai
 
 sudo npm install -g tldr
 sudo npm i -g bash-language-server
