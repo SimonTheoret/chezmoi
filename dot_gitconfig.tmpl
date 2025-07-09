@@ -22,8 +22,8 @@
 #     conflictstyle = zdiff3
 
 [difftool]
-    prompt = false
+    prompt = true
 [diff]
-    tool = hx
-[difftool "hx"]
-    cmd = "hx --vpslit  \"$LOCAL\" \"$REMOTE\""
+    tool = nvimdiff
+[difftool "nvimdiff"]
+    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
