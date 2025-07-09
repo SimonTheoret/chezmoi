@@ -5,5 +5,8 @@ return {
           strategy = "toggleterm",
 })
     end,
-    lazy = true
+    keys = {
+        {"<leader>ls", ":OverseerToggle<CR>", desc="Overseer"}
+
+    }
 }
