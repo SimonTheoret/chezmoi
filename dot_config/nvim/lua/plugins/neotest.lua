@@ -18,10 +18,6 @@ return {
             output = {
                 open_on_run = false
             },
-            consumers = {
-                overseer = require("neotest.consumers.overseer"),
-            },
-
             -- quickfix = {
             --     open = function()
             --         require("trouble").open({ mode = "quickfix", focus = false })
