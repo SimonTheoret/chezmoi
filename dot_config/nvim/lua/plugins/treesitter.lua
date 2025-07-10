@@ -18,7 +18,7 @@ return {
             "bash", "latex", "bibtex",
             "css", "html", "javascript",
             "python", "rust", "go",
-            "gleam", "elixir", "xml", "zig"
+            "gleam", "elixir", "xml", "zig", "cpp"
         }
     end
 }
