@@ -55,7 +55,7 @@ vim.cmd('autocmd! TermOpen term://*toggleterm#* lua set_terminal_keymaps()')
 vim.cmd('autocmd! TermOpen term://*bash* lua set_terminal_keymaps()')
 vim.cmd('autocmd! TermOpen term://*zsh* lua set_terminal_keymaps()')
 vim.cmd('autocmd! TermOpen term://*sh* lua set_terminal_keymaps()')
-vim.cmd('autocmd! TermOpen term://*sh* lua set_terminal_keymaps()')
+vim.cmd('autocmd! TermOpen term://*fish* lua set_terminal_keymaps()')
 
 vmap.set("n", "<leader>cln", function()
     local search = "%s/\\s\\+$//e"
