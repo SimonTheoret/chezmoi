@@ -94,10 +94,10 @@ return {
         end)
         -- Go to either the start or the end, whichever is closer.
         -- Use if you want more granular movements
-        vim.keymap.set({ "n", "x", "o" }, "]d", function()
+        vim.keymap.set({ "n", "x", "o" }, "]l", function()
             require("nvim-treesitter-textobjects.move").goto_next("@conditional.outer", "textobjects")
         end)
-        vim.keymap.set({ "n", "x", "o" }, "[d", function()
+        vim.keymap.set({ "n", "x", "o" }, "[l", function()
             require("nvim-treesitter-textobjects.move").goto_previous("@conditional.outer", "textobjects")
         end)
     end,

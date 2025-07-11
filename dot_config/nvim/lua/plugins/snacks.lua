@@ -10,6 +10,7 @@ return {
         bigfile = { enabled = true },
         dashboard = { enabled = false },
         explorer = { enabled = false },
+        git = { enabled = false },
         indent = { enabled = true },
         input = { enabled = false },
         picker = { enabled = true },
@@ -19,7 +20,7 @@ return {
         scroll = { enabled = false },
         statuscolumn = { enabled = true },
         words = { enabled = true },
-        iamge = {enabled = false}
+        image = { enabled = false }
     },
     keys = {
         { "<leader>fm", function() Snacks.picker() end,                  desc = "Show all Snacks pickers" },
