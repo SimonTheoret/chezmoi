@@ -26,7 +26,7 @@ return {
         {
             "<leader>xa",
             ":Trouble <CR>",
-            desc = "Quickfix List (Trouble)",
+            desc = "Trouble all (Trouble)",
         },
     },
 }
