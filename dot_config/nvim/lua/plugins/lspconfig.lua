@@ -121,13 +121,13 @@ return {
                 -- See `:help vim.lsp.*` for documentation on any of the below functions
                 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = "Lsp declaration", buffer = ev.buf })
 
-                vim.keymap.set('n', 'gd', ":Trouble lsp_definitions focus=true<CR>",
+                vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition() end,
                     { desc = "LSP definition", buffer = ev.buf })
 
                 vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>',
                     { desc = "Lsp informations", buffer = ev.buf })
 
-                vim.keymap.set('n', 'gI', ":Trouble lsp_implementations focus=true<CR>",
+                vim.keymap.set('n', 'gI', function() vim.lsp.buf.implementation() end,
                     { desc = "LSP implementations", buffer = ev.buf })
 
                 vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { desc = "Lsp signature", buffer = ev.buf })
@@ -142,7 +142,7 @@ return {
                     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
                 end, { desc = "Lsp list workspace folders", buffer = ev.buf })
 
-                vim.keymap.set('n', '<leader>D', ":Trouble lsp_type_definitions focus=true<CR>",
+                vim.keymap.set('n', '<leader>D', function() vim.lsp.buf.type_definition() end,
                     { desc = "LSP type definition", buffer = ev.buf })
 
                 vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, { desc = "Lsp rename", buffer = ev.buf })
@@ -150,7 +150,9 @@ return {
                 vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action,
                     { desc = "Lsp code action", buffer = ev.buf })
 
-                vim.keymap.set('n', 'gr', ":Trouble lsp_references focus=true<CR>",
+                vim.keymap.set('n', 'gr', function()
+                        vim.lsp.buf.references()
+                    end,
                     { desc = "Lsp references", buffer = ev.buf })
 
                 -- vim.keymap.set('n', 'gr', function() require('fzf-lua').lsp_references() end,
