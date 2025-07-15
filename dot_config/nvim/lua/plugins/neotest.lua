@@ -36,6 +36,17 @@ return {
             "<leader>tc",
             function()
                 require("neotest").run.run({
+                    extra_args = { vim.fn.input(
+                        "Runner Args: ") }
+                })
+            end,
+            desc = "Run all with custom args"
+        },
+
+        {
+            "<leader>tC",
+            function()
+                require("neotest").run.run({
                     suite = true,
                     path = vim.uv.cwd(),
                     extra_args = { vim.fn.input(
