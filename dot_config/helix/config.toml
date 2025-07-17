@@ -42,6 +42,7 @@ C-h = "signature_help"
 C-h = "signature_help"
 
 [keys.normal.space.n]
+f = [":toggle-option file-picker.gitignore", ":toggle-option file-picker.hidden"]
 n = ":vs ./notes.md"
 # C-t = [ ":write-all", ":insert-output scooter >/dev/tty", ":redraw", ":reload-all" ]
 # C-l = [
