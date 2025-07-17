@@ -16,6 +16,15 @@ language-servers = [
     {name = "lsp-ai"}
 ]
 
+[language-server.rust-analyzer.config]
+files = { exclude = ["~/.cargo", "~/.rustup"], watcherExclude = ["~/.cargo", "~/.rustup"] }
+
+[language-server.rust-analyzer.config.check]
+command = "clippy"
+
+[language-server.rust-analyzer.config.cargo]
+features = "all"
+
 
 [language-server.basedpyright]
 command = "basedpyright-langserver"
