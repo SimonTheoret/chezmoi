@@ -7,6 +7,7 @@ line-number="relative"
 bufferline="multiple"
 completion-timeout = 50
 true-color = true
+auto-format = true
 
 [editor.lsp]
 display-progress-messages = true
