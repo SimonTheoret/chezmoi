@@ -41,8 +41,11 @@ C-h = "signature_help"
 [keys.insert]
 C-h = "signature_help"
 
-[keys.normal.space.n]
+[keys.normal.space.t]
 f = [":toggle-option file-picker.gitignore", ":toggle-option file-picker.hidden"]
+h = [":toggle-option lsp.display-inlay-hints"]
+
+[keys.normal.space.n]
 n = ":vs ./notes.md"
 # C-t = [ ":write-all", ":insert-output scooter >/dev/tty", ":redraw", ":reload-all" ]
 # C-l = [
