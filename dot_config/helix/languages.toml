@@ -65,6 +65,12 @@ args = ["--enable-config"]
 [language-server.lsp-ai]
 command = "lsp-ai"
 
+
+[[language]]
+name = "bash"
+formatter = { command = "shfmt", args = ["-filename", "%{buffer_name}"] }
+
+
 [[language]]
 name = "nix"
 formatter = { command = "nixfmt", args = ["-q"] }
