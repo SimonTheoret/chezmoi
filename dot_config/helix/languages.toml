@@ -69,9 +69,15 @@ command = "lsp-ai"
 [[language]]
 name = "bash"
 formatter = { command = "shfmt", args = ["-filename", "%{buffer_name}"] }
+auto-format = true
 
 
 [[language]]
 name = "nix"
 formatter = { command = "nixfmt", args = ["-q"] }
+auto-format = true
 
+[[language]]
+name = "typescript"
+formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+auto-format = true
