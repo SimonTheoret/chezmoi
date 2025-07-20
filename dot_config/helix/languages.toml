@@ -64,3 +64,8 @@ args = ["--enable-config"]
 
 [language-server.lsp-ai]
 command = "lsp-ai"
+
+[[language]]
+name = "nix"
+formatter = { command = "nixfmt", args = ["-q"] }
+
