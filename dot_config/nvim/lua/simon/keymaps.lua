@@ -30,6 +30,7 @@ vmap.set("n", "<M-x>", "q:", { desc = "Commands" })
 -- Helix
 vmap.set("n", "gl", "$" )
 vmap.set("n", "gh", "0" )
+vmap.set({"n","v","o","x"}, "m", "%" )
 
 -- Insert blank lines
 vmap.set("n", "<leader>o", "o<Esc>k", { desc = "Whitespace under cursor" })
