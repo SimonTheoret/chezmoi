@@ -14,7 +14,7 @@ return {
             nerd_font_variant = 'mono'
         },
         signature = { enabled = true },
-        completion = { ghost_text = { enabled = true, show_without_selection = true } },
+        completion = { ghost_text = { enabled = false, show_without_selection = false } },
         sources = {
             default = { 'lsp', 'path', 'snippets', 'buffer' },
         },
