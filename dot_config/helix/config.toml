@@ -44,7 +44,8 @@ space.m = "goto_word"
 C-h = "signature_help"
 
 [keys.normal.space.t]
-a = [":toggle-option file-picker.git-ignore",  ":toggle-option file-picker.hidden"]
+g = [":toggle-option file-picker.git-ignore"]
+t = [":toggle-option file-picker.hidden"]
 h = [":toggle-option lsp.display-inlay-hints"]
 
 [keys.normal.space.n]
