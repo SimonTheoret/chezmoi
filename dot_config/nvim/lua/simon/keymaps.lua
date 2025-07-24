@@ -30,13 +30,15 @@ vmap.set("n", "<M-x>", "q:", { desc = "Commands" })
 -- Helix
 vmap.set("n", "gl", "$" )
 vmap.set("n", "gh", "0" )
-vmap.set("n", "m", "%" )
+vmap.set({"n","v","o","x"}, "m", "%" )
 
 -- Insert blank lines
 vmap.set("n", "<leader>o", "o<Esc>k", { desc = "Whitespace under cursor" })
 vmap.set("n", "<leader>O", 'O<Esc>j', { desc = "Whitespace above cursor" })
 
 vmap.set("n", "<leader>cd", ":cd %:h<CR>", { desc = "Make file's path as working dir" })
+vmap.set("n", "<leader>cd", ":cd %:h<CR>", { desc = "Make file's path as working dir" })
+vmap.set("n", "<leader>pwd", ":lua print(vim.api.nvim_buf_get_name(0))<CR>", { desc = "Print current buffer path" })
 
 vmap.set("n", "<leader>nn", ":80vs notes.md<CR>", {desc="Open notes in directory root"})
 

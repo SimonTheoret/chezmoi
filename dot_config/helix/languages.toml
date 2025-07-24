@@ -29,7 +29,9 @@ features = "all"
 [language-server.basedpyright]
 command = "basedpyright-langserver"
 args = ["--stdio"]
-config = {}
+
+[language-server.basedpyright.config]
+basedpyright.analysis.typeCheckingMode = "basic"
 
 [language-server.ruff]
 command = "ruff"
