@@ -40,7 +40,7 @@ return {
                         "Runner Args: ") }
                 })
             end,
-            desc = "Run all with custom args"
+            desc = "Run nearest test with custom args"
         },
 
         {
@@ -53,7 +53,7 @@ return {
                         "Runner Args: ") }
                 })
             end,
-            desc = "Run all with custom args"
+            desc = "Run all test with custom args"
         },
         { "<leader>tl", function() require("neotest").run.run_last() end,                                            desc = "Run last" },
         { "<leader>ts", function() require("neotest").summary.toggle() end,                                          desc = "Toggle tests summary" },
