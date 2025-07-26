@@ -1,6 +1,6 @@
 return {
     "neovim/nvim-lspconfig",
-    ft = { "rust", "python", "go", "lua", "bash", "nix", "gleam", "tex", "cpp", "sql", "css", "html", "cmake", "sh", "typescript", "javascript", "php"},
+    ft = { "rust", "python", "go", "lua", "bash", "nix", "gleam", "tex", "cpp", "sql", "css", "html", "cmake", "sh", "typescript", "javascript", "php", "vue" },
     dependencies = { 'saghen/blink.cmp' },
     config = function()
         -- python LSP
@@ -94,6 +94,10 @@ return {
 
         -- ts lsp
         vim.lsp.enable("ts_ls")
+
+        -- vue lsp
+        vim.lsp.enable("vue_ls")
+        vim.lsp.enable("vtsls")
 
         -- html lsp
         vim.lsp.enable("html")
