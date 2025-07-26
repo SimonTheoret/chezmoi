@@ -89,6 +89,9 @@ return {
         -- cmake lsp
         vim.lsp.enable('cmake')
 
+        -- TS lsp
+        vim.lsp.enable("ts_ls")
+
         -- html lsp
         vim.lsp.enable("html")
 
