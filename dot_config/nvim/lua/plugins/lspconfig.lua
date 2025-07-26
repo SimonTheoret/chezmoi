@@ -1,6 +1,6 @@
 return {
     "neovim/nvim-lspconfig",
-    ft = { "rust", "python", "go", "lua", "bash", "nix", "gleam", "tex", "cpp", "sql", "css", "html", "cmake", "sh" },
+    ft = { "rust", "python", "go", "lua", "bash", "nix", "gleam", "tex", "cpp", "sql", "css", "html", "cmake", "sh", "typescript", "javascript", "php"},
     dependencies = { 'saghen/blink.cmp' },
     config = function()
         -- python LSP
@@ -17,7 +17,7 @@ return {
         }
         )
 
-        -- Lua lsp
+        -- lua lsp
         vim.lsp.enable("lua_ls")
         vim.lsp.config('lua_ls', {
             on_init = function(client)
@@ -68,13 +68,13 @@ return {
             }
         })
 
-        -- Go lsp
+        -- go lsp
         vim.lsp.enable("gopls")
 
-        -- Gleam lsp
+        -- gleam lsp
         vim.lsp.enable("gleam")
 
-        -- Nix lsp
+        -- nix lsp
         vim.lsp.enable("nil_ls")
 
         -- bash lsp
@@ -89,13 +89,16 @@ return {
         -- cmake lsp
         vim.lsp.enable('cmake')
 
-        -- TS lsp
+        -- php lsp
+        vim.lsp.enable("phpactor")
+
+        -- ts lsp
         vim.lsp.enable("ts_ls")
 
         -- html lsp
         vim.lsp.enable("html")
 
-        -- CSS lsp
+        -- css lsp
         vim.lsp.enable("cssls")
 
         vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, { desc = "diagnostic" })
