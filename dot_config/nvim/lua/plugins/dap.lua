@@ -1,8 +1,7 @@
 return {
     'mfussenegger/nvim-dap',
     dependencies = {
-        'theHamsta/nvim-dap-virtual-text',
-        "rcarriga/nvim-dap-ui",
+        "igorlfs/nvim-dap-view",
         'mfussenegger/nvim-dap-python',
     },
     version = "0.*",
@@ -29,7 +28,13 @@ return {
     end,
     keys = {
         { "<leader>dt", function() require('dap').toggle_breakpoint() end,  desc = "DAP toggle breakpoint" },
-        { "<leader>dc", function() require('dap').continue() end,           desc = "DAP continue" },
+        {
+            "<leader>dc",
+            function()
+                require('dap').continue()
+            end,
+            desc = "DAP continue"
+        },
         { "<leader>do", function() require('dap').step_over() end,          desc = "DAP step over" },
         { "<leader>di", function() require('dap').step_into() end,          desc = "DAP step into" },
         { "<leader>dr", function() require('dap').repl.open() end,          desc = "DAP open repl" },
