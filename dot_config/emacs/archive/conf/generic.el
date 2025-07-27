@@ -12,16 +12,16 @@
 
 ;; Desktop
 (if (and  (string= "simon" (user-login-name)) (string= "gnu/linux" system-type) (string= "desktop" (getenv "NIXOS_CONF")))
-    (add-to-list 'default-frame-alist '(font . "JetBrainsMonoNL Nerd Font Mono-13")))
+    (add-to-list 'default-frame-alist '(font . "JetBrainsMonoNL Nerd Font Mono-11")))
 ;; Laptop
 (if (and (string= "simon" (user-login-name)) (string= "gnu/linux" system-type) (string= "laptop" (getenv "NIXOS_CONF")))
-    (add-to-list 'default-frame-alist '(font . "JetBrainsMonoNL Nerd Font Mono-15")))
+    (add-to-list 'default-frame-alist '(font . "JetBrainsMonoNL Nerd Font Mono-13")))
 ;; Serveur druide
 (if (and (string= "stheoret" (system-name)) (string= "gnu/linux" system-type))
-    (add-to-list 'default-frame-alist '(font . "JetBrainsMonoNL Nerd Font Mono-13")))
+    (add-to-list 'default-frame-alist '(font . "JetBrainsMonoNL Nerd Font Mono-11")))
 ;; MacOS Druide
 (if (and (string= "stheoret" (system-name)) (string= "darwin" system-type))
-    (add-to-list 'default-frame-alist '(font . "JetBrainsMonoNL Nerd Font Mono-14")))
+    (add-to-list 'default-frame-alist '(font . "JetBrainsMonoNL Nerd Font Mono-12")))
 
 ;; Optimization: https://www.reddit.com/r/emacs/comments/f3ed3r/how_is_doom_emacs_so_damn_fast/
 (setq frame-inhibit-implied-resize t)
