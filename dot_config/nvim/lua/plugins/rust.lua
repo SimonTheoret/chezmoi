@@ -1,5 +1,4 @@
 return {
-
     'mrcjkb/rustaceanvim',
     version = '*', -- Recommended
     lazy = false,   -- This plugin is already lazy
@@ -27,8 +26,9 @@ return {
                 },
             },
             -- DAP configuration
-            -- dap = {
-            -- },
+            dap = {
+                autoload_configurations = true
+            },
         }
     end
 }

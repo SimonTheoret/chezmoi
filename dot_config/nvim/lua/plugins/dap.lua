@@ -1,7 +1,7 @@
 return {
     'mfussenegger/nvim-dap',
     dependencies = {
-        "igorlfs/nvim-dap-view",
+        -- {"igorlfs/nvim-dap-view"},
         'mfussenegger/nvim-dap-python',
     },
     version = "0.*",
