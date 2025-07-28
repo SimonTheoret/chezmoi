@@ -1,13 +1,13 @@
 -- return {}
 return {
     "igorlfs/nvim-dap-view",
-    dependencies =  { 'mfussenegger/nvim-dap'},
+    dependencies = { 'mfussenegger/nvim-dap' },
     ---@module 'dap-view'
     ---@type dapview.Config
-    config = true,
-    keys  = {{
-    "<leader>dui", function() require("dap-view").open() end, desc = "DAP UI"
-    }}
+    config       = true,
+    keys         = { {
+        "<leader>dui", function() require("dap-view").open() end, desc = "DAP UI"
+    } }
 }
 -- {
 --     'theHamsta/nvim-dap-virtual-text',
