@@ -74,7 +74,7 @@
   (rustic-mode . apheleia-mode)
   (emacs-lisp-mode . apheleia-mode)
   )
-     
+
 
 
 (use-package eglot
@@ -86,9 +86,9 @@
 (setq-default eldoc-idle-delay 0.15)
 
 (use-package eglot-booster
-	:straight ( eglot-booster :type git :host nil :repo "https://github.com/jdtsmith/eglot-booster")
-	:after eglot
-	:config (eglot-booster-mode))
+  :straight ( eglot-booster :type git :host nil :repo "https://github.com/jdtsmith/eglot-booster")
+  :after eglot
+  :config (eglot-booster-mode))
 
 (use-package company
   :defer 0.5
@@ -362,11 +362,11 @@
   ;; (setq vertico-scroll-margin 0)
 
   ;; Show more candidates
-(setq read-file-name-completion-ignore-case t
-      read-buffer-completion-ignore-case t
-      completion-ignore-case t)
+  (setq read-file-name-completion-ignore-case t
+	read-buffer-completion-ignore-case t
+	completion-ignore-case t)
 
-(setq completion-styles '(basic substring partial-completion flex))
+  (setq completion-styles '(basic substring partial-completion flex))
   (setq vertico-count 15)
   (setq vertico-resize 'grow-only)
   (setq vertico-cycle t)
@@ -532,472 +532,472 @@
   (setq vterm-timer-delay 0.01)
   )
 
- (add-hook 'evil-insert-state-entry-hook #'vterm-reset-cursor-point nil t)
+(add-hook 'evil-insert-state-entry-hook #'vterm-reset-cursor-point nil t)
 
 
- (general-def
-   :states 'normal
-   :prefix "<leader> t"
-   :prefix-command 'Term
-   "t" '("Toggle eshell" . eshell)
-   "b" '("Open terminal" . term)
-   "a" '("Open ansi-term" . ansi-term)
-   "v" '("Open vterm" . vterm)
+(general-def
+  :states 'normal
+  :prefix "<leader> t"
+  :prefix-command 'Term
+  "t" '("Toggle eshell" . eshell)
+  "b" '("Open terminal" . term)
+  "a" '("Open ansi-term" . ansi-term)
+  "v" '("Open vterm" . vterm)
+  )
+
+
+
+(use-package rust-mode
+  :defer 1
+  :init
+  (setq rust-mode-treesitter-derive t)
+  )
+
+
+(setq dired-listing-switches "-alh")
+
+(use-package diredfl :config (diredfl-global-mode))
+
+(use-package
+  dired-rsync
+  :bind (:map dired-mode-map ("<leader> r r" . dired-rsync)))
+
+(use-package
+  dired-rsync-transient
+  :bind
+  (:map dired-mode-map ("<leader> r t" . dired-rsync-transient)))
+
+
+(use-package async
+  :init
+  (dired-async-mode 1))
+
+(use-package ido)
+
+(defun search-nixdots ()
+  (interactive)
+  (ido-find-file-in-dir "~/nixdots/" ))
+
+(defun search-emacs-dir ()
+  (interactive)
+  (ido-find-file-in-dir "~/.local/share/chezmoi/dot_config/emacs/" ))
+
+(defun search-chezmoi-dir ()
+  (interactive)
+  (ido-find-file-in-dir "~/.local/share/chezmoi" ))
+
+(defun search-home-dir ()
+  (interactive)
+  (ido-find-file-in-dir "~/" ))
+
+(add-hook 'dired-mode-hook (lambda () (setq display-line-numbers 'relative)))
+
+(general-def
+  :states
+  'normal
+  :prefix "<leader> f"
+  :prefix-command 'Files
+  "f"
+  '("Find files" . ido-find-file)
+  "F"
+  '("Find files other window" . ido-find-file-other-window)
+  "p"
+  '("Search conf" . search-emacs-dir)
+  "P"
+  '("Search conf other window" . search-emacs-dir-other-window)
+  "d"
+  '("Create dir" . make-directory)
+  "D"
+  '("Delete directory" . delete-directory)
+  "c"
+  '("Copy current file" . crux-copy-file-preserve-attributes)
+  "e"
+  '("sudoedit current file" . crux-sudo-edit)
+  "n"
+  '("Create empty file" . dired-create-empty-file)
+  "b"
+  '("Fuzzy search files" . consult-fd)
+  "g"
+  '("Change current dir" . cd)
+  "o"
+  '("Dired here" . dired-jump)
+  "O"
+  '("Dired here other window" . dired-jump-other-window)
+  "l"
+  '("Chezmoi files" . search-chezmoi-dir)
+  "L"
+  '("Chezmoi files other window" . search-chezmoi-dir-other-window)
+  "u"
+  '("Nixdots files" . search-nixdots)
+  "U"
+  '("Nixdots files other window" . search-nixdots-other-window)
+  "h"
+  '("Home files" . search-home-dir)
+  "H"
+  '("Home files other window" . search-home-dir-other-window)
+  "a"
+  '("Find file at point" . find-file-at-point)
+  )
+
+
+
+(general-def
+  :states
+  'normal
+  :prefix "<leader> f m"
+  :prefix-command 'Modify
+  "n"
+  '("Rename current file" . crux-rename-file-and-buffer)
+  "d"
+  '("Remove file" . delete-file)
+  )
+
+
+(general-def
+  :states 'normal
+  :map dired-mode-map
+  "DEL" '("Directory up" . dired-up-directory)
+  )
+
+;; TODO: setup
+;; Used for eglot
+;; (use-package dape
+;;   :defer 3
+;;   ;; :preface
+;;   ;; By default dape shares the same keybinding prefix as `gud'
+;;   ;; If you do not want to use any prefix, set it to nil.
+;;   ;; (setq dape-key-prefix "\C-x\C-a")
+
+;;   ;; :hook
+;;   ;; Save breakpoints on quit
+;;   ;; (kill-emacs . dape-breakpoint-save)
+;;   ;; Load breakpoints on startup
+;;   ;; (after-init . dape-breakpoint-load)
+
+;;   ;; :config
+;;   ;; Turn on global bindings for setting breakpoints with mouse
+;;   ;; (dape-breakpoint-global-mode)
+
+;;   ;; Info buffers to the right
+;;   ;; (setq dape-buffer-window-arrangement 'right)
+
+;;   ;; Info buffers like gud (gdb-mi)
+;;   ;; (setq dape-buffer-window-arrangement 'gud)
+;;   ;; (setq dape-info-hide-mode-line nil)
+
+;;   ;; Pulse source line (performance hit)
+;;   ;; (add-hook 'dape-display-source-hook 'pulse-momentary-highlight-one-line)
+
+;;   ;; Showing inlay hints
+;;   ;; (setq dape-inlay-hints t)
+
+;;   ;; Save buffers on startup, useful for interpreted languages
+;;   ;; (add-hook 'dape-start-hook (lambda () (save-some-buffers t t)))
+
+;;   ;; Kill compile buffer on build success
+;;   ;; (add-hook 'dape-compile-hook 'kill-buffer)
+
+;;   ;; Projectile users
+;;   ;; (setq dape-cwd-function 'project-root)
+;;   )
+
+
+
+(use-package helpful
+  :defer 1.5
+  :general
+  ("C-h f"   '("callable help" . helpful-callable)
+   "C-h v"   '("variable help" . helpful-variable)
+   "C-h k"   '("key help" . helpful-key)
+   "C-h x"   '("command help" . helpful-command)
+   "C-c C-d" '("help at point" . helpful-at-point)
+   "C-h F"   '("help function" . helpful-function)
    )
+  )
 
 
+(use-package casual
+  :defer 1.5
+  )
 
- (use-package rust-mode
-   :defer 1
-   :init
-   (setq rust-mode-treesitter-derive t)
-   )
+(general-def
+  :states 'normal
+  "<leader> a c" '("Calc" . calc)
+  )
+
+(general-def
+  :states 'normal
+  :keymaps 'isearch-mode-map
+  "<leader> C-o"
+  '("Casual isearch" . casual-isearch-tmenu)
+  )
+
+(general-def
+  :states 'normal
+  :keymaps 'calc-mode-map
+  "<leader> C-o"
+  '("Casual Calc" . casual-calc-tmenu)
+  )
+
+(general-def
+  :states 'normal
+  :keymaps 'reb-mode-map
+  "<leader> C-o"
+  '("Casual REbuilder" . casual-re-builder-tmenu)
+  )
+
+(general-def
+  :states 'normal
+  :keymaps 'ibuffer-mode-map
+  "<leader> C-o"
+  '("Casual ibuffer" . casual-ibuffer-tmenu)
+  )
+
+(general-def
+  :states 'normal
+  :keymaps 'dired-mode-map
+  "<leader> C-o"
+  '("Casual dired" .  casual-dired-tmenu)
+  )
 
 
- (setq dired-listing-switches "-alh")
-
- (use-package diredfl :config (diredfl-global-mode))
-
- (use-package
-   dired-rsync
-   :bind (:map dired-mode-map ("<leader> r r" . dired-rsync)))
-
- (use-package
-   dired-rsync-transient
-   :bind
-   (:map dired-mode-map ("<leader> r t" . dired-rsync-transient)))
+(general-def
+  :states 'normal
+  "<leader> C-o"
+  '("Casual edikit" . casual-editkit-main-tmenu)
+  )
 
 
- (use-package async
-   :init
-   (dired-async-mode 1))
+;; TOOD: add back ?
+;; (use-package python
+;;   :straight (:type built-in)
+;;   :config
+;;   (setq  python--treesit-settings
+;; 	 (append python--treesit-settings
+;; 		 ;; Constants
+;; 		 (treesit-font-lock-rules
+;; 		  :feature 'custom
+;; 		  :language 'python
+;; 		  :override t
+;; 		  '(
+;; 		    ((identifier) @font-lock-constant-face
+;; 		     (:match "^[A-Z][A-Z_0-9]*$" @font-lock-constant-face))
+;; 		    )
 
- (use-package ido)
+;; 		  ;; Types 
+;; 		  :feature 'custom
+;; 		  :language 'python
+;; 		  :override t
+;; 		  '(
+;; 		    (
+;; 		     (identifier) @font-lock-type-face
+;; 		     (:match "^[A-Z].*[a-z]" @font-lock-type-face))
+;; 		    )
+;; 		  )
+;; 		 )
 
- (defun search-nixdots ()
-   (interactive)
-   (ido-find-file-in-dir "~/nixdots/" ))
+;; 	 )
+;;   )
 
- (defun search-emacs-dir ()
-   (interactive)
-   (ido-find-file-in-dir "~/.local/share/chezmoi/dot_config/emacs/" ))
+;; Snippets
+(use-package yasnippet
+  :defer 0.5
+  :init
+  (yas-global-mode 1)
+  :general
+  (general-def
+    :states 'normal
+    :prefix "<leader> i"
+    :prefix-command 'Insert
+    "s" '("Insert snippet" . yas-insert-snippet)))
 
- (defun search-chezmoi-dir ()
-   (interactive)
-   (ido-find-file-in-dir "~/.local/share/chezmoi" ))
+(use-package yasnippet-snippets
+  :after yasnippet
+  :config
+  (evil-global-set-key 'normal (kbd "<leader> i s") 'yas-insert-snippet))
 
- (defun search-home-dir ()
-   (interactive)
-   (ido-find-file-in-dir "~/" ))
+(use-package doom-snippets
+  :after yasnippet
+  :straight (doom-snippets :type git :host github :repo "doomemacs/snippets" :files ("*.el" "*")))
 
- (add-hook 'dired-mode-hook (lambda () (setq display-line-numbers 'relative)))
 
- (general-def
-   :states
+(use-package emacs
+  :custom
+  ;; Emacs 28 and newer: Hide commands in M-x which do not apply to the current
+  ;; mode.  Corfu commands are hidden, since they are not used via M-x. This
+  ;; setting is useful beyond Corfu.
+  (read-extended-command-predicate #'command-completion-default-include-p))
+;; 
+
+(defun utils-update-cm-emacs ()
+  "Calls `chezmoi apply --force`"
+  (interactive)
+  (async-shell-command "chezmoi apply --force"))
+
+
+(use-package crux
+  :defer 3
+  :general-config
+  (general-def
+    :states 'normal
+    :prefix "<leader> o"
+    :prefix-command 'Open
+    "e" '("Open current file in external app" . crux-open-with)
+    "u" '("View URL content" . crux-view-url)
+    "c" '("Chezmoi apply overwrite" . utils-update-cm-emacs)
+    ))
+
+
+(use-package nix-mode
+  :mode "\\.nix\\'")
+
+
+;; Keybindings
+
+
+(use-package evil-commentary :config (evil-commentary-mode))
+
+;; evil-collection-setup-minibuffer must be set BEFORE loading evil-collection
+(setq-default evil-collection-setup-minibuffer t )
+(use-package
+  evil-collection
+  :after evil
+  :init (evil-collection-init) 
+  )
+(evil-collection-eshell-setup)
+
+(use-package
+  evil-surround
+  :after evil
+  :config (global-evil-surround-mode 1))
+
+(use-package
+  evil-args
+  :after evil
+  :general-config
+  (:states
    'normal
-   :prefix "<leader> f"
-   :prefix-command 'Files
-   "f"
-   '("Find files" . ido-find-file)
-   "F"
-   '("Find files other window" . ido-find-file-other-window)
-   "p"
-   '("Search conf" . search-emacs-dir)
-   "P"
-   '("Search conf other window" . search-emacs-dir-other-window)
-   "d"
-   '("Create dir" . make-directory)
-   "D"
-   '("Delete directory" . delete-directory)
-   "c"
-   '("Copy current file" . crux-copy-file-preserve-attributes)
-   "e"
-   '("sudoedit current file" . crux-sudo-edit)
-   "n"
-   '("Create empty file" . dired-create-empty-file)
-   "b"
-   '("Fuzzy search files" . consult-fd)
-   "g"
-   '("Change current dir" . cd)
-   "o"
-   '("Dired here" . dired-jump)
-   "O"
-   '("Dired here other window" . dired-jump-other-window)
-   "l"
-   '("Chezmoi files" . search-chezmoi-dir)
    "L"
-   '("Chezmoi files other window" . search-chezmoi-dir-other-window)
-   "u"
-   '("Nixdots files" . search-nixdots)
-   "U"
-   '("Nixdots files other window" . search-nixdots-other-window)
-   "h"
-   '("Home files" . search-home-dir)
+   '("Next arg" . evil-forward-arg)
    "H"
-   '("Home files other window" . search-home-dir-other-window)
-   "a"
-   '("Find file at point" . find-file-at-point)
-   )
-
-
-
- (general-def
-   :states
-   'normal
-   :prefix "<leader> f m"
-   :prefix-command 'Modify
-   "n"
-   '("Rename current file" . crux-rename-file-and-buffer)
-   "d"
-   '("Remove file" . delete-file)
-   )
-
-
- (general-def
-   :states 'normal
-   :map dired-mode-map
-   "DEL" '("Directory up" . dired-up-directory)
-   )
-
- ;; TODO: setup
- ;; Used for eglot
- ;; (use-package dape
- ;;   :defer 3
- ;;   ;; :preface
- ;;   ;; By default dape shares the same keybinding prefix as `gud'
- ;;   ;; If you do not want to use any prefix, set it to nil.
- ;;   ;; (setq dape-key-prefix "\C-x\C-a")
-
- ;;   ;; :hook
- ;;   ;; Save breakpoints on quit
- ;;   ;; (kill-emacs . dape-breakpoint-save)
- ;;   ;; Load breakpoints on startup
- ;;   ;; (after-init . dape-breakpoint-load)
-
- ;;   ;; :config
- ;;   ;; Turn on global bindings for setting breakpoints with mouse
- ;;   ;; (dape-breakpoint-global-mode)
-
- ;;   ;; Info buffers to the right
- ;;   ;; (setq dape-buffer-window-arrangement 'right)
-
- ;;   ;; Info buffers like gud (gdb-mi)
- ;;   ;; (setq dape-buffer-window-arrangement 'gud)
- ;;   ;; (setq dape-info-hide-mode-line nil)
-
- ;;   ;; Pulse source line (performance hit)
- ;;   ;; (add-hook 'dape-display-source-hook 'pulse-momentary-highlight-one-line)
-
- ;;   ;; Showing inlay hints
- ;;   ;; (setq dape-inlay-hints t)
-
- ;;   ;; Save buffers on startup, useful for interpreted languages
- ;;   ;; (add-hook 'dape-start-hook (lambda () (save-some-buffers t t)))
-
- ;;   ;; Kill compile buffer on build success
- ;;   ;; (add-hook 'dape-compile-hook 'kill-buffer)
-
- ;;   ;; Projectile users
- ;;   ;; (setq dape-cwd-function 'project-root)
- ;;   )
-
-
-
- (use-package helpful
-   :defer 1.5
-   :general
-   ("C-h f"   '("callable help" . helpful-callable)
-    "C-h v"   '("variable help" . helpful-variable)
-    "C-h k"   '("key help" . helpful-key)
-    "C-h x"   '("command help" . helpful-command)
-    "C-c C-d" '("help at point" . helpful-at-point)
-    "C-h F"   '("help function" . helpful-function)
-    )
-   )
-
-
- (use-package casual
-   :defer 1.5
-   )
-
- (general-def
-   :states 'normal
-   "<leader> a c" '("Calc" . calc)
-   )
-
- (general-def
-   :states 'normal
-   :keymaps 'isearch-mode-map
-   "<leader> C-o"
-   '("Casual isearch" . casual-isearch-tmenu)
-   )
-
- (general-def
-   :states 'normal
-   :keymaps 'calc-mode-map
-   "<leader> C-o"
-   '("Casual Calc" . casual-calc-tmenu)
-   )
-
- (general-def
-   :states 'normal
-   :keymaps 'reb-mode-map
-   "<leader> C-o"
-   '("Casual REbuilder" . casual-re-builder-tmenu)
-   )
-
- (general-def
-   :states 'normal
-   :keymaps 'ibuffer-mode-map
-   "<leader> C-o"
-   '("Casual ibuffer" . casual-ibuffer-tmenu)
-   )
-
- (general-def
-   :states 'normal
-   :keymaps 'dired-mode-map
-   "<leader> C-o"
-   '("Casual dired" .  casual-dired-tmenu)
-   )
-
-
- (general-def
-   :states 'normal
-   "<leader> C-o"
-   '("Casual edikit" . casual-editkit-main-tmenu)
-   )
-
-
- ;; TOOD: add back ?
- ;; (use-package python
- ;;   :straight (:type built-in)
- ;;   :config
- ;;   (setq  python--treesit-settings
- ;; 	 (append python--treesit-settings
- ;; 		 ;; Constants
- ;; 		 (treesit-font-lock-rules
- ;; 		  :feature 'custom
- ;; 		  :language 'python
- ;; 		  :override t
- ;; 		  '(
- ;; 		    ((identifier) @font-lock-constant-face
- ;; 		     (:match "^[A-Z][A-Z_0-9]*$" @font-lock-constant-face))
- ;; 		    )
-
- ;; 		  ;; Types 
- ;; 		  :feature 'custom
- ;; 		  :language 'python
- ;; 		  :override t
- ;; 		  '(
- ;; 		    (
- ;; 		     (identifier) @font-lock-type-face
- ;; 		     (:match "^[A-Z].*[a-z]" @font-lock-type-face))
- ;; 		    )
- ;; 		  )
- ;; 		 )
-
- ;; 	 )
- ;;   )
-
- ;; Snippets
- (use-package yasnippet
-   :defer 0.5
-   :init
-   (yas-global-mode 1)
-   :general
-   (general-def
-     :states 'normal
-     :prefix "<leader> i"
-     :prefix-command 'Insert
-     "s" '("Insert snippet" . yas-insert-snippet)))
-
- (use-package yasnippet-snippets
-   :after yasnippet
-   :config
-   (evil-global-set-key 'normal (kbd "<leader> i s") 'yas-insert-snippet))
-
- (use-package doom-snippets
-   :after yasnippet
-   :straight (doom-snippets :type git :host github :repo "doomemacs/snippets" :files ("*.el" "*")))
-
-
- (use-package emacs
-   :custom
-   ;; Emacs 28 and newer: Hide commands in M-x which do not apply to the current
-   ;; mode.  Corfu commands are hidden, since they are not used via M-x. This
-   ;; setting is useful beyond Corfu.
-   (read-extended-command-predicate #'command-completion-default-include-p))
- ;; 
-
- (defun utils-update-cm-emacs ()
-   "Calls `chezmoi apply --force`"
-   (interactive)
-   (async-shell-command "chezmoi apply --force"))
-
-
- (use-package crux
-   :defer 3
-   :general-config
-   (general-def
-     :states 'normal
-     :prefix "<leader> o"
-     :prefix-command 'Open
-     "e" '("Open current file in external app" . crux-open-with)
-     "u" '("View URL content" . crux-view-url)
-     "c" '("Chezmoi apply overwrite" . utils-update-cm-emacs)
-     ))
-
-
- (use-package nix-mode
-   :mode "\\.nix\\'")
-
-
- ;; Keybindings
-
-
- (use-package evil-commentary :config (evil-commentary-mode))
-
- ;; evil-collection-setup-minibuffer must be set BEFORE loading evil-collection
- (setq-default evil-collection-setup-minibuffer t )
- (use-package
-   evil-collection
-   :after evil
-   :init (evil-collection-init) 
-   )
- (evil-collection-eshell-setup)
-
- (use-package
-   evil-surround
-   :after evil
-   :config (global-evil-surround-mode 1))
-
- (use-package
-   evil-args
-   :after evil
-   :general-config
-   (:states
-    'normal
-    "L"
-    '("Next arg" . evil-forward-arg)
-    "H"
-    '("Previous arg" . evil-backward-arg))
-   (:states
-    'motion
-    "L"
-    '("Next arg" . evil-forward-arg)
-    "H"
-    '("Previous arg" . evil-backward-arg)))
-
-
- (use-package evil-easymotion :after evil)
-
-
- (use-package
-   evil-snipe
-   :custom (evil-snipe-smart-case t)
-   :config
-   (evil-snipe-mode +1)
-   (evil-snipe-override-mode +1))
-
- ;; easy-motion for moving fast af
- (use-package evil-easymotion
-   :init
-   (evilem-default-keybindings "<leader>"))
-
- (use-package
-   which-key
-   :straight (:type built-in)
-   :config (which-key-mode) (setq which-key-idle-delay 0.1))
-
-
- (use-package evil-mc
-   :init
-   (global-evil-mc-mode 1))
-
-
- (use-package ace-window
-   :defer 1.5)
-
- (use-package casual-avy
-   :defer 1.5)
-
- (general-def
-   :states
-   'normal
-   "<leader> w"
-   '("Jump to word" . avy-goto-word-1)
-   "<leader> W"
-   '("Jump to window" . ace-window)
-   "<leader> x"
-   '("Swap window" . ace-swap-window)
-   "<leader> X"
-   '("Delete window" . ace-delete-window)
-   )
- (general-def
-   :states
-   'normal
-   :prefix "<leader> e"
-   :prefix-command 'Eval
-   "b"
-   '("eval buffer" . eval-buffer)
-   )
- (general-def
-   :states
-   'visual
-   :prefix "<leader> e"
-   :prefix-command 'Eval
-   "r"
-   '("eval region" . eval-region))
-
- (general-def
-   :states
-   'normal
-   :prefix "<leader> q"
-   :prefix-command 'Quit
-   "c"
-   '("Close frame" . delete-frame)
-   "r"
-   '("Restart emacs" . restart-emacs)
-   "K"
-   '("Kill emacs" . save-buffers-kill-emacs)
-   )
-
- (general-def
-   :states
-   'normal
-   "TAB"
-   '("Jump pairs" . evil-jump-item)
-   "m"
-   '("Jump pairs" . evil-jump-item)
-   )
-
-
- ;; Evil commands (:<yourcommandhere>)
- ;; :q should kill the current buffer rather than quitting emacs entirely
- (evil-ex-define-cmd "q" 'kill-this-buffer)
- ;; Need to type out :quit to close emacs
- (evil-ex-define-cmd "quit" 'evil-quit)
-
- (evil-set-undo-system 'undo-redo)
-
- (with-eval-after-load 'dired
-   (evil-collection-define-key 'normal 'dired-mode-map " " nil))
- (global-unset-key (kbd "M-SPC") )
-
-
-
- (defun toggle-window-split ()
-   (interactive)
-   (if (= (count-windows) 2)
-       (let* ((this-win-buffer (window-buffer))
-              (next-win-buffer (window-buffer (next-window)))
-              (this-win-edges (window-edges (selected-window)))
-              (next-win-edges (window-edges (next-window)))
-              (this-win-2nd (not (and (<= (car this-win-edges)
+   '("Previous arg" . evil-backward-arg))
+  (:states
+   'motion
+   "L"
+   '("Next arg" . evil-forward-arg)
+   "H"
+   '("Previous arg" . evil-backward-arg)))
+
+
+(use-package evil-easymotion :after evil)
+
+
+(use-package
+  evil-snipe
+  :custom (evil-snipe-smart-case t)
+  :config
+  (evil-snipe-mode +1)
+  (evil-snipe-override-mode +1))
+
+;; easy-motion for moving fast af
+(use-package evil-easymotion
+  :init
+  (evilem-default-keybindings "<leader>"))
+
+(use-package
+  which-key
+  :straight (:type built-in)
+  :config (which-key-mode) (setq which-key-idle-delay 0.1))
+
+
+(use-package evil-mc
+  :init
+  (global-evil-mc-mode 1))
+
+
+(use-package ace-window
+  :defer 1.5)
+
+(use-package casual-avy
+  :defer 1.5)
+
+(general-def
+  :states
+  'normal
+  "<leader> w"
+  '("Jump to word" . avy-goto-word-1)
+  "<leader> W"
+  '("Jump to window" . ace-window)
+  "<leader> x"
+  '("Swap window" . ace-swap-window)
+  "<leader> X"
+  '("Delete window" . ace-delete-window)
+  )
+(general-def
+  :states
+  'normal
+  :prefix "<leader> e"
+  :prefix-command 'Eval
+  "b"
+  '("eval buffer" . eval-buffer)
+  )
+(general-def
+  :states
+  'visual
+  :prefix "<leader> e"
+  :prefix-command 'Eval
+  "r"
+  '("eval region" . eval-region))
+
+(general-def
+  :states
+  'normal
+  :prefix "<leader> q"
+  :prefix-command 'Quit
+  "c"
+  '("Close frame" . delete-frame)
+  "r"
+  '("Restart emacs" . restart-emacs)
+  "K"
+  '("Kill emacs" . save-buffers-kill-emacs)
+  )
+
+(general-def
+  :states
+  'normal
+  "TAB"
+  '("Jump pairs" . evil-jump-item)
+  "m"
+  '("Jump pairs" . evil-jump-item)
+  )
+
+
+;; Evil commands (:<yourcommandhere>)
+;; :q should kill the current buffer rather than quitting emacs entirely
+(evil-ex-define-cmd "q" 'kill-this-buffer)
+;; Need to type out :quit to close emacs
+(evil-ex-define-cmd "quit" 'evil-quit)
+
+(evil-set-undo-system 'undo-redo)
+
+(with-eval-after-load 'dired
+  (evil-collection-define-key 'normal 'dired-mode-map " " nil))
+(global-unset-key (kbd "M-SPC") )
+
+
+
+(defun toggle-window-split ()
+  (interactive)
+  (if (= (count-windows) 2)
+      (let* ((this-win-buffer (window-buffer))
+             (next-win-buffer (window-buffer (next-window)))
+             (this-win-edges (window-edges (selected-window)))
+             (next-win-edges (window-edges (next-window)))
+             (this-win-2nd (not (and (<= (car this-win-edges)
  					 (car next-win-edges))
  				     (<= (cadr this-win-edges)
  					 (cadr next-win-edges)))))
-              (splitter
+             (splitter
  	      (if (= (car this-win-edges)
  		     (car (window-edges (next-window))))
  		  'split-window-horizontally
@@ -1011,15 +1011,15 @@
  	  (select-window first-win)
  	  (if this-win-2nd (other-window 1))))))
 
- (evil-global-set-key 'normal (kbd "C-w R") 'toggle-window-split)
- (evil-global-set-key 'insert (kbd "C-c p") 'evil-paste-after)
- (evil-global-set-key 'insert (kbd "C-c P") 'evil-paste-before)
- (evil-global-set-key 'normal (kbd "C-c i") 'next-buffer)
- (evil-global-set-key 'normal (kbd "C-c o") 'previous-buffer)
+(evil-global-set-key 'normal (kbd "C-w R") 'toggle-window-split)
+(evil-global-set-key 'insert (kbd "C-c p") 'evil-paste-after)
+(evil-global-set-key 'insert (kbd "C-c P") 'evil-paste-before)
+(evil-global-set-key 'normal (kbd "C-c i") 'next-buffer)
+(evil-global-set-key 'normal (kbd "C-c o") 'previous-buffer)
 
 
- (setq treesit-language-source-alist
-       '((bash "https://github.com/tree-sitter/tree-sitter-bash")
+(setq treesit-language-source-alist
+      '((bash "https://github.com/tree-sitter/tree-sitter-bash")
  	(cmake "https://github.com/uyha/tree-sitter-cmake")
  	(css "https://github.com/tree-sitter/tree-sitter-css")
  	(elisp "https://github.com/Wilfred/tree-sitter-elisp")
@@ -1040,78 +1040,79 @@
  	(heex "https://github.com/phoenixframework/tree-sitter-heex")
 	(php "https://github.com/tree-sitter/tree-sitter-php" )
  	)
-       )
+      )
 
- (defun install-treesit-langs ()
-   "Installs all the Treesitter parsers for the languages in `treesit-language-source-alist`"
-   (interactive)
-   (mapc #'treesit-install-language-grammar (mapcar #'car treesit-language-source-alist))
-   )
-
-
- (use-package treesit-auto
-   :defer 1
-   :custom
-   (treesit-auto-install 'prompt)
-   :config
-   (treesit-auto-add-to-auto-mode-alist 'all)
-   (global-treesit-auto-mode)
-   :hook
-   (prog-mode . (lambda ()
- 			    (treesit-font-lock-recompute-features '(function custom)))))
+(defun install-treesit-langs ()
+  "Installs all the Treesitter parsers for the languages in `treesit-language-source-alist`"
+  (interactive)
+  (mapc #'treesit-install-language-grammar (mapcar #'car treesit-language-source-alist))
+  )
 
 
- (defun change-compile-command (str)
-   (set (make-local-variable 'compile-command) str))
-
- (use-package fancy-compilation
-   :commands (fancy-compilation-mode))
-
- (with-eval-after-load 'compile
-   (fancy-compilation-mode))
-
-
- (general-def
-   :states
-   'normal
-   :prefix "<leader>"
-   "SPC" 
-   '("Project find file" . project-find-file)
-   )
-
- (general-def
-   :states
-   'normal
-   :prefix "<leader> c"
-   "c"
-   '("Compile project" . project-compile) ;;TODO: Switcht to project
-   "C"
-   '("Compile buffer" . compile)
-   "r"
-   '("Recompile project" . project-recompile)
-   "R"
-   '("Recompile" . recompile)
-   "l"
-   '("Kill compilation" . kill-compilation)
-   )
+(use-package treesit-auto
+  :defer 1
+  :custom
+  (treesit-auto-install 'prompt)
+  :config
+  (treesit-auto-add-to-auto-mode-alist 'all)
+  (global-treesit-auto-mode)
+  :hook
+  (prog-mode . (lambda ()
+ 		 (treesit-font-lock-recompute-features '(function custom)))))
 
 
- (use-package envrc
-   :defer 1
-   :init
-   (envrc-global-mode)
-   :general-config
-   (general-def :states
-     'normal
-     "<leader> e e" '("Reload env vars" . envrc-reload)))
+(defun change-compile-command (str)
+  (set (make-local-variable 'compile-command) str))
+
+(use-package fancy-compilation
+  :commands (fancy-compilation-mode))
+
+(with-eval-after-load 'compile
+  (fancy-compilation-mode))
+
+
+(general-def
+  :states
+  'normal
+  :prefix "<leader>"
+  "SPC" 
+  '("Project find file" . project-find-file)
+  )
+
+(general-def
+  :states
+  'normal
+  :prefix "<leader> c"
+  "c"
+  '("Compile project" . project-compile) ;;TODO: Switcht to project
+  "C"
+  '("Compile buffer" . compile)
+  "r"
+  '("Recompile project" . project-recompile)
+  "R"
+  '("Recompile" . recompile)
+  "l"
+  '("Kill compilation" . kill-compilation)
+  )
+
+
+(use-package envrc
+  :defer 1
+  :init
+  (envrc-global-mode)
+  :general-config
+  (general-def :states
+    'normal
+    "<leader> e e" '("Reload env vars" . envrc-reload)))
 
 
 (use-package embark
 
-  :bind
-  (("<leader> a a" . embark-act)         ;; pick some comfortable binding
-   ("<leader>a d" . embark-dwim)        ;; good alternative: M-.
-   ("<leader>a b" . embark-bindings)) ;; alternative for `describe-bindings'
+  :general (general-def :states '('normal 'insert)
+	     "S-C-a" '("Embark act". embark-act)         ;; pick some comfortable binding
+	     "S-C-e" '("Embark dwim". embark-dwim)        ;; good alternative: M-.
+	     "C-h B" '("Embark bindings". embark-bindings)
+	     ) ;; alternative for `describe-bindings'
 
   :init
 
