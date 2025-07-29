@@ -41,6 +41,6 @@ return {
         })
     end,
     keys = {
-        { "<leader>llm", ":CodeCompanionActions<CR>", desc = "Code companion" }
+        { "<leader>mlm", ":CodeCompanionActions<CR>", desc = "Code companion" }
     }
 }
