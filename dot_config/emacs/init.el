@@ -82,6 +82,9 @@
   :straight (:type built-in)
   :hook (prog-mode . eglot-ensure))
 
+(setq-default eglot-inlay-hints-mode nil)
+(setq-default eldoc-idle-delay 0.15)
+
 (use-package eglot-booster
 	:straight ( eglot-booster :type git :host nil :repo "https://github.com/jdtsmith/eglot-booster")
 	:after eglot
@@ -92,7 +95,7 @@
   :init
   (add-hook 'after-init-hook 'global-company-mode)
   :config
-  (setq company-minimum-prefix-length 3)
+  (setq company-minimum-prefix-length 2)
   (setq company-idle-delay 0.100)
   (setq company-backends '((company-capf  company-files company-keywords :with company-yasnippet)))
   :general-config
@@ -1101,6 +1104,50 @@
    (general-def :states
      'normal
      "<leader> e e" '("Reload env vars" . envrc-reload)))
+
+
+(use-package embark
+
+  :bind
+  (("<leader> a a" . embark-act)         ;; pick some comfortable binding
+   ("<leader>a d" . embark-dwim)        ;; good alternative: M-.
+   ("<leader>a b" . embark-bindings)) ;; alternative for `describe-bindings'
+
+  :init
+
+  ;; Optionally replace the key help with a completing-read interface
+  (setq prefix-help-command #'embark-prefix-help-command)
+
+  ;; Show the Embark target at point via Eldoc. You may adjust the
+  ;; Eldoc strategy, if you want to see the documentation from
+  ;; multiple providers. Beware that using this can be a little
+  ;; jarring since the message shown in the minibuffer can be more
+  ;; than one line, causing the modeline to move up and down:
+
+  ;; (add-hook 'eldoc-documentation-functions #'embark-eldoc-first-target)
+  ;; (setq eldoc-documentation-strategy #'eldoc-documentation-compose-eagerly)
+
+  ;; Add Embark to the mouse context menu. Also enable `context-menu-mode'.
+  ;; (context-menu-mode 1)
+  ;; (add-hook 'context-menu-functions #'embark-context-menu 100)
+
+  :config
+
+  ;; Hide the mode line of the Embark live/completions buffers
+  (add-to-list 'display-buffer-alist
+               '("\\`\\*Embark Collect \\(Live\\|Completions\\)\\*"
+                 nil
+                 (window-parameters (mode-line-format . none)))))
+
+;; Consult users will also want the embark-consult package.
+(use-package embark-consult
+  :hook
+
+
+  (embark-collect-mode . consult-preview-at-point-mode))
+
+
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -1116,3 +1163,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
