@@ -176,19 +176,25 @@
       "* %?"
       :target (file+head "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>\n")))))
 
-
-;; Theme
-(use-package doom-themes
-  :straight (doom-themes
-	     :type git
-	     :host github
-	     :repo "doomemacs/themes"
-	     :commit "3c03f525d5c0ac0859f31231778f97e10a705e0d")
+(use-package gruvbox-theme
   :config
-  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
-        doom-themes-enable-italic t) ; if nil, italics is universally disabled
-  (load-theme 'doom-molokai-sick t)
-  )
+  (setq gruvbox-bold-constructs t)
+  (load-theme 'gruvbox-dark-medium t)) ;; We need to add t to trust this package
+
+(add-to-list 'default-frame-alist '(alpha-background . 90)) ;; For all new frames henceforth
+
+;; ;; Theme
+;; (use-package doom-themes
+;;   :straight (doom-themes
+;; 	     :type git
+;; 	     :host github
+;; 	     :repo "doomemacs/themes"
+;; 	     :commit "3c03f525d5c0ac0859f31231778f97e10a705e0d")
+;;   :config
+;;   (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+;;         doom-themes-enable-italic t) ; if nil, italics is universally disabled
+;;   (load-theme 'doom-molokai-sick t)
+;;   )
 
 (use-package nerd-icons)
 (use-package nerd-icons-dired
@@ -1041,10 +1047,10 @@
    :config
    (treesit-auto-add-to-auto-mode-alist 'all)
    (global-treesit-auto-mode)
-   )
+   :hook
+   (prog-mode . (lambda ()
+ 			    (treesit-font-lock-recompute-features '(function custom)))))
 
- (add-hook 'prog-mode-hook (lambda ()
- 			    (treesit-font-lock-recompute-features '(function custom))))
 
  (defun change-compile-command (str)
    (set (make-local-variable 'compile-command) str))
