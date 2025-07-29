@@ -1148,6 +1148,9 @@
   (embark-collect-mode . consult-preview-at-point-mode))
 
 
+(setq custom-file (locate-user-emacs-file "custom.el"))
+(load custom-file 'noerror 'nomessage)
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
