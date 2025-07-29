@@ -76,10 +76,16 @@
 ;;   )
      
 
+
 (use-package eglot
   :defer 0.5
   :straight (:type built-in)
   :hook (prog-mode . eglot-ensure))
+
+(use-package eglot-booster
+	:straight ( eglot-booster :type git :host nil :repo "https://github.com/jdtsmith/eglot-booster")
+	:after eglot
+	:config (eglot-booster-mode))
 
 (use-package company
   :defer 0.5
