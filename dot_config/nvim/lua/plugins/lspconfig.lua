@@ -1,7 +1,7 @@
 return {
     "neovim/nvim-lspconfig",
     ft = { "rust", "python", "go", "lua", "bash", "nix", "gleam", "tex", "cpp", "sql", "css", "html", "cmake", "sh", "typescript", "javascript", "php", "vue" },
-    dependencies = { 'saghen/blink.cmp' },
+    dependencies = { 'saghen/blink.cmp', "ibhagwan/fzf-lua" },
     config = function()
         -- python LSP
         vim.lsp.enable("ruff")
@@ -106,7 +106,6 @@ return {
         vim.lsp.enable("cssls")
 
         vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, { desc = "diagnostic" })
-        vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, { desc = "loclist" })
 
         vim.api.nvim_create_autocmd('LspAttach', {
             group = vim.api.nvim_create_augroup('UserLspConfig', {}),
@@ -156,6 +155,10 @@ return {
                     { desc = "LSP type definition", buffer = ev.buf })
 
                 vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, { desc = "Lsp rename", buffer = ev.buf })
+
+                vim.keymap.set('n', '<space>xx', function() require("fzf-lua").lsp_document_diagnostics() end, { desc = "Buffer diagnostic"})
+
+                vim.keymap.set('n', '<space>xX', function() require("fzf-lua").lsp_workspace_diagnostics() end, { desc = "Workspace diagnostic"})
 
                 vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action,
                     { desc = "Lsp code action", buffer = ev.buf })
