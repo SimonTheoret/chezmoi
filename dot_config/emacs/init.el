@@ -63,17 +63,17 @@
 	 ))
 
 ;; TODO: Use this package ?
-;; (use-package apheleia
-;;   :config
-;;   (setf (alist-get 'python-mode apheleia-mode-alist)
-;; 	'(ruff))
-;;   (setf (alist-get 'python-ts-mode apheleia-mode-alist)
-;; 	'(ruff))
-;;   :hook
-;;   (python-ts-mode . apheleia-mode)
-;;   (rustic-mode . apheleia-mode)
-;;   (emacs-lisp-mode . apheleia-mode)
-;;   )
+(use-package apheleia
+  :config
+  (setf (alist-get 'python-mode apheleia-mode-alist)
+	'(ruff))
+  (setf (alist-get 'python-ts-mode apheleia-mode-alist)
+	'(ruff))
+  :hook
+  (python-ts-mode . apheleia-mode)
+  (rustic-mode . apheleia-mode)
+  (emacs-lisp-mode . apheleia-mode)
+  )
      
 
 
