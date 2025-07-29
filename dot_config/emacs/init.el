@@ -50,6 +50,8 @@
 	 ("<mouse-1>" . nil)
 	 ("<down-mouse-3>" . nil)
 	 ("<mouse-3>" . nil)
+	 ("C-a" . nil)
+	 ("C-e" . nil)
 	 :map evil-normal-state-map
 	 ("<down-mouse-1>" . nil)
 	 ("<mouse-1>" . nil)
@@ -394,7 +396,10 @@
 ;; A few more useful configurations...
 (use-package
   emacs
+  :custom
+  (global-auto-revert-mode t)
   :init
+
   ;; Add prompt indicator to `completing-read-multiple'.
   ;; We display [CRM<separator>], e.g., [CRM,] if the separator is a comma.
   (defun crm-indicator (args)
@@ -419,6 +424,8 @@
 
   ;; Enable recursive minibuffers
   (setq enable-recursive-minibuffers t))
+
+
 
 
 (use-package
@@ -535,6 +542,7 @@
 (add-hook 'evil-insert-state-entry-hook #'vterm-reset-cursor-point nil t)
 
 
+(tab-bar-mode)
 (general-def
   :states 'normal
   :prefix "<leader> t"
@@ -543,9 +551,19 @@
   "b" '("Open terminal" . term)
   "a" '("Open ansi-term" . ansi-term)
   "v" '("Open vterm" . vterm)
+  "o"
+  '("New tab" . tab-new)
+  "x"
+  '("Close tab" . tab-close))
+
+
+(general-def
+  :states 'normal
+  "L"
+  '("Next tab" . tab-next)
+  "H"
+  '("Previous tab" . tab-previous)
   )
-
-
 
 (use-package rust-mode
   :defer 1
@@ -877,15 +895,15 @@
   :general-config
   (:states
    'normal
-   "L"
+   "A-L"
    '("Next arg" . evil-forward-arg)
-   "H"
-   '("Previous arg" . evil-backward-arg))
+   "A-H"
+   '("previous arg" . evil-backward-arg))
   (:states
    'motion
-   "L"
+   "A-L"
    '("Next arg" . evil-forward-arg)
-   "H"
+   "A-H"
    '("Previous arg" . evil-backward-arg)))
 
 
@@ -1108,7 +1126,7 @@
 
 (use-package embark
 
-  :general (general-def :states '('normal 'insert)
+  :general (general-def ;;:states '('normal 'insert)
 	     "S-C-a" '("Embark act". embark-act)         ;; pick some comfortable binding
 	     "S-C-e" '("Embark dwim". embark-dwim)        ;; good alternative: M-.
 	     "C-h B" '("Embark bindings". embark-bindings)
@@ -1151,20 +1169,4 @@
 (setq custom-file (locate-user-emacs-file "custom.el"))
 (load custom-file 'noerror 'nomessage)
 
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(safe-local-variable-values
-   '((deadgrep-extra-arguments quote ("--no-config --L --hidden"))
-     (eval setq consult-ripgrep-args
-	   (concat consult-ripgrep-args " -L --hidden ")))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
 
