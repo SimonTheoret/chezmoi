@@ -66,6 +66,7 @@
 
 ;; TODO: Use this package ?
 (use-package apheleia
+  :defer 1
   :config
   (setf (alist-get 'python-mode apheleia-mode-alist)
 	'(ruff))
@@ -88,6 +89,7 @@
 (setq-default eldoc-idle-delay 0.15)
 
 (use-package eglot-booster
+  :defer 0.25
   :straight ( eglot-booster :type git :host nil :repo "https://github.com/jdtsmith/eglot-booster")
   :after eglot
   :config (eglot-booster-mode))
@@ -186,6 +188,12 @@
       entry
       "* %?"
       :target (file+head "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>\n")))))
+
+
+;; (use-package kanagawa-themes
+;;   :ensure t
+;;   :config
+;;   (load-theme 'kanagawa-wave t))
 
 (use-package gruvbox-theme
   :config
@@ -565,6 +573,8 @@
   '("Previous tab" . tab-previous)
   )
 
+(use-package web-mode :defer 1)
+
 (use-package rust-mode
   :defer 1
   :init
@@ -867,6 +877,7 @@
 
 
 (use-package nix-mode
+  :defer 1
   :mode "\\.nix\\'")
 
 
@@ -1035,6 +1046,8 @@
 (evil-global-set-key 'normal (kbd "C-c i") 'next-buffer)
 (evil-global-set-key 'normal (kbd "C-c o") 'previous-buffer)
 
+(use-package treesit
+  :straight (:type built-in))
 
 (setq treesit-language-source-alist
       '((bash "https://github.com/tree-sitter/tree-sitter-bash")
@@ -1077,6 +1090,8 @@
   :hook
   (prog-mode . (lambda ()
  		 (treesit-font-lock-recompute-features '(function custom)))))
+
+
 
 
 (defun change-compile-command (str)
@@ -1125,7 +1140,7 @@
 
 
 (use-package embark
-
+  :defer 1
   :general (general-def ;;:states '('normal 'insert)
 	     "S-C-a" '("Embark act". embark-act)         ;; pick some comfortable binding
 	     "S-C-e" '("Embark dwim". embark-dwim)        ;; good alternative: M-.
@@ -1160,6 +1175,7 @@
 
 ;; Consult users will also want the embark-consult package.
 (use-package embark-consult
+  :after '(embar consult)
   :hook
 
 
