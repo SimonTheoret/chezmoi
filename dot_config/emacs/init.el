@@ -574,6 +574,9 @@
   )
 
 (use-package web-mode :defer 1)
+(use-package php-ts-mode :defer 1
+  :straight (:type built-in)
+  )
 
 (use-package rust-mode
   :defer 1
