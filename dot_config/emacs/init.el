@@ -939,7 +939,7 @@
 (use-package
   which-key
   :straight (:type built-in)
-  :config (which-key-mode) (setq which-key-idle-delay 0.1))
+  :config (which-key-mode) (setq which-key-idle-delay 0.2))
 
 
 (use-package evil-mc
