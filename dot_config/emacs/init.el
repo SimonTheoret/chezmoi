@@ -80,12 +80,14 @@
 
 
 
+
 (use-package eglot
   :defer 0.5
   :straight (:type built-in)
-  :hook (prog-mode . eglot-ensure))
+  :hook
+  (prog-mode . eglot-ensure)
+  )
 
-(setq-default eglot-inlay-hints-mode nil)
 (setq-default eldoc-idle-delay 0.15)
 
 (use-package eglot-booster
@@ -93,6 +95,8 @@
   :straight ( eglot-booster :type git :host nil :repo "https://github.com/jdtsmith/eglot-booster")
   :after eglot
   :config (eglot-booster-mode))
+
+(add-hook 'eglot-managed-mode-hook (lambda () (eglot-inlay-hints-mode -1)))
 
 (use-package company
   :defer 0.5
