@@ -51,6 +51,21 @@ h = [":toggle-option lsp.display-inlay-hints"]
 [keys.normal.space.n]
 n = ":vs ./notes.md"
 r = ":open ~/org"
+e = [
+      ":sh rm -f /tmp/unique-file-h21a434",
+      ":insert-output yazi '~/org' --chooser-file=/tmp/unique-file-h21a434",
+      ":insert-output echo \"x1b[?1049h\" > /dev/tty",
+      ":open %sh{cat /tmp/unique-file-h21a434}",
+      ":redraw"
+ ]
+d = [
+      ":sh rm -f /tmp/unique-file-h21a434",
+      ":insert-output yazi '~/org/daily' --chooser-file=/tmp/unique-file-h21a434",
+      ":insert-output echo \"x1b[?1049h\" > /dev/tty",
+      ":open %sh{cat /tmp/unique-file-h21a434}",
+      ":redraw"
+ ]
+
 
 [editor.file-picker]
 git-ignore = false
