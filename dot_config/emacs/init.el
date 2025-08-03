@@ -1076,7 +1076,7 @@
  	(elixir "https://github.com/elixir-lang/tree-sitter-elixir")
  	(gleam "https://github.com/gleam-lang/tree-sitter-gleam")
  	(heex "https://github.com/phoenixframework/tree-sitter-heex")
-	(php "https://github.com/tree-sitter/tree-sitter-php" )
+	(php "https://github.com/tree-sitter/tree-sitter-php" "master" "php/src")
  	)
       )
 
