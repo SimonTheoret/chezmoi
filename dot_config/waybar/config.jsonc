@@ -50,7 +50,7 @@
         "format": "󰚰 {}",
         "exec": "checkupdates | wc -l",
         "interval": 3600,
-        "on-click": "alacritty -e sudo pacman -Syu",
+        "on-click": "kitty -e sudo pacman -Syu",
         "signal": 8
     },
 
@@ -100,20 +100,20 @@
         "format": "󰘚 {usage}%",
         "tooltip": true,
         "interval": 1,
-        "on-click": "alacritty -e htop"
+        "on-click": "kitty -e htop"
     },
 
     "memory": {
         "format": "󰍛 {}%",
         "interval": 1,
-        "on-click": "alacritty -e htop"
+        "on-click": "kitty -e htop"
     },
 
     "temperature": {
         "critical-threshold": 80,
         "format": "{icon} {temperatureC}°C",
         "format-icons": ["󱃃", "󰔏", "󱃂"],
-        "on-click": "alacritty -e s-tui"
+        "on-click": "kitty -e s-tui"
     },
 
     "battery": {
@@ -136,7 +136,7 @@
         "format-disconnected": "󰖪 Disconnected",
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
         "tooltip-format": "{ifname}: {ipaddr}",
-        "on-click": "alacritty -e nmtui"
+        "on-click": "kitty -e nmtui"
     },
 
     "pulseaudio": {
@@ -170,7 +170,7 @@
         "interval": 30,
         "format": "󰋊 {percentage_used}%",
         "path": "/",
-        "on-click": "alacritty -e gdu /"
+        "on-click": "kitty -e gdu /"
     },
 
     "tray": {
