@@ -41,6 +41,7 @@ space.e = [
  ]
 C-h = "signature_help"
 space.m = "goto_word"
+space.C-r = ":redraw"
 
 [keys.insert]
 C-h = "signature_help"
