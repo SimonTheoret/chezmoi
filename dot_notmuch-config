@@ -1,5 +1,4 @@
 [database]
-path=~/.local/share/email
 mail_root=Maildir
 [user]
 name=Simon Théorêt
