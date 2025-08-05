@@ -48,6 +48,8 @@ go install mvdan.cc/sh/v3/cmd/shfmt@latest
 
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
+curl -LsSf https://aider.chat/install.sh | sh
+
 echo "Installing latest neovim"
 ./nvim.sh
 
