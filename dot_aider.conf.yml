@@ -1,0 +1,7 @@
+model: ollama/deepseek-r1:32b
+
+auto-commits: false
+show-diffs: true
+attribute-author: false
+attribute-committer: false
+attribute-co-authored-by: false
