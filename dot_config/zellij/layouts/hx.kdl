@@ -45,13 +45,13 @@ layout {
             plugin location="status-bar"
     	}
     }
-    tab name="aichat" {
+    tab name="aider" {
     	pane size=1 borderless=true {
             plugin location="tab-bar"
     	}
         pane {
-            name "aichat"
-            command "aichat"
+            name "aider"
+            command "aider"
             }
         pane size=1 borderless=true {
             plugin location="status-bar"
