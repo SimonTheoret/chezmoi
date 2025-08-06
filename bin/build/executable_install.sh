@@ -38,6 +38,7 @@ cargo install aichat
 cargo install lsp-ai
 cargo install cargo-insta --locked
 cargo install just
+cargo install du-dust
 
 sudo npm install -g tldr
 sudo npm i -g bash-language-server
