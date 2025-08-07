@@ -1,4 +1,4 @@
-model: ollama/deepseek-r1:32b
+model: ollama/qwen3:14b
 
 auto-commits: false
 show-diffs: true
