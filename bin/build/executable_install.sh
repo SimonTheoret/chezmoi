@@ -38,6 +38,7 @@ cargo install aichat
 cargo install lsp-ai
 cargo install cargo-insta --locked
 cargo install just
+cargo install du-dust
 
 sudo npm install -g tldr
 sudo npm i -g bash-language-server
@@ -47,6 +48,8 @@ go install github.com/jesseduffield/lazydocker@latest
 go install mvdan.cc/sh/v3/cmd/shfmt@latest
 
 curl -LsSf https://astral.sh/uv/install.sh | sh
+
+curl -LsSf https://aider.chat/install.sh | sh
 
 echo "Installing latest neovim"
 ./nvim.sh
