@@ -33,10 +33,10 @@ layout {
             plugin location="compact-bar"
     	}
     }
-    tab name="aider" {
+    tab name="ai" {
         pane {
-            name "aider"
-            command "aider"
+            name "claude"
+            command "claude"
         }
     	pane size=1 borderless=true {
             plugin location="compact-bar"
