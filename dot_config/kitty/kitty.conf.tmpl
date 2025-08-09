@@ -6,28 +6,23 @@ bold_italic_font auto
 
 {{ if eq .chezmoi.os "darwin"  }}
 ## Macos
-font_size 15
-
+font_size 14
 {{else if (and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.name "NixOS") (eq (env "NIXOS_CONF") "laptop" ))}}
 ## NixOS Laptop
 font_size 13
-
+background_opacity 0.80
+background_blur 32
 {{else if (and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.name "NixOS") (eq (env "NIXOS_CONF") "desktop"))}}
 ## NixOS Desktop
-font_size 11
-
-{{else if (and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.name "Pop!_OS") )}}
-## Pop OS
-font_size 13
-
+font_size 10
+background_opacity 0.80
+background_blur 32
 {{else if (and (eq .chezmoi.os "linux") (eq .chezmoi.username "stheoret") )}}
 ## Serveur druide
 font_size 13
-
 {{else}}
 ## Autre
 font_size 10
-
 {{end}}
 
 input_delay 0
@@ -37,10 +32,7 @@ wayland_enable_ime no
 
 macos_option_as_alt yes
 
-background_opacity  0.8
-background_blur 16
-
 # BEGIN_KITTY_THEME
 # Monokai Soda
-include Kanagawa.conf
+include current-theme.conf
 # END_KITTY_THEME
