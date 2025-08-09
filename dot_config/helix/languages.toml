@@ -1,3 +1,5 @@
+## PYTHON STUFF
+
 [[language]]
 name = "python"
 auto-format = true
@@ -6,6 +8,19 @@ language-servers = [
     {name = "ruff"},
 ]
 
+[language-server.basedpyright]
+command = "basedpyright-langserver"
+args = ["--stdio"]
+
+[language-server.basedpyright.config]
+basedpyright.analysis.typeCheckingMode = "basic"
+
+[language-server.ruff]
+command = "ruff"
+args = ["server"]
+
+
+## RUST STUFF
 
 [[language]]
 name = "rust"
@@ -24,16 +39,67 @@ command = "clippy"
 features = "all"
 
 
-[language-server.basedpyright]
-command = "basedpyright-langserver"
-args = ["--stdio"]
+## CPP STUFF
 
-[language-server.basedpyright.config]
-basedpyright.analysis.typeCheckingMode = "basic"
+[[language]]
+name = "cpp"
+language-servers = [
+    {name = "clangd"},
+]
+roots = [".git", "CMakeLists.txt"]
 
-[language-server.ruff]
-command = "ruff"
-args = ["server"]
+[language-server.clangd]
+command = "clangd"
+args = ["--enable-config"]
+
+## SHELL STUFF
+
+[[language]]
+name = "bash"
+formatter = { command = "shfmt", args = ["-filename", "%{buffer_name}"] }
+auto-format = true
+
+## NIX STUFF
+
+[[language]]
+name = "nix"
+formatter = { command = "nixfmt", args = ["-q"] }
+auto-format = true
+
+## WEB STUFF
+
+[[language]]
+name = "javascript"
+formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+auto-format = true
+
+[[language]]
+name = "typescript"
+formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+auto-format = true
+
+[[language]]
+name = "tsx"
+formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+auto-format = true
+
+[[language]]
+name = "html"
+formatter = { command = 'prettier', args = ["--parser", "html"] }
+auto-format = true
+
+[[language]]
+name = "css"
+formatter = { command = 'prettier', args = ["--parser", "css"] }
+auto-format = true
+
+[[language]]
+name = "scss"
+formatter = { command = 'prettier', args = ["--parser", "scss"] }
+auto-format = true
+
+
+## OTHER STUFF
 
 [[language]]
 name = "csv"
@@ -49,32 +115,3 @@ source.rev = "896e6d09b23a1b0d87e45bf97ca34a249f41495c"
 name = "markdown"
 comment-tokens = ["-", "+", "*", "- [ ]", ">"]
 
-[[language]]
-name = "cpp"
-language-servers = [
-    {name = "clangd"},
-]
-roots = [".git", "CMakeLists.txt"]
-
-[language-server.clangd]
-command = "clangd"
-args = ["--enable-config"]
-
-
-
-
-[[language]]
-name = "bash"
-formatter = { command = "shfmt", args = ["-filename", "%{buffer_name}"] }
-auto-format = true
-
-
-[[language]]
-name = "nix"
-formatter = { command = "nixfmt", args = ["-q"] }
-auto-format = true
-
-[[language]]
-name = "typescript"
-formatter = { command = 'prettier', args = ["--parser", "typescript"] }
-auto-format = true
