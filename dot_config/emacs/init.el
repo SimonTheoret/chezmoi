@@ -78,35 +78,25 @@
   (emacs-lisp-mode . apheleia-mode)
   )
 
-(use-package lsp-mode
-  :init
-  ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
-  (setq lsp-keymap-prefix "<leader> l")
-  :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
-         (rust-ts-mode . lsp)
-         (python-ts-mode . lsp)
-         ;; if you want which-key integration
-         (lsp-mode . lsp-enable-which-key-integration))
-  :commands (lsp lsp-deferred))
 
-(setq lsp-log-io nil) ; if set to true can cause a performance hit
 
-;; (use-package eglot
-;;   :defer 0.5
-;;   :straight (:type built-in)
-;;   :hook
-;;   (prog-mode . eglot-ensure)
-;;   )
 
-;; (setq-default eldoc-idle-delay 0.15)
+(use-package eglot
+  :defer 0.5
+  :straight (:type built-in)
+  :hook
+  (prog-mode . eglot-ensure)
+  )
 
-;; (use-package eglot-booster
-;;   :defer 0.25
-;;   :straight ( eglot-booster :type git :host nil :repo "https://github.com/jdtsmith/eglot-booster")
-;;   :after eglot
-;;   :config (eglot-booster-mode))
+(setq-default eldoc-idle-delay 0.15)
 
-;; (add-hook 'eglot-managed-mode-hook (lambda () (eglot-inlay-hints-mode -1)))
+(use-package eglot-booster
+  :defer 0.25
+  :straight ( eglot-booster :type git :host nil :repo "https://github.com/jdtsmith/eglot-booster")
+  :after eglot
+  :config (eglot-booster-mode))
+
+(add-hook 'eglot-managed-mode-hook (lambda () (eglot-inlay-hints-mode -1)))
 
 (use-package company
   :defer 0.5
