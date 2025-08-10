@@ -1,0 +1,45 @@
+layout {
+    new_tab_template {
+            // the default zellij compact-bar and status bar plugins
+            pane 
+            pane size=1 borderless=true {
+                plugin location="compact-bar"
+            }
+        }
+    tab name="editor"{
+        pane split_direction="vertical" {
+            pane size="60%"
+            pane size="40%"
+        }
+    	pane size=1 borderless=true {
+            plugin location="compact-bar"
+    	}
+        }
+    tab name="yazi" {
+        pane {
+            name   "yazi"
+            command "yazi"
+        }
+    	pane size=1 borderless=true {
+            plugin location="compact-bar"
+    	}
+    }
+    tab name="lazygit" {
+        pane {
+            name "lazygit"
+            command "lazygit"
+        }
+    	pane size=1 borderless=true {
+            plugin location="compact-bar"
+    	}
+    }
+    tab name="aider" {
+        pane {
+            name "aider"
+            command "aider"
+        }
+    	pane size=1 borderless=true {
+            plugin location="compact-bar"
+    	}
+    }
+}

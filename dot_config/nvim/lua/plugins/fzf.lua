@@ -12,6 +12,11 @@ return {
                 true,          -- auto generate rest of fzf’s highlights?
                 bg = '-1',
                 gutter = '-1', -- I like this one too, try with and without
+            },
+            keymap = {
+            fzf = {
+                      ["alt-a"]         = "select-all+accept",
+            }
             }
         })
     end,
