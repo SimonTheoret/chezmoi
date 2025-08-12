@@ -30,6 +30,10 @@
   :config
   (general-evil-setup t))
 
+;; (use-package treesit
+;;   :straight (:type built-in))
+
+
 (use-package
   evil
   :init
@@ -87,6 +91,12 @@
   :hook
   (prog-mode . eglot-ensure)
   )
+
+					; (add-to-list 'eglot-server-programs
+					;              '((rust-ts-mode rust-mode) .
+					;                ("rust-analyzer" :initializationOptions (:check (:command "clippy")))))
+
+
 
 (setq-default eldoc-idle-delay 0.15)
 
@@ -582,11 +592,16 @@
   :straight (:type built-in)
   )
 
-(use-package rust-mode
+(use-package rustic
   :defer 1
   :init
-  (setq rust-mode-treesitter-derive t)
+  (setq
+   rust-mode-treesitter-derive t
+   rustic-lsp-client 'eglot
+   )
   )
+
+;; (use-package rustic :after )
 
 
 (setq dired-listing-switches "-alh")
@@ -1053,8 +1068,6 @@
 (evil-global-set-key 'normal (kbd "C-c i") 'next-buffer)
 (evil-global-set-key 'normal (kbd "C-c o") 'previous-buffer)
 
-(use-package treesit
-  :straight (:type built-in))
 
 (setq treesit-language-source-alist
       '((bash "https://github.com/tree-sitter/tree-sitter-bash")
@@ -1094,9 +1107,10 @@
   :config
   (treesit-auto-add-to-auto-mode-alist 'all)
   (global-treesit-auto-mode)
-  :hook
-  (prog-mode . (lambda ()
- 		 (treesit-font-lock-recompute-features '(function custom)))))
+  ;; :hook
+  ;; (prog-mode . (lambda ()
+  ;; (treesit-font-lock-recompute-features '(function custom))))
+  )
 
 
 
