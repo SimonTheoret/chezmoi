@@ -71,8 +71,8 @@ d = [
 
 
 [editor.file-picker]
-git-ignore = false
-hidden = false
+git-ignore = true
+hidden = true
 
 
 [editor.indent-guides]
