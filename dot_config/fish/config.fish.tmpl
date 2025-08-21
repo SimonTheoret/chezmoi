@@ -47,6 +47,11 @@ export EDITOR='hx'
 export TERMINAL='alacritty'
 export TERM='xterm'
 export OLLAMA_API_BASE=http://127.0.0.1:11434
+export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | bat -p -lman'"
+
+# Use bat for help
+abbr -a --position anywhere -- --help '--help | bat -plhelp'
+abbr -a --position anywhere -- -h '-h | bat -plhelp'
 
 # Use vi key keybings in fish
 fish_vi_key_bindings
