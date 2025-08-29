@@ -16,8 +16,6 @@ alias grep="grep --color=auto"
 alias ll='eza -alF --icons'
 alias la='eza -A --icons'
 alias l='eza -CF --icons'
-alias tree='tree -C'
-alias grsync="rsync -av --filter=':- .gitignore'"
 alias cm="chezmoi"
 alias cmcd="chezmoi cd"
 alias cma="chezmoi apply"
