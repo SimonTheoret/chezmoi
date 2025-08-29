@@ -66,6 +66,10 @@ set fish_cursor_default block
 # Set the insert mode cursor to a line
 set fish_cursor_insert line
 
+function fzz
+	zellij a (zellij ls -n | cut -d' ' -f1 |fzf)
+end
+
 
 {{if (and (eq .chezmoi.os "linux") (eq .chezmoi.username "stheoret") )}}
 export LC_ALL=en_US.UTF-8
