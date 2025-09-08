@@ -40,11 +40,12 @@ fish_add_path $HOME/bin
 # Fzf configuration
 export FZF_CTRL_T_OPTS="
 --preview 'bat -n --color=always {}'
---bind 'ctrl-d:reload(fd --type d -I -H -L --exclude .git \$dir),ctrl-f:reload(fd --type f -I -H -L --exclude .git \$dir),ctrl-t:reload(fd -I -H -L --exclude .git \$dir),ctrl-c:abort'
+--bind 'ctrl-d:reload( fd --type d -I -H -L --exclude .git),ctrl-f:reload( fd --type f -I -H -L --exclude .git),ctrl-t:reload( fd -I -H -L --exclude .git ),ctrl-c:abort'
 --header 'Ctrl-f for files, Ctrl-d for directories and Ctrl-t for all'"
 export FZF_CTRL_R_OPTS="--color header:italic"
 export FZF_ALT_C_OPTS="--preview 'tree -C {}'"
-export FZF_CTRL_T_COMMAND="fd  -I -H -L --exclude .git \$dir"
+export FZF_CTRL_T_COMMAND="fd  -I -H -L --exclude .git"
+set -Ux fifc_editor hx
 
 export BROWSER='firefox'
 export EDITOR='hx'

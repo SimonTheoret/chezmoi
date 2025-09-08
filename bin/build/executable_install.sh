@@ -62,7 +62,7 @@ echo "Installing latest neovim"
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 
 . "$HOME"/.config/fish/config.fish
-fisher install PatrickF1/fzf.fish
+fisher install gazorby/fifc
 
 curl -sfL https://direnv.net/install.sh | bash
 
