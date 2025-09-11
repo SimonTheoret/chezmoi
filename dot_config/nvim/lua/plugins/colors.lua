@@ -219,14 +219,24 @@
 --         vim.cmd [[colorscheme molokai]]
 --     end
 -- }
+-- return {
+--     "rebelot/kanagawa.nvim",
+--     lazy = false,
+--     config = function()
+--         vim.cmd("colorscheme kanagawa")
+--         require('kanagawa').setup({
+--             compile = true, -- enable compiling the colorscheme
+--         }
+--         )
+--     end
+-- }
 return {
-    "rebelot/kanagawa.nvim",
-    lazy = false,
+    "ellisonleao/gruvbox.nvim",
+    priority = 1000,
     config = function()
-        vim.cmd("colorscheme kanagawa")
-        require('kanagawa').setup({
-            compile = true, -- enable compiling the colorscheme
-        }
-        )
+        require("gruvbox").setup({
+        })
+        vim.o.background = "dark" -- or "light" for light mode
+        vim.cmd([[colorscheme gruvbox]])
     end
 }

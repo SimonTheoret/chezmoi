@@ -25,6 +25,7 @@ vim.opt.relativenumber = true --relative numbers
 vim.wo.breakindent = true
 vim.opt.splitright = true
 vim.opt.laststatus = 3
+vim.o.timeoutlen = 150
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
