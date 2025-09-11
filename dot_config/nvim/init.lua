@@ -26,6 +26,8 @@ vim.wo.breakindent = true
 vim.opt.splitright = true
 vim.opt.laststatus = 3
 vim.o.timeoutlen = 150
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4

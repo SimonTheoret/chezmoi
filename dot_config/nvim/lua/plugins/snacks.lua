@@ -11,27 +11,24 @@ return {
         dashboard = { enabled = false },
         explorer = { enabled = false },
         git = { enabled = false },
-        indent = { enabled = true },
+        indent = { enabled = false },
         input = { enabled = false },
-        picker = { enabled = true },
+        picker = { enabled = false },
         notifier = { enabled = false },
         quickfile = { enabled = true },
         scope = { enabled = false },
         scroll = { enabled = false },
         statuscolumn = { enabled = true },
-        words = { enabled = true },
+        words = { enabled = false },
         image = { enabled = false }
     },
     keys = {
-        { "<leader>fm", function() Snacks.picker() end,                  desc = "Show all Snacks pickers" },
         { "<leader>bs", function() Snacks.scratch() end,                 desc = "Toggle scratch buffer" },
         { "<leader>bd", function() Snacks.bufdelete() end,               desc = "Delete Buffer" },
         { "<leader>gB", function() Snacks.gitbrowse() end,               desc = "Git Browse" },
         { "<leader>gg", function() Snacks.lazygit() end,                 desc = "Lazygit" },
         -- { "<c-/>",      function() Snacks.terminal() end,                desc = "Toggle Terminal" },
         -- { "<leader>tt", function() Snacks.terminal() end,                desc = "Toggle Terminal" },
-        { "]]",         function() Snacks.words.jump(vim.v.count1) end,  desc = "Next Reference" },
-        { "[[",         function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference" },
     },
     init = function()
         vim.api.nvim_create_autocmd("User", {
@@ -47,8 +44,6 @@ return {
                 vim.print = _G.dd -- Override print to use snacks for `:=` command
 
                 -- Create some toggle mappings
-                Snacks.toggle.option("spell", { name = "Spelling" }):map("<leader>us")
-                Snacks.toggle.option("wrap", { name = "Wrap" }):map("<leader>uw")
                 Snacks.toggle.option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 })
                     :map("<leader>uc")
                 Snacks.toggle.treesitter():map("<leader>uT")
