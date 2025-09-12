@@ -30,7 +30,7 @@ vmap.set("n", "<M-x>", "q:", { desc = "Commands" })
 -- Helix
 vmap.set({ "n", "v", "o", "x" }, "gl", "$")
 vmap.set({ "n", "v", "o", "x" }, "gh", "0")
-vmap.set({ "n", "v", "o", "x" }, "m", "%")
+vmap.set({ "n", "v", "o", "x" }, ",", "%")
 
 -- Insert blank lines
 vmap.set("n", "<leader>o", "o<Esc>k", { desc = "Whitespace under cursor" })
@@ -40,7 +40,11 @@ vmap.set("n", "<leader>cd", ":cd %:h<CR>", { desc = "Make file's path as working
 vmap.set("n", "<leader>cd", ":cd %:h<CR>", { desc = "Make file's path as working dir" })
 vmap.set("n", "<leader>pwd", ":lua print(vim.api.nvim_buf_get_name(0))<CR>", { desc = "Print current buffer path" })
 
+-- Notes
 vmap.set("n", "<leader>nn", ":80vs notes.md<CR>", { desc = "Open notes in directory root" })
+
+-- Marks
+vmap.set("n", "<leader>ba", ":delmarks!<CR>", { desc = "Remove all marks" })
 
 -- vmap.set("n", "<leader>sr", function() require("simon.neosearch").search() end, { desc = "Search and replace" })
 vmap.set("n", "<leader>bb", ":only<CR>", { desc = "Focus buffer" })
