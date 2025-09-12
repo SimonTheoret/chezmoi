@@ -1,7 +1,7 @@
 layout {
     new_tab_template {
             // the default zellij compact-bar and status bar plugins
-            pane 
+            pane
             pane size=1 borderless=true {
                 plugin location="compact-bar"
             }
@@ -31,6 +31,15 @@ layout {
         pane {
             name "lazygit"
             command "lazygit"
+        }
+    	pane size=1 borderless=true {
+            plugin location="compact-bar"
+    	}
+    }
+     tab name="docker" {
+        pane {
+            name "docker"
+            command "lazydocker"
         }
     	pane size=1 borderless=true {
             plugin location="compact-bar"

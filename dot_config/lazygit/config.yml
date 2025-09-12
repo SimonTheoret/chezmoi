@@ -5,7 +5,7 @@ gui:
 
 
 os:
-  editPreset: 'helix (hx)'
+  editPreset: 'nvim'
 
 git:
   paging:
