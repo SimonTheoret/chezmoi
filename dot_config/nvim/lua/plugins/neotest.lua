@@ -6,18 +6,17 @@ return {
         "antoinemadec/FixCursorHold.nvim",
         "nvim-treesitter/nvim-treesitter",
         "nvim-neotest/neotest-python",
-        { "fredrikaverpil/neotest-golang", version = "*"},
     },
     config = function()
         require("neotest").setup({
             adapters = {
                 require('rustaceanvim.neotest'),
                 require("neotest-python"),
-                require("neotest-golang"),
             },
             output = {
                 open_on_run = false
             },
+            summary = { animated = false },
             -- quickfix = {
             --     open = function()
             --         require("trouble").open({ mode = "quickfix", focus = false })
