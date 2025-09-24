@@ -43,6 +43,7 @@ space.e = [
 C-h = "signature_help"
 space.m = "goto_word"
 space.C-r = ":redraw"
+"," = "match_brackets"
 
 [keys.insert]
 C-h = "signature_help"
