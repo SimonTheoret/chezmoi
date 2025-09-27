@@ -5,9 +5,11 @@ return {
     ---@module 'dap-view'
     ---@type dapview.Config
     config       = true,
-    keys         = { {
-        "<leader>dui", function() require("dap-view").open() end, desc = "DAP UI"
-    } }
+    keys         = {
+        {
+            "<leader>dui", function() require("dap-view").open() end, desc = "DAP UI"
+        }
+    }
 }
 -- {
 --     'theHamsta/nvim-dap-virtual-text',

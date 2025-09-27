@@ -5,12 +5,7 @@ gui:
 
 
 os:
-  editPreset: 'nvim'
-
-git:
-  paging:
-    # colorArg: always
-    # pager: delta --syntax-theme="Monokai Extended" --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
+  editPreset: 'hx (helix)'
 
 customCommands:
   - key: "C"

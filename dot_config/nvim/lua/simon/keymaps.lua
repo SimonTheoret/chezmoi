@@ -44,7 +44,7 @@ vmap.set("n", "<leader>pwd", ":lua print(vim.api.nvim_buf_get_name(0))<CR>", { d
 vmap.set("n", "<leader>nn", ":80vs notes.md<CR>", { desc = "Open notes in directory root" })
 
 -- Marks
-vmap.set("n", "<leader>ba", ":delmarks!<CR>", { desc = "Remove all marks" })
+vmap.set("n", "<leader>ba", ":delm! | delm A-Z0-9 <CR>", { desc = "Remove all marks" })
 
 -- vmap.set("n", "<leader>sr", function() require("simon.neosearch").search() end, { desc = "Search and replace" })
 vmap.set("n", "<leader>bb", ":only<CR>", { desc = "Focus buffer" })
