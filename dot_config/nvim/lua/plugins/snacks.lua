@@ -16,24 +16,8 @@ return {
         picker = {
             enabled = true,
             layout = {
-                preview = "main",
-                layout = {
-                    box = "vertical",
-                    backdrop = false,
-                    width = 0,
-                    height = 0.4,
-                    position = "bottom",
-                    border = "top",
-                    title = " {title} {live} {flags}",
-                    title_pos = "left",
-                    { win = "input", height = 1, border = "bottom" },
-                    {
-                        box = "horizontal",
-                        { win = "list",    border = "none" },
-                        { win = "preview", title = "{preview}", width = 0.6, border = "left" },
-                    },
-                },
-            }
+                preset = "ivy"
+            },
         },
         notifier = { enabled = false },
         quickfile = { enabled = true },
@@ -42,14 +26,14 @@ return {
         statuscolumn = { enabled = true },
         words = { enabled = false },
         image = { enabled = false },
-        terminal = {enabled = false},
+        terminal = { enabled = false },
     },
     keys = {
-        { "<leader>bs", function() Snacks.scratch() end,      desc = "Toggle scratch buffer" },
-        { "<leader>bd", function() Snacks.bufdelete() end,    desc = "Delete Buffer" },
-        { "<leader>gB", function() Snacks.gitbrowse() end,    desc = "Git Browse" },
-        { "<leader>gg", function() Snacks.lazygit() end,      desc = "Lazygit" },
-        { "<leader>fa", function() Snacks.picker() end, desc = "All pickers" },
+        { "<leader>bs", function() Snacks.scratch() end,   desc = "Toggle scratch buffer" },
+        { "<leader>bd", function() Snacks.bufdelete() end, desc = "Delete Buffer" },
+        { "<leader>gB", function() Snacks.gitbrowse() end, desc = "Git Browse" },
+        { "<leader>gg", function() Snacks.lazygit() end,   desc = "Lazygit" },
+        { "<leader>fa", function() Snacks.picker() end,    desc = "All pickers" },
         {
             "<leader><leader>",
             function()
