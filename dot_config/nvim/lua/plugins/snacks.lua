@@ -13,22 +13,119 @@ return {
         git = { enabled = false },
         indent = { enabled = false },
         input = { enabled = false },
-        picker = { enabled = false },
+        picker = {
+            enabled = true,
+            layout = {
+                preview = "main",
+                layout = {
+                    box = "vertical",
+                    backdrop = false,
+                    width = 0,
+                    height = 0.4,
+                    position = "bottom",
+                    border = "top",
+                    title = " {title} {live} {flags}",
+                    title_pos = "left",
+                    { win = "input", height = 1, border = "bottom" },
+                    {
+                        box = "horizontal",
+                        { win = "list",    border = "none" },
+                        { win = "preview", title = "{preview}", width = 0.6, border = "left" },
+                    },
+                },
+            }
+        },
         notifier = { enabled = false },
         quickfile = { enabled = true },
         scope = { enabled = false },
         scroll = { enabled = false },
         statuscolumn = { enabled = true },
         words = { enabled = false },
-        image = { enabled = false }
+        image = { enabled = false },
+        terminal = {enabled = false},
     },
     keys = {
-        { "<leader>bs", function() Snacks.scratch() end,                 desc = "Toggle scratch buffer" },
-        { "<leader>bd", function() Snacks.bufdelete() end,               desc = "Delete Buffer" },
-        { "<leader>gB", function() Snacks.gitbrowse() end,               desc = "Git Browse" },
-        { "<leader>gg", function() Snacks.lazygit() end,                 desc = "Lazygit" },
-        -- { "<c-/>",      function() Snacks.terminal() end,                desc = "Toggle Terminal" },
-        -- { "<leader>tt", function() Snacks.terminal() end,                desc = "Toggle Terminal" },
+        { "<leader>bs", function() Snacks.scratch() end,      desc = "Toggle scratch buffer" },
+        { "<leader>bd", function() Snacks.bufdelete() end,    desc = "Delete Buffer" },
+        { "<leader>gB", function() Snacks.gitbrowse() end,    desc = "Git Browse" },
+        { "<leader>gg", function() Snacks.lazygit() end,      desc = "Lazygit" },
+        { "<leader>fa", function() Snacks.picker() end, desc = "All pickers" },
+        {
+            "<leader><leader>",
+            function()
+                Snacks.picker.smart()
+            end,
+            desc = "Smart picker"
+        },
+        {
+            "<leader>fp",
+            function()
+                Snacks.picker.files({ cwd = "~/.local/share/chezmoi/" })
+            end,
+            desc = "Open chezmoi config"
+        },
+        {
+            "<leader>fP",
+            function()
+                Snacks.picker.files({ cwd = "~/nixdots" })
+            end,
+            desc = "Open nixdots config"
+        },
+        {
+            "<leader>fg",
+            function()
+                Snacks.picker.grep()
+            end,
+            desc = "grep"
+        },
+        {
+            "<leader>fl",
+            function()
+                Snacks.picker.lines()
+            end,
+            desc = "List current buffer lines"
+        },
+        {
+            "<leader>fb",
+            function()
+                Snacks.picker.buffers()
+            end,
+            desc = "List buffers"
+        },
+        {
+            "<leader>fw",
+            function()
+                Snacks.picker.grep_word()
+            end,
+            desc = "Grep word"
+        },
+        {
+            "<leader>fk",
+            function()
+                Snacks.picker.keymaps()
+            end,
+            desc = "List keymaps"
+        },
+        {
+            "<leader>fH",
+            function()
+                Snacks.picker.help()
+            end,
+            desc = "Vim help"
+        },
+        {
+            "<leader>fh",
+            function()
+                Snacks.picker.man()
+            end,
+            desc = "Man pages"
+        },
+        {
+            '<leader>rv',
+            function() require('yarepl.extensions.snacks').repl_show() end,
+            desc = "REPL buffers"
+        }
+
     },
     init = function()
         vim.api.nvim_create_autocmd("User", {

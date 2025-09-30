@@ -17,14 +17,11 @@
     line-numbers = true
     syntax-theme = gruvbox-dark
     features = gruvbox-dark
-
-# [merge]
-#     conflictstyle = zdiff3
-# [merge]
-#     tool = "nvimdiff"
-# [difftool]
-#     prompt = true
-# [diff]
-#     tool = nvimdiff
-# [difftool "nvimdiff"]
-#     cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+[merge]
+    tool = "nvimdiff"
+[difftool]
+    prompt = true
+[diff]
+    tool = nvimdiff
+[difftool "nvimdiff"]
+    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
