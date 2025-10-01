@@ -1,7 +1,7 @@
 return {
     "neovim/nvim-lspconfig",
     ft = { "rust", "python", "go", "lua", "bash", "nix", "gleam", "tex", "cpp", "sql", "css", "html", "cmake", "sh", "typescript", "javascript", "php", "vue" },
-    dependencies = { 'saghen/blink.cmp', "ibhagwan/fzf-lua" },
+    dependencies = { 'saghen/blink.cmp', "folke/snacks.nvim" },
     config = function()
         -- python LSP
         vim.lsp.enable("ruff")
@@ -156,11 +156,11 @@ return {
 
                 vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, { desc = "Lsp rename", buffer = ev.buf })
 
-                vim.keymap.set('n', '<space>xx', function() require("fzf-lua").lsp_document_diagnostics() end,
-                    { desc = "Buffer diagnostic" })
+                vim.keymap.set('n', '<space>xx', function() Snacks.picker.diagnostics_buffer() end,
+                    { desc = "Buffer diagnostic", buffer = ev.buf })
 
-                vim.keymap.set('n', '<space>xX', function() require("fzf-lua").lsp_workspace_diagnostics() end,
-                    { desc = "Workspace diagnostic" })
+                vim.keymap.set('n', '<space>xX', function() Snacks.picker.diagnostics() end,
+                    { desc = "Workspace diagnostic", buffer = ev.buf })
 
                 vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action,
                     { desc = "Lsp code action", buffer = ev.buf })
@@ -170,24 +170,15 @@ return {
                     end,
                     { desc = "Lsp references", buffer = ev.buf })
 
-                -- vim.keymap.set('n', 'gr', function() require('fzf-lua').lsp_references() end,
-                --     { desc = "Lsp references", buffer = ev.buf })
-
                 vim.keymap.set('n', '<leader>bf', function()
                     vim.lsp.buf.format { async = true }
                 end, { desc = "Lsp format buffer", buffer = ev.buf })
 
-                vim.keymap.set('n', '<leader>fi',
-                    function() require('fzf-lua').lsp_live_workspace_symbols() end,
+                vim.keymap.set('n', '<leader>fi', function() Snacks.picker.lsp_workspace_symbols() end,
                     { desc = "Lsp workspace symbols", buffer = ev.buf })
 
-                vim.keymap.set('n', '<leader>fj', function() require('fzf-lua').lsp_document_symbols() end,
-                    { desc = "Lsp document symbols", buffer = ev.buf })
-
-
-                vim.keymap.set('n', '<leader>cf',
-                    function() require('fzf-lua').lsp_workspace_symbols() end,
-                    { desc = "LSP finder", buffer = ev.buf })
+                vim.keymap.set('n', '<leader>fj', function() Snacks.picker.lsp_symbols() end,
+                    { desc = "Lsp buffer symbols", buffer = ev.buf })
 
                 vim.keymap.set('n', '<leader>th',
                     function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end,
