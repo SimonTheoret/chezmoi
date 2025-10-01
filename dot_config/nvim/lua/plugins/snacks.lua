@@ -9,7 +9,7 @@ return {
         -- refer to the configuration section below
         bigfile = { enabled = true },
         dashboard = { enabled = false },
-        explorer = { enabled = false },
+        explorer = { enabled = true, replace_netwr = true, },
         git = { enabled = false },
         indent = { enabled = false },
         input = { enabled = false },
@@ -29,11 +29,12 @@ return {
         terminal = { enabled = false },
     },
     keys = {
-        { "<leader>bs", function() Snacks.scratch() end,   desc = "Toggle scratch buffer" },
-        { "<leader>bd", function() Snacks.bufdelete() end, desc = "Delete Buffer" },
-        { "<leader>gB", function() Snacks.gitbrowse() end, desc = "Git Browse" },
-        { "<leader>gg", function() Snacks.lazygit() end,   desc = "Lazygit" },
-        { "<leader>fa", function() Snacks.picker() end,    desc = "All pickers" },
+        { "<leader>bs", function() Snacks.scratch() end,         desc = "Toggle scratch buffer" },
+        { "<leader>bd", function() Snacks.bufdelete() end,       desc = "Delete Buffer" },
+        { "<leader>gB", function() Snacks.gitbrowse() end,       desc = "Git Browse" },
+        { "<leader>gg", function() Snacks.lazygit() end,         desc = "Lazygit" },
+        { "<leader>ff", function() Snacks.picker.explorer() end, desc = "All pickers" },
+        { "<leader>fa", function() Snacks.picker() end,          desc = "All pickers" },
         {
             "<leader><leader>",
             function()
