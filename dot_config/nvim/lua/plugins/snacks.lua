@@ -64,6 +64,13 @@ return {
             desc = "grep"
         },
         {
+            "<leader>fG",
+            function()
+                Snacks.picker.grep_buffers()
+            end,
+            desc = "Grep open buffers"
+        },
+        {
             "<leader>fl",
             function()
                 Snacks.picker.lines()
