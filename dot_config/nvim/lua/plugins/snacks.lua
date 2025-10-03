@@ -26,16 +26,19 @@ return {
         statuscolumn = { enabled = true },
         words = { enabled = false },
         image = { enabled = false },
-        terminal = { enabled = false },
+        terminal = { enabled = true },
+        toggle = { enabled = false }
     },
     keys = {
-        { "<leader>bs", function() Snacks.scratch() end,         desc = "Toggle scratch buffer" },
-        { "<leader>bd", function() Snacks.bufdelete() end,       desc = "Delete Buffer" },
-        { "<leader>gB", function() Snacks.gitbrowse() end,       desc = "Git Browse" },
-        { "<leader>gg", function() Snacks.lazygit() end,         desc = "Lazygit" },
-        { "<leader>fF", function() Snacks.explorer.open() end,   desc = "Explorer cwd" },
-        { "<leader>ff", function() Snacks.explorer.reveal() end, desc = "Explorer" },
-        { "<leader>fa", function() Snacks.picker() end,          desc = "All pickers" },
+        { "<leader>tt", function() Snacks.terminal(nil, { win = { height = 20 } }) end,        desc = "Toggle Terminal" },
+        { "<leader>tn", function() Snacks.terminal(nil, { win = { position = "right" } }) end, desc = "Toggle side terminal" },
+        { "<leader>bs", function() Snacks.scratch() end,                                       desc = "Toggle scratch buffer" },
+        { "<leader>bd", function() Snacks.bufdelete() end,                                     desc = "Delete Buffer" },
+        { "<leader>gB", function() Snacks.gitbrowse() end,                                     desc = "Git Browse" },
+        { "<leader>gg", function() Snacks.lazygit() end,                                       desc = "Lazygit" },
+        { "<leader>fF", function() Snacks.explorer.open() end,                                 desc = "Explorer cwd" },
+        { "<leader>ff", function() Snacks.explorer.reveal() end,                               desc = "Explorer" },
+        { "<leader>fa", function() Snacks.picker() end,                                        desc = "All pickers" },
         {
             "<leader><leader>",
             function()
