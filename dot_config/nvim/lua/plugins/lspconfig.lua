@@ -1,7 +1,7 @@
 return {
     "neovim/nvim-lspconfig",
     ft = { "rust", "python", "go", "lua", "bash", "nix", "gleam", "tex", "cpp", "sql", "css", "html", "cmake", "sh", "typescript", "javascript", "php", "vue" },
-    dependencies = { 'saghen/blink.cmp', "folke/snacks.nvim" },
+    dependencies = { 'saghen/blink.cmp', "stevearc/quicker.nvim" },
     config = function()
         -- python LSP
         vim.lsp.enable("ruff")
@@ -156,10 +156,13 @@ return {
 
                 vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, { desc = "Lsp rename", buffer = ev.buf })
 
-                vim.keymap.set('n', '<space>xx', function() Snacks.picker.diagnostics_buffer() end,
+                vim.keymap.set('n', '<space>xx', function()
+                        vim.diagnostic.setloclist({ open = false })
+                        require("quicker").toggle({ loclist = true })
+                    end,
                     { desc = "Buffer diagnostic", buffer = ev.buf })
 
-                vim.keymap.set('n', '<space>xX', function() Snacks.picker.diagnostics() end,
+                vim.keymap.set('n', '<space>xX', vim.diagnostic.setqflist,
                     { desc = "Workspace diagnostic", buffer = ev.buf })
 
                 vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action,
