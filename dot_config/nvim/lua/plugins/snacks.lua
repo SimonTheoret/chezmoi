@@ -33,7 +33,8 @@ return {
         { "<leader>bd", function() Snacks.bufdelete() end,       desc = "Delete Buffer" },
         { "<leader>gB", function() Snacks.gitbrowse() end,       desc = "Git Browse" },
         { "<leader>gg", function() Snacks.lazygit() end,         desc = "Lazygit" },
-        { "<leader>ff", function() Snacks.picker.explorer() end, desc = "All pickers" },
+        { "<leader>fF", function() Snacks.explorer.open() end,   desc = "Explorer cwd" },
+        { "<leader>ff", function() Snacks.explorer.reveal() end, desc = "Explorer" },
         { "<leader>fa", function() Snacks.picker() end,          desc = "All pickers" },
         {
             "<leader><leader>",
