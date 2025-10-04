@@ -9,7 +9,7 @@ return {
         -- refer to the configuration section below
         bigfile = { enabled = true },
         dashboard = { enabled = false },
-        explorer = { enabled = true, replace_netwr = true, },
+        explorer = { enabled = true, replace_netwr = true },
         git = { enabled = false },
         indent = { enabled = false },
         input = { enabled = false },
@@ -30,15 +30,15 @@ return {
         toggle = { enabled = false }
     },
     keys = {
-        { "<leader>tt", function() Snacks.terminal(nil, { win = { height = 20 } }) end,        desc = "Toggle Terminal" },
-        { "<leader>tn", function() Snacks.terminal(nil, { win = { position = "right" } }) end, desc = "Toggle side terminal" },
-        { "<leader>bs", function() Snacks.scratch() end,                                       desc = "Toggle scratch buffer" },
-        { "<leader>bd", function() Snacks.bufdelete() end,                                     desc = "Delete Buffer" },
-        { "<leader>gB", function() Snacks.gitbrowse() end,                                     desc = "Git Browse" },
-        { "<leader>gg", function() Snacks.lazygit() end,                                       desc = "Lazygit" },
-        { "<leader>fF", function() Snacks.explorer.open() end,                                 desc = "Explorer cwd" },
-        { "<leader>ff", function() Snacks.explorer.reveal() end,                               desc = "Explorer" },
-        { "<leader>fa", function() Snacks.picker() end,                                        desc = "All pickers" },
+        { "<leader>tt", function() Snacks.terminal(nil, { win = { height = 20 } }) end,               desc = "Toggle Terminal" },
+        { "<leader>tn", function() Snacks.terminal(nil, { win = { position = "right" } }) end,        desc = "Toggle side terminal" },
+        { "<leader>bs", function() Snacks.scratch() end,                                              desc = "Toggle scratch buffer" },
+        { "<leader>bd", function() Snacks.bufdelete() end,                                            desc = "Delete Buffer" },
+        { "<leader>gB", function() Snacks.gitbrowse() end,                                            desc = "Git Browse" },
+        { "<leader>gg", function() Snacks.lazygit() end,                                              desc = "Lazygit" },
+        { "<leader>fF", function() Snacks.explorer({ auto_close = true, follow_file = false, }) end,  desc = "Explorer cwd" },
+        { "<leader>ff", function() Snacks.explorer({ auto_close = true, follow_file = true, }) end,   desc = "Explorer" },
+        { "<leader>fa", function() Snacks.picker() end,                                               desc = "All pickers" },
         {
             "<leader><leader>",
             function()
