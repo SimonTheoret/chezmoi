@@ -1,23 +1,30 @@
-vim.o.termguicolors = true
+-- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-
-if not vim.loop.fs_stat(lazypath) then
-    vim.fn.system({
-        "git",
-        "clone",
-        "--filter=blob:none",
-        "https://github.com/folke/lazy.nvim.git",
-        "--branch=stable", -- latest stable release
-        lazypath,
-    })
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+    local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+    local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+    if vim.v.shell_error ~= 0 then
+        vim.api.nvim_echo({
+            { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+            { out,                            "WarningMsg" },
+            { "\nPress any key to exit..." },
+        }, true, {})
+        vim.fn.getchar()
+        os.exit(1)
+    end
 end
+vim.opt.rtp:prepend(lazypath)
 
-vim.loader.enable()
+vim.o.termguicolors = true
+
+
+-- vim.loader.enable()
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-vim.opt.rtp:prepend(lazypath) -- do not touch
-vim.g.mapleader = " "         -- leader key
-vim.g.maplocalleader = ","    -- local leader key
+-- Make sure to setup `mapleader` and `maplocalleader` before
+-- loading lazy.nvim so that mappings are correct.
+vim.g.mapleader = " "      -- leader key
+vim.g.maplocalleader = "," -- local leader key
 vim.opt.mouse = ""
 vim.opt.cursorline = false
 vim.opt.signcolumn = "yes"
@@ -55,6 +62,27 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.opt.inccommand = "split"
 
-require("lazy").setup("plugins") --load *.lua in the plugins directory
-require("simon.keymaps")         -- load keymaps
-require("simon.autocmd")         -- load autocommands
+require("lazy").setup({
+    pkg = {
+        enabled = true,
+        cache = vim.fn.stdpath("state") .. "/lazy/pkg-cache.lua",
+        -- the first package source that is found for a plugin will be used.
+        sources = {
+            "lazy",
+            -- "rockspec", -- will only be used when rocks.enabled is true
+            "packspec",
+        },
+    },
+    spec = {
+        -- import your plugins
+        { import = "plugins" },
+    },
+    -- Configure any other settings here. See the documentation for more details.
+    -- colorscheme that will be used when installing plugins.
+    -- install = { colorscheme = { "habamax" } },
+    -- automatically check for plugin updates
+    checker = { enabled = true },
+})
+
+require("simon.keymaps") -- load keymaps
+require("simon.autocmd") -- load autocommands
