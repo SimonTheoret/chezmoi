@@ -37,9 +37,39 @@ return {
         { "<leader>bd", function() Snacks.bufdelete() end,                                                        desc = "Delete Buffer" },
         { "<leader>gB", function() Snacks.gitbrowse() end,                                                        desc = "Git Browse" },
         { "<leader>gg", function() Snacks.lazygit() end,                                                          desc = "Lazygit" },
-        { "<leader>fF", function() Snacks.explorer({ auto_close = true, follow_file = false, }) end,              desc = "Explorer cwd" },
-        { "<leader>ff", function() Snacks.explorer({ auto_close = true, follow_file = true, }) end,               desc = "Explorer" },
-        { "<leader>fa", function() Snacks.picker() end,                                                           desc = "All pickers" },
+        {
+            "<leader>fF",
+            function()
+                Snacks.explorer({
+                    auto_close = true,
+                    follow_file = false,
+                    git_status = false,
+                    git_untracked = false,
+                    git_status_open = false,
+                    diagnostics = false,
+                    diagnostics_open = false,
+                    tree = true
+                })
+            end,
+            desc = "Explorer cwd"
+        },
+        {
+            "<leader>ff",
+            function()
+                Snacks.explorer({
+                    auto_close = true,
+                    follow_file = true,
+                    git_status = false,
+                    git_untracked = false,
+                    git_status_open = false,
+                    diagnostics = false,
+                    diagnostics_open = false,
+                    tree = true
+                })
+            end,
+            desc = "Explorer"
+        },
+        { "<leader>fa", function() Snacks.picker() end, desc = "All pickers" },
         {
             "<leader><leader>",
             function()
