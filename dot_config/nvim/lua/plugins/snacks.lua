@@ -9,7 +9,11 @@ return {
         -- refer to the configuration section below
         bigfile = { enabled = true },
         dashboard = { enabled = false },
-        explorer = { enabled = true, replace_netwr = true },
+        explorer = {
+            enabled = true,
+            replace_netwr = true,
+
+        },
         git = { enabled = false },
         indent = { enabled = false },
         input = { enabled = false },
@@ -18,6 +22,19 @@ return {
             layout = {
                 preset = "ivy"
             },
+            sources = {
+                explorer = {
+
+                    auto_close = true,
+                    follow_file = true,
+                    git_status = false,
+                    git_untracked = false,
+                    git_status_open = false,
+                    diagnostics = false,
+                    diagnostics_open = false,
+                    tree = true
+                }
+            }
         },
         notifier = { enabled = false },
         quickfile = { enabled = true },
@@ -41,14 +58,7 @@ return {
             "<leader>fF",
             function()
                 Snacks.explorer({
-                    auto_close = true,
                     follow_file = false,
-                    git_status = false,
-                    git_untracked = false,
-                    git_status_open = false,
-                    diagnostics = false,
-                    diagnostics_open = false,
-                    tree = true
                 })
             end,
             desc = "Explorer cwd"
@@ -56,15 +66,8 @@ return {
         {
             "<leader>ff",
             function()
-                Snacks.explorer({
-                    auto_close = true,
-                    follow_file = true,
-                    git_status = false,
-                    git_untracked = false,
-                    git_status_open = false,
-                    diagnostics = false,
-                    diagnostics_open = false,
-                    tree = true
+                Snacks.explorer.reveal({
+                    buf = vim.api.nvim_get_current_buf()
                 })
             end,
             desc = "Explorer"
