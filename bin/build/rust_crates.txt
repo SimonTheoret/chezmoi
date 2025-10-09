@@ -12,3 +12,8 @@ clap
 spez
 insta
 cfg_if
+soa_derive
+fakeit
+trybuild
+variantly
+strum
