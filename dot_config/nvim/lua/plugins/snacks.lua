@@ -22,6 +22,13 @@ return {
             layout = {
                 preset = "ivy"
             },
+            win = {
+                input = {
+                    keys = {
+                        ["<Esc>"] = { "close", mode = { "n", "i" } },
+                    }
+                }
+            },
             sources = {
                 explorer = {
 
@@ -72,7 +79,8 @@ return {
             end,
             desc = "Explorer"
         },
-        { "<leader>fa", function() Snacks.picker() end, desc = "All pickers" },
+        { "<leader>fa", function() Snacks.picker() end,                                          desc = "All pickers" },
+        { "<leader>fA", function() Snacks.picker.smart({ hidden = true, no_igonre = true }) end, desc = "Smart picker no ignore" },
         {
             "<leader><leader>",
             function()
