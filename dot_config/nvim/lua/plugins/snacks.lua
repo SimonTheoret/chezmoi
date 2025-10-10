@@ -31,7 +31,7 @@ return {
             },
             sources = {
                 explorer = {
-
+                    layout = { preset = "bottom" },
                     auto_close = true,
                     follow_file = true,
                     git_status = false,
