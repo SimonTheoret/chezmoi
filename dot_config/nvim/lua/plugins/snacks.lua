@@ -26,6 +26,7 @@ return {
                 input = {
                     keys = {
                         ["<Esc>"] = { "close", mode = { "n", "i" } },
+                        ["<a-u>"] = { "toggle_hidden", mode = { "n", "i" } },
                     }
                 }
             },
