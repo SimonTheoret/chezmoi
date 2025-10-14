@@ -9,6 +9,7 @@ completion-timeout = 50
 true-color = true
 auto-format = true
 cursorline = true
+cursorcolumn = true
 
 [editor.lsp]
 display-progress-messages = true
@@ -31,6 +32,7 @@ C-y = ":sh zellij run -n Yazi -c -f -x 5%% -y 5%% --width 90%% --height 90%% -- 
 C-g = ":sh zellij run -f -x 5%% -y 5%% --width 90%% --height 90%% -- sh -c \"lazygit && zellij action close-pane\"" 
 C-t = ":sh zellij run -f -x 5%% -y 5%% --width 90%% --height 90%% -- sh -c \"scooter && zellij action close-pane\"" 
 C-l = ":sh zellij run -f -x 5%% -y 5%% --width 90%% --height 90%% -- sh -c \"lazydocker && zellij action close-pane\"" 
+C-b = ":sh zellij run -f -x 5%% -y 5%% --width 90%% --height 90%% -- sh -c \"btop && zellij action close-pane\"" 
 space.B = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}" 
 space.space = "file_picker"
 space.e = [
