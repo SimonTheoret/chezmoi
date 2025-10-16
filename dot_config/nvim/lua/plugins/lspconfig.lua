@@ -1,6 +1,6 @@
 return {
     "neovim/nvim-lspconfig",
-    ft = { "rust", "python", "go", "lua", "bash", "nix", "gleam", "tex", "cpp", "sql", "css", "html", "cmake", "sh", "typescript", "javascript", "php", "vue" },
+    ft = { "rust", "python", "go", "lua", "bash", "nix", "gleam", "tex", "cpp", "sql", "css", "html", "cmake", "sh", "typescript", "javascript", "php", "vue", "javascriptreact"},
     dependencies = { 'saghen/blink.cmp', "stevearc/quicker.nvim" },
     config = function()
         -- python LSP
