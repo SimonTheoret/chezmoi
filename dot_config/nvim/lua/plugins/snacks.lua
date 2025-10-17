@@ -51,7 +51,7 @@ return {
         statuscolumn = { enabled = true },
         words = { enabled = false },
         image = { enabled = false },
-        terminal = { enabled = true },
+        terminal = { enabled = true, auto_insert  = false },
         toggle = { enabled = false }
     },
     keys = {
