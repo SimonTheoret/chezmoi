@@ -34,7 +34,7 @@ return {
                 null_ls.builtins.formatting.clang_format,
 
                 --web
-                null_ls.builtins.formatting.prettier,
+                null_ls.builtins.formatting.prettierd,
 
                 -- sql
                 null_ls.builtins.formatting.sqruff,

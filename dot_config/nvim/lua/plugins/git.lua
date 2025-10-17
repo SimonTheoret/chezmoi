@@ -12,7 +12,7 @@ return {
             desc = "Lazygit"
         },
         {
-            "<leader>g?",
+            "<leader>gi",
             ":Neogit help<CR>",
             desc = "Neogit help"
         },
