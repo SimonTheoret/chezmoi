@@ -25,8 +25,8 @@ return {
             win = {
                 input = {
                     keys = {
-                        ["<Esc>"] = { "close", mode = { "n", "i" } },
-                        ["<a-f>"] = { "toggle_hidden", mode = { "n", "i" } },
+                        ["<Esc>"] = { "close", mode = { "n" } },
+                        ["<a-d>"] = { "toggle_hidden", mode = { "n", "i" } },
                     }
                 }
             },
