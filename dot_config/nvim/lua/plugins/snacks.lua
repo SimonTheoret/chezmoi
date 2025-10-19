@@ -26,7 +26,7 @@ return {
                 input = {
                     keys = {
                         ["<Esc>"] = { "close", mode = { "n", "i" } },
-                        ["<a-u>"] = { "toggle_hidden", mode = { "n", "i" } },
+                        ["<a-f>"] = { "toggle_hidden", mode = { "n", "i" } },
                     }
                 }
             },
@@ -51,7 +51,7 @@ return {
         statuscolumn = { enabled = true },
         words = { enabled = false },
         image = { enabled = false },
-        terminal = { enabled = true, auto_insert  = false },
+        terminal = { enabled = true, auto_insert = false },
         toggle = { enabled = false }
     },
     keys = {
