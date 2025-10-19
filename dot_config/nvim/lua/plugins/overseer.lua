@@ -65,8 +65,9 @@ return {
         overseer.register_template(shell_script_in_dir_tmpl)
     end,
     keys = {
-        { "<leader>cc", ":OverseerRun<CR>",         desc = "Run overseer" },
+        { "<leader>co", ":OverseerRun<CR>",         desc = "Run overseer" },
         { "<leader>cr", ":OverseerRestartLast<CR>", desc = "Restart last overseer task" },
+        { "<leader>ct", ":OverseerRunCmd<CR>",      desc = "Overseer command" },
         { "<leader>ct", ":OverseerToggle<CR>",      desc = "Toggle overseer" }
     }
 }

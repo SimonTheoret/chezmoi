@@ -80,8 +80,8 @@ return {
             end,
             desc = "Explorer"
         },
-        { "<leader>fa", function() Snacks.picker() end,                                          desc = "All pickers" },
-        { "<leader>fA", function() Snacks.picker.smart({ hidden = true, no_igonre = true }) end, desc = "Smart picker no ignore" },
+        { "<leader>fa", function() Snacks.picker() end,                                        desc = "All pickers" },
+        { "<leader>fA", function() Snacks.picker.smart({ hidden = true, ignored = true }) end, desc = "Smart picker no ignore" },
         {
             "<leader><leader>",
             function()
