@@ -37,7 +37,7 @@ vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
 vim.o.exrc = true
 vim.opt.cursorline = true
-vim.opt.cursorcolumn = true
+vim.opt.cursorcolumn = false
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
