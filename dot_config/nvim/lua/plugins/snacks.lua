@@ -61,7 +61,7 @@ return {
         { "<leader>bs", function() Snacks.scratch() end,                                                          desc = "Toggle scratch buffer" },
         { "<leader>bd", function() Snacks.bufdelete() end,                                                        desc = "Delete Buffer" },
         { "<leader>gB", function() Snacks.gitbrowse() end,                                                        desc = "Git Browse" },
-        { "<leader>gg", function() Snacks.lazygit() end,                                                          desc = "Lazygit" },
+        { "<leader>gG", function() Snacks.lazygit() end,                                                          desc = "Lazygit" },
         {
             "<leader>fF",
             function()
