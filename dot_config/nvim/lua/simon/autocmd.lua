@@ -24,19 +24,3 @@ vim.api.nvim_create_autocmd("BufWritePre", {
         end
     end,
 })
-
-
--- Avoids to have many windows with cursorline and cursorcolumn on
-vim.api.nvim_create_autocmd({ "WinEnter" }, {
-    callback = function()
-        vim.wo.cursorline = true
-        vim.wo.cursorcolumn = true
-    end,
-})
-
-vim.api.nvim_create_autocmd({ "WinLeave" }, {
-    callback = function()
-        vim.wo.cursorline = false
-        vim.wo.cursorcolumn = false
-    end,
-})
