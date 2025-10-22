@@ -73,5 +73,3 @@ end, { desc = "Clean trailing whitespaces" })
 
 vim.api.nvim_set_keymap("n", "gx", [[:silent execute '!$BROWSER ' . shellescape(expand('<cfile>'), 1)<CR>]],
     { desc = "Open link in browser" })
-
-vmap.set("n", "<leader>co", ":!chezmoi apply --force<CR>", { desc = "Force chezmoi config" })
