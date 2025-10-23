@@ -68,8 +68,7 @@ return {
         { "<leader>co", ":OverseerRun<CR>",         desc = "Run overseer" },
         { "<leader>cr", ":OverseerRestartLast<CR>", desc = "Restart last overseer task" },
         { "<leader>ct", ":OverseerRunCmd<CR>",      desc = "Overseer command" },
-        { "<leader>ct", ":OverseerToggle<CR>",      desc = "Toggle overseer" }
+        { "<leader>ct", ":OverseerToggle<CR>",      desc = "Toggle overseer" },
         { "<leader>cc", ":Make<CR>",                desc = "Make" }
-
     }
 }
