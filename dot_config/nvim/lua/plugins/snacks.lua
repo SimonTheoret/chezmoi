@@ -10,8 +10,8 @@ return {
         bigfile = { enabled = true },
         dashboard = { enabled = false },
         explorer = {
-            enabled = true,
-            replace_netwr = true,
+            enabled = false,
+            replace_netwr = false,
 
         },
         git = { enabled = false },
@@ -62,26 +62,27 @@ return {
         { "<leader>bd", function() Snacks.bufdelete() end,                                                        desc = "Delete Buffer" },
         { "<leader>gB", function() Snacks.gitbrowse() end,                                                        desc = "Git Browse" },
         { "<leader>gg", function() Snacks.lazygit() end,                                                          desc = "Lazygit" },
-        {
-            "<leader>fF",
-            function()
-                Snacks.explorer({
-                    follow_file = false,
-                })
-            end,
-            desc = "Explorer cwd"
-        },
-        {
-            "<leader>ff",
-            function()
-                Snacks.explorer.reveal({
-                    buf = vim.api.nvim_get_current_buf()
-                })
-            end,
-            desc = "Explorer"
-        },
-        { "<leader>fa", function() Snacks.picker() end,                                        desc = "All pickers" },
-        { "<leader>fA", function() Snacks.picker.smart({ hidden = true, ignored = true }) end, desc = "Smart picker no ignore" },
+        { "<leader>gG", function() Snacks.lazygit() end,                                                          desc = "Lazygit" },
+        -- {
+        --     "<leader>fF",
+        --     function()
+        --         Snacks.explorer({
+        --             follow_file = false,
+        --         })
+        --     end,
+        --     desc = "Explorer cwd"
+        -- },
+        -- {
+        --     "<leader>ff",
+        --     function()
+        --         Snacks.explorer.reveal({
+        --             buf = vim.api.nvim_get_current_buf()
+        --         })
+        --     end,
+        --     desc = "Explorer"
+        -- },
+        { "<leader>fa", function() Snacks.picker() end,                                                           desc = "All pickers" },
+        { "<leader>fA", function() Snacks.picker.smart({ hidden = true, ignored = true }) end,                    desc = "Smart picker no ignore" },
         {
             "<leader><leader>",
             function()
