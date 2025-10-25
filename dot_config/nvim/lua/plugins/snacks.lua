@@ -52,37 +52,16 @@ return {
         statuscolumn = { enabled = true },
         words = { enabled = false },
         image = { enabled = false },
-        terminal = { enabled = true, auto_insert = false },
+        terminal = { enabled = false, auto_insert = false },
         toggle = { enabled = false }
     },
     keys = {
-        { "<leader>tt", function() Snacks.terminal(nil, { win = { height = 20 }, auto_close = true }) end,        desc = "Toggle Terminal" },
-        { "<leader>tn", function() Snacks.terminal(nil, { win = { position = "right" }, auto_close = true }) end, desc = "Toggle side terminal" },
-        { "<leader>tb", function() Snacks.terminal("btop") end,                                                   desc = "Toggle Btop" },
-        { "<leader>bs", function() Snacks.scratch() end,                                                          desc = "Toggle scratch buffer" },
-        { "<leader>bd", function() Snacks.bufdelete() end,                                                        desc = "Delete Buffer" },
-        { "<leader>gB", function() Snacks.gitbrowse() end,                                                        desc = "Git Browse" },
-        { "<leader>gG", function() Snacks.lazygit() end,                                                          desc = "Lazygit" },
-        -- {
-        --     "<leader>fF",
-        --     function()
-        --         Snacks.explorer({
-        --             follow_file = false,
-        --         })
-        --     end,
-        --     desc = "Explorer cwd"
-        -- },
-        -- {
-        --     "<leader>ff",
-        --     function()
-        --         Snacks.explorer.reveal({
-        --             buf = vim.api.nvim_get_current_buf()
-        --         })
-        --     end,
-        --     desc = "Explorer"
-        -- },
-        { "<leader>fa", function() Snacks.picker() end,                                                           desc = "All pickers" },
-        { "<leader>fA", function() Snacks.picker.smart({ hidden = true, ignored = true }) end,                    desc = "Smart picker no ignore" },
+        { "<leader>bs", function() Snacks.scratch() end,                                       desc = "Toggle scratch buffer" },
+        { "<leader>bd", function() Snacks.bufdelete() end,                                     desc = "Delete Buffer" },
+        { "<leader>gB", function() Snacks.gitbrowse() end,                                     desc = "Git Browse" },
+        { "<leader>gG", function() Snacks.lazygit() end,                                       desc = "Lazygit" },
+        { "<leader>fA", function() Snacks.picker() end,                                        desc = "All pickers" },
+        { "<leader>fa", function() Snacks.picker.smart({ hidden = true, ignored = true }) end, desc = "Smart picker no ignore" },
         {
             "<leader><leader>",
             function()
