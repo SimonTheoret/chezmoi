@@ -14,7 +14,7 @@ return {
             nerd_font_variant = 'mono'
         },
         signature = { enabled = true },
-        completion = { ghost_text = { enabled = true} },
+        completion = { accept = { auto_brackets = { enabled = true } }, ghost_text = { enabled = true }, documentation = { auto_show = true, auto_show_delay_ms = 150 } },
         sources = {
             default = { 'lsp', 'path', 'snippets', 'buffer' },
         },
@@ -31,6 +31,7 @@ return {
                         return vim.fn.getcmdtype() == ':' or vim.fn.getcmdtype() == '@'
                     end,
                 },
+                ghost_text = { enabled = true }
             }
         },
         fuzzy = { implementation = "prefer_rust_with_warning" },
