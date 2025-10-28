@@ -60,6 +60,7 @@ return {
         { "<leader>bd", function() Snacks.bufdelete() end,                                     desc = "Delete Buffer" },
         { "<leader>gB", function() Snacks.gitbrowse() end,                                     desc = "Git Browse" },
         { "<leader>gG", function() Snacks.lazygit() end,                                       desc = "Lazygit" },
+        { "<leader>tb", function() Snacks.terminal("btop") end,                                desc = "Toggle Btop" },
         { "<leader>fA", function() Snacks.picker() end,                                        desc = "All pickers" },
         { "<leader>fa", function() Snacks.picker.smart({ hidden = true, ignored = true }) end, desc = "Smart picker no ignore" },
         {
