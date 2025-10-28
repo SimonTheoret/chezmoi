@@ -13,7 +13,6 @@ return {
         },
         config = function()
             require('neogit').setup({
-                graph_style = "unicode",
                 commit_editor = {
                     kind = "tab",
                     -- Accepted values:
