@@ -168,10 +168,10 @@ return {
                 vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action,
                     { desc = "Lsp code action", buffer = ev.buf })
 
-                vim.keymap.set('n', 'gr', function()
-                        vim.lsp.buf.references()
-                    end,
-                    { desc = "Lsp references", buffer = ev.buf })
+                -- vim.keymap.set('n', 'gr', function()
+                --         vim.lsp.buf.references()
+                --     end,
+                --     { desc = "Lsp references", buffer = ev.buf })
 
                 vim.keymap.set('n', '<leader>bf', function()
                     vim.lsp.buf.format { async = true }
