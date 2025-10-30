@@ -1,13 +1,13 @@
 return {
-    -- {
-    --     'nvim-mini/mini-git',
-    --     version = false,
-    --     lazy = false,
-    --     config = function()
-    --         require("mini.git").setup()
-    --     end,
-    --     keys = { { "<leader>gs", ":Git", desc = "Git" } }
-    -- },
+    {
+        'nvim-mini/mini-git',
+        version = false,
+        lazy = false,
+        config = function()
+            require("mini.git").setup()
+        end,
+        keys = { { "<leader>gs", ":Git", desc = "Git" } }
+    },
     -- {
     --     "tpope/vim-fugitive",
     --     lazy = false,
