@@ -21,7 +21,7 @@ return {
             "tpope/vim-fugitive",
         },
         keys = {
-            { "<leader>gl", ":vertical Flogsplit<CR>", desc = "Flog" },
+            { "<leader>gl", ":vertical Flogsplit<CR> -max-count=1000", desc = "Flog" },
             -- { "<leader>gls", ":Flog<CR>",      desc = "Flog" },
         }
     },
