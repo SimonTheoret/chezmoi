@@ -80,9 +80,6 @@ return {
         -- bash lsp
         vim.lsp.enable("bashls")
 
-        -- sql lsp
-        vim.lsp.enable("sqls")
-
         -- clang lsp
         vim.lsp.enable("clangd")
 
