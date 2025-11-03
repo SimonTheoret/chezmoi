@@ -4,6 +4,7 @@ return {
         local overseer = require("overseer")
         local files = require("overseer.files")
         overseer.setup({
+            strategy = { "toggleterm" },
             templates = { "builtin" }
         })
         vim.api.nvim_create_user_command("OverseerRestartLast", function()
