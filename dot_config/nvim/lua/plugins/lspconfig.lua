@@ -1,7 +1,7 @@
 return {
     "neovim/nvim-lspconfig",
     ft = { "rust", "python", "go", "lua", "bash", "nix", "gleam", "tex", "cpp", "sql", "css", "html", "cmake", "sh", "typescript", "javascript", "php", "vue", "javascriptreact", "typescriptreact" },
-    dependencies = { 'saghen/blink.cmp', "stevearc/quicker.nvim" },
+    dependencies = { 'saghen/blink.cmp', "stevearc/quicker.nvim", "nvim-treesitter-context" },
     config = function()
         -- python LSP
         vim.lsp.enable("ruff")
