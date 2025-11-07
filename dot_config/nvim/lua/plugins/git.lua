@@ -11,7 +11,7 @@ return {
     {
         "tpope/vim-fugitive",
         lazy = false,
-        keys = { { "<leader>gg", ":vertical G<CR>", desc = "Fugitive" } }
+        keys = { { "<leader>gs", ":vertical G<CR>", desc = "Fugitive" }, { "<leader>gu", ":Git ", desc = "Fugitive" } }
     },
     {
         "rbong/vim-flog",
