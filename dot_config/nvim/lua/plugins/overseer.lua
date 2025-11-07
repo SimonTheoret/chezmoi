@@ -17,27 +17,6 @@ return {
         end, {})
 
 
-        vim.api.nvim_create_user_command("Make", function(params)
-            -- Insert args at the '$*' in the makeprg
-            local cmd, num_subs = vim.o.makeprg:gsub("%$%*", params.args)
-            if num_subs == 0 then
-                cmd = cmd .. " " .. params.args
-            end
-            local task = overseer.new_task({
-                cmd = vim.fn.expandcmd(cmd),
-                components = {
-                    { "on_output_quickfix", open = not params.bang, open_height = 8 },
-                    "default",
-                },
-            })
-            task:start()
-        end, {
-            desc = "Run your makeprg as an Overseer task",
-            nargs = "*",
-            bang = true,
-        })
-
-
         local shell_script_in_dir_tmpl = {
             name = "Scripts",
             generator = function(opts, cb)
@@ -70,7 +49,7 @@ return {
         { "<leader>cr", ":OverseerRestartLast<CR>", desc = "Restart last overseer task" },
         { "<leader>ct", ":OverseerRunCmd<CR>",      desc = "Overseer command" },
         { "<leader>ct", ":OverseerToggle<CR>",      desc = "Toggle overseer" },
-        { "<leader>cc", ":Make ",                   desc = "Make" },
+        { "<leader>cc", ":make ",                   desc = "Make" },
         {
             "<leader>ci",
             function()

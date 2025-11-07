@@ -1,6 +1,7 @@
 return {
     'stevearc/quicker.nvim',
-    event = "FileType qf",
+    event = "VeryLazy",
+    ft = "qf",
     ---@module "quicker"
     ---@type quicker.SetupOptions
     config = function()
