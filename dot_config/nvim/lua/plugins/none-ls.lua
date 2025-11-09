@@ -33,6 +33,9 @@ return {
 
                 -- sql
                 null_ls.builtins.formatting.sqruff,
+
+                -- protolint
+                null_ls.builtins.diagnostics.protolint,
             }
         })
     end,
