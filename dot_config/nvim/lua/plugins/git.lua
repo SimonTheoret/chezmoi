@@ -1,18 +1,18 @@
 return {
-    {
-        'nvim-mini/mini-git',
-        version = '*',
-        lazy = false,
-        config = function()
-            require("mini.git").setup()
-        end,
-        keys = { { "<leader>gs", ":vertical Git ", desc = "Git" } }
-    },
     -- {
-    --     "tpope/vim-fugitive",
+    --     'nvim-mini/mini-git',
+    --     version = '*',
     --     lazy = false,
-    --     keys = { { "<leader>gs", ":vertical G<CR>", desc = "Fugitive" }, { "<leader>gu", ":Git ", desc = "Fugitive" } }
+    --     config = function()
+    --         require("mini.git").setup()
+    --     end,
+    --     keys = { { "<leader>gs", ":vertical Git ", desc = "Git" } }
     -- },
+    {
+        "tpope/vim-fugitive",
+        lazy = false,
+        keys = { { "<leader>gs", ":vertical G<CR>", desc = "Fugitive" }, { "<leader>gs", ":Git ", desc = "Fugitive" } }
+    },
     -- {
     --     "rbong/vim-flog",
     --     lazy = true,
