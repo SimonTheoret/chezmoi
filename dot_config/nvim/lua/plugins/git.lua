@@ -1,30 +1,30 @@
 return {
-    -- {
-    --     'nvim-mini/mini-git',
-    --     version = false,
-    --     lazy = false,
-    --     config = function()
-    --         require("mini.git").setup()
-    --     end,
-    --     keys = { { "<leader>gs", ":Git", desc = "Git" } }
-    -- },
     {
-        "tpope/vim-fugitive",
+        'nvim-mini/mini-git',
+        version = '*',
         lazy = false,
-        keys = { { "<leader>gs", ":vertical G<CR>", desc = "Fugitive" }, { "<leader>gu", ":Git ", desc = "Fugitive" } }
+        config = function()
+            require("mini.git").setup()
+        end,
+        keys = { { "<leader>gs", ":vertical Git ", desc = "Git" } }
     },
-    {
-        "rbong/vim-flog",
-        lazy = true,
-        cmd = { "Flog", "Flogsplit", "Floggit" },
-        dependencies = {
-            "tpope/vim-fugitive",
-        },
-        keys = {
-            { "<leader>gl", ":vertical Flogsplit<CR> -max-count=1000", desc = "Flog" },
-            -- { "<leader>gls", ":Flog<CR>",      desc = "Flog" },
-        }
-    },
+    -- {
+    --     "tpope/vim-fugitive",
+    --     lazy = false,
+    --     keys = { { "<leader>gs", ":vertical G<CR>", desc = "Fugitive" }, { "<leader>gu", ":Git ", desc = "Fugitive" } }
+    -- },
+    -- {
+    --     "rbong/vim-flog",
+    --     lazy = true,
+    --     cmd = { "Flog", "Flogsplit", "Floggit" },
+    --     dependencies = {
+    --         "tpope/vim-fugitive",
+    --     },
+    --     keys = {
+    --         { "<leader>gl", ":vertical Flogsplit<CR> -max-count=1000", desc = "Flog" },
+    --         -- { "<leader>gls", ":Flog<CR>",      desc = "Flog" },
+    --     }
+    -- },
     -- {
     --     "NeogitOrg/neogit",
     --     dependencies = {
