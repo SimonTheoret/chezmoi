@@ -9,7 +9,6 @@ completion-timeout = 50
 true-color = true
 auto-format = true
 cursorline = true
-cursorcolumn = true
 
 [editor.lsp]
 display-progress-messages = true
