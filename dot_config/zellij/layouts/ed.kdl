@@ -30,15 +30,15 @@ layout {
             plugin location="compact-bar"
     	}
     }
-    // tab name="ai" {
-    //     pane {
-    //         name "claude"
-    //         command "claude"
-    //     }
-    // 	pane size=1 borderless=true {
-    //         plugin location="compact-bar"
-    // 	}
-    // }
+    tab name="ai" {
+        pane {
+            name "claude"
+            command "claude"
+        }
+    	pane size=1 borderless=true {
+            plugin location="compact-bar"
+    	}
+    }
      tab name="docker" {
         pane {
             name "docker"
