@@ -48,5 +48,9 @@ layout {
             plugin location="compact-bar"
     	}
     }
-
+ swap_floating_layout{
+        floating_panes  {
+            pane x="5%" y="5%" width="90%" height="90%"
+        }
+}
 }
