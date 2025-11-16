@@ -1,5 +1,4 @@
 theme = "gruvbox"
-
 [editor]
 default-yank-register="+"
 mouse=false
@@ -34,7 +33,7 @@ C-l = ":sh zellij run -f -x 5%% -y 5%% --width 90%% --height 90%% -- sh -c \"laz
 C-b = ":sh zellij run -f -x 5%% -y 5%% --width 90%% --height 90%% -- sh -c \"btop && zellij action close-pane\"" 
 space.B = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}" 
 space.space = "file_picker"
-space.e = [
+space.q = [
       ":sh rm -f /tmp/unique-file-h21a434",
       ":insert-output yazi '%{buffer_name}' --chooser-file=/tmp/unique-file-h21a434",
       ":insert-output echo \"x1b[?1049h\" > /dev/tty",
@@ -58,12 +57,9 @@ h = [":toggle-option lsp.display-inlay-hints"]
 [keys.normal.space.n]
 n = ":vs ./notes.md"
 
-
-
 [editor.file-picker]
 git-ignore = false
 hidden = false
-
 
 [editor.indent-guides]
 render = true
@@ -75,10 +71,7 @@ left = ["mode", "spinner", "file-name", "read-only-indicator", "file-modificatio
 center = ["version-control"]
 right = [ "diagnostics", "selections", "primary-selection-length", "register", "position", "position-percentage","total-line-numbers","file-encoding"]
 
-
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"
 select = "underline"
-
-
