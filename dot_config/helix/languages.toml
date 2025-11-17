@@ -4,16 +4,16 @@
 name = "python"
 auto-format = true
 language-servers = [
-    {name = "basedpyright"},
+    {name = "ty"},
     {name = "ruff"},
 ]
 
 [language-server.basedpyright]
-command = "basedpyright-langserver"
+command = "ty"
 args = ["--stdio"]
 
-[language-server.basedpyright.config]
-basedpyright.analysis.typeCheckingMode = "basic"
+# [language-server.basedpyright.config]
+# basedpyright.analysis.typeCheckingMode = "basic"
 
 [language-server.ruff]
 command = "ruff"
