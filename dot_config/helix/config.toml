@@ -18,6 +18,7 @@ auto-signature-help = false
 enable = true
 
 [keys.normal]
+A-r = "later"
 space.v = "file_explorer"
 space.V = "file_explorer_in_current_directory"
 C-r = ":reflow"
