@@ -1,0 +1,7 @@
+FROM registry.fedoraproject.org/fedora-toolbox:43
+RUN dnf --assumeyes install gcc-c++ perl openssl-libs openssl gcc golang nvim fzf docker podman npm fish
+RUN dnf clean all
+COPY install.sh /install.sh
+COPY build_helix.sh /build_helix.sh
+RUN /install.sh
+RUN ya pkg install

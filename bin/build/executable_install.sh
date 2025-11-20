@@ -41,7 +41,7 @@ cargo install du-dust --force
 
 sudo npm install -g tldr
 sudo npm i -g bash-language-server
-npm install -g @anthropic-ai/claude-code
+sudo npm install -g @anthropic-ai/claude-code
 
 go install github.com/jesseduffield/lazygit@latest
 go install github.com/jesseduffield/lazydocker@latest
@@ -64,4 +64,3 @@ fisher install gazorby/fifc
 curl -sfL https://direnv.net/install.sh | bash
 
 ./build_helix.sh
-
