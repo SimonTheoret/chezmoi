@@ -14,31 +14,30 @@ command -v go
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 source "$HOME/.cargo/env.fish" || . "$HOME/.cargo/env"
-
+export RUSTFLAGS='-C target-cpu=native'
 command -v cargo
-cargo install --locked bat
-cargo install eza
-cargo install fd-find
-cargo install zoxide --locked
-cargo install starship --locked
-cargo install ripgrep
-cargo install --locked yazi-fm yazi-cli
-cargo install --locked zellij
-cargo install --locked tree-sitter-cli
-cargo install git-delta
-cargo install mcfly
-cargo install emacs-lsp-booster
-cargo install --locked yazi-fm yazi-cli
-cargo install shellharden
-cargo install --locked csview
-cargo install --git https://github.com/jgavris/rs-git-fsmonitor.git
-cargo install scooter
-cargo install cargo-nextest --locked
-cargo install aichat
-cargo install lsp-ai
-cargo install cargo-insta --locked
-cargo install just
-cargo install du-dust
+cargo install --locked bat --force
+cargo install eza --force
+cargo install fd-find --force
+cargo install zoxide --locked --force
+cargo install starship --locked --force
+cargo install ripgrep --force
+cargo install --locked yazi-fm yazi-cli --force
+cargo install --locked zellij --force
+cargo install --locked tree-sitter-cli --force
+cargo install git-delta --force
+cargo install mcfly --force
+cargo install emacs-lsp-booster --force
+cargo install --locked yazi-fm yazi-cli --force
+cargo install shellharden --force
+cargo install --locked csview --force
+cargo install --git https://github.com/jgavris/rs-git-fsmonitor.git --force
+cargo install scooter --force
+cargo install cargo-nextest --locked --force
+cargo install aichat --force
+cargo install cargo-insta --locked --force
+cargo install just --force
+cargo install du-dust --force
 
 sudo npm install -g tldr
 sudo npm i -g bash-language-server
@@ -49,8 +48,6 @@ go install github.com/jesseduffield/lazydocker@latest
 go install mvdan.cc/sh/v3/cmd/shfmt@latest
 
 curl -LsSf https://astral.sh/uv/install.sh | sh
-
-curl -LsSf https://aider.chat/install.sh | sh
 
 echo "Installing latest neovim"
 ./nvim.sh
@@ -68,5 +65,3 @@ curl -sfL https://direnv.net/install.sh | bash
 
 ./build_helix.sh
 
-uv tool install commitizen
-uv tool install pre-commit
