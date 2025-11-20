@@ -1,0 +1,32 @@
+{
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "g",
+    ): System(WebBrowser),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "m",
+    ): Spawn("alacritty --command toolbox enter -c devtool"),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "f",
+    ): Maximize,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "b",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "e",
+    ): System(HomeFolder),
+}
