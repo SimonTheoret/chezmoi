@@ -1,7 +1,57 @@
 FROM registry.fedoraproject.org/fedora-toolbox:43
-RUN dnf --assumeyes install gcc-c++ perl openssl-libs openssl gcc golang nvim fzf docker npm fish docker-compose
+RUN dnf --assumeyes install \
+    gcc-c++ \
+    perl \
+    openssl-libs \
+    openssl \
+    gcc \
+    golang \
+    nvim \
+    fzf \
+    docker \
+    npm \
+    fish \
+    docker-compose \
+    curl \
+    tldr \
+    nodejs-bash-language-server \
+    direnv \
+    uv \
+    rustup \
+    nvim \
+    helix 
+
 RUN dnf clean all
-COPY install.sh /install.sh
-COPY build_helix.sh /build_helix.sh
-RUN /install.sh
+RUN rustup-init
+RUN rustup add component rust-src rust-analyzer miri clippy rust-docs rustfmt
+ENV RUSTFLAGS "-C target-cpu=native" 
+
+RUN cargo install --locked bat --force
+RUN cargo install eza --force
+RUN cargo install fd-find --force
+RUN cargo install zoxide --locked --force
+RUN cargo install starship --locked --force
+RUN cargo install ripgrep --force
+RUN cargo install --locked yazi-fm yazi-cli --force
+RUN cargo install --locked zellij --force
+RUN cargo install --locked tree-sitter-cli --force
+RUN cargo install git-delta --force
+RUN cargo install --locked yazi-fm yazi-cli --force
+RUN cargo install shellharden --force
+RUN cargo install --locked csview --force
+RUN cargo install cargo-nextest --locked --force
+RUN cargo install cargo-insta --locked --force
+RUN cargo install just --force
+RUN cargo install du-dust --force
+
+RUN npm install -g @anthropic-ai/claude-code
+
+RUN go install github.com/jesseduffield/lazygit@latest
+RUN go install github.com/jesseduffield/lazydocker@latest
+RUN go install mvdan.cc/sh/v3/cmd/shfmt@latest
+
+RUN curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+RUN . "$HOME"/.config/fish/config.fish
+RUN fisher install gazorby/fifc
+
 RUN ya pkg install

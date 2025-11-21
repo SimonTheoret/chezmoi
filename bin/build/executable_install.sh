@@ -11,8 +11,7 @@ cd "$HOME"/bin
 command -v fish
 command -v npm
 command -v go
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 source "$HOME/.cargo/env.fish" || . "$HOME/.cargo/env"
 export RUSTFLAGS='-C target-cpu=native'
 command -v cargo
@@ -26,15 +25,10 @@ cargo install --locked yazi-fm yazi-cli --force
 cargo install --locked zellij --force
 cargo install --locked tree-sitter-cli --force
 cargo install git-delta --force
-cargo install mcfly --force
-cargo install emacs-lsp-booster --force
 cargo install --locked yazi-fm yazi-cli --force
 cargo install shellharden --force
 cargo install --locked csview --force
-cargo install --git https://github.com/jgavris/rs-git-fsmonitor.git --force
-cargo install scooter --force
 cargo install cargo-nextest --locked --force
-cargo install aichat --force
 cargo install cargo-insta --locked --force
 cargo install just --force
 cargo install du-dust --force
