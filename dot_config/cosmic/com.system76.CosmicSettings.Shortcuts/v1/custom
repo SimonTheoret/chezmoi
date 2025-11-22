@@ -10,7 +10,7 @@
             Super,
         ],
         key: "m",
-    ): Spawn("alacritty --command toolbox enter -c devtool"),
+    ): Spawn("alacritty --command toolbox enter -c dev"),
     (
         modifiers: [
             Super,

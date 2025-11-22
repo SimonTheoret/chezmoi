@@ -8,41 +8,42 @@ RUN dnf --assumeyes install \
     golang \
     nvim \
     fzf \
-    docker \
     npm \
     fish \
+    docker \ 
     docker-compose \
     curl \
     tldr \
     nodejs-bash-language-server \
     direnv \
     uv \
-    rustup \
     nvim \
-    helix 
+    helix \
+    fd-find \
+    bat \
+    zoxide \
+    ripgrep \
+    git-delta \
+    just \
+    du-dust \
+    btop \
+    chezmoi
 
 RUN dnf clean all
-RUN rustup-init
-RUN rustup add component rust-src rust-analyzer miri clippy rust-docs rustfmt
-ENV RUSTFLAGS "-C target-cpu=native" 
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
-RUN cargo install --locked bat --force
-RUN cargo install eza --force
-RUN cargo install fd-find --force
-RUN cargo install zoxide --locked --force
-RUN cargo install starship --locked --force
-RUN cargo install ripgrep --force
+SHELL ["usr/bin/fish", "-c"]
+RUN rustup component add rust-analyzer
+
+ENV RUSTFLAGS "-C target-cpu=native" 
+RUN cargo install --locked starship --force 
+RUN cargo install --locked eza --force
 RUN cargo install --locked yazi-fm yazi-cli --force
 RUN cargo install --locked zellij --force
 RUN cargo install --locked tree-sitter-cli --force
-RUN cargo install git-delta --force
-RUN cargo install --locked yazi-fm yazi-cli --force
 RUN cargo install shellharden --force
-RUN cargo install --locked csview --force
 RUN cargo install cargo-nextest --locked --force
 RUN cargo install cargo-insta --locked --force
-RUN cargo install just --force
-RUN cargo install du-dust --force
 
 RUN npm install -g @anthropic-ai/claude-code
 
@@ -51,7 +52,6 @@ RUN go install github.com/jesseduffield/lazydocker@latest
 RUN go install mvdan.cc/sh/v3/cmd/shfmt@latest
 
 RUN curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
-RUN . "$HOME"/.config/fish/config.fish
 RUN fisher install gazorby/fifc
 
 RUN ya pkg install
