@@ -84,4 +84,27 @@ end
 export LC_ALL=en_US.UTF-8
 {{end}}
 
-# fish_config theme choose gruvbox
+
+# SSH Agent management
+if test -z "$SSH_AUTH_SOCK"
+    # Check for a running ssh-agent
+    set -l ssh_agent_pid (pgrep -u $USER ssh-agent | head -1)
+    
+    if test -n "$ssh_agent_pid"
+        # Try to find the socket
+        set -l socket (find /tmp -maxdepth 2 -type s -name "agent.*" -user $USER 2>/dev/null | head -1)
+        if test -n "$socket"
+            set -gx SSH_AUTH_SOCK $socket
+            set -gx SSH_AGENT_PID $ssh_agent_pid
+			echo "ssh agent reused at socket: $SSH_AUTH_SOCK with pid: $SSH_AGENT_PID"
+        else
+            # No socket found, start new agent
+            eval (ssh-agent -c)
+			echo "No ssh-agent socket found. Starting new ssh-agent"
+        end
+    else
+        # No agent running, start one
+        eval (ssh-agent -c)
+		echo "No agent running. Starting new ssh-agent"
+    end
+end
