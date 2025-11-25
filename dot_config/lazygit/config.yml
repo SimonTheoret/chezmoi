@@ -5,7 +5,7 @@ gui:
 
 
 os:
-  editPreset: 'hx (helix)'
+  editPreset: 'helix'
 
 customCommands:
   - key: "C"
