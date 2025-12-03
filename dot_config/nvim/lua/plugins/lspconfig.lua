@@ -5,17 +5,7 @@ return {
     config = function()
         -- python LSP
         vim.lsp.enable("ruff")
-        vim.lsp.enable('basedpyright')
-        vim.lsp.config('basedpyright', {
-            settings = {
-                python = {
-                    analysis = {
-                        typeCheckingMode = 'basic'
-                    }
-                }
-            }
-        }
-        )
+        vim.lsp.enable('ty')
 
         -- lua lsp
         vim.lsp.enable("lua_ls")
