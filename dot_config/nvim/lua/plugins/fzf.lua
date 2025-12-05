@@ -7,44 +7,70 @@ return {
         require("fzf-lua").setup({
             -- { "ivy" },
             grep = { rg_glob = true },
-            fzf_colors = {
-                true,          -- auto generate rest of fzf’s highlights?
-                bg = '-1',
-                gutter = '-1', -- I like this one too, try with and without
-            },
+            -- fzf_colors = {
+            --     true,          -- auto generate rest of fzf’s highlights?
+            --     bg = '-1',
+            --     gutter = '-1', -- I like this one too, try with and without
+            -- },
             keymap = {
-            fzf = {
-                      ["alt-a"]         = "select-all+accept",
-            }
-            }
+                fzf = {
+                    ["alt-a"] = "select-all+accept",
+                }
+            },
+            winopts = {
+                split = "belowright 15new",
+                -- preview = {
+                --     hidden = true,
+                -- }
+            },
+            files = {
+                --     -- file icons are distracting
+                --     -- file_icons = false,
+                --     -- git icons are nice
+                --     -- git_icons = true,
+                --     -- but don't mess up my anchored search
+                _fzf_nth_devicons = true,
+            },
+            -- buffers = {
+            --     file_icons = false,
+            --     git_icons = true,
+            --     -- no nth_devicons as we'll do that
+            --     -- manually since we also use
+            --     -- with-nth
+            -- },
+            fzf_opts = {
+                -- no reverse view
+                ["--layout"] = "default",
+            },
+
         })
     end,
     keys = {
         {
             "<leader>fA",
             function()
-                require('fzf-lua').files({ no_ignore = true, winopts = { preview = { hidden = true } } })
+                require('fzf-lua').files({ no_ignore = true })
             end,
             desc = "List all files"
         },
         {
             "<leader><leader>",
             function()
-                require('fzf-lua').files({ winopts = { preview = { hidden = true } } })
+                require('fzf-lua').files()
             end,
             desc = "List files"
         },
         {
             "<leader>fp",
             function()
-                require('fzf-lua').files({ cwd = "~/.local/share/chezmoi/", winopts = { preview = { hidden = true } } })
+                require('fzf-lua').files({ cwd = "~/.local/share/chezmoi/" })
             end,
             desc = "Open chezmoi config"
         },
         {
             "<leader>fP",
             function()
-                require('fzf-lua').files({ cwd = "~/nixdots", winopts = { preview = { hidden = true } } })
+                require('fzf-lua').files({ cwd = "~/nixdots" })
             end,
             desc = "Open nixdots config"
         },
@@ -79,7 +105,7 @@ return {
         {
             "<leader>fb",
             function()
-                require('fzf-lua').buffers({ winopts = { preview = { hidden = true } } })
+                require('fzf-lua').buffers()
             end,
             desc = "List buffers"
         },
@@ -93,14 +119,14 @@ return {
         {
             "<leader>fd",
             function()
-                require('fzf-lua').git_files({ winopts = { preview = { hidden = true } } })
+                require('fzf-lua').git_files()
             end,
             desc = "List git files"
         },
         {
             "<leader>fk",
             function()
-                require('fzf-lua').keymaps({ winopts = { preview = { hidden = true } } })
+                require('fzf-lua').keymaps()
             end,
             desc = "List keymaps"
         },
