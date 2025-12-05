@@ -1,7 +1,7 @@
 return {
     "neovim/nvim-lspconfig",
     ft = { "rust", "python", "go", "lua", "bash", "nix", "gleam", "tex", "cpp", "sql", "css", "html", "cmake", "sh", "typescript", "javascript", "php", "vue", "javascriptreact", "typescriptreact", "proto" },
-    dependencies = { 'saghen/blink.cmp', "stevearc/quicker.nvim"},
+    dependencies = { 'saghen/blink.cmp', "stevearc/quicker.nvim", "ibhagwan/fzf-lua" },
     config = function()
         -- python LSP
         vim.lsp.enable("ruff")
@@ -167,10 +167,13 @@ return {
                     vim.lsp.buf.format { async = true }
                 end, { desc = "Lsp format buffer", buffer = ev.buf })
 
-                vim.keymap.set('n', '<leader>fi', function() Snacks.picker.lsp_workspace_symbols() end,
+                vim.keymap.set('n', '<leader>fI', function() require('fzf-lua').lsp_finder() end,
                     { desc = "Lsp workspace symbols", buffer = ev.buf })
 
-                vim.keymap.set('n', '<leader>fj', function() Snacks.picker.lsp_symbols() end,
+                vim.keymap.set('n', '<leader>fi', function() require('fzf-lua').lsp_workspace_symbols() end,
+                    { desc = "Lsp workspace symbols", buffer = ev.buf })
+
+                vim.keymap.set('n', '<leader>fj', function() require('fzf-lua').lsp_document_symbols() end,
                     { desc = "Lsp buffer symbols", buffer = ev.buf })
 
                 vim.keymap.set('n', '<leader>th',
