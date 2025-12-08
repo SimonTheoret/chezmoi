@@ -1,7 +1,7 @@
 return {
     "neovim/nvim-lspconfig",
     ft = { "rust", "python", "go", "lua", "bash", "nix", "gleam", "tex", "cpp", "sql", "css", "html", "cmake", "sh", "typescript", "javascript", "php", "vue", "javascriptreact", "typescriptreact", "proto" },
-    dependencies = { 'saghen/blink.cmp', "stevearc/quicker.nvim"},
+    dependencies = { 'saghen/blink.cmp', "stevearc/quicker.nvim", "folke/snacks.nvim"},
     config = function()
         -- python LSP
         vim.lsp.enable("ruff")
@@ -157,11 +157,6 @@ return {
 
                 vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action,
                     { desc = "Lsp code action", buffer = ev.buf })
-
-                -- vim.keymap.set('n', 'gr', function()
-                --         vim.lsp.buf.references()
-                --     end,
-                --     { desc = "Lsp references", buffer = ev.buf })
 
                 vim.keymap.set('n', '<leader>bf', function()
                     vim.lsp.buf.format { async = true }

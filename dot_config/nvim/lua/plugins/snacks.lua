@@ -20,7 +20,8 @@ return {
         picker = {
             enabled = true,
             layout = {
-                preset = "ivy"
+                preset = "ivy",
+                height = "0.18",
             },
             win = {
                 input = {
@@ -32,7 +33,6 @@ return {
             },
             sources = {
                 explorer = {
-
                     layout = { preset = "bottom" },
                     auto_close = true,
                     follow_file = true,
@@ -61,85 +61,85 @@ return {
         { "<leader>gB", function() Snacks.gitbrowse() end,                                     desc = "Git Browse" },
         { "<leader>gg", function() Snacks.lazygit() end,                                       desc = "Lazygit" },
         { "<leader>tb", function() Snacks.terminal("btop") end,                                desc = "Toggle Btop" },
-        -- { "<leader>fA", function() Snacks.picker() end,                                        desc = "All pickers" },
-        -- { "<leader>fa", function() Snacks.picker.smart({ hidden = true, ignored = true }) end, desc = "Smart picker no ignore" },
-        -- {
-        --     "<leader><leader>",
-        --     function()
-        --         Snacks.picker.smart()
-        --     end,
-        --     desc = "Smart picker"
-        -- },
-        -- {
-        --     "<leader>fp",
-        --     function()
-        --         Snacks.picker.files({ cwd = "~/.local/share/chezmoi/" })
-        --     end,
-        --     desc = "Open chezmoi config"
-        -- },
-        -- {
-        --     "<leader>fP",
-        --     function()
-        --         Snacks.picker.files({ cwd = "~/nixdots" })
-        --     end,
-        --     desc = "Open nixdots config"
-        -- },
-        -- {
-        --     "<leader>fg",
-        --     function()
-        --         Snacks.picker.grep()
-        --     end,
-        --     desc = "grep"
-        -- },
-        -- {
-        --     "<leader>fG",
-        --     function()
-        --         Snacks.picker.grep_buffers()
-        --     end,
-        --     desc = "Grep open buffers"
-        -- },
-        -- {
-        --     "<leader>fl",
-        --     function()
-        --         Snacks.picker.lines()
-        --     end,
-        --     desc = "List current buffer lines"
-        -- },
-        -- {
-        --     "<leader>fb",
-        --     function()
-        --         Snacks.picker.buffers()
-        --     end,
-        --     desc = "List buffers"
-        -- },
-        -- {
-        --     "<leader>fw",
-        --     function()
-        --         Snacks.picker.grep_word()
-        --     end,
-        --     desc = "Grep word"
-        -- },
-        -- {
-        --     "<leader>fk",
-        --     function()
-        --         Snacks.picker.keymaps()
-        --     end,
-        --     desc = "List keymaps"
-        -- },
-        -- {
-        --     "<leader>fH",
-        --     function()
-        --         Snacks.picker.help()
-        --     end,
-        --     desc = "Vim help"
-        -- },
-        -- {
-        --     "<leader>fh",
-        --     function()
-        --         Snacks.picker.man()
-        --     end,
-        --     desc = "Man pages"
-        -- },
+        { "<leader>fA", function() Snacks.picker() end,                                        desc = "All pickers" },
+        { "<leader>fa", function() Snacks.picker.smart({ hidden = true, ignored = true }) end, desc = "Smart picker no ignore" },
+        {
+            "<leader><leader>",
+            function()
+                Snacks.picker.smart()
+            end,
+            desc = "Smart picker"
+        },
+        {
+            "<leader>fp",
+            function()
+                Snacks.picker.files({ cwd = "~/.local/share/chezmoi/" })
+            end,
+            desc = "Open chezmoi config"
+        },
+        {
+            "<leader>fP",
+            function()
+                Snacks.picker.files({ cwd = "~/nixdots" })
+            end,
+            desc = "Open nixdots config"
+        },
+        {
+            "<leader>fg",
+            function()
+                Snacks.picker.grep()
+            end,
+            desc = "grep"
+        },
+        {
+            "<leader>fG",
+            function()
+                Snacks.picker.grep_buffers()
+            end,
+            desc = "Grep open buffers"
+        },
+        {
+            "<leader>fl",
+            function()
+                Snacks.picker.lines()
+            end,
+            desc = "List current buffer lines"
+        },
+        {
+            "<leader>fb",
+            function()
+                Snacks.picker.buffers()
+            end,
+            desc = "List buffers"
+        },
+        {
+            "<leader>fw",
+            function()
+                Snacks.picker.grep_word()
+            end,
+            desc = "Grep word"
+        },
+        {
+            "<leader>fk",
+            function()
+                Snacks.picker.keymaps()
+            end,
+            desc = "List keymaps"
+        },
+        {
+            "<leader>fH",
+            function()
+                Snacks.picker.help()
+            end,
+            desc = "Vim help"
+        },
+        {
+            "<leader>fh",
+            function()
+                Snacks.picker.man()
+            end,
+            desc = "Man pages"
+        },
         {
             '<leader>rv',
             function() require('yarepl.extensions.snacks').repl_show() end,
