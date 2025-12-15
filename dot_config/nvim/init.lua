@@ -17,6 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 
 vim.o.termguicolors = true
 
+vim.o.termguicolors = true
 
 -- vim.loader.enable()
 vim.g.loaded_netrw = 1
@@ -49,12 +50,35 @@ vim.opt.expandtab = true
 -- vim.opt.smartindent = true
 vim.opt.autoindent = true
 vim.opt.formatoptions = "cqjron"
-vim.opt.clipboard = "unnamedplus"
-vim.opt.foldlevel = 99
--- vim.opt.textwidth = 80
-vim.opt.indentkeys = "0{,0},0),0],:,0#,!^F,O,e"
+-- Clipboard shenanigans
+function my_paste(reg)
+    return function(lines)
+        local content = vim.fn.getreg('"')
+        return vim.split(content, '\n')
+    end
+end
 
--- vim.go.conceallevel = 3
+if (os.getenv('SSH_TTY') == nil)
+then
+    vim.opt.clipboard:append("unnamedplus")
+else
+    vim.opt.clipboard:append("unnamedplus")
+    vim.g.clipboard = {
+        name = 'OSC 52',
+        copy = {
+            ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+            ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+        },
+        paste = {
+            ["+"] = my_paste("+"),
+            ["*"] = my_paste("*"),
+
+
+        },
+    }
+end
+vim.opt.foldlevel = 99
+vim.opt.indentkeys = "0{,0},0),0],:,0#,!^F,O,e"
 
 vim.opt.swapfile = false
 vim.opt.backup = false
