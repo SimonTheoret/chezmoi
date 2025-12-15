@@ -35,7 +35,6 @@ cargo install du-dust --force
 
 sudo npm install -g tldr
 sudo npm i -g bash-language-server
-sudo npm install -g @anthropic-ai/claude-code
 
 go install github.com/jesseduffield/lazygit@latest
 go install github.com/jesseduffield/lazydocker@latest

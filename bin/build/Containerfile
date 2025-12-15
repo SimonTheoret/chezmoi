@@ -45,8 +45,6 @@ RUN cargo install shellharden --force
 RUN cargo install cargo-nextest --locked --force
 RUN cargo install cargo-insta --locked --force
 
-RUN npm install -g @anthropic-ai/claude-code
-
 RUN go install github.com/jesseduffield/lazygit@latest
 RUN go install github.com/jesseduffield/lazydocker@latest
 RUN go install mvdan.cc/sh/v3/cmd/shfmt@latest
