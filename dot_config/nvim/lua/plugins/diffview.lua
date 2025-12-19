@@ -1,4 +1,5 @@
 return {
+    {
     "sindrets/diffview.nvim",
     config = function()
         require("diffview").setup({
@@ -17,4 +18,6 @@ return {
         { "<leader>gH", ":DiffviewFileHistory <cr>",  desc = "Open diff files history" },
         { "<leader>gq", ":DiffviewClose <cr>",        desc = "Exit diff view" },
     },
+},
+{"AndrewRadev/linediff.vim", event = "VeryLazy" }
 }
