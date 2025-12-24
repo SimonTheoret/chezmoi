@@ -10,13 +10,13 @@
 monitor=,preferred,auto,auto
 {{else if (and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.name "NixOS") (eq (env "NIXOS_CONF") "desktop"))}}
 ## NixOS Desktop
-monitor= desc:ASUSTek COMPUTER INC VG278 R5LMQS04170, 1920x1080@165, 0x0, 1 # DP2
-monitor= desc:ASUSTek COMPUTER INC VG278 L8LMQS074722, 1920x1080@120, auto-up, 1 # HDM1
-monitor= desc:ASUSTek COMPUTER INC VG278 N3LMQS172460, 1920x1080@165, auto-right, 1 # DP2
+monitor= desc:ASUSTek COMPUTER INC VG278 R5LMQS04170, 1920x1080@165, auto-right, 1 # DP2
+## monitor= desc:ASUSTek COMPUTER INC VG278 L8LMQS074722, 1920x1080@120, auto-up, 1 # HDM1
+monitor= desc:ASUSTek COMPUTER INC VG278 N3LMQS172460, 1920x1080@165, 0x0, 1 # DP2
 
-workspace = 2, monitor:desc:ASUSTek COMPUTER INC VG278 R5LMQS04170
-workspace = 1, monitor:desc:ASUSTek COMPUTER INC VG278 N3LMQS172460, default:true
-workspace = 3, monitor:desc:ASUSTek COMPUTER INC VG278 L8LMQS074722
+workspace = 1, monitor:desc:ASUSTek COMPUTER INC VG278 R5LMQS04170, default:true
+workspace = 2, monitor:desc:ASUSTek COMPUTER INC VG278 N3LMQS172460
+## workspace = 3, monitor:desc:ASUSTek COMPUTER INC VG278 L8LMQS074722
 {{end}}
 
 # Start of "smart" gaps
@@ -261,7 +261,7 @@ bind = $mainMod SHIFT, 0, movetoworkspace, 10
 bind = SUPER SHIFT, H, movewindow, l
 bind = SUPER SHIFT, L, movewindow, r
 bind = SUPER SHIFT, K, movewindow, u
-bind = SUPER SHIFT, J, movewindow, d 
+bind = SUPER SHIFT, J, movewindow, d
 
 # Example special workspace (scratchpad)
 bind = $mainMod, S, togglespecialworkspace, magic

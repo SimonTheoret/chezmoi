@@ -4,13 +4,6 @@ output HDMI-1
 off
 output DP-3
 off
-output HDMI-0
-crtc 0
-mode 1920x1080
-pos 0x0
-primary
-rate 120.00
-x-prop-non_desktop 0
 output DP-2
 crtc 1
 mode 1920x1080
