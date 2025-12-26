@@ -6,8 +6,24 @@ line-number="relative"
 bufferline="multiple"
 completion-timeout = 50
 true-color = true
+completion-replace = true
+trim-trailing-whitespace = true
+end-of-line-diagnostics = "hint"
+color-modes = true
 auto-format = true
 cursorline = true
+
+# TODO: Add to next release of helix:
+# rainbow-brackets = true
+
+[editor.auto-save]
+focus-lost  = true
+after-delay.enable = true
+after-delay.timeout = 300000
+
+[editor.inline-diagnostics]
+cursor-line = "warning"
+
 
 [editor.lsp]
 display-progress-messages = true
@@ -15,24 +31,28 @@ auto-signature-help = false
 
 
 [editor.soft-wrap]
-enable = true
+enable = false
+
+[keys.select]
+D = ["extend_to_line_bounds", "delete_selection", "normal_mode"]
 
 [keys.normal]
 A-r = "later"
-space.v = "file_explorer"
-space.V = "file_explorer_in_current_directory"
+# space.v = "file_explorer"
+# space.V = "file_explorer_in_current_directory"
 C-r = ":reflow"
 esc = ["collapse_selection", "keep_primary_selection"]
 X = "select_line_above"
+D = ["select_line_below", "extend_to_line_end", "delete_selection"]
 x = "select_line_below"
 H = "goto_previous_buffer"
 L = "goto_next_buffer"
 C-y = ":sh zellij run -n Yazi -c -f -x 5%% -y 5%% --width 90%% --height 90%% -- bash ~/.config/helix/yazi-picker.sh open %{buffer_name}"
-C-g = ":sh zellij run -f -x 5%% -y 5%% --width 90%% --height 90%% -- sh -c \"lazygit && zellij action close-pane\"" 
-C-t = ":sh zellij run -f -x 5%% -y 5%% --width 90%% --height 90%% -- sh -c \"scooter && zellij action close-pane\"" 
-C-l = ":sh zellij run -f -x 5%% -y 5%% --width 90%% --height 90%% -- sh -c \"lazydocker && zellij action close-pane\"" 
-C-b = ":sh zellij run -f -x 5%% -y 5%% --width 90%% --height 90%% -- sh -c \"btop && zellij action close-pane\"" 
-space.B = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}" 
+C-g = ":sh zellij run -f -x 5%% -y 5%% --width 90%% --height 90%% -- sh -c \"lazygit && zellij action close-pane\""
+C-t = ":sh zellij run -f -x 5%% -y 5%% --width 90%% --height 90%% -- sh -c \"scooter && zellij action close-pane\""
+C-l = ":sh zellij run -f -x 5%% -y 5%% --width 90%% --height 90%% -- sh -c \"lazydocker && zellij action close-pane\""
+C-b = ":sh zellij run -f -x 5%% -y 5%% --width 90%% --height 90%% -- sh -c \"btop && zellij action close-pane\""
+space.B = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}"
 space.space = "file_picker"
 space.q = [
       ":sh rm -f /tmp/unique-file-h21a434",
@@ -47,6 +67,12 @@ space.m = "goto_word"
 space.C-r = ":redraw"
 "," = "match_brackets"
 
+[keys.normal.space.f]
+f = "file_picker_in_current_buffer_directory"
+g = "global_search"
+d = [":vsplit-new", ":lang diff", ":insert-output git diff"]
+
+
 [keys.insert]
 C-h = "signature_help"
 
@@ -54,6 +80,7 @@ C-h = "signature_help"
 g = [":toggle-option file-picker.git-ignore"]
 t = [":toggle-option file-picker.hidden"]
 h = [":toggle-option lsp.display-inlay-hints"]
+
 
 [keys.normal.space.n]
 n = ":vs ./notes.md"
@@ -71,6 +98,7 @@ skip-levels = 1
 left = ["mode", "spinner", "file-name", "read-only-indicator", "file-modification-indicator","workspace-diagnostics"]
 center = ["version-control"]
 right = [ "diagnostics", "selections", "primary-selection-length", "register", "position", "position-percentage","total-line-numbers","file-encoding"]
+separator = "|"
 
 [editor.cursor-shape]
 insert = "bar"
