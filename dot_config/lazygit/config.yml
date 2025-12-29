@@ -1,11 +1,11 @@
-gui: 
+gui:
   nerdFontsVersion: "3"
   theme:
     lightTheme: false
 
 
 os:
-  editPreset: 'nvim'
+  editPreset: 'helix'
 
 customCommands:
   - key: "C"

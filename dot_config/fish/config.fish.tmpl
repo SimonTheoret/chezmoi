@@ -36,6 +36,14 @@ fish_add_path ~/go/bin
 fish_add_path $HOME/.config/emacs/bin
 fish_add_path $HOME/bin
 
+
+export BROWSER='firefox'
+export EDITOR='hx'
+export TERMINAL='alacritty'
+export TERM='xterm'
+export OLLAMA_API_BASE=http://127.0.0.1:11434
+export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | bat -p -lman'"
+
 # Fzf configuration
 export FZF_CTRL_T_OPTS="
 --preview 'bat -n --color=always {}'
@@ -44,15 +52,9 @@ export FZF_CTRL_T_OPTS="
 export FZF_CTRL_R_OPTS="--color header:italic"
 export FZF_ALT_C_OPTS="--preview 'tree -C {}'"
 export FZF_CTRL_T_COMMAND="fd  -I -H -L --exclude .git"
-set -Ux fifc_editor nvim
+set -Ux fifc_editor hx
 set -U fifc_keybinding \cx
 
-export BROWSER='firefox'
-export EDITOR='nvim'
-export TERMINAL='alacritty'
-export TERM='xterm'
-export OLLAMA_API_BASE=http://127.0.0.1:11434
-export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | bat -p -lman'"
 
 # Use bat for help
 abbr -a --position anywhere -- --help '--help | bat -plhelp'
