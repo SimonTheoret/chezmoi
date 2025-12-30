@@ -88,6 +88,7 @@ n = ":vs ./notes.md"
 [editor.file-picker]
 git-ignore = false
 hidden = false
+ignore = true
 
 [editor.indent-guides]
 render = true
