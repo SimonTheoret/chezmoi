@@ -83,7 +83,7 @@ h = [":toggle-option lsp.display-inlay-hints"]
 
 
 [keys.normal.space.n]
-n = ":vs ./notes.md"
+n = ":vs ./notes_perso_stheoret.md"
 
 [editor.file-picker]
 git-ignore = false
