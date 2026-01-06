@@ -31,7 +31,7 @@ auto-signature-help = false
 
 
 [editor.soft-wrap]
-enable = false
+enable = true
 
 [keys.select]
 D = ["extend_to_line_bounds", "delete_selection", "normal_mode"]
