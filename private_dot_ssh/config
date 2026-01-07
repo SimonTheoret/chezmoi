@@ -21,6 +21,9 @@ Host gpix6
     HostName gpix6.druide
     User stheoret
 
+Host bureau
+    HostName 192.168.1.215
+    User stheoret
 
 Host *
     AddKeysToAgent yes
