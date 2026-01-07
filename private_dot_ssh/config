@@ -5,6 +5,23 @@ Host github.com
     User git
     IdentityFile ~/.ssh/id_edgithub
 
+Host gpix3
+    HostName gpix3.druide
+    User stheoret
+
+Host gpix4
+    HostName gpix4.druide
+    User stheoret
+
+Host gpix5
+    HostName gpix5.druide
+    User stheoret
+
+Host gpix6
+    HostName gpix6.druide
+    User stheoret
+
+
 Host *
     AddKeysToAgent yes
 
