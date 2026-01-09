@@ -34,10 +34,6 @@
   :config
   (general-evil-setup t))
 
-;; (use-package treesit
-;;   :straight (:type built-in))
-
-
 (use-package
   evil
   :init
