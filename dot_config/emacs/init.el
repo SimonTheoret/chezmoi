@@ -22,6 +22,10 @@
 
 (setq native-comp-async-report-warnings-errors 'silent)
 
+(setq display-line-numbers-mode t)
+(setq display-line-numbers 'relative)
+(setq display-current-line-numbers 'relative)
+
 (use-package straight
   :custom
   (straight-use-package-by-default t))
@@ -639,8 +643,6 @@
 (defun search-home-dir ()
   (interactive)
   (ido-find-file-in-dir "~/" ))
-
-(add-hook 'dired-mode-hook (lambda () (setq display-line-numbers 'relative)))
 
 (general-def
   :states
