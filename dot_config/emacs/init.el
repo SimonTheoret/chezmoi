@@ -1088,6 +1088,7 @@
  	(gleam "https://github.com/gleam-lang/tree-sitter-gleam")
  	(heex "https://github.com/phoenixframework/tree-sitter-heex")
 	(php "https://github.com/tree-sitter/tree-sitter-php" "master" "php/src")
+	(nix "https://github.com/nix-community/tree-sitter-nix")
  	)
       )
 
@@ -1203,5 +1204,3 @@
 
 (setq custom-file (locate-user-emacs-file "custom.el"))
 (load custom-file 'noerror 'nomessage)
-
-
