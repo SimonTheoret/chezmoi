@@ -569,10 +569,10 @@
   :states 'normal
   :prefix "<leader> t"
   :prefix-command 'Term
-  "t" '("Toggle eshell" . eshell)
+  "e" '("Toggle eshell" . eshell)
   "b" '("Open terminal" . term)
   "a" '("Open ansi-term" . ansi-term)
-  "v" '("Open vterm" . vterm)
+  "t" '("Open vterm" . vterm)
   "o"
   '("New tab" . tab-new)
   "x"
