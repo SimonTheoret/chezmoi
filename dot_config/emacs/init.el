@@ -83,19 +83,12 @@
   )
 
 
-
-
 (use-package eglot
   :defer 0.5
   :straight (:type built-in)
   :hook
   (prog-mode . eglot-ensure)
   )
-
-					; (add-to-list 'eglot-server-programs
-					;              '((rust-ts-mode rust-mode) .
-					;                ("rust-analyzer" :initializationOptions (:check (:command "clippy")))))
-
 
 
 (setq-default eldoc-idle-delay 0.15)
@@ -202,19 +195,6 @@
       entry
       "* %?"
       :target (file+head "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>\n")))))
-
-
-;; (use-package kanagawa-themes
-;;   :ensure t
-;;   :config
-;;   (load-theme 'kanagawa-wave t))
-
-;; (use-package gruvbox-theme
-;;   :config
-;;   (setq gruvbox-bold-constructs t)
-;;   (load-theme 'gruvbox-dark-medium t)) ;; We need to add t to trust this package
-
-;; (add-to-list 'default-frame-alist '(alpha-background . 90)) ;; For all new frames henceforth
 
 ;; Theme
 (use-package doom-themes
@@ -651,8 +631,6 @@
   '("Find files other window" . ido-find-file-other-window)
   "p"
   '("Search conf" . search-emacs-dir)
-  "P"
-  '("Search conf other window" . search-emacs-dir-other-window)
   "d"
   '("Create dir" . make-directory)
   "D"
@@ -706,50 +684,6 @@
   :map dired-mode-map
   "DEL" '("Directory up" . dired-up-directory)
   )
-
-;; TODO: setup
-;; Used for eglot
-;; (use-package dape
-;;   :defer 3
-;;   ;; :preface
-;;   ;; By default dape shares the same keybinding prefix as `gud'
-;;   ;; If you do not want to use any prefix, set it to nil.
-;;   ;; (setq dape-key-prefix "\C-x\C-a")
-
-;;   ;; :hook
-;;   ;; Save breakpoints on quit
-;;   ;; (kill-emacs . dape-breakpoint-save)
-;;   ;; Load breakpoints on startup
-;;   ;; (after-init . dape-breakpoint-load)
-
-;;   ;; :config
-;;   ;; Turn on global bindings for setting breakpoints with mouse
-;;   ;; (dape-breakpoint-global-mode)
-
-;;   ;; Info buffers to the right
-;;   ;; (setq dape-buffer-window-arrangement 'right)
-
-;;   ;; Info buffers like gud (gdb-mi)
-;;   ;; (setq dape-buffer-window-arrangement 'gud)
-;;   ;; (setq dape-info-hide-mode-line nil)
-
-;;   ;; Pulse source line (performance hit)
-;;   ;; (add-hook 'dape-display-source-hook 'pulse-momentary-highlight-one-line)
-
-;;   ;; Showing inlay hints
-;;   ;; (setq dape-inlay-hints t)
-
-;;   ;; Save buffers on startup, useful for interpreted languages
-;;   ;; (add-hook 'dape-start-hook (lambda () (save-some-buffers t t)))
-
-;;   ;; Kill compile buffer on build success
-;;   ;; (add-hook 'dape-compile-hook 'kill-buffer)
-
-;;   ;; Projectile users
-;;   ;; (setq dape-cwd-function 'project-root)
-;;   )
-
-
 
 (use-package helpful
   :defer 1.5
@@ -815,38 +749,6 @@
   '("Casual edikit" . casual-editkit-main-tmenu)
   )
 
-
-;; TOOD: add back ?
-;; (use-package python
-;;   :straight (:type built-in)
-;;   :config
-;;   (setq  python--treesit-settings
-;; 	 (append python--treesit-settings
-;; 		 ;; Constants
-;; 		 (treesit-font-lock-rules
-;; 		  :feature 'custom
-;; 		  :language 'python
-;; 		  :override t
-;; 		  '(
-;; 		    ((identifier) @font-lock-constant-face
-;; 		     (:match "^[A-Z][A-Z_0-9]*$" @font-lock-constant-face))
-;; 		    )
-
-;; 		  ;; Types 
-;; 		  :feature 'custom
-;; 		  :language 'python
-;; 		  :override t
-;; 		  '(
-;; 		    (
-;; 		     (identifier) @font-lock-type-face
-;; 		     (:match "^[A-Z].*[a-z]" @font-lock-type-face))
-;; 		    )
-;; 		  )
-;; 		 )
-
-;; 	 )
-;;   )
-
 ;; Snippets
 (use-package yasnippet
   :defer 0.5
@@ -899,9 +801,6 @@
 (use-package nix-mode
   :defer 1
   :mode "\\.nix\\'")
-
-
-;; Keybindings
 
 
 (use-package evil-commentary :config (evil-commentary-mode))
@@ -1106,13 +1005,7 @@
   :config
   (treesit-auto-add-to-auto-mode-alist 'all)
   (global-treesit-auto-mode)
-  ;; :hook
-  ;; (prog-mode . (lambda ()
-  ;; (treesit-font-lock-recompute-features '(function custom))))
   )
-
-
-
 
 (defun change-compile-command (str)
   (set (make-local-variable 'compile-command) str))
@@ -1174,7 +1067,7 @@
 
   ;; Show the Embark target at point via Eldoc. You may adjust the
   ;; Eldoc strategy, if you want to see the documentation from
-  ;; multiple providers. Beware that using this can be a little
+  ;; multiple providers. Beware that using this can be a little 
   ;; jarring since the message shown in the minibuffer can be more
   ;; than one line, causing the modeline to move up and down:
 
