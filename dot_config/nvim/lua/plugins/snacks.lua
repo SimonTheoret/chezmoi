@@ -20,8 +20,12 @@ return {
         picker = {
             enabled = true,
             layout = {
-                preset = "ivy",
-                height = "0.18",
+                -- preset = "dropdown",
+                -- preset = "ivy",
+                -- preset = "ivy_split",
+                -- preset = "select",
+                -- preset = "telescope",
+                -- preset = "vertical",
             },
             win = {
                 input = {
