@@ -82,6 +82,9 @@
 (use-package eglot
   :defer 0.5
   :straight (:type built-in)
+  :config
+  (add-to-list 'eglot-server-programs '(python-mode "ty" "server"))
+  (add-to-list 'eglot-server-programs '(python-ts-mode "ty" "server"))
   :hook
   (prog-mode . eglot-ensure)
   )
