@@ -1090,9 +1090,9 @@
 (setq custom-file (locate-user-emacs-file "custom.el"))
 (load custom-file 'noerror 'nomessage)
 
-(setq global-display-line-numbers-mode t)
-(setq display-line-numbers "relative")
-(setq display-current-line-numbers "relative")
+(global-display-line-numbers-mode)
+(setq display-line-numbers 'relative)
+(setq display-current-line-numbers t)
 
 (add-hook 'prog-mode-hook (lambda ()
                             (setq-local treesit-font-lock-feature-list '((comment definition) (keyword string)
