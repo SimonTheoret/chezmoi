@@ -22,19 +22,6 @@
 
 (setq native-comp-async-report-warnings-errors 'silent)
 
-(setq display-line-numbers-mode t)
-(setq display-line-numbers 'relative)
-(setq display-current-line-numbers 'relative)
-
-(add-hook 'prog-mode-hook (lambda ()
-                            (setq-local treesit-font-lock-feature-list '((comment definition) (keyword string)
-									 (assignment attribute builtin constant escape-sequence number type function error variable)
-									 (bracket delimiter operator property))
-					)
-                            ;; Recompute font lock settings if the mode is already set up
-                            (treesit-font-lock-recompute-features)))
-
-
 (use-package straight
   :custom
   (straight-use-package-by-default t))
@@ -1106,3 +1093,15 @@
 
 (setq custom-file (locate-user-emacs-file "custom.el"))
 (load custom-file 'noerror 'nomessage)
+
+(setq display-line-numbers-mode t)
+(setq display-line-numbers 'relative)
+(setq display-current-line-numbers 'relative)
+
+(add-hook 'prog-mode-hook (lambda ()
+                            (setq-local treesit-font-lock-feature-list '((comment definition) (keyword string)
+									 (assignment attribute builtin constant escape-sequence number type function error variable)
+									 (bracket delimiter operator property))
+					)
+                            ;; Recompute font lock settings if the mode is already set up
+                            (treesit-font-lock-recompute-features)))
