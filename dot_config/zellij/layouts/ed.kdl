@@ -6,8 +6,12 @@ layout {
                 plugin location="compact-bar"
             }
     }
-    tab name="editor"{
-        pane
+    tab name="editor" split_direction="vertical"{
+        pane size="65%" focus=true
+        pane size="35%" stacked=true {
+            pane
+            pane
+        }
     	pane size=1 borderless=true {
             plugin location="compact-bar"
     	}
@@ -99,7 +103,7 @@ layout {
         }
     }
 
-    
+
 
     swap_floating_layout name="enlarged" {
         floating_panes max_panes=10 {
