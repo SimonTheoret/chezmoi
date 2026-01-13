@@ -18,7 +18,7 @@ return {
                 }
             },
             winopts = {
-                split = "belowright 15new",
+                split = "botright 15new",
                 -- preview = {
                 --     hidden = true,
                 -- }
