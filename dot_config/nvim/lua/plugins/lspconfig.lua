@@ -144,8 +144,6 @@ return {
                 vim.keymap.set('n', '<leader>D', function() vim.lsp.buf.type_definition() end,
                     { desc = "LSP type definition", buffer = ev.buf })
 
-                vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, { desc = "Lsp rename", buffer = ev.buf })
-
                 vim.keymap.set('n', '<space>xx', function()
                         vim.diagnostic.setloclist({ open = false })
                         require("quicker").toggle({ loclist = true })
