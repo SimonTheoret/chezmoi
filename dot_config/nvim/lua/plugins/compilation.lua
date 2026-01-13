@@ -37,11 +37,5 @@ return {
             ":below Recompile<CR>",
             desc = "Recompile"
         },
-        {
-            "<leader>cq",
-            function() require('compile-mode').close_buffer() end,
-            desc = "Close compilation buffers"
-        },
-
     }
 }
