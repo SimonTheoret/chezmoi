@@ -158,20 +158,10 @@ return {
                 vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action,
                     { desc = "Lsp code action", buffer = ev.buf })
 
-                -- vim.keymap.set('n', 'gr', function()
-                --         vim.lsp.buf.references()
-                --     end,
-                --     { desc = "Lsp references", buffer = ev.buf })
-
                 vim.keymap.set('n', '<leader>bf', function()
                     vim.lsp.buf.format { async = true }
                 end, { desc = "Lsp format buffer", buffer = ev.buf })
 
-                vim.keymap.set('n', '<leader>fi', function() Snacks.picker.lsp_workspace_symbols() end,
-                    { desc = "Lsp workspace symbols", buffer = ev.buf })
-
-                vim.keymap.set('n', '<leader>fj', function() Snacks.picker.lsp_symbols() end,
-                    { desc = "Lsp buffer symbols", buffer = ev.buf })
 
                 vim.keymap.set('n', '<leader>th',
                     function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end,

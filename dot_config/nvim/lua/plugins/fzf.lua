@@ -5,7 +5,7 @@ return {
     config = function()
         -- calling `setup` is optional for customization
         require("fzf-lua").setup({
-            -- { "ivy" },
+            -- { "max-perf" }, -- Causes display bug
             grep = { rg_glob = true },
             -- fzf_colors = {
             --     true,          -- auto generate rest of fzf’s highlights?
@@ -25,11 +25,11 @@ return {
             },
             files = {
                 --     -- file icons are distracting
-                --     -- file_icons = false,
+                    -- file_icons = false,
                 --     -- git icons are nice
                 --     -- git_icons = true,
                 --     -- but don't mess up my anchored search
-                _fzf_nth_devicons = true,
+                -- _fzf_nth_devicons = true,
             },
             -- buffers = {
             --     file_icons = false,
@@ -56,7 +56,7 @@ return {
         {
             "<leader><leader>",
             function()
-                require('fzf-lua').files()
+                require('fzf-lua').global()
             end,
             desc = "List files"
         },
@@ -148,6 +148,33 @@ return {
             '<leader>rv',
             function() require('yarepl.extensions.fzf').repl_show() end,
             desc = "REPL buffers"
+        },
+        {
+            '<leader>fI',
+            function() require('fzf-lua').lsp_finder() end,
+            desc = "Lsp finder at cursor"
+        },
+        {
+            '<leader>fJ',
+            function() vim.lsp.buf.workspace_symbol() end,
+            desc = "Lsp workspace symbols query"
+        },
+        {
+            '<leader>fj',
+            function() require('fzf-lua').lsp_document_symbols() end,
+            desc = "Lsp document symbols"
+        },
+        {
+            '<leader>fi',
+            function() require('fzf-lua').lsp_live_workspace_symbols() end,
+            desc = "lsp live workspace symbols"
+        },
+        {
+            '<leader>fr',
+            function() require('fzf-lua').lsp_references() end,
+            desc = "lsp references"
         }
-    },
+
+
+    }
 }

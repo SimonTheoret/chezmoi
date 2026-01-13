@@ -145,6 +145,11 @@ return {
         --     end,
         --     desc = "Man pages"
         -- },
+        -- {'<leader>fi', function() Snacks.picker.lsp_workspace_symbols() end,
+        --     desc = "Lsp workspace symbols", buffer = ev.buf}
+        --
+        -- {'<leader>fj', function() Snacks.picker.lsp_symbols() end,
+        --     desc = "Lsp buffer symbols", buffer = ev.buf}
         {
             '<leader>rv',
             function() require('yarepl.extensions.snacks').repl_show() end,
