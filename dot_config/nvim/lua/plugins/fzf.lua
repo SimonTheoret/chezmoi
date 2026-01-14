@@ -7,11 +7,6 @@ return {
         require("fzf-lua").setup({
             -- { "max-perf" }, -- Causes display bug
             grep = { rg_glob = true },
-            -- fzf_colors = {
-            --     true,          -- auto generate rest of fzf’s highlights?
-            --     bg = '-1',
-            --     gutter = '-1', -- I like this one too, try with and without
-            -- },
             keymap = {
                 fzf = {
                     ["alt-a"] = "select-all+accept",
@@ -19,27 +14,16 @@ return {
             },
             winopts = {
                 split = "botright 15new",
-                -- preview = {
-                --     hidden = true,
-                -- }
             },
             files = {
-                --     -- file icons are distracting
-                    -- file_icons = false,
-                --     -- git icons are nice
-                --     -- git_icons = true,
-                --     -- but don't mess up my anchored search
-                -- _fzf_nth_devicons = true,
+                file_icons = false,
+                git_icons = false,
             },
-            -- buffers = {
-            --     file_icons = false,
-            --     git_icons = true,
-            --     -- no nth_devicons as we'll do that
-            --     -- manually since we also use
-            --     -- with-nth
-            -- },
+            buffers = {
+                file_icons = false,
+                git_icons = false,
+            },
             fzf_opts = {
-                -- no reverse view
                 ["--layout"] = "default",
             },
 
@@ -56,7 +40,7 @@ return {
         {
             "<leader><leader>",
             function()
-                require('fzf-lua').global()
+                require('fzf-lua').files()
             end,
             desc = "List files"
         },
@@ -117,7 +101,7 @@ return {
             desc = "Grep word"
         },
         {
-            "<leader>fd",
+            "<leader>fG",
             function()
                 require('fzf-lua').git_files()
             end,
@@ -126,7 +110,7 @@ return {
         {
             "<leader>fk",
             function()
-                require('fzf-lua').keymaps()
+                require('fzf-lua').keymaps({ previewer = false })
             end,
             desc = "List keymaps"
         },
@@ -173,8 +157,15 @@ return {
             '<leader>fr',
             function() require('fzf-lua').lsp_references() end,
             desc = "lsp references"
-        }
-
-
+        },
+        {
+            '<leader>fd',
+            function() require('fzf-lua').diagnostics_document() end,
+            desc = "lsp references"
+        }, {
+        '<leader>fd',
+        function() require('fzf-lua').diagnostics_workspace() end,
+        desc = "lsp references"
+    }
     }
 }
