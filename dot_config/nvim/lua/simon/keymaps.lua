@@ -50,8 +50,8 @@ vmap.set("n", "<leader>ba", ":delm! | delm A-Z0-9 <CR>", { desc = "Remove all ma
 vmap.set("n", "<leader>bb", ":only<CR>", { desc = "Focus buffer" })
 
 -- Keymaps for tabs
-vmap.set("n", "<leader>tc", ":tabclose", { desc = "Close tab" })
-vmap.set("n", "<leader>te", ":tabedit", { desc = "New tab" })
+vmap.set("n", "<leader>tc", ":tabclose<CR>", { desc = "Close tab" })
+vmap.set("n", "<leader>te", ":tabedit<CR>", { desc = "New tab" })
 
 function _G.set_terminal_keymaps()
     local opts = { buffer = 0 }
