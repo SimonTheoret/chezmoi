@@ -1,15 +1,9 @@
 # Aliases for some common commands (don't forget to add its 'old' counterpart):
 alias ls='eza --icons'
-# alias cd='z'
 alias ec='emacsclient -r -a "emacs"'
 alias ect='emacsclient -nw'
 alias icat='kitten icat'
 alias kdiff='kitten diff'
-alias gitg="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ad)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'"
-alias gita="git add"
-alias gitc="git commit -m"
-alias gits="git status"
-alias gitp="git push"
 alias s="kitten ssh"
 alias rg="rg --color=auto"
 alias grep="grep --color=auto"
@@ -23,4 +17,9 @@ alias yz="yazi"
 alias gg="lazygit"
 alias gd="lazydocker"
 alias helix="hx"
-alias tbe="toolbox enter devtool"
+# Moved to gitconfig
+# alias gitg="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ad)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'"
+# alias gita="git add"
+# alias gitc="git commit -m"
+# alias gits="git status"
+# alias gitp="git push"
