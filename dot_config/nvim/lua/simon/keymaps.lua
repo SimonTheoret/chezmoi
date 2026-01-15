@@ -49,6 +49,10 @@ vmap.set("n", "<leader>ba", ":delm! | delm A-Z0-9 <CR>", { desc = "Remove all ma
 -- vmap.set("n", "<leader>sr", function() require("simon.neosearch").search() end, { desc = "Search and replace" })
 vmap.set("n", "<leader>bb", ":only<CR>", { desc = "Focus buffer" })
 
+-- Keymaps for tabs
+vmap.set("n", "<leader>tc", ":tabclose", { desc = "Close tab" })
+vmap.set("n", "<leader>te", ":tabedit", { desc = "New tab" })
+
 function _G.set_terminal_keymaps()
     local opts = { buffer = 0 }
     vim.keymap.set('t', '<C-m><C-m>', [[<C-\><C-n>]], opts)
@@ -72,8 +76,3 @@ end, { desc = "Clean trailing whitespaces" })
 
 vim.api.nvim_set_keymap("n", "gx", [[:silent execute '!$BROWSER ' . shellescape(expand('<cfile>'), 1)<CR>]],
     { desc = "Open link in browser" })
-
-
--- Keymaps for tabs
-vim.set("n", "<leader>tc", ":tabclose", { desc = "Close tab" })
-vim.set("n", "<leader>te", ":tabedit", { desc = "New tab" })
