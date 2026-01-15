@@ -19,13 +19,15 @@
     syntax-theme = gruvbox-dark
 	features = diff-so-fancy
 [merge]
-    tool = "nvimdiff"
+	tool = codediff
 [difftool]
     prompt = true
 [diff]
-    tool = nvimdiff
-[difftool "nvimdiff"]
-    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+	tool = codediff
+[mergetool "codediff"]
+	cmd = nvim \"$MERGED\" -c \"CodeDiff merge \\\"$MERGED\\\"\"
+[difftool "codediff"]
+	cmd = nvim \"$LOCAL\" \"$REMOTE\" +\"CodeDiff file $LOCAL $REMOTE\"
 
 [filter "lfs"]
        clean = git-lfs clean -- %f
