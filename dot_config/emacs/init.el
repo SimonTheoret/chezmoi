@@ -30,6 +30,38 @@
   :config
   (general-evil-setup t))
 
+
+(defun lsp-booster--advice-json-parse (old-fn &rest args)
+  "Try to parse bytecode instead of json."
+  (or
+   (when (equal (following-char) ?#)
+     (let ((bytecode (read (current-buffer))))
+       (when (byte-code-function-p bytecode)
+         (funcall bytecode))))
+   (apply old-fn args)))
+(advice-add (if (progn (require 'json)
+                       (fboundp 'json-parse-buffer))
+                'json-parse-buffer
+              'json-read)
+            :around
+            #'lsp-booster--advice-json-parse)
+
+(defun lsp-booster--advice-final-command (old-fn cmd &optional test?)
+  "Prepend emacs-lsp-booster command to lsp CMD."
+  (let ((orig-result (funcall old-fn cmd test?)))
+    (if (and (not test?)                             ;; for check lsp-server-present?
+             (not (file-remote-p default-directory)) ;; see lsp-resolve-final-command, it would add extra shell wrapper
+             lsp-use-plists
+             (not (functionp 'json-rpc-connection))  ;; native json-rpc
+             (executable-find "emacs-lsp-booster"))
+        (progn
+          (when-let ((command-from-exec-path (executable-find (car orig-result))))  ;; resolve command from exec-path (in case not found in $PATH)
+            (setcar orig-result command-from-exec-path))
+          (message "Using emacs-lsp-booster for %s!" orig-result)
+          (cons "emacs-lsp-booster" orig-result))
+      orig-result)))
+(advice-add 'lsp-resolve-final-command :around #'lsp-booster--advice-final-command)
+
 (use-package
   evil
   :init
@@ -79,26 +111,18 @@
   )
 
 
-(use-package eglot
-  :defer 0.5
-  :straight (:type built-in)
-  :config
-  (add-to-list 'eglot-server-programs '(python-mode "ty" "server"))
-  (add-to-list 'eglot-server-programs '(python-ts-mode "ty" "server"))
-  :hook
-  (prog-mode . eglot-ensure)
-  )
+(use-package lsp-mode
+  :init
+  ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
+  (setq lsp-keymap-prefix "C-c l")
+  :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
+         (XXX-mode . lsp)
+         ;; if you want which-key integration
+         (lsp-mode . lsp-enable-which-key-integration))
+  :commands lsp)
 
-
-(setq-default eldoc-idle-delay 0.15)
-
-(use-package eglot-booster
-  :defer 0.25
-  :straight ( eglot-booster :type git :host nil :repo "https://github.com/jdtsmith/eglot-booster")
-  :after eglot
-  :config (eglot-booster-mode))
-
-(add-hook 'eglot-managed-mode-hook (lambda () (eglot-inlay-hints-mode -1)))
+;; optionally
+(use-package lsp-ui :commands lsp-ui-mode)
 
 (use-package company
   :defer 0.5
@@ -460,10 +484,6 @@
 
 (use-package deadgrep :defer 2)
 
-;; TODO: remove ?
-;; (eval-when-compile
-;;   (require 'cl-lib))
-
 (setq reb-re-syntax 'string)
 
 (general-def
@@ -524,11 +544,6 @@
   )
 
 
-(use-package hl-todo
-  :defer 0.5
-  :init
-  (global-hl-todo-mode))
-
 (use-package vterm
   :defer 1.5
   :config
@@ -572,11 +587,9 @@
   :init
   (setq
    rust-mode-treesitter-derive t
-   rustic-lsp-client 'eglot
+   rustic-lsp-client 'lsp-mode
    )
   )
-
-;; (use-package rustic :after )
 
 
 (setq dired-listing-switches "-alh")
