@@ -72,3 +72,8 @@ end, { desc = "Clean trailing whitespaces" })
 
 vim.api.nvim_set_keymap("n", "gx", [[:silent execute '!$BROWSER ' . shellescape(expand('<cfile>'), 1)<CR>]],
     { desc = "Open link in browser" })
+
+
+-- Keymaps for tabs
+vim.set("n", "<leader>tc", ":tabclose", { desc = "Close tab" })
+vim.set("n", "<leader>te", ":tabedit", { desc = "New tab" })
