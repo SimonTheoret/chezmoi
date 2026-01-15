@@ -33,6 +33,25 @@ return {
             "<leader>ta",
             ":TermSelect<CR>",
             desc = "Select term"
+        },
+        {
+            "<leader>tb",
+            function()
+                local term = require('toggleterm.terminal').Terminal
+                local btop = term:new({ cmd = "btop", hidden = true, direction = "float" })
+                btop:toggle()
+            end,
+            desc = "Toggle Btop"
+        },
+        {
+            "<leader>tg",
+            function()
+                local term = require('toggleterm.terminal').Terminal
+                local gitg = term:new({ cmd = "gitg", hidden = true })
+                gitg:toggle()
+            end,
+            desc = "Toggle Gitg"
         }
+
     }
 }
