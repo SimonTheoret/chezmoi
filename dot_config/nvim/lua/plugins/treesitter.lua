@@ -5,6 +5,7 @@ return {
     build = ':TSUpdate',
     config = function()
         local ts = require 'nvim-treesitter'
+        local slib = require('slib')
         ts.setup {}
         vim.api.nvim_create_autocmd("FileType", {
             group = vim.api.nvim_create_augroup("EnableTreesitterHighlighting", { clear = true }),
@@ -17,12 +18,7 @@ return {
         vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
         vim.wo[0][0].foldmethod = 'expr'
         ts.install {
-            "lua", "vim", "vimdoc",
-            "regex", "markdown", "markdown_inline",
-            "bash", "latex", "bibtex",
-            "css", "html", "javascript",
-            "python", "rust", "go",
-            "gleam", "elixir", "xml", "zig", "cpp", "typescript", "tsx", "jsx", "dockerfile"
+            slib.ts_grammars
         }
     end
 }
