@@ -7,7 +7,7 @@ return {
             require("mini.git").setup()
         end,
         keys = {
-            { "<leader>gG", ":vertical Git ", desc = "Git" },
+            { "<leader>gg", ":vertical Git ", desc = "Git" },
             {
                 "<leader>gc",
                 function()
