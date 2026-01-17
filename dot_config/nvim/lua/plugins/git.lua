@@ -42,13 +42,22 @@ return {
         'nvim-mini/mini.diff',
         event = "VeryLazy",
         version = '*',
-        config = true,
+        config = function()
+            require('mini.diff').setup({
+                mappings = {
+                    apply = "<leader>dg",
+                    reset = "<leader>dG"
+                }
+            })
+        end,
         keys = {
             {
-                "<leader>gt", function()
-                MiniDiff.toggle_overlay()
-            end
-            }
+                "<leader>gt",
+                function()
+                    MiniDiff.toggle_overlay()
+                end,
+                desc = "Toggle diff overlay"
+            },
         }
     },
 }
