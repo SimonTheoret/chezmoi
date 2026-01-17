@@ -47,7 +47,7 @@ return {
             "<leader>tg",
             function()
                 local term = require('toggleterm.terminal').Terminal
-                local gitg = term:new({ cmd = "gitg", hidden = true })
+                local gitg = term:new({ cmd = "git g", hidden = true })
                 gitg:toggle()
             end,
             desc = "Toggle Gitg"
