@@ -1,6 +1,6 @@
 return {
     'stevearc/quicker.nvim',
-    event = "VeryLazy",
+    event = { "InsertEnter", "CmdlineEnter", "VeryLazy" },
     ft = "qf",
     ---@module "quicker"
     ---@type quicker.SetupOptions
