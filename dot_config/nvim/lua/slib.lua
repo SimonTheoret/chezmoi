@@ -19,6 +19,6 @@ M.ts_grammars = {
     "lua", "vim", "vimdoc", "regex", "markdown", "markdown_inline", "bash",
     "latex", "bibtex", "css", "html", "javascript", "python", "rust", "go",
     "gleam", "elixir", "xml", "zig", "cpp", "typescript", "tsx", "jsx", "fish", "zsh", "c", "json5", "json",
-    "dockerfile" }
+    "dockerfile", "make" }
 
 return M

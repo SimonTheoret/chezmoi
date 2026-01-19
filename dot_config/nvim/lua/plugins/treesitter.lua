@@ -5,8 +5,8 @@ return {
     build = ':TSUpdate',
     config = function()
         local ts = require 'nvim-treesitter'
-        local slib = require('slib')
         ts.setup {}
+        ts.install("unstable")
         vim.api.nvim_create_autocmd("FileType", {
             group = vim.api.nvim_create_augroup("EnableTreesitterHighlighting", { clear = true }),
             desc = "Try to enable tree-sitter syntax highlighting",
@@ -17,6 +17,5 @@ return {
         })
         vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
         vim.wo[0][0].foldmethod = 'expr'
-        ts.install(slib.ts_grammars)
     end
 }
