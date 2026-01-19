@@ -2,6 +2,7 @@ return {
     'akinsho/toggleterm.nvim',
     version = "*",
     config = function()
+        Last_term_command = nil -- Used in the "<leader>cc" binding
         require("toggleterm").setup {
             -- size can be a number or function which is passed the current terminal
             size              = function(term)
@@ -11,7 +12,6 @@ return {
                     return vim.o.columns * 0.4
                 end
             end,
-            -- open_mapping = [[<leader>tt]], -- or { [[<c-\>]], [[<c-¥>]] } if you also use a Japanese keyboard.
             terminal_mappings = true,
             insert_mappings   = false,
         }
@@ -51,7 +51,65 @@ return {
                 gitg:toggle()
             end,
             desc = "Toggle Gitg"
-        }
+        },
+        {
+            "<leader>cc",
+            function()
+                local exec = function(cmd)
+                    if cmd ~= nil then
+                        Last_term_command = cmd
+                        local term = require('toggleterm.terminal').Terminal
+                        local gitg = term:new(
+                            {
+                                cmd = cmd,
+                                hidden = true,
+                                display_name = "Compile",
+                                close_on_exit = false
+                            }
+                        )
+                        gitg:toggle()
+                    end
+                end
 
+                vim.ui.input(
+                    {
+                        prompt = "Compile: ",
+                        default = Last_term_command or "make -k ",
+                        completion = "shellcmdline",
+                    },
+                    exec
+                )
+            end,
+            desc = "Compile"
+        },
+        -- {
+        --     "<leader>cr",
+        --     function()
+        --         local exec = function()
+        --             local term = require('toggleterm.terminal').Terminal
+        --             if Last_term_command ~= nil then
+        --                 local gitg = term:new(
+        --                     {
+        --                         cmd = Last_term_command,
+        --                         hidden = true,
+        --                         display_name = "Compile",
+        --                         close_on_exit = false
+        --                     }
+        --                 )
+        --                 gitg:toggle()
+        --             else
+        --                 vim.ui.input(
+        --                     {
+        --                         prompt = "Compile: ",
+        --                         default = Last_term_command or "make -k ",
+        --                         completion = "shellcmdline",
+        --                     },
+        --                     exec
+        --                 )
+        --             end
+        --         end
+        --     end,
+        --     desc = "Compile"
+        -- }
     }
 }
