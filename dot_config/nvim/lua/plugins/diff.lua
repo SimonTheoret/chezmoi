@@ -75,5 +75,8 @@ return {
                 end
             }
         end
+    },
+    {
+        "AndrewRadev/linediff.vim"
     }
 }
