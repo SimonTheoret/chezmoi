@@ -161,11 +161,27 @@ return {
         {
             '<leader>fd',
             function() require('fzf-lua').diagnostics_document() end,
-            desc = "lsp references"
-        }, {
-        '<leader>fd',
-        function() require('fzf-lua').diagnostics_workspace() end,
-        desc = "lsp references"
-    }
+            desc = "Document diagnostics"
+        },
+        {
+            '<leader>us',
+            function() require('fzf-lua').git_status() end,
+            desc = "Git status"
+        },
+        {
+            '<leader>ud',
+            function() require('fzf-lua').git_diff() end,
+            desc = "Git diff"
+        },
+        {
+            '<leader>ul',
+            function() require('fzf-lua').commits() end,
+            desc = "Git commits"
+        },
+        {
+            '<leader>ub',
+            function() require('fzf-lua').git_bcommits() end,
+            desc = "Git buffer commits"
+        },
     }
 }

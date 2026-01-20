@@ -35,7 +35,7 @@ return {
             desc = "Select term"
         },
         {
-            "<leader>tb",
+            "<leader>tB",
             function()
                 local term = require('toggleterm.terminal').Terminal
                 local btop = term:new({ cmd = "btop", hidden = true, direction = "float" })
