@@ -3,7 +3,11 @@ return {
     version = '*',
     config = function()
         require("mini.files").setup({
+            options = {
+                use_as_default_explorer = false,
+            },
             mappings = {
+
                 go_in_plus = "<CR>",
                 go_out_plus = "<BS>",
                 reset = "",
