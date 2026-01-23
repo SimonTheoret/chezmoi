@@ -17,8 +17,6 @@ vim.opt.rtp:prepend(lazypath)
 
 vim.o.termguicolors = true
 
-vim.o.termguicolors = true
-
 -- vim.loader.enable()
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -36,8 +34,6 @@ vim.wo.breakindent = true
 vim.opt.splitright = true
 vim.opt.laststatus = 3
 vim.o.timeoutlen = 150
-vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
 vim.o.exrc = true
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = false
