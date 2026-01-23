@@ -47,11 +47,6 @@ D = ["select_line_below", "extend_to_line_end", "delete_selection"]
 x = "select_line_below"
 H = "goto_previous_buffer"
 L = "goto_next_buffer"
-C-y = ":sh zellij run -n Yazi -c -f -x 5%% -y 5%% --width 90%% --height 90%% -- bash ~/.config/helix/yazi-picker.sh open %{buffer_name}"
-C-g = ":sh zellij run -f -x 5%% -y 5%% --width 90%% --height 90%% -- sh -c \"lazygit && zellij action close-pane\""
-C-t = ":sh zellij run -f -x 5%% -y 5%% --width 90%% --height 90%% -- sh -c \"scooter && zellij action close-pane\""
-C-l = ":sh zellij run -f -x 5%% -y 5%% --width 90%% --height 90%% -- sh -c \"lazydocker && zellij action close-pane\""
-C-b = ":sh zellij run -f -x 5%% -y 5%% --width 90%% --height 90%% -- sh -c \"btop && zellij action close-pane\""
 space.B = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}"
 space.space = "file_picker"
 space.q = [
@@ -71,6 +66,7 @@ space.C-r = ":redraw"
 f = "file_picker_in_current_buffer_directory"
 g = "global_search"
 d = [":vsplit-new", ":lang diff", ":insert-output git diff"]
+a = [":! git add %{buffer_name}"]
 
 
 [keys.insert]
