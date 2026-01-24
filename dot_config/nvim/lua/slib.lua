@@ -18,7 +18,8 @@ M.programming_ft_ext = {
 M.ts_grammars = {
     "lua", "vim", "vimdoc", "regex", "markdown", "markdown_inline", "bash",
     "latex", "bibtex", "css", "html", "javascript", "python", "rust", "go",
-    "gleam", "elixir", "xml", "zig", "cpp", "typescript", "tsx", "jsx", "fish", "zsh", "c", "json5", "json",
-    "dockerfile", "make" }
+    "gleam", "elixir", "xml", "zig", "cpp", "typescript", "tsx", "jsx", "fish",
+    "zsh", "c", "json5", "json", "dockerfile", "make", "asm", "awk", "cmake", "comment", "cuda", "diff", "editorconfig",
+    "toml", "tsv", "yml", "tmpl", "ssh_config", "sql", "scss", "pymanifest", "nix", "just", "gomod" }
 
 return M
