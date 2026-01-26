@@ -35,6 +35,8 @@ vmap.set({ "n", "v", "o", "x" }, "gh", "0")
 -- Insert blank lines
 vmap.set("n", "<leader>o", "o<Esc>k", { desc = "Whitespace under cursor" })
 vmap.set("n", "<leader>O", 'O<Esc>j', { desc = "Whitespace above cursor" })
+vmap.set('n', '<CR>', 'o<Esc>k', { desc = "Whitespace under cursor" })
+vmap.set('n', '<S-CR>', 'O<Esc>j', { desc = "Whitespace above cursor" })
 
 vmap.set("n", "<leader>cd", ":cd %:h<CR>", { desc = "Make file's path as working dir" })
 vmap.set("n", "<leader>cd", ":cd %:h<CR>", { desc = "Make file's path as working dir" })

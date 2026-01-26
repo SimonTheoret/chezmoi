@@ -22,4 +22,20 @@ M.ts_grammars = {
     "zsh", "c", "json5", "json", "dockerfile", "make", "asm", "awk", "cmake", "comment", "cuda", "diff", "editorconfig",
     "toml", "tsv", "yml", "tmpl", "ssh_config", "sql", "scss", "pymanifest", "nix", "just", "gomod" }
 
+M.without_first_component = function(path, sep)
+    local index, _, _ = string.find(path, sep)
+    if not index then
+        return error("Could not find separator `" .. sep .. "` in path `" .. path .. '`')
+    end
+    return string.sub(path, index)
+end
+
+M.get_platform_sep = function()
+    if package.config:sub(1, 1) == '/' then
+        return '/'
+    else
+        return '\\'
+    end
+end
+
 return M

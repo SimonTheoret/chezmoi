@@ -59,7 +59,7 @@ return {
                     if cmd ~= nil then
                         Last_term_command = cmd
                         local term = require('toggleterm.terminal').Terminal
-                        local gitg = term:new(
+                        local term_cmd = term:new(
                             {
                                 cmd = cmd,
                                 hidden = true,
@@ -67,7 +67,7 @@ return {
                                 close_on_exit = false
                             }
                         )
-                        gitg:toggle()
+                        term_cmd:toggle()
                     end
                 end
 
@@ -82,34 +82,36 @@ return {
             end,
             desc = "Compile"
         },
-        -- {
-        --     "<leader>cr",
-        --     function()
-        --         local exec = function()
-        --             local term = require('toggleterm.terminal').Terminal
-        --             if Last_term_command ~= nil then
-        --                 local gitg = term:new(
-        --                     {
-        --                         cmd = Last_term_command,
-        --                         hidden = true,
-        --                         display_name = "Compile",
-        --                         close_on_exit = false
-        --                     }
-        --                 )
-        --                 gitg:toggle()
-        --             else
-        --                 vim.ui.input(
-        --                     {
-        --                         prompt = "Compile: ",
-        --                         default = Last_term_command or "make -k ",
-        --                         completion = "shellcmdline",
-        --                     },
-        --                     exec
-        --                 )
-        --             end
-        --         end
-        --     end,
-        --     desc = "Compile"
-        -- }
+        {
+            "<leader>cr",
+            function()
+                local exec_cmd = function(cmd)
+                    local term = require('toggleterm.terminal').Terminal
+                    local term_cmd = term:new(
+                        {
+                            cmd = cmd,
+                            hidden = true,
+                            display_name = "Compile",
+                            close_on_exit = false
+                        }
+                    )
+                    term_cmd:toggle()
+                end
+
+                if Last_term_command ~= nil then
+                    exec_cmd(Last_term_command)
+                else
+                    vim.ui.input(
+                        {
+                            prompt = "Compile: ",
+                            default = "make -k ",
+                            completion = "shellcmdline",
+                        },
+                        exec_cmd
+                    )
+                end
+            end,
+            desc = "Compile"
+        }
     }
 }
