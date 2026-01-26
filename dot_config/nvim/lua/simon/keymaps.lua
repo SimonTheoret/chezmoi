@@ -48,8 +48,9 @@ vmap.set("n", "<leader>nn", ":80vs notes_perso_stheoret.md<CR>", { desc = "Open 
 -- Marks
 vmap.set("n", "<leader>ba", ":delm! | delm A-Z0-9 <CR>", { desc = "Remove all marks" })
 
--- vmap.set("n", "<leader>sr", function() require("simon.neosearch").search() end, { desc = "Search and replace" })
 vmap.set("n", "<leader>bb", ":only<CR>", { desc = "Focus buffer" })
+
+vmap.set("n", "<leader>E", ":w<CR>", { desc = "Save current file" })
 
 -- Keymaps for tabs
 vmap.set("n", "<leader>tc", ":tabclose<CR>", { desc = "Close tab" })
