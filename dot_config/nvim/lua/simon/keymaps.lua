@@ -28,7 +28,7 @@ vmap.set("n", "<leader>mod",
 vmap.set("n", "<M-x>", "q:", { desc = "Commands" })
 
 -- Helix
-vmap.set({ "n", "v", "o", "x" }, ",", "%")
+vmap.set({ "n", "v", "o", "x" }, "\\", "%")
 vmap.set({ "n", "v", "o", "x" }, "gl", "$")
 vmap.set({ "n", "v", "o", "x" }, "gh", "0")
 
