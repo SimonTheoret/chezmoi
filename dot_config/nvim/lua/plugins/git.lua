@@ -5,6 +5,12 @@ return {
         lazy = false,
         config = function()
             require("mini.git").setup()
+            vim.api.nvim_create_autocmd("FileType", {
+                pattern = { "git", "diff" },
+                callback = function(_)
+                    vim.cmd("setlocal foldmethod=expr foldexpr=v:lua.MiniGit.diff_foldexpr()")
+                end,
+            })
         end,
         keys = {
             { "<leader>gg", ":Git ", desc = "Git" },
