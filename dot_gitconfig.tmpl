@@ -41,3 +41,7 @@
     s = status
     p = push
 
+{{ if (or (eq .chezmoi.os "darwin") (and (eq .chezmoi.os "linux") (eq .chezmoi.username "stheoret") ))  }}
+[lfs "https://git.druide.com/dev/code.git/info/lfs"]
+    locksverify = true
+{{end}}
