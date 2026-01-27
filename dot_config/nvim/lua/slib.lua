@@ -38,4 +38,18 @@ M.get_platform_sep = function()
     end
 end
 
+M.get_visual_start_end_lines = function()
+    -- Get the start and end line numbers in Lua
+    local start_pos = vim.fn.getpos("v")
+    local end_pos = vim.fn.getpos(".")
+    local start_line = start_pos[2]
+    local end_line = end_pos[2]
+
+    -- Ensure the start line is always the smaller one, as the user might select upwards
+    if start_line > end_line then
+        start_line, end_line = end_line, start_line
+    end
+    return start_line, end_line
+end
+
 return M

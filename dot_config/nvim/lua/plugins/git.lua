@@ -33,14 +33,8 @@ return {
                 function()
                     MiniGit.show_range_history()
                 end,
-                desc = "Git show range history"
-            },
-            {
-                "<leader>gz",
-                function()
-                    MiniGit.diff_foldexpr()
-                end,
-                desc = "Git fold"
+                desc = "Git show range history",
+                mode = { "n", "v" }
             },
             {
                 "<leader>gs",
