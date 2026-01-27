@@ -25,6 +25,12 @@ return {
             desc = "Toggle term horizontal"
         },
         {
+
+            "<leader>tf",
+            ":term<CR>",
+            desc = "Buffer Term"
+        },
+        {
             "<leader>tn",
             ":ToggleTerm direction=vertical<CR>",
             desc = "Toggle term vertical"
