@@ -63,6 +63,14 @@ return {
     keys = {
         { "<leader>bs", function() Snacks.scratch() end,   desc = "Toggle scratch buffer" },
         { "<leader>bd", function() Snacks.bufdelete() end, desc = "Delete Buffer" },
+        {
+            "<leader>bD",
+            function()
+                Snacks.bufdelete()
+                vim.cmd("close")
+            end,
+            desc = "Delete Buffer"
+        },
         { "<leader>gB", function() Snacks.gitbrowse() end, desc = "Git Browse" },
         { "<leader>gG", function() Snacks.lazygit() end,   desc = "Lazygit" },
         -- { "<leader>fA", function() Snacks.picker() end,                                        desc = "All pickers" },

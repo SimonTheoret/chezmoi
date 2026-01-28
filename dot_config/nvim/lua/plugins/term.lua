@@ -50,6 +50,15 @@ return {
             desc = "Toggle Btop"
         },
         {
+            "<leader>tG",
+            function()
+                local term = require('toggleterm.terminal').Terminal
+                local gitg = term:new({ cmd = "git g --all", hidden = true })
+                gitg:toggle()
+            end,
+            desc = "Toggle Gitg"
+        },
+        {
             "<leader>tg",
             function()
                 local term = require('toggleterm.terminal').Terminal
