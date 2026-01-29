@@ -23,6 +23,7 @@ return { {
             "elixir",
             "fish",
             "gitcommit",
+            "gitrebase",
             "gleam",
             "go",
             "gomod",
