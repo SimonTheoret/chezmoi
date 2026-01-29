@@ -179,7 +179,7 @@ return { {
                     include_surrounding_whitespace = false,
                 },
             }
-
+            -- TODO: Add documentation to each of these keymaps
             -- keymaps
             -- You can use the capture groups defined in `textobjects.scm`
             vim.keymap.set({ "x", "o" }, "am", function()
@@ -196,7 +196,7 @@ return { {
             end)
             -- You can also use captures from other query groups like `locals.scm`
             vim.keymap.set({ "x", "o" }, "as", function()
-                require "nvim-treesitter-textobjects.select".select_textobject("@local.scope", "locals")
+                require "nvim-treesitter-textobjsects.select".select_textobject("@local.scope", "locals")
             end)
             -- put your config here
 
