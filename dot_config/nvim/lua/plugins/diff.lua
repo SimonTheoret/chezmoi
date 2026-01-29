@@ -68,7 +68,7 @@ return {
 
                     -- Toggles
                     map('n', '<leader>tb', gitsigns.toggle_current_line_blame, { desc = "Toggle current line blame" })
-                    map('n', '<leader>tw', gitsigns.toggle_word_diff, { desc = "Toggle current line blame" })
+                    map('n', '<leader>tw', gitsigns.toggle_word_diff, { desc = "Toggle word diff" })
 
                     -- Text object
                     map({ 'o', 'x' }, 'ih', gitsigns.select_hunk, { desc = "Select hunk" })
