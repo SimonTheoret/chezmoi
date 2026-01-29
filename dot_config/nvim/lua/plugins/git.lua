@@ -13,7 +13,7 @@ return {
             })
         end,
         keys = {
-            { "<leader>gg", ":Git ", desc = "Git" },
+            { "<leader>gg", ":vert Git ", desc = "Git" },
             {
                 "<leader>gc",
                 function()
