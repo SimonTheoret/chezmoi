@@ -8,7 +8,10 @@ return {
                 "<leader>gd", ":CodeDiff<CR>", desc = "Diff current "
             },
             {
-                "<leader>gh", ":CodeDiff ", desc = "Diff cmd"
+                "<leader>gh", ":CodeDiff history<CR>", desc = "Diff history"
+            },
+            {
+                "<leader>gh", ":CodeDiff history ", desc = "Diff history cmd"
             }
 
         }
