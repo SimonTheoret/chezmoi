@@ -11,7 +11,7 @@ return {
                 "<leader>gh", ":CodeDiff history<CR>", desc = "Diff history"
             },
             {
-                "<leader>gh", ":CodeDiff history ", desc = "Diff history cmd"
+                "<leader>gH", ":CodeDiff history ", desc = "Diff history cmd"
             }
 
         }
