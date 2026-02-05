@@ -31,7 +31,7 @@ return {
                         return vim.fn.getcmdtype() == ':' or vim.fn.getcmdtype() == '@'
                     end,
                 },
-                ghost_text = { enabled = true }
+                ghost_text = { enabled = false }
             }
         },
         fuzzy = { implementation = "prefer_rust_with_warning" },
