@@ -230,23 +230,53 @@
 --         )
 --     end
 -- }
+-- return {
+--     "ellisonleao/gruvbox.nvim",
+--     priority = 1000,
+--     config = function()
+--         -- Modified the background for the
+--         local function set_normal_float_highlight()
+--             vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#1f1e1e" })
+--         end
+--
+--         vim.api.nvim_create_autocmd("ColorScheme", {
+--             pattern = "*",
+--             callback = set_normal_float_highlight,
+--         })
+--
+--         require("gruvbox").setup({
+--         })
+--         vim.o.background = "dark" -- or "light" for light mode
+--         vim.cmd([[colorscheme gruvbox]])
+--     end
+-- }
 return {
-    "ellisonleao/gruvbox.nvim",
+    'sainnhe/everforest',
+    lazy = false,
     priority = 1000,
     config = function()
-        -- Modified the background for the
-        local function set_normal_float_highlight()
-            vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#1f1e1e" })
-        end
-
-        vim.api.nvim_create_autocmd("ColorScheme", {
-            pattern = "*",
-            callback = set_normal_float_highlight,
-        })
-
-        require("gruvbox").setup({
-        })
-        vim.o.background = "dark" -- or "light" for light mode
-        vim.cmd([[colorscheme gruvbox]])
+        -- require('everforest').setup({
+        --     everforest_background = "soft"
+        -- })
+        -- Optionally configure and load the colorscheme
+        -- directly inside the plugin declaration.
+        -- vim.g.everforest_background = 'soft'
+        vim.g.everforest_better_performance = 1
+        vim.g.everforest_ui_contrast = "high"
+        vim.g.everforest_enable_italic = true
+        vim.cmd.colorscheme('everforest')
     end
 }
+-- return {
+--     "neanias/everforest-nvim",
+--     version = false,
+--     lazy = false,
+--     priority = 1000, -- make sure to load this before all the other start plugins
+--     -- Optional; default configuration will be used if setup isn't called.
+--     config = function()
+--         require("everforest").setup({
+--             -- Your config here
+--         })
+--         require("everforest").load()
+--     end,
+-- }
