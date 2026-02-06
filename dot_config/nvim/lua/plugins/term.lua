@@ -67,16 +67,17 @@ return {
             end,
             desc = "Toggle Gitg"
         },
+        -- TODO: Use builtin term instead of toggleterm
         {
             "<leader>cc",
             function()
-                local exec = function(cmd)
+                local exec_cmd = function(cmd)
                     if cmd ~= nil then
                         Last_term_command = cmd
                         local term = require('toggleterm.terminal').Terminal
                         local term_cmd = term:new(
                             {
-                                cmd = cmd,
+                                cmd = vim.fn.expandcmd(cmd),
                                 hidden = true,
                                 display_name = "Compile",
                                 close_on_exit = false
@@ -92,7 +93,7 @@ return {
                         default = Last_term_command or "make -k ",
                         completion = "shellcmdline",
                     },
-                    exec
+                    exec_cmd
                 )
             end,
             desc = "Compile"
@@ -104,7 +105,7 @@ return {
                     local term = require('toggleterm.terminal').Terminal
                     local term_cmd = term:new(
                         {
-                            cmd = cmd,
+                            cmd = vim.fn.expandcmd(cmd),
                             hidden = true,
                             display_name = "Compile",
                             close_on_exit = false

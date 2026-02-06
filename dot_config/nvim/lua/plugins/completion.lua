@@ -20,6 +20,7 @@ return {
         },
         snippets = { preset = 'luasnip' },
         cmdline = {
+            enabled =false,
             keymap = {
 
                 ['<C-b>'] = { 'select_and_accept' },
@@ -31,7 +32,7 @@ return {
                         return vim.fn.getcmdtype() == ':' or vim.fn.getcmdtype() == '@'
                     end,
                 },
-                ghost_text = { enabled = false }
+                ghost_text = { enabled = true }
             }
         },
         fuzzy = { implementation = "prefer_rust_with_warning" },
