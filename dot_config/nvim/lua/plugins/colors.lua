@@ -250,34 +250,35 @@
 --         vim.cmd([[colorscheme gruvbox]])
 --     end
 -- }
-return {
-    'sainnhe/everforest',
-    lazy = false,
-    priority = 1000,
-    config = function()
-        -- require('everforest').setup({
-        --     everforest_background = "soft"
-        -- })
-        -- Optionally configure and load the colorscheme
-        -- directly inside the plugin declaration.
-        -- vim.g.everforest_background = 'soft'
-        vim.g.everforest_better_performance = 1
-        vim.g.everforest_transparent_background = 1
-        vim.g.everforest_ui_contrast = "high"
-        vim.g.everforest_enable_italic = true
-        vim.cmd.colorscheme('everforest')
-    end
-}
 -- return {
---     "neanias/everforest-nvim",
---     version = false,
+--     'sainnhe/everforest',
 --     lazy = false,
---     priority = 1000, -- make sure to load this before all the other start plugins
---     -- Optional; default configuration will be used if setup isn't called.
+--     priority = 1000,
 --     config = function()
---         require("everforest").setup({
---             -- Your config here
---         })
---         require("everforest").load()
---     end,
+--         -- require('everforest').setup({
+--         --     everforest_background = "soft"
+--         -- })
+--         -- Optionally configure and load the colorscheme
+--         -- directly inside the plugin declaration.
+--         -- vim.g.everforest_background = 'soft'
+--         vim.g.everforest_better_performance = 1
+--         vim.g.everforest_transparent_background = 1
+--         vim.g.everforest_ui_contrast = "high"
+--         vim.g.everforest_enable_italic = true
+--         vim.cmd.colorscheme('everforest')
+--     end
 -- }
+return {
+    "neanias/everforest-nvim",
+    version = false,
+    lazy = false,
+    priority = 1000, -- make sure to load this before all the other start plugins
+    -- Optional; default configuration will be used if setup isn't called.
+    config = function()
+        require("everforest").setup({
+            -- Your config here
+            transparent_background_level = 1,
+        })
+        require("everforest").load()
+    end,
+}
