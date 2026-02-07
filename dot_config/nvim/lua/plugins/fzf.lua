@@ -164,6 +164,11 @@ return {
             desc = "Document diagnostics"
         },
         {
+            '<leader>fD',
+            function() require('fzf-lua').diagnostics_workspace() end,
+            desc = "Workspace diagnostics"
+        },
+        {
             '<leader>us',
             function() require('fzf-lua').git_status() end,
             desc = "Git status"
