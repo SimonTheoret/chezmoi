@@ -1,4 +1,4 @@
-theme = "everforest"
+theme = "catppuccin-frappe"
 [editor]
 default-yank-register="+"
 mouse=false
