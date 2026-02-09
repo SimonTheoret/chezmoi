@@ -1,5 +1,7 @@
 gui:
   nerdFontsVersion: "3"
+  theme:
+    lightTheme: false
 
 
 os:
@@ -12,4 +14,3 @@ customCommands:
     context: "files"
     loadingText: "opening commitizen commit tool"
     output: terminal
-
