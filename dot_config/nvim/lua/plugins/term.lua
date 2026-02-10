@@ -68,6 +68,7 @@ return {
             desc = "Toggle Gitg"
         },
         -- TODO: Use builtin term instead of toggleterm
+        -- TODO: Use open terminal in directory of current buffer!! (new kb)
         {
             "<leader>cc",
             function()
