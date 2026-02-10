@@ -72,7 +72,7 @@ return {
             desc = "Delete Buffer"
         },
         { "<leader>gB", function() Snacks.gitbrowse() end, desc = "Git Browse" },
-        { "<leader>gg", function() Snacks.lazygit() end,   desc = "Lazygit" },
+        { "<leader>gG", function() Snacks.lazygit() end,   desc = "Lazygit" },
         -- { "<leader>fA", function() Snacks.picker() end,                                        desc = "All pickers" },
         -- { "<leader>fa", function() Snacks.picker.smart({ hidden = true, ignored = true }) end, desc = "Smart picker no ignore" },
         -- {
