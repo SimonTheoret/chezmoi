@@ -20,7 +20,7 @@ return {
         },
         snippets = { preset = 'luasnip' },
         cmdline = {
-            enabled =false,
+            enabled = false,
             keymap = {
 
                 ['<C-b>'] = { 'select_and_accept' },
