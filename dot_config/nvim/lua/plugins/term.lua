@@ -21,18 +21,27 @@ return {
         {
 
             "<leader>tt",
-            ":ToggleTerm direction=horizontal<CR>",
+            function()
+                require('slib').set_fzf_default_opts()
+                vim.cmd('ToggleTerm direction=horizontal')
+            end,
             desc = "Toggle term horizontal"
         },
         {
 
             "<leader>tf",
-            ":term<CR>",
+            function()
+                require('slib').set_fzf_default_opts()
+                vim.cmd('term')
+            end,
             desc = "Buffer Term"
         },
         {
             "<leader>tn",
-            ":ToggleTerm direction=vertical<CR>",
+            function()
+                require('slib').set_fzf_default_opts()
+                vim.cmd('ToggleTerm direction=vertical')
+            end,
             desc = "Toggle term vertical"
         },
         {
@@ -72,6 +81,7 @@ return {
         {
             "<leader>cc",
             function()
+                require('slib').set_fzf_default_opts()
                 local exec_cmd = function(cmd)
                     if cmd ~= nil then
                         Last_term_command = cmd
@@ -102,6 +112,7 @@ return {
         {
             "<leader>cr",
             function()
+                require('slib').set_fzf_default_opts()
                 local exec_cmd = function(cmd)
                     local term = require('toggleterm.terminal').Terminal
                     local term_cmd = term:new(
