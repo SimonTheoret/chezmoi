@@ -60,7 +60,7 @@ space.w = "goto_word"
 C-h = "signature_help"
 space.m = "goto_word"
 space.C-r = ":redraw"
-"," = "match_brackets"
+"\\" = "match_brackets"
 
 [keys.normal.space.f]
 f = "file_picker_in_current_buffer_directory"
