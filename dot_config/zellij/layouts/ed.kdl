@@ -44,6 +44,15 @@ layout {
             plugin location="compact-bar"
     	}
     }
+    tab name="lazydocker" {
+        pane {
+            name "lazydocker"
+            command "lazydocker"
+        }
+    	pane size=1 borderless=true {
+            plugin location="compact-bar"
+    	}
+    }
 
     tab_template name="ui" {
        pane size=1 borderless=true {
