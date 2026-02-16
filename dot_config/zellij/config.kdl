@@ -144,9 +144,9 @@ keybinds clear-defaults=true {
         bind "Alt ]" { NextSwapLayout; }
         bind "Alt n" { NewPane "right"; }
         bind "Alt p" { ToggleFloatingPanes; }
-        bind "Alt f" { ToggleFocusFullscreen; SwitchToMode "locked"; }
     }
     shared_among "normal" "locked" {
+        bind "Alt f" { ToggleFocusFullscreen; SwitchToMode "locked"; }
         bind "Alt h" { MoveFocusOrTab "left"; }
         bind "Alt j" { MoveFocus "down"; }
         bind "Alt k" { MoveFocus "up"; }
