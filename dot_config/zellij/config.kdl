@@ -143,7 +143,6 @@ keybinds clear-defaults=true {
         bind "Alt [" { PreviousSwapLayout; }
         bind "Alt ]" { NextSwapLayout; }
         bind "Alt n" { NewPane "right"; }
-        bind "Alt p" { ToggleFloatingPanes; }
     }
     shared_among "normal" "locked" {
         bind "Alt f" { ToggleFocusFullscreen; SwitchToMode "locked"; }
@@ -160,6 +159,7 @@ keybinds clear-defaults=true {
         bind "Alt 7" { GoToTab 7;}
         bind "Alt 8" { GoToTab 8;}
         bind "Alt 9" { GoToTab 9;}
+        bind "Alt v" { ToggleFloatingPanes; }
     }
     shared_except "locked" "renametab" "renamepane" {
         bind "Ctrl a" { SwitchToMode "locked"; }
