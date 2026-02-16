@@ -9,4 +9,4 @@ cd helix
 cargo install --path helix-term --locked
 [ -d "$RUNTIME_DIR" ] && rm -r "$RUNTIME_DIR"
 
-cp $PWD/runtime "$RUNTIME_DIR"
+cp -r $PWD/runtime "$RUNTIME_DIR"
