@@ -116,3 +116,10 @@ if test -z "$SSH_AUTH_SOCK"
         end
     end
 end
+
+# Autolaunch zellij if not already launched and terminal is interactive
+if set -q ZELLIJ or not status --is-interactive
+else
+	zellij
+end
+
