@@ -1,7 +1,5 @@
 #!/usr/bin/env fish
 
-#TODO: Add fzf installation
-
 set -e
 echo "Installing dev environment"
 echo "Abort now if unintended"
@@ -58,3 +56,7 @@ fisher install gazorby/fifc
 curl -sfL https://direnv.net/install.sh | bash
 
 ./build_helix.sh
+
+git clone --depth 1 https://github.com/junegunn/fzf.git fzf
+fzf/install
+cp fzf/bin/fzf ~/bin/build/
