@@ -9,7 +9,7 @@
 # License: MIT License
 
 "type" = "yellow"
-"constant" = "fg"
+"constant" = { fg = "purple" }
 "constant.builtin" = { fg = "purple", modifiers = ["italic"] }
 "constant.builtin.boolean" = "purple"
 "constant.numeric" = "purple"
