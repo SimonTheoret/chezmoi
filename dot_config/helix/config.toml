@@ -37,9 +37,8 @@ enable = true
 D = ["extend_to_line_bounds", "delete_selection", "normal_mode"]
 
 [keys.normal]
+"A-\\" = "copy_between_registers"
 A-r = "later"
-# space.v = "file_explorer"
-# space.V = "file_explorer_in_current_directory"
 C-r = ":reflow"
 esc = ["collapse_selection", "keep_primary_selection"]
 X = "select_line_above"
@@ -67,6 +66,8 @@ f = "file_picker_in_current_buffer_directory"
 g = "global_search"
 d = [":vsplit-new", ":lang diff", ":insert-output git diff"]
 a = [":! git add %{buffer_name}"]
+p = [":e ~/.local/share/chezmoi"]
+b = [":buffer-close!"]
 
 
 [keys.insert]
