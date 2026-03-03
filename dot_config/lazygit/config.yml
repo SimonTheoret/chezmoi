@@ -2,9 +2,7 @@ gui:
   nerdFontsVersion: "3"
   theme:
     lightTheme: false
-git:
-  pagers:
-    - pager: delta --dark --paging=never
+
 
 os:
   editPreset: 'helix'
