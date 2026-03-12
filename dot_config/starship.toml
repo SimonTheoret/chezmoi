@@ -1,4 +1,7 @@
 command_timeout = 50
+[status]
+disabled = false
+symbol = ""
 
 [aws]
 symbol = "  "
