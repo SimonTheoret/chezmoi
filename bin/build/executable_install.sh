@@ -32,6 +32,7 @@ cargo install just --force
 cargo install du-dust --force
 cargo install skim --no-default-features --features cli
 cargo install --locked watchexec-cli
+cargo install --locked bacon
 
 sudo npm install -g tldr
 sudo npm i -g bash-language-server
