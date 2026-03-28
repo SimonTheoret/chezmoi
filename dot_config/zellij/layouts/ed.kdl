@@ -12,6 +12,7 @@ layout {
             pane size="35%" stacked=true  {
                 pane
                 pane
+                pane
             }
         }
     	pane size=1 borderless=true {
