@@ -5,27 +5,27 @@ return {
     config = function()
         -- calling `setup` is optional for customization
         require("fzf-lua").setup({
-            -- { "max-perf" }, -- Causes display bug
+            { "max-perf" },
             grep = { rg_glob = true },
             keymap = {
                 fzf = {
                     ["alt-a"] = "select-all+accept",
                 }
             },
-            winopts = {
-                split = "botright 15new",
-            },
-            files = {
-                file_icons = false,
-                git_icons = false,
-            },
-            buffers = {
-                file_icons = false,
-                git_icons = false,
-            },
-            fzf_opts = {
-                ["--layout"] = "default",
-            },
+            -- winopts = {
+            --     split = "botright 15new",
+            -- },
+            -- files = {
+            --     file_icons = false,
+            --     git_icons = false,
+            -- },
+            -- buffers = {
+            --     file_icons = false,
+            --     git_icons = false,
+            -- },
+            -- fzf_opts = {
+            --     ["--layout"] = "default",
+            -- },
 
         })
     end,
