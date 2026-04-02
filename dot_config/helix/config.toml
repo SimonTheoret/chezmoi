@@ -1,4 +1,4 @@
-theme = "gruvbox"
+theme = "gruvbox_transparent"
 [editor]
 default-yank-register="+"
 mouse=false
