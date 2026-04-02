@@ -19,11 +19,10 @@ cargo install fd-find --force
 cargo install zoxide --locked --force
 cargo install starship --locked --force
 cargo install ripgrep --force
-cargo install --locked yazi-fm yazi-cli --force
 cargo install --locked zellij --force
 cargo install --locked tree-sitter-cli --force
 cargo install git-delta --force
-cargo install --locked yazi-fm yazi-cli --force
+cargo install --locked --force yazi-build
 cargo install shellharden --force
 cargo install --locked csview --force
 cargo install cargo-nextest --locked --force

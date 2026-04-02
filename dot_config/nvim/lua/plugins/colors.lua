@@ -226,7 +226,7 @@ return {
     "ellisonleao/gruvbox.nvim",
     priority = 1000,
     config = function()
-        -- Modified the background for the
+        -- Modified the background for the terminal (?)
         local function set_normal_float_highlight()
             vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#1f1e1e" })
         end
@@ -237,6 +237,7 @@ return {
         })
 
         require("gruvbox").setup({
+            transparent_mode = true,
         })
         vim.o.background = "dark" -- or "light" for light mode
         vim.cmd([[colorscheme gruvbox]])
