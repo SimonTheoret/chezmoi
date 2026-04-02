@@ -1,4 +1,4 @@
-theme = "gruvbox"
+theme = "everforest_transparent"
 [editor]
 default-yank-register="+"
 mouse=false

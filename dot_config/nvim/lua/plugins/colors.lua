@@ -17,6 +17,14 @@
 --     end
 -- }
 -- return {
+-- "diegoulloao/neofusion.nvim",
+-- priority = 1000 ,
+-- config = function()
+-- vim.o.background = "dark"
+-- vim.cmd([[ colorscheme neofusion ]])
+-- end,
+-- -- }
+-- return {
 --     "sainnhe/sonokai",
 --     lazy = false,
 --     priority = 1000,
@@ -189,6 +197,47 @@
 --         require('onedark').load()
 --     end
 -- }
+
+-- somewhere in your config:
+-- return {
+--     'polirritmico/monokai-nightasty.nvim',
+--     lazy = false,
+--     priority = 1000,
+--     config = function()
+--         local opts = {dark_style_background = "dark"} -- options should be setted through a setup call:
+--         require("monokai-nightasty").setup(opts) -- ...and then load the theme:
+--         require("monokai-nightasty").load()
+--         vim.opt.background = "dark" -- default to dark or light style
+--         vim.cmd.colorscheme("monokai-nightasty")
+--     end
+-- }
+-- return {
+--     'UtkarshVerma/molokai.nvim',
+--     lazy = false,
+--     priority = 1000,
+--     config = function()
+--         vim.cmd [[colorscheme molokai]]
+--     end
+-- }
+-- return {
+--     "rebelot/kanagawa.nvim",
+--     lazy = false,
+--     config = function()
+--         vim.cmd("colorscheme kanagawa")
+--         require('kanagawa').setup({
+--             compile = true, -- enable compiling the colorscheme
+--         }
+--         )
+--     end
+-- }
+-- return {
+--     "ellisonleao/gruvbox.nvim",
+--     priority = 1000,
+--     config = function()
+--         -- Modified the background for the
+--         local function set_normal_float_highlight()
+--             vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#1f1e1e" })
+--         end
 --
 -- -- somewhere in your config:
 -- -- return {
@@ -261,17 +310,17 @@ return {
 --         vim.cmd.colorscheme('everforest')
 --     end
 -- }
--- return {
---     "neanias/everforest-nvim",
---     version = false,
---     lazy = false,
---     priority = 1000, -- make sure to load this before all the other start plugins
---     -- Optional; default configuration will be used if setup isn't called.
---     config = function()
---         require("everforest").setup({
---             -- Your config here
---             transparent_background_level = 1,
---         })
---         require("everforest").load()
---     end,
--- }
+return {
+    "neanias/everforest-nvim",
+    version = false,
+    lazy = false,
+    priority = 1000, -- make sure to load this before all the other start plugins
+    -- Optional; default configuration will be used if setup isn't called.
+    config = function()
+        require("everforest").setup({
+            -- Your config here
+            transparent_background_level = 1,
+        })
+        require("everforest").load()
+    end,
+}
