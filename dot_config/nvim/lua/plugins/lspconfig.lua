@@ -83,6 +83,7 @@ return {
         vim.lsp.enable("protols")
 
         -- ts lsp
+
         vim.lsp.enable("ts_ls")
 
         -- vue lsp
