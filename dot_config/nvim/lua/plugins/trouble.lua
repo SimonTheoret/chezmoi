@@ -14,12 +14,12 @@ return {
             desc = "Buffer Diagnostics (Trouble)",
         },
         {
-            "<leader>xl",
+            "<leader>ll",
             ":Trouble loclist toggle focus=true<CR>",
             desc = "Location List (Trouble)",
         },
         {
-            "<leader>xq",
+            "<leader>q",
             ":Trouble qflist toggle focus=true<CR>",
             desc = "Quickfix List (Trouble)",
         },

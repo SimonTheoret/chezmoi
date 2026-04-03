@@ -1,14 +1,14 @@
 -- Useful keymaps:
 local vmap = vim.keymap
-local lib = require('slib')
+-- local lib = require('slib')
 
-vmap.set("n", "<leader>q", function()
-    lib.toggle_qf()
-end, { desc = "Toggle quickfix" })
-
-vmap.set("n", "<leader>ll", function()
-    lib.toggle_loclist()
-end, { desc = "Toggle loclist" })
+-- vmap.set("n", "<leader>q", function()
+--     lib.toggle_qf()
+-- end, { desc = "Toggle quickfix" })
+--
+-- vmap.set("n", "<leader>ll", function()
+--     lib.toggle_loclist()
+-- end, { desc = "Toggle loclist" })
 
 -- Move selection up or down
 vmap.set("v", "J", ":m '>+1<CR>gv=gv")
