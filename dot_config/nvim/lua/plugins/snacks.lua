@@ -35,20 +35,6 @@ return {
                     }
                 }
             },
-            sources = {
-                explorer = {
-
-                    layout = { preset = "bottom" },
-                    auto_close = true,
-                    follow_file = true,
-                    git_status = false,
-                    git_untracked = false,
-                    git_status_open = false,
-                    diagnostics = false,
-                    diagnostics_open = false,
-                    tree = true
-                }
-            }
         },
         notifier = { enabled = false },
         quickfile = { enabled = true },
