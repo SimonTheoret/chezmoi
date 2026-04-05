@@ -61,6 +61,12 @@ space.m = "goto_word"
 space.C-r = ":redraw"
 "\\" = "match_brackets"
 
+[keys.select.g]
+F = [":open %{selection}"]
+
+[keys.normal.g]
+F = [":open %{selection}"]
+
 [keys.normal.space.f]
 f = "file_picker_in_current_buffer_directory"
 g = "global_search"
@@ -68,6 +74,11 @@ d = [":vsplit-new", ":lang diff", ":insert-output git diff"]
 a = [":! git add %{buffer_name}"]
 p = [":e ~/.local/share/chezmoi"]
 b = [":buffer-close!"]
+r = [
+      ":sh rg --no-heading -n '%{selection}' > rg_output_stheoret.md",
+      ":vs ./rg_output_stheoret.md",
+      ":rl"
+]
 
 
 [keys.insert]
@@ -82,6 +93,7 @@ h = [":toggle-option lsp.display-inlay-hints"]
 
 [keys.normal.space.n]
 n = ":vs ./notes_perso_stheoret.md"
+r = ":vs ./rg_output_stheoret.md"
 
 [editor.file-picker]
 git-ignore = false
