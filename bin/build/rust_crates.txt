@@ -8,12 +8,13 @@ thiserror
 tracing
 itertools
 proptest
+parametrized
 clap
 spez
 insta
 cfg_if
 soa_derive
-fakeit
+fake
 trybuild
 variantly
 strum
