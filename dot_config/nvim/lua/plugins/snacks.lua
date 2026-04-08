@@ -21,7 +21,7 @@ return {
             enabled = true,
             layout = {
                 -- preset = "dropdown",
-                -- preset = "ivy",
+                preset = "ivy",
                 -- preset = "ivy_split",
                 -- preset = "select",
                 -- preset = "telescope",
