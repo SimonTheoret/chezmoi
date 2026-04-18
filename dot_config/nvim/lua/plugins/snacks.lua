@@ -39,7 +39,7 @@ return {
                 input = {
                     keys = {
                         ["<Esc>"] = { "close", mode = { "n", "i" } },
-                        ["<a-d>"] = { "toggle_hidden", mode = { "n", "i" } },
+                        -- ["<a-d>"] = { "toggle_hidden", mode = { "n", "i" } },
                     }
                 }
             },
@@ -69,6 +69,8 @@ return {
         { "<leader>gG", function() Snacks.lazygit() end,                                       desc = "Lazygit" },
         { "<leader>fA", function() Snacks.picker() end,                                        desc = "All pickers" },
         { "<leader>fa", function() Snacks.picker.smart({ hidden = true, ignored = true }) end, desc = "Smart picker no ignore" },
+        { "<leader>xx", function() Snacks.picker.diagnostics_buffer() end,                     desc = "Buffer Diagnostics" },
+        { "<leader>xX", function() Snacks.picker.diagnostics() end,                            desc = "Diagnostics" },
         {
             "<leader><leader>",
             function()
