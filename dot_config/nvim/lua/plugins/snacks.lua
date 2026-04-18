@@ -69,6 +69,13 @@ return {
             desc = "Smart picker"
         },
         {
+            "<leader>f'",
+            function()
+                Snacks.picker.resume()
+            end,
+            desc = "Resume last picker"
+        },
+        {
             "<leader>fp",
             function()
                 Snacks.picker.files({ cwd = "~/.local/share/chezmoi/" })
