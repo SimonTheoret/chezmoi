@@ -15,7 +15,16 @@ return {
         })
     end,
     keys = {
-        { "<leader>ff", function() MiniFiles.open(vim.api.nvim_buf_get_name(0)) end, desc = "File browser" },
-        { "<leader>fF", function() MiniFiles.open() end,                             desc = "File browser" }
+        {
+            "<leader>ff",
+            function()
+                local func = function() MiniFiles.open(vim.api.nvim_buf_get_name(0)) end
+                if not pcall(func) then
+                    MiniFiles.open()
+                end
+            end,
+            desc = "File browser"
+        },
+        { "<leader>fF", function() MiniFiles.open() end, desc = "File browser" }
     }
 }
