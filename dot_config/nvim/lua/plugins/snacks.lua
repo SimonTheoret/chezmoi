@@ -169,7 +169,9 @@ return {
             '<leader>rv',
             function() require('yarepl.extensions.snacks').repl_show() end,
             desc = "REPL buffers"
-        }
+        },
+        { "gai", function() Snacks.picker.lsp_incoming_calls() end, desc = "C[a]lls Incoming" },
+        { "gao", function() Snacks.picker.lsp_outgoing_calls() end, desc = "C[a]lls Outgoing" },
 
     },
     init = function()
