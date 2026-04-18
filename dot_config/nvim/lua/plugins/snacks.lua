@@ -30,7 +30,7 @@ return {
             win = {
                 input = {
                     keys = {
-                        ["<Esc>"] = { "close", mode = { "n" } },
+                        ["<Esc>"] = { "close", mode = { "n", "i" } },
                         ["<a-d>"] = { "toggle_hidden", mode = { "n", "i" } },
                     }
                 }
