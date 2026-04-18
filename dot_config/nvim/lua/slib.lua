@@ -65,27 +65,27 @@ M.set_fzf_default_opts = function()
     end
 end
 
--- M.qf_open = false
--- M.ll_open = false
---
--- M.toggle_qf = function()
---     if M.qf_open then
---         vim.cmd("cclose")
---         M.qf_open = false
---     else
---         vim.cmd("copen")
---         M.qf_open = true
---     end
--- end
---
--- M.toggle_loclist = function()
---     if M.ll_open then
---         vim.cmd("lclose")
---         M.ll_open = false
---     else
---         vim.cmd("lopen")
---         M.ll_open = true
---     end
--- end
+M.qf_open = false
+M.ll_open = false
+
+M.toggle_qf = function()
+    if M.qf_open then
+        vim.cmd("cclose")
+        M.qf_open = false
+    else
+        vim.cmd("copen")
+        M.qf_open = true
+    end
+end
+
+M.toggle_loclist = function()
+    if M.ll_open then
+        vim.cmd("lclose")
+        M.ll_open = false
+    else
+        vim.cmd("lopen")
+        M.ll_open = true
+    end
+end
 
 return M

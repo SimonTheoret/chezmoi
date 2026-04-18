@@ -1,5 +1,6 @@
 return {
     "folke/snacks.nvim",
+    dependencies = { "folke/trouble.nvim" },
     priority = 1000,
     lazy = false,
     ---@type snacks.Config
@@ -18,6 +19,13 @@ return {
         indent = { enabled = false },
         input = { enabled = false },
         picker = {
+            actions = {
+                qflist_trouble = function(picker)
+                    picker:action("qflist")
+                    -- Ouvre Trouble au lieu de copen
+                    require("trouble").open("quickfix")
+                end,
+            },
             enabled = true,
             layout = {
                 -- preset = "dropdown",

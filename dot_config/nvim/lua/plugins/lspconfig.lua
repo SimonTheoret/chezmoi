@@ -1,7 +1,7 @@
 return {
     "neovim/nvim-lspconfig",
     ft = require('slib').programming_ft,
-    dependencies = { 'saghen/blink.cmp' },
+    dependencies = { 'saghen/blink.cmp', "stevearc/quicker.nvim" },
     config = function()
         -- python LSP
         vim.lsp.enable("ruff")
