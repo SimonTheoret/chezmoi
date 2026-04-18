@@ -216,7 +216,7 @@ return {
 
             -- keymaps
             -- You can use the capture groups defined in `textobjects.scm`
-            vim.keymap.set({ "n", "x", "o" }, "]m", function()
+            vim.keymap.set({ "n", "x", "o" }, "]f", function()
                     require("nvim-treesitter-textobjects.move").goto_next_start("@function.outer", "textobjects")
                 end,
                 { desc = "Next function start" }
@@ -245,7 +245,7 @@ return {
                 { desc = "Next fold start" }
             )
 
-            vim.keymap.set({ "n", "x", "o" }, "]M", function()
+            vim.keymap.set({ "n", "x", "o" }, "]F", function()
                     require("nvim-treesitter-textobjects.move").goto_next_end("@function.outer", "textobjects")
                 end,
                 { desc = "Next function end" }
@@ -256,7 +256,7 @@ return {
                 { desc = "Next class end" }
             )
 
-            vim.keymap.set({ "n", "x", "o" }, "[m", function()
+            vim.keymap.set({ "n", "x", "o" }, "[f", function()
                     require("nvim-treesitter-textobjects.move").goto_previous_start("@function.outer", "textobjects")
                 end,
                 { desc = "Previous function start" }
@@ -267,7 +267,7 @@ return {
                 { desc = "Previous class start" }
             )
 
-            vim.keymap.set({ "n", "x", "o" }, "[M", function()
+            vim.keymap.set({ "n", "x", "o" }, "[F", function()
                     require("nvim-treesitter-textobjects.move").goto_previous_end("@function.outer", "textobjects")
                 end,
                 { desc = "Previous function end" }
