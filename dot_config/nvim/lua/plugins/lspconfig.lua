@@ -138,6 +138,14 @@ return {
                 vim.keymap.set('n', '<leader>cw', vim.lsp.buf.remove_workspace_folder,
                     { desc = "Lsp remove workspace folder", buffer = ev.buf })
 
+                vim.keymap.set('n', '<leader>xx',
+                    function()
+                        vim.diagnostic.setqflist({open=false})
+                        require('quicker').open()
+                    end,
+
+                    { desc = "Lsp workspace diagnostics", buffer = ev.buf })
+
                 vim.keymap.set('n', '<leader>cll', function()
                     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
                 end, { desc = "Lsp list workspace folders", buffer = ev.buf })
