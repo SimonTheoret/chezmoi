@@ -14,6 +14,7 @@ return {
             end,
             terminal_mappings = true,
             insert_mappings   = false,
+            persist_size      = false
         }
     end,
     event = "VeryLazy",
@@ -24,6 +25,23 @@ return {
             function()
                 require('slib').set_fzf_default_opts()
                 vim.cmd('ToggleTerm direction=horizontal')
+            end,
+            desc = "Toggle term horizontal"
+        },
+        {
+
+            "<leader>tT",
+            function()
+                local exec_cmd = function(name)
+                    require('slib').set_fzf_default_opts()
+                    vim.cmd('ToggleTerm direction=horizontal name=' .. name)
+                end
+                vim.ui.input(
+                    {
+                        prompt = "Terminal name: ",
+                        default = "name",
+                    }, exec_cmd
+                )
             end,
             desc = "Toggle term horizontal"
         },
@@ -43,6 +61,23 @@ return {
                 vim.cmd('ToggleTerm direction=vertical')
             end,
             desc = "Toggle term vertical"
+        },
+        {
+
+            "<leader>tN",
+            function()
+                local exec_cmd = function(name)
+                    require('slib').set_fzf_default_opts()
+                    vim.cmd('ToggleTerm direction=horizontal name=' .. name)
+                end
+                vim.ui.input(
+                    {
+                        prompt = "Terminal name: ",
+                        default = "name",
+                    }, exec_cmd
+                )
+            end,
+            desc = "Toggle term horizontal"
         },
         {
             "<leader>ta",
