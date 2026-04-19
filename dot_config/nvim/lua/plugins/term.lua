@@ -24,9 +24,10 @@ return {
             "<leader>tt",
             function()
                 require('slib').set_fzf_default_opts()
-                vim.cmd('ToggleTerm direction=horizontal')
+                local count = vim.v.count1
+                vim.cmd(count .. 'ToggleTerm direction=horizontal')
             end,
-            desc = "Toggle term horizontal"
+            desc = "Toggle term horizontal",
         },
         {
 
@@ -34,7 +35,8 @@ return {
             function()
                 local exec_cmd = function(name)
                     require('slib').set_fzf_default_opts()
-                    vim.cmd('ToggleTerm direction=horizontal name=' .. name)
+                    local count = vim.v.count1
+                    vim.cmd(count .. 'ToggleTerm direction=horizontal name=' .. name)
                 end
                 vim.ui.input(
                     {
@@ -58,7 +60,8 @@ return {
             "<leader>tn",
             function()
                 require('slib').set_fzf_default_opts()
-                vim.cmd('ToggleTerm direction=vertical')
+                local count = vim.v.count1
+                vim.cmd(count .. 'ToggleTerm direction=vertical')
             end,
             desc = "Toggle term vertical"
         },
@@ -68,7 +71,8 @@ return {
             function()
                 local exec_cmd = function(name)
                     require('slib').set_fzf_default_opts()
-                    vim.cmd('ToggleTerm direction=horizontal name=' .. name)
+                    local count = vim.v.count1
+                    vim.cmd(count .. 'ToggleTerm direction=horizontal name=' .. name)
                 end
                 vim.ui.input(
                     {
@@ -175,6 +179,15 @@ return {
                 end
             end,
             desc = "Compile"
+        },
+        {
+            "<leader>gD",
+            function()
+                local term = require('toggleterm.terminal').Terminal
+                local btop = term:new({ cmd = "lazydocker", hidden = true, direction = "float" })
+                btop:toggle()
+            end,
+            desc = "Toggle Lazydocker"
         }
     }
 }
