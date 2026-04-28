@@ -13,6 +13,8 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 source "$HOME/.cargo/env.fish" || . "$HOME/.cargo/env"
 export RUSTFLAGS='-C target-cpu=native'
 command -v cargo
+cargo install cargo-binstall --locked
+cargo install cargo-update
 cargo install --locked bat --force
 cargo install eza --force
 cargo install fd-find --force
