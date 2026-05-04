@@ -5,6 +5,11 @@ return {
     config = function()
         -- python LSP
         vim.lsp.enable("ruff")
+        vim.lsp.config('ty', {
+            on_init = function(client)
+                client.server_capabilities.semanticTokensProvider = nil
+            end
+        })
         vim.lsp.enable('ty')
 
         -- lua lsp

@@ -17,7 +17,7 @@ return {
         signature = { enabled = true },
         completion = { accept = { auto_brackets = { enabled = true } }, ghost_text = { enabled = true }, documentation = { auto_show = true, auto_show_delay_ms = 150 } },
         sources = {
-            default = { 'lsp', 'path', 'snippets', 'buffer' },
+            default = { 'lsp', 'path', 'snippets' },
         },
         snippets = { preset = 'luasnip' },
         cmdline = {

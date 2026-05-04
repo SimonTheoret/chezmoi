@@ -150,7 +150,8 @@ return {
         end,
         config = function()
             -- configuration
-            require("nvim-treesitter-textobjects").setup {
+            treesitter = require("nvim-treesitter-textobjects")
+            treesitter.setup {
                 move = {
                     -- whether to set jumps in the jumplist
                     set_jumps = true,
@@ -182,6 +183,7 @@ return {
                     include_surrounding_whitespace = false,
                 },
             }
+
             -- keymaps
             -- You can use the capture groups defined in `textobjects.scm`
             -- vim.keymap.set({ "x", "o" }, "am", function()

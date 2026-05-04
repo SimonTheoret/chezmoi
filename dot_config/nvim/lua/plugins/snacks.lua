@@ -68,15 +68,26 @@ return {
         { "<leader>gB", function() Snacks.gitbrowse() end,                                     desc = "Git Browse" },
         { "<leader>gG", function() Snacks.lazygit() end,                                       desc = "Lazygit" },
         { "<leader>fA", function() Snacks.picker() end,                                        desc = "All pickers" },
-        { "<leader>fa", function() Snacks.picker.smart({ hidden = true, ignored = true }) end, desc = "Smart picker no ignore" },
+        { "<leader>fa", function() Snacks.picker.files({ hidden = true, ignored = true }) end, desc = "File picker no ignore" },
         { "<leader>xx", function() Snacks.picker.diagnostics_buffer() end,                     desc = "Buffer Diagnostics" },
-        { "<leader>xX", function() Snacks.picker.diagnostics() end,                            desc = "Diagnostics" },
         {
             "<leader><leader>",
             function()
-                Snacks.picker.smart()
+                Snacks.picker.files()
             end,
-            desc = "Smart picker"
+            desc = "File picker"
+        },
+        {
+            "<leader>FF",
+            function()
+                Snacks.picker.files({ dirs = { vim.fn.expand('%:p:h') } })
+            end,
+            desc = "Current directory file picker"
+        },
+        {
+            "<leader>xX",
+            function() Snacks.picker.diagnostics() end,
+            desc = "Diagnostics"
         },
         {
             "<leader>f'",
