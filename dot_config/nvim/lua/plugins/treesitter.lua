@@ -150,7 +150,7 @@ return {
         end,
         config = function()
             -- configuration
-            treesitter = require("nvim-treesitter-textobjects")
+            local treesitter = require("nvim-treesitter-textobjects")
             treesitter.setup {
                 move = {
                     -- whether to set jumps in the jumplist
@@ -186,32 +186,32 @@ return {
 
             -- keymaps
             -- You can use the capture groups defined in `textobjects.scm`
-            -- vim.keymap.set({ "x", "o" }, "am", function()
-            --         require "nvim-treesitter-textobjects.select".select_textobject("@function.outer", "textobjects")
-            --     end,
-            --     { desc = "Select outer function" }
-            -- )
-            -- vim.keymap.set({ "x", "o" }, "im", function()
-            --         require "nvim-treesitter-textobjects.select".select_textobject("@function.inner", "textobjects")
-            --     end,
-            --     { desc = "Select inner function" }
-            -- )
-            -- vim.keymap.set({ "x", "o" }, "ac", function()
-            --         require "nvim-treesitter-textobjects.select".select_textobject("@class.outer", "textobjects")
-            --     end,
-            --     { desc = "Select outer class" }
-            -- )
-            -- vim.keymap.set({ "x", "o" }, "ic", function()
-            --         require "nvim-treesitter-textobjects.select".select_textobject("@class.inner", "textobjects")
-            --     end,
-            --     { desc = "Select inner class" }
-            -- )
-            -- -- You can also use captures from other query groups like `locals.scm`
-            -- vim.keymap.set({ "x", "o" }, "as", function()
-            --         require "nvim-treesitter-textobjsects.select".select_textobject("@local.scope", "locals")
-            --     end,
-            --     { desc = "Select locals" }
-            -- )
+            vim.keymap.set({ "x", "o" }, "af", function()
+                    require "nvim-treesitter-textobjects.select".select_textobject("@function.outer", "textobjects")
+                end,
+                { desc = "Select outer function" }
+            )
+            vim.keymap.set({ "x", "o" }, "if", function()
+                    require "nvim-treesitter-textobjects.select".select_textobject("@function.inner", "textobjects")
+                end,
+                { desc = "Select inner function" }
+            )
+            vim.keymap.set({ "x", "o" }, "ac", function()
+                    require "nvim-treesitter-textobjects.select".select_textobject("@class.outer", "textobjects")
+                end,
+                { desc = "Select outer class" }
+            )
+            vim.keymap.set({ "x", "o" }, "ic", function()
+                    require "nvim-treesitter-textobjects.select".select_textobject("@class.inner", "textobjects")
+                end,
+                { desc = "Select inner class" }
+            )
+            -- You can also use captures from other query groups like `locals.scm`
+            vim.keymap.set({ "x", "o" }, "as", function()
+                    require "nvim-treesitter-textobjsects.select".select_textobject("@local.scope", "locals")
+                end,
+                { desc = "Select locals" }
+            )
             -- put your config here
 
 
@@ -296,13 +296,6 @@ return {
 
             local ts_repeat_move = require "nvim-treesitter-textobjects.repeatable_move"
 
-            -- Repeat movement with ; and ,
-            -- ensure ; goes forward and , goes backward regardless of the last direction
-            -- vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move_next, { desc = "TS repeat next" })
-            -- vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_previous,
-            --     { desc = "TS repeat previous" })
-
-            -- vim way: ; goes to the direction you were moving.
             vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move, { desc = "TS repeat last move" })
             vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_opposite,
                 { desc = "TS repeat last move opposite" })
