@@ -112,26 +112,14 @@ return {
                     return
                 end
 
-
                 if client.name == 'ruff' then
                     -- Disable hover in favor of Pyright
                     client.server_capabilities.hoverProvider = false
                 end
 
-                --
                 -- so gq might work again
                 vim.bo[ev.buf].formatexpr = nil
 
-
-                vim.o.signcolumn = 'yes:1'
-                if client:supports_method('textDocument/completion') then
-                    vim.o.complete = 'o,.,w,b,u'
-                    vim.o.completeopt = 'menu,menuone,popup,noinsert'
-                    vim.lsp.completion.enable(true, client.id, ev.buf)
-                end
-
-                -- Enable completion triggered by <c-x><c-o>
-                -- vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
                 -- Buffer local mappings.
                 -- See `:help vim.lsp.*` for documentation on any of the below functions
