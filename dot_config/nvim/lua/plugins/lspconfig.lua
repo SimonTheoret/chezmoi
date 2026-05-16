@@ -121,8 +121,13 @@ return {
                 --
                 -- so gq might work again
                 vim.bo[ev.buf].formatexpr = nil
+
+
+                vim.o.signcolumn = 'yes:1'
                 if client:supports_method('textDocument/completion') then
-                    vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+                    vim.o.complete = 'o,.,w,b,u'
+                    vim.o.completeopt = 'menu,menuone,popup,noinsert'
+                    vim.lsp.completion.enable(true, client.id, ev.buf)
                 end
 
                 -- Enable completion triggered by <c-x><c-o>
