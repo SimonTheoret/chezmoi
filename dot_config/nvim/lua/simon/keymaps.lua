@@ -63,6 +63,8 @@ vmap.set("n", "<leader>E", ":w<CR>", { desc = "Save current file" })
 vmap.set("n", "<leader>tc", ":tabclose<CR>", { desc = "Close tab" })
 vmap.set("n", "<leader>te", ":tabedit<CR>", { desc = "New tab" })
 
+vmap.set("i", "<TAB>", "<C-x><C-o>", { desc = "Completion" })
+
 function _G.set_terminal_keymaps()
     local opts = { buffer = 0 }
     vim.keymap.set('t', '<C-m><C-m>', [[<C-\><C-n>]], opts)

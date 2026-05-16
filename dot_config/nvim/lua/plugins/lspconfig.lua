@@ -1,7 +1,9 @@
 return {
     "neovim/nvim-lspconfig",
     ft = require('slib').programming_ft,
-    dependencies = { 'saghen/blink.cmp', "stevearc/quicker.nvim" },
+    dependencies = {
+        -- 'saghen/blink.cmp',
+        "stevearc/quicker.nvim" },
     config = function()
         -- python LSP
         vim.lsp.enable("ruff")
@@ -11,7 +13,6 @@ return {
             end
         })
         vim.lsp.enable('ty')
-
         -- lua lsp
         vim.lsp.enable("lua_ls")
         vim.lsp.config('lua_ls', {
@@ -110,6 +111,8 @@ return {
                 if client == nil then
                     return
                 end
+
+
                 if client.name == 'ruff' then
                     -- Disable hover in favor of Pyright
                     client.server_capabilities.hoverProvider = false
@@ -118,9 +121,12 @@ return {
                 --
                 -- so gq might work again
                 vim.bo[ev.buf].formatexpr = nil
+                if client:supports_method('textDocument/completion') then
+                    vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+                end
 
                 -- Enable completion triggered by <c-x><c-o>
-                vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+                -- vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
                 -- Buffer local mappings.
                 -- See `:help vim.lsp.*` for documentation on any of the below functions

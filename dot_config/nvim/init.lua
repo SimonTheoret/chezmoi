@@ -47,6 +47,13 @@ vim.opt.expandtab = true
 -- vim.opt.smartindent = true
 vim.opt.autoindent = true
 vim.opt.formatoptions = "cqjron"
+vim.o.winborder = "rounded"
+vim.opt.completeopt = { "menuone", "noselect", "popup" }
+-- vim.o.complete = "o"
+
+-- vim.opt.completeopt = { "menuone", "preinsert", "preview", "noselect", "popup", "fuzzy" }
+-- vim.o.complete = "o"
+
 -- Clipboard shenanigans
 function my_paste(reg)
     return function(lines)
@@ -86,6 +93,7 @@ vim.opt.incsearch = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.opt.inccommand = "split"
+
 
 require("lazy").setup({
     pkg = {
