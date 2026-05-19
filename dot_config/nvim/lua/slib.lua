@@ -52,19 +52,6 @@ M.get_visual_start_end_lines = function()
     return start_line, end_line
 end
 
-M.fzf_default_opts_has_been_set = false
-
-M.set_fzf_default_opts = function()
-    if not M.fzf_default_opts_has_been_set then
-        if not vim.env.FZF_DEFAULT_OPTS then
-            vim.env.FZF_DEFAULT_OPTS = "--no-color"
-        else
-            vim.env.FZF_DEFAULT_OPTS = vim.env.FZF_DEFAULT_OPTS .. " --no-color"
-        end
-        M.fzf_default_opts_has_been_set = true
-    end
-end
-
 M.qf_open = false
 M.ll_open = false
 

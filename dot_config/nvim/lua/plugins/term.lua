@@ -23,7 +23,6 @@ return {
 
             "<leader>tt",
             function()
-                require('slib').set_fzf_default_opts()
                 local count = vim.v.count1
                 vim.cmd(count .. 'ToggleTerm direction=horizontal')
             end,
@@ -34,7 +33,6 @@ return {
             "<leader>tT",
             function()
                 local exec_cmd = function(name)
-                    require('slib').set_fzf_default_opts()
                     local count = vim.v.count1
                     vim.cmd(count .. 'ToggleTerm direction=horizontal name=' .. name)
                 end
@@ -51,7 +49,6 @@ return {
 
             "<leader>tf",
             function()
-                require('slib').set_fzf_default_opts()
                 vim.cmd('term')
             end,
             desc = "Buffer Term"
@@ -59,7 +56,6 @@ return {
         {
             "<leader>tn",
             function()
-                require('slib').set_fzf_default_opts()
                 local count = vim.v.count1
                 vim.cmd(count .. 'ToggleTerm direction=vertical')
             end,
@@ -70,7 +66,6 @@ return {
             "<leader>tN",
             function()
                 local exec_cmd = function(name)
-                    require('slib').set_fzf_default_opts()
                     local count = vim.v.count1
                     vim.cmd(count .. 'ToggleTerm direction=horizontal name=' .. name)
                 end
@@ -120,7 +115,6 @@ return {
         {
             "<leader>cc",
             function()
-                require('slib').set_fzf_default_opts()
                 local exec_cmd = function(cmd)
                     if cmd ~= nil then
                         Last_term_command = cmd
@@ -151,7 +145,6 @@ return {
         {
             "<leader>cr",
             function()
-                require('slib').set_fzf_default_opts()
                 local exec_cmd = function(cmd)
                     local term = require('toggleterm.terminal').Terminal
                     local term_cmd = term:new(
