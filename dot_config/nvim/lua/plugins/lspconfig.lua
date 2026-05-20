@@ -162,7 +162,7 @@ return {
                     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
                 end, { desc = "Lsp list workspace folders", buffer = ev.buf })
 
-                vim.keymap.set('n', '<leader>D', function() vim.lsp.buf.type_definition() end,
+                vim.keymap.set('n', 'gy', function() vim.lsp.buf.type_definition() end,
                     { desc = "LSP type definition", buffer = ev.buf })
 
                 vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action,
