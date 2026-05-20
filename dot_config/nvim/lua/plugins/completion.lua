@@ -9,6 +9,8 @@ return {
             preset = 'default',
             ['<C-b>'] = { 'select_and_accept' },
             ['<C-space>'] = {},
+            ['<left>'] = {},
+            ['<right>'] = {},
         },
         appearance = {
             nerd_font_variant = 'mono'
