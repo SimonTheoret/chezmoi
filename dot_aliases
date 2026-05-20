@@ -17,6 +17,7 @@ alias yz="yazi"
 alias gg="lazygit"
 alias gd="lazydocker"
 alias helix="hx"
+alias cmalock="chezmoi add ~/.config/nvim/lazy-lock.json"
 # Moved to gitconfig
 # alias gitg="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ad)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'"
 # alias gita="git add"
