@@ -190,6 +190,6 @@ return {
                 btop:toggle()
             end,
             desc = "Toggle Lazydocker"
-        }
+        },
     }
 }
