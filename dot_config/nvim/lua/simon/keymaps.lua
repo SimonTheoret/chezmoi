@@ -42,7 +42,7 @@ vmap.set("n", "<leader>cd", ":cd %:h<CR>", { desc = "Make file's path as working
 vmap.set("n", "<leader>pwd", ":lua print(vim.api.nvim_buf_get_name(0))<CR>", { desc = "Print current buffer path" })
 
 -- Notes
-vmap.set("n", "<leader>Nn", ":80vs notes_perso_stheoret.md<CR>", { desc = "Open notes in directory root" })
+vmap.set("n", "<leader>mm", ":80vs notes_perso_stheoret.md<CR>", { desc = "Open notes in directory root" })
 
 -- Marks
 vmap.set("n", "<leader>ba", ":delm! | delm A-Z0-9 <CR>", { desc = "Remove all marks" })
