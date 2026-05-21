@@ -9,7 +9,7 @@ return {
             grep = { rg_glob = true },
             winopts = {
                 previewer = {
-                    hidden = false
+                    hidden = true
                 }
             },
             keymap = {

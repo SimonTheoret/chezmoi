@@ -171,7 +171,7 @@ return {
                     )
                 end
             end,
-            desc = "Compile"
+            desc = "Recompile"
         },
         {
             "<leader>gD",
