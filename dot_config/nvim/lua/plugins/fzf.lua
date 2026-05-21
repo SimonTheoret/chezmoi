@@ -3,8 +3,9 @@ return {
     -- optional for icon support
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
+        local fzf = require("fzf-lua")
         -- calling `setup` is optional for customization
-        require("fzf-lua").setup({
+        fzf.setup({
             { "max-perf" },
             grep = { rg_glob = true },
             winopts = {
@@ -18,6 +19,7 @@ return {
                 }
             },
         })
+        fzf.setup_fzfvim_cmds()
     end,
     keys = {
         {
