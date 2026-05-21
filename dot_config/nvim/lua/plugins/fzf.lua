@@ -182,5 +182,12 @@ return {
             function() require('fzf-lua').git_bcommits() end,
             desc = "Git buffer commits"
         },
+        {
+            "<leader>'",
+            function()
+                require('fzf-lua').resume()
+            end,
+            desc = "Fzf resume"
+        }
     }
 }

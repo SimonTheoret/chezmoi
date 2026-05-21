@@ -10,12 +10,6 @@ return {
                 null_ls.builtins.diagnostics.trail_space,
                 -- go
                 null_ls.builtins.code_actions.impl, -- generate method stubs for interfaces implementation
-                -- python
-                null_ls.builtins.formatting.isort.with({
-                    extra_args = {
-                        "--profile", "black"
-                    }
-                }),
                 -- nix
                 null_ls.builtins.formatting.nixfmt,
 
