@@ -1,6 +1,7 @@
 return {
     "neovim/nvim-lspconfig",
     ft = require('slib').programming_ft,
+    version = "*",
     dependencies = {
         -- 'saghen/blink.cmp',
         "stevearc/quicker.nvim" },
