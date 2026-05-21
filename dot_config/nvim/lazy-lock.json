@@ -15,6 +15,7 @@
   "mini-git": { "branch": "main", "commit": "832467238636e3dfa1db76de929996b6668c35ef" },
   "mini.files": { "branch": "main", "commit": "22c64f010eef047ed270e29e7cc266cd4740787e" },
   "mini.icons": { "branch": "main", "commit": "520995f1d75da0e4cc901ee95080b1ff2bc46b94" },
+  "mini.statusline": { "branch": "main", "commit": "14919901649d20d020e659c63c03baa75cd94f33" },
   "mini.surround": { "branch": "main", "commit": "88c52297ed3e69ecf9f8652837888ecc727a28ee" },
   "mini.tabline": { "branch": "main", "commit": "caf23615b9b99bacc79ecd60f61c4e6a8ec18c84" },
   "multicursor.nvim": { "branch": "1.0", "commit": "704b99f10a72cc05d370cfeb294ff83412a8ab55" },
