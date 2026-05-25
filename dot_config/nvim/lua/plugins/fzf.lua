@@ -9,9 +9,29 @@ return {
             { "max-perf" },
             grep = { rg_glob = true },
             winopts = {
+                split = "belowright 15new",
                 previewer = {
                     hidden = true
                 }
+            },
+            files = {
+                -- file icons are distracting
+                file_icons = false,
+                -- git icons are nice
+                git_icons = true,
+                -- but don't mess up my anchored search
+                _fzf_nth_devicons = true,
+            },
+            buffers = {
+                file_icons = false,
+                git_icons = true,
+                -- no nth_devicons as we'll do that
+                -- manually since we also use
+                -- with-nth
+            },
+            fzf_opts = {
+                -- no reverse view
+                ["--layout"] = "default",
             },
             keymap = {
                 fzf = {
