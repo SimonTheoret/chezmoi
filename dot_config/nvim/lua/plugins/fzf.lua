@@ -9,7 +9,7 @@ return {
             { "max-perf" },
             grep = { rg_glob = true },
             winopts = {
-                split = "belowright 15new",
+                split = "botright 15new",
                 previewer = {
                     hidden = true
                 }
