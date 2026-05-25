@@ -1,9 +1,15 @@
 Host server
     HostName 192.168.18.10
     User simon
+
 Host github.com
     User git
     IdentityFile ~/.ssh/id_edgithub
+
+Host gitlab.com
+    Hostname gitlab.com
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_edgitlab
 
 Host gpix3
     HostName gpix3.druide
