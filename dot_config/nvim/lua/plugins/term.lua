@@ -173,23 +173,5 @@ return {
             end,
             desc = "Recompile"
         },
-        {
-            "<leader>gD",
-            function()
-                local term = require('toggleterm.terminal').Terminal
-                local btop = term:new({ cmd = "lazydocker", hidden = true, direction = "float" })
-                btop:toggle()
-            end,
-            desc = "Toggle Lazydocker"
-        },
-        {
-            "<leader>gG",
-            function()
-                local term = require('toggleterm.terminal').Terminal
-                local btop = term:new({ cmd = "lazygit", hidden = true, direction = "float" })
-                btop:toggle()
-            end,
-            desc = "Toggle Lazydocker"
-        },
     }
 }
