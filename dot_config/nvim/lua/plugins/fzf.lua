@@ -20,7 +20,7 @@ return {
             },
             keymap = {
                 fzf = {
-                    ["alt-a"] = "select-all+accept",
+                    ["ctrl-a"] = "select-all+accept",
                 }
             },
         })
