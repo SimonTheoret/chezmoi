@@ -27,7 +27,7 @@ return {
         }
     end,
     keys = {
-        { "<leader>cc", function() require('compile-mode').compile({ "botright" }) end },
-        { "<leader>cr", function() require('compile-mode').recompile({ "botright" }) end }
+        { "<leader>cc", ":botright Compile<CR>" },
+        { "<leader>cr", ":botright Recompile<CR>" }
     }
 }
