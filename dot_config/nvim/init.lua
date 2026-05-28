@@ -48,7 +48,7 @@ vim.opt.expandtab = true
 -- vim.opt.smartindent = true
 vim.opt.autoindent = true
 vim.opt.formatoptions = "cqjron"
-
+vim.o.timeoutlen = 200
 
 
 -- Clipboard shenanigans
@@ -94,7 +94,7 @@ vim.opt.completeopt = "menu,menuone,popup,fuzzy,noselect"
 
 
 require("lazy").setup({
-    rocks = {enabled = false},
+    rocks = { enabled = false },
     pkg = {
         enabled = true,
         cache = vim.fn.stdpath("state") .. "/lazy/pkg-cache.lua",

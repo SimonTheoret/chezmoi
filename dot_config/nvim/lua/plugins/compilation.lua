@@ -27,7 +27,7 @@ return {
         }
     end,
     keys = {
-        { "<leader>cc", ":botright Compile<CR>" },
-        { "<leader>cr", ":botright Recompile<CR>" }
+        { "<leader>cc", ":botright Compile<CR>",   "Compile" },
+        { "<leader>cr", ":botright Recompile<CR>", "Recompile" }
     }
 }
