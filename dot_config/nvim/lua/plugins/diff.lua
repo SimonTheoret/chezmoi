@@ -1,22 +1,5 @@
 return {
     {
-        "esmuellert/codediff.nvim",
-        dependencies = { "MunifTanjim/nui.nvim" },
-        cmd = "CodeDiff",
-        keys = {
-            {
-                "<leader>gd", ":CodeDiff<CR>", desc = "Diff current "
-            },
-            {
-                "<leader>gh", ":CodeDiff history<CR>", desc = "Diff history"
-            },
-            {
-                "<leader>gH", ":CodeDiff history ", desc = "Diff history cmd"
-            }
-
-        }
-    },
-    {
         "lewis6991/gitsigns.nvim",
         config = function()
             require('gitsigns').setup {

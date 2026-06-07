@@ -49,6 +49,7 @@ vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.formatoptions = "cqjron"
 vim.o.timeoutlen = 200
+vim.opt.completeopt = "menu,menuone,popup,fuzzy,noselect"
 
 
 -- Clipboard shenanigans

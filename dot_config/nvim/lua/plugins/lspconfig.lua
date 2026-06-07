@@ -117,6 +117,7 @@ return {
                     client.server_capabilities.hoverProvider = false
                 end
 
+                vim.lsp.completion.enable(true, ev.data.client_id, ev.buf, { autotrigger = true })
 
                 -- so gq might work again
                 vim.bo[ev.buf].formatexpr = nil

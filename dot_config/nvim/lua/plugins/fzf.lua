@@ -8,16 +8,6 @@ return {
         fzf.setup({
             { "max-perf" },
             grep = { rg_glob = true },
-            winopts = {
-                split = "botright 15new",
-                previewer = {
-                    hidden = true
-                }
-            },
-            fzf_opts = {
-                -- no reverse view
-                ["--layout"] = "default",
-            },
             keymap = {
                 fzf = {
                     ["ctrl-a"] = "select-all+accept",
@@ -40,6 +30,13 @@ return {
                 require('fzf-lua').files({ previewer = false })
             end,
             desc = "List files"
+        },
+        {
+            "<leader>ff",
+            function()
+                require("fzf-lua").files({ cwd = vim.fn.expand("%:p:h") })
+            end,
+            desc = "Current directory files"
         },
         {
             "<leader>fp",
