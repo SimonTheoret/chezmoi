@@ -23,6 +23,16 @@ return {
         -- Disable and enable cursors.
         set({ "n", "x" }, "<c-q>", mc.toggleCursor)
 
+        -- Add a cursor to every search result in the buffer.
+        set("n", "<leader>/A", mc.searchAllAddCursors)
+
+
+        -- Split visual selections by regex.
+        set("x", "S", mc.splitCursors)
+
+        -- match new cursors within visual selections by regex.
+        set("x", "M", mc.matchCursors)
+
         -- Mappings defined in a keymap layer only apply when there are
         -- multiple cursors. This lets you have overlapping mappings.
         mc.addKeymapLayer(function(layerSet)

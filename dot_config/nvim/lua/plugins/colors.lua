@@ -20,5 +20,4 @@ return {
             vim.cmd([[colorscheme gruvbox]])
         end
     },
-    { 'nvim-mini/mini.statusline', version = '*', config = true },
 }
