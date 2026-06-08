@@ -57,6 +57,21 @@ vmap.set("n", "<leader>te", ":tabedit<CR>", { desc = "New tab" })
 
 vmap.set("i", "<C-b>", "<C-y>", { desc = "accept completion" })
 
+
+vim.keymap.set('n', '<leader>q', function()
+  local qf_winid = vim.fn.getqflist({ winid = 0 }).winid
+  local action = qf_winid > 0 and 'cclose' or 'copen'
+  vim.cmd(action)
+end, { noremap = true, silent = true })
+
+vim.keymap.set('n', '<leader>l', function()
+  local win = vim.api.nvim_get_current_win()
+  local qf_winid = vim.fn.getloclist(win, { winid = 0 }).winid
+  local action = qf_winid > 0 and 'lclose' or 'lopen'
+  vim.cmd(action)
+end, { noremap = true, silent = true })
+
+
 function _G.set_terminal_keymaps()
     local opts = { buffer = 0 }
     vim.keymap.set('t', '<C-m><C-m>', [[<C-\><C-n>]], opts)
