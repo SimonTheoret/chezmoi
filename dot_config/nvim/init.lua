@@ -50,7 +50,8 @@ vim.opt.autoindent = true
 vim.opt.formatoptions = "cqjron"
 vim.o.timeoutlen = 200
 vim.opt.completeopt = "menu,menuone,popup,fuzzy,noselect"
-
+vim.opt.autocomplete = true
+vim.opt.pumheight = 8
 
 -- Clipboard shenanigans
 function my_paste(reg)
