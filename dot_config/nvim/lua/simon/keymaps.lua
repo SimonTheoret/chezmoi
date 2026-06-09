@@ -32,6 +32,7 @@ vmap.set("n", "<M-x>", "q:", { desc = "Commands" })
 vmap.set({ "n", "v", "o", "x" }, "\\", "%")
 vmap.set({ "n", "v", "o", "x" }, "gl", "$")
 vmap.set({ "n", "v", "o", "x" }, "gh", "0")
+vmap.set("n", "%", "ggVG")
 
 -- Insert blank lines
 vmap.set("n", "<leader>o", "o<Esc>k", { desc = "Whitespace under cursor" })
