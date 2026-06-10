@@ -24,7 +24,7 @@ cargo install ripgrep --force
 cargo install --locked zellij --force
 cargo install --locked tree-sitter-cli --force
 cargo install git-delta --force
-cargo install --locked --force yazi-build
+cargo install --force yazi-build
 cargo install shellharden --force
 cargo install --locked csview --force
 cargo install cargo-nextest --locked --force
