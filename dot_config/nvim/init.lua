@@ -52,7 +52,7 @@ vim.o.timeoutlen = 200
 vim.opt.completeopt = "menu,menuone,popup,fuzzy,noselect"
 vim.opt.autocomplete = true
 vim.opt.pumheight = 8
-vim.opt.complete= {"o", ".","w", "b"}
+vim.opt.complete = { "o" }
 vim.opt.autocompletedelay = 50
 
 -- Clipboard shenanigans
