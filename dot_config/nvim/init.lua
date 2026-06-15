@@ -55,6 +55,15 @@ vim.opt.pumheight = 8
 vim.opt.complete = { "o" }
 vim.opt.autocompletedelay = 50
 
+vim.filetype.add({
+  filename = {
+    ["docker-compose.yml"] = "yaml.docker-compose",
+    ["docker-compose.yaml"] = "yaml.docker-compose",
+    ["compose.yml"] = "yaml.docker-compose",
+    ["compose.yaml"] = "yaml.docker-compose",
+  },
+})
+
 -- Clipboard shenanigans
 function my_paste(reg)
     return function(lines)

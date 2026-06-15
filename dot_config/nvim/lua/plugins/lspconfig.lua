@@ -8,6 +8,7 @@ return {
     config = function()
         -- python LSP
         vim.lsp.enable("ruff")
+        vim.lsp.enable("docker_language_server")
         vim.lsp.config('ty', {
             on_init = function(client)
                 client.server_capabilities.semanticTokensProvider = nil

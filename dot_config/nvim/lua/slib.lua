@@ -8,12 +8,12 @@ end
 M.programming_ft = {
     "rust", "python", "go", "lua", "bash", "nix", "gleam", "tex", "cpp", "sql",
     "css", "html", "cmake", "sh", "typescript", "javascript", "php", "vue",
-    "javascriptreact", "typescriptreact", "proto", "fish", "zsh" }
+    "javascriptreact", "typescriptreact", "proto", "fish","dockerfile", "yml.docker-compose", "docker-compose", "zsh" }
 
 M.programming_ft_ext = {
     "rs", "py", "go", "lua", "bash", "nix", "gleam", "tex", "cpp", "sql",
     "css", "html", "cmake", "sh", "typescript", "javascript", "php", "vue",
-    "javascriptreact", "typescriptreact", "proto", "sh", "h", "cxx", "hh" }
+    "javascriptreact", "typescriptreact", "proto", "sh", "h", "cxx", "hh",  "dockerfile", "yml", "yaml" }
 
 M.ts_grammars = {
     "lua", "vim", "vimdoc", "regex", "markdown", "markdown_inline", "bash",
