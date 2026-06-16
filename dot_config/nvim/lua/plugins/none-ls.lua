@@ -12,24 +12,20 @@ return {
                 null_ls.builtins.code_actions.impl, -- generate method stubs for interfaces implementation
                 -- nix
                 null_ls.builtins.formatting.nixfmt,
-
                 -- bash
                 null_ls.builtins.formatting.shfmt,
-
                 --cmake
                 null_ls.builtins.formatting.cmake_format,
-
                 --c/c++
                 null_ls.builtins.formatting.clang_format,
-
                 --web
                 null_ls.builtins.formatting.prettierd,
-
                 -- sql
                 null_ls.builtins.formatting.sqruff,
-
                 -- protolint
                 null_ls.builtins.diagnostics.protolint,
+                -- yaml
+                null_ls.builtins.diagnostics.yamllint
             }
         })
     end,

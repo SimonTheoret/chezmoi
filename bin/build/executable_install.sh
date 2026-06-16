@@ -47,6 +47,8 @@ go install github.com/docker/docker-language-server/cmd/docker-language-server@l
 
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
+uv tool install yamllint
+
 echo "Installing latest neovim"
 ./nvim.sh
 
