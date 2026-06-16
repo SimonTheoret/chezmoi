@@ -14,6 +14,7 @@ return {
                 client.server_capabilities.semanticTokensProvider = nil
             end
         })
+        vim.lsp.enable('yamlls')
         vim.lsp.enable('ty')
         -- lua lsp
         vim.lsp.enable("lua_ls")
