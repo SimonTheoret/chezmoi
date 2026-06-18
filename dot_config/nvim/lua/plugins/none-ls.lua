@@ -12,8 +12,9 @@ return {
                 null_ls.builtins.code_actions.impl, -- generate method stubs for interfaces implementation
                 -- nix
                 null_ls.builtins.formatting.nixfmt,
-                -- bash
+                -- shell
                 null_ls.builtins.formatting.shfmt,
+                null_ls.builtins.formatting.shellharden,
                 --cmake
                 null_ls.builtins.formatting.cmake_format,
                 --c/c++
