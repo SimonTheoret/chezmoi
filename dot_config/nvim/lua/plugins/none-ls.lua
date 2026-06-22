@@ -14,7 +14,7 @@ return {
                 null_ls.builtins.formatting.nixfmt,
                 -- shell
                 null_ls.builtins.formatting.shfmt,
-                null_ls.builtins.formatting.shellharden,
+                -- null_ls.builtins.formatting.shellharden,
                 --cmake
                 null_ls.builtins.formatting.cmake_format,
                 --c/c++
