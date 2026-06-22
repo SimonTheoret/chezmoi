@@ -6,7 +6,7 @@
     "margin-top": 0,
     "margin-bottom": 0,
     "modules-left": ["hyprland/workspaces"],
-    "modules-center": ["clock"],
+    "modules-center": ["clock", "wlr/taskbar"],
     "modules-right": ["pulseaudio", "backlight", "network", "cpu", "memory", "temperature", "battery", "disk", "custom/uptime", "custom/updates", "custom/quote", "tray"],
 
     "hyprland/workspaces": {
@@ -16,6 +16,10 @@
         "persistent_workspaces": {
             "*": 1
         }
+    },
+
+    "wlr/taskbar": {
+    "tooltip-format": "{title} | {app_id}",
     },
 
     "custom/playerctl": {
