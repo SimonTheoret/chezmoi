@@ -25,8 +25,6 @@ return {
                 null_ls.builtins.formatting.sqruff,
                 -- protolint
                 null_ls.builtins.diagnostics.protolint,
-                -- yaml
-                null_ls.builtins.diagnostics.yamllint
             }
         })
     end,
