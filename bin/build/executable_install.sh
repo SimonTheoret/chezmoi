@@ -38,7 +38,6 @@ cargo install --locked bacon
 sudo npm install -g tldr
 sudo npm i -g bash-language-server
 sudo npm i -g yaml-language-server
-sudo npm i -g prettier
 
 go install github.com/jesseduffield/lazygit@latest
 go install github.com/jesseduffield/lazydocker@latest
