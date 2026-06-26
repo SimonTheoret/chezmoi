@@ -5,7 +5,7 @@ gui:
 
 
 os:
-  editPreset: 'nvim'
+  editPreset: 'helix (hx)'
 
 customCommands:
   - key: "C"
