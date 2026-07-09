@@ -1,24 +1,26 @@
 #! /usr/bin/env sh
 
-printf "
-Problème:
+if [ ! -f qcode.md ]; then
+	printf "
+# Problème:
 
-But:
+# But:
 
-Entrées:
+# Entrées:
 
-Sorties attendues:
+# Sorties attendues:
 
-Contraintes:
+# Contraintes:
 
-Structures de données pertinentes:
+# Structures de données pertinentes:
 
-Sous-problèmes:
+# Sous-problèmes:
 
-Cas limites:
+# Cas limites:
 
-Risques d'erreurs:
+# Risques d'erreurs:
 
-Stratégie de tests:
+# Stratégie de tests:
 
-"
+" >qcode.md
+fi
