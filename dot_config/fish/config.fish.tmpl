@@ -71,7 +71,11 @@ set fish_cursor_default block
 set fish_cursor_insert line
 
 function fzz
-	zellij a (zellij ls -n | cut -d' ' -f1 |fzf)
+	zellij a (zellij ls -n -s | fzf)
+end
+
+function fzd
+	zellij d (zellij ls -n -s | fzf)
 end
 
 function y
