@@ -34,7 +34,8 @@ cargo install du-dust --force
 cargo install skim --no-default-features --features cli
 cargo install --locked watchexec-cli
 cargo install --locked bacon
-cargo insatll --locked systemctl-tui
+cargo install --locked systemctl-tui
+cargo install --locked adrs
 
 sudo npm install -g tldr
 sudo npm i -g bash-language-server
