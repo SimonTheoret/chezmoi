@@ -31,36 +31,36 @@
   (general-evil-setup t))
 
 
-(defun lsp-booster--advice-json-parse (old-fn &rest args)
-  "Try to parse bytecode instead of json."
-  (or
-   (when (equal (following-char) ?#)
-     (let ((bytecode (read (current-buffer))))
-       (when (byte-code-function-p bytecode)
-         (funcall bytecode))))
-   (apply old-fn args)))
-(advice-add (if (progn (require 'json)
-                       (fboundp 'json-parse-buffer))
-                'json-parse-buffer
-              'json-read)
-            :around
-            #'lsp-booster--advice-json-parse)
+; (defun lsp-booster--advice-json-parse (old-fn &rest args)
+;   "Try to parse bytecode instead of json."
+;   (or
+;    (when (equal (following-char) ?#)
+;      (let ((bytecode (read (current-buffer))))
+;        (when (byte-code-function-p bytecode)
+;          (funcall bytecode))))
+;    (apply old-fn args)))
+; (advice-add (if (progn (require 'json)
+;                        (fboundp 'json-parse-buffer))
+;                 'json-parse-buffer
+;               'json-read)
+;             :around
+;             #'lsp-booster--advice-json-parse)
 
-(defun lsp-booster--advice-final-command (old-fn cmd &optional test?)
-  "Prepend emacs-lsp-booster command to lsp CMD."
-  (let ((orig-result (funcall old-fn cmd test?)))
-    (if (and (not test?)                             ;; for check lsp-server-present?
-             (not (file-remote-p default-directory)) ;; see lsp-resolve-final-command, it would add extra shell wrapper
-             lsp-use-plists
-             (not (functionp 'json-rpc-connection))  ;; native json-rpc
-             (executable-find "emacs-lsp-booster"))
-        (progn
-          (when-let ((command-from-exec-path (executable-find (car orig-result))))  ;; resolve command from exec-path (in case not found in $PATH)
-            (setcar orig-result command-from-exec-path))
-          (message "Using emacs-lsp-booster for %s!" orig-result)
-          (cons "emacs-lsp-booster" orig-result))
-      orig-result)))
-(advice-add 'lsp-resolve-final-command :around #'lsp-booster--advice-final-command)
+; (defun lsp-booster--advice-final-command (old-fn cmd &optional test?)
+;   "Prepend emacs-lsp-booster command to lsp CMD."
+;   (let ((orig-result (funcall old-fn cmd test?)))
+;     (if (and (not test?)                             ;; for check lsp-server-present?
+;              (not (file-remote-p default-directory)) ;; see lsp-resolve-final-command, it would add extra shell wrapper
+;              lsp-use-plists
+;              (not (functionp 'json-rpc-connection))  ;; native json-rpc
+;              (executable-find "emacs-lsp-booster"))
+;         (progn
+;           (when-let ((command-from-exec-path (executable-find (car orig-result))))  ;; resolve command from exec-path (in case not found in $PATH)
+;             (setcar orig-result command-from-exec-path))
+;           (message "Using emacs-lsp-booster for %s!" orig-result)
+;           (cons "emacs-lsp-booster" orig-result))
+;       orig-result)))
+; (advice-add 'lsp-resolve-final-command :around #'lsp-booster--advice-final-command)
 
 (use-package
   evil
@@ -281,7 +281,7 @@
 ;; magit
 (use-package
   magit
-  :defer 1.5 
+  :defer 1.5
   :after evil-collection
   :config
   (setq magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)
@@ -309,7 +309,7 @@
 (use-package git-gutter
   :after magit
   :init
-  (global-git-gutter-mode +1) 
+  (global-git-gutter-mode +1)
   :general-config
   (general-def
     :states 'normal
@@ -785,7 +785,7 @@
   ;; mode.  Corfu commands are hidden, since they are not used via M-x. This
   ;; setting is useful beyond Corfu.
   (read-extended-command-predicate #'command-completion-default-include-p))
-;; 
+;;
 
 (defun utils-update-cm-emacs ()
   "Calls `chezmoi apply --force`"
@@ -818,7 +818,7 @@
 (use-package
   evil-collection
   :after evil
-  :init (evil-collection-init) 
+  :init (evil-collection-init)
   )
 (evil-collection-eshell-setup)
 
@@ -1029,7 +1029,7 @@
   :states
   'normal
   :prefix "<leader>"
-  "SPC" 
+  "SPC"
   '("Project find file" . project-find-file)
   )
 
@@ -1075,7 +1075,7 @@
 
   ;; Show the Embark target at point via Eldoc. You may adjust the
   ;; Eldoc strategy, if you want to see the documentation from
-  ;; multiple providers. Beware that using this can be a little 
+  ;; multiple providers. Beware that using this can be a little
   ;; jarring since the message shown in the minibuffer can be more
   ;; than one line, causing the modeline to move up and down:
 
