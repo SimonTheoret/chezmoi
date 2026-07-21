@@ -3,14 +3,5 @@ gui:
   theme:
     lightTheme: false
 
-
 os:
-  editPreset: 'helix'
-
-customCommands:
-  - key: "C"
-    command: "git cz c"
-    description: "commit with commitizen"
-    context: "files"
-    loadingText: "opening commitizen commit tool"
-    output: terminal
+  editPreset: "helix (hx)"
