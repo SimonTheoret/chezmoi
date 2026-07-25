@@ -60,6 +60,9 @@
 	 ("<mouse-1>" . nil)
 	 ("<down-mouse-3>" . nil)
 	 ("<mouse-3>" . nil)
+	 ("gl" . evil-end-of-line)
+	 ("gh" . evil-beginning-of-line)
+	 ("\\" . evil-jump-item)
 	 :map    evil-motion-state-map
 	 ("<down-mouse-1>" . nil)
 	 ("<mouse-1>" . nil)
@@ -352,7 +355,8 @@
   (completion-category-overrides
    '((file (styles basic partial-completion)))))
 
-(use-package consult :defer 0.5)
+(use-package consult :defer 0.5
+  )
 
 ;; Enable rich annotations using the Marginalia package
 (use-package marginalia
@@ -565,6 +569,8 @@
   :map dired-mode-map
   "DEL" '("Directory up" . dired-up-directory)
   )
+
+
 
 (use-package helpful
   :defer 1.5
