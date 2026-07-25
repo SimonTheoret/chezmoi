@@ -178,7 +178,7 @@
 
 (general-def
   :states 'insert
-  "TAB"
+  "M-C-i"
   '("Completion" . completion-at-point )
   )
 
