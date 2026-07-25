@@ -30,6 +30,7 @@
   :config
   (general-evil-setup t))
 
+(use-package project)
 
 
 (use-package
@@ -418,8 +419,6 @@
   'normal
   :prefix "<leader> h"
   :prefix-command 'Help
-  "t"
-  '("Tldr command" . tldr)
   "w"
   '("Manual with woman" . woman)
   "m"
@@ -742,7 +741,7 @@
   :states
   'normal
   "<leader> w"
-  '("Jump to word" . avy-goto-word-1)
+  '("Jump to word" . avy-goto-word-0)
   "<leader> W"
   '("Jump to window" . ace-window)
   "<leader> x"
