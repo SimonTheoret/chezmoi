@@ -260,6 +260,7 @@
 (electric-indent-mode t)
 (setq indent-tabs-mode nil)
 (setq tab-width 4)
+(setq go-ts-mode-indent-offset 4)
 
 
 (setq confirm-kill-emacs #'yes-or-no-p)
