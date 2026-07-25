@@ -258,7 +258,8 @@
 ;; Electric defaults
 (electric-pair-mode t)
 (electric-indent-mode t)
-
+(setq indent-tabs-mode nil)
+(setq tab-width 4)
 
 
 (setq confirm-kill-emacs #'yes-or-no-p)
@@ -355,8 +356,8 @@
   (completion-category-overrides
    '((file (styles basic partial-completion)))))
 
-(use-package consult :defer 0.5
-  )
+(use-package consult :defer 0.5)
+
 
 ;; Enable rich annotations using the Marginalia package
 (use-package marginalia
@@ -416,6 +417,8 @@
   '("Locate" . consult-locate)
   "x"
   '("Regex Builder" . re-builder)
+  "e"
+  '("Jump Error" . consult-flymake)
   )
 
 (general-def
@@ -862,6 +865,7 @@
  	(heex "https://github.com/phoenixframework/tree-sitter-heex")
 	(php "https://github.com/tree-sitter/tree-sitter-php" "master" "php/src")
 	(nix "https://github.com/nix-community/tree-sitter-nix")
+	(just "https://github.com/casey/tree-sitter-just")
  	)
       )
 
@@ -907,6 +911,8 @@
   '("Recompile" . recompile)
   "l"
   '("Kill compilation" . kill-compilation)
+  "j"
+  '("just" . justl-exec-recipe-in-dir )
   )
 
 
@@ -926,3 +932,9 @@
 
 (setq display-line-numbers-type 'relative)
 (global-display-line-numbers-mode +1)
+
+
+
+(use-package justl)
+
+(use-package just-mode)
