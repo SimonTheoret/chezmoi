@@ -55,6 +55,9 @@ space.m = "goto_word"
 space.C-r = ":redraw"
 "\\" = "match_brackets"
 
+[keys.normal.space.c]
+c = ":! zr.sh"
+
 [keys.select.g]
 F = [":open %{selection}"]
 
