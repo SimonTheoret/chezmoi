@@ -31,36 +31,6 @@
   (general-evil-setup t))
 
 
-; (defun lsp-booster--advice-json-parse (old-fn &rest args)
-;   "Try to parse bytecode instead of json."
-;   (or
-;    (when (equal (following-char) ?#)
-;      (let ((bytecode (read (current-buffer))))
-;        (when (byte-code-function-p bytecode)
-;          (funcall bytecode))))
-;    (apply old-fn args)))
-; (advice-add (if (progn (require 'json)
-;                        (fboundp 'json-parse-buffer))
-;                 'json-parse-buffer
-;               'json-read)
-;             :around
-;             #'lsp-booster--advice-json-parse)
-
-; (defun lsp-booster--advice-final-command (old-fn cmd &optional test?)
-;   "Prepend emacs-lsp-booster command to lsp CMD."
-;   (let ((orig-result (funcall old-fn cmd test?)))
-;     (if (and (not test?)                             ;; for check lsp-server-present?
-;              (not (file-remote-p default-directory)) ;; see lsp-resolve-final-command, it would add extra shell wrapper
-;              lsp-use-plists
-;              (not (functionp 'json-rpc-connection))  ;; native json-rpc
-;              (executable-find "emacs-lsp-booster"))
-;         (progn
-;           (when-let ((command-from-exec-path (executable-find (car orig-result))))  ;; resolve command from exec-path (in case not found in $PATH)
-;             (setcar orig-result command-from-exec-path))
-;           (message "Using emacs-lsp-booster for %s!" orig-result)
-;           (cons "emacs-lsp-booster" orig-result))
-;       orig-result)))
-; (advice-add 'lsp-resolve-final-command :around #'lsp-booster--advice-final-command)
 
 (use-package
   evil
@@ -95,63 +65,6 @@
 	 ("<down-mouse-3>" . nil)
 	 ("<mouse-3>" . nil)
 	 ))
-
-;; TODO: Use this package ?
-(use-package apheleia
-  :defer 1
-  :config
-  (setf (alist-get 'python-mode apheleia-mode-alist)
-	'(ruff))
-  (setf (alist-get 'python-ts-mode apheleia-mode-alist)
-	'(ruff))
-  :hook
-  (python-ts-mode . apheleia-mode)
-  (rustic-mode . apheleia-mode)
-  (emacs-lisp-mode . apheleia-mode)
-  )
-
-
-(use-package lsp-mode
-  :init
-  ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
-  (setq lsp-keymap-prefix "C-c l")
-  :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
-         (XXX-mode . lsp)
-         ;; if you want which-key integration
-         (lsp-mode . lsp-enable-which-key-integration))
-  :commands lsp)
-
-;; optionally
-(use-package lsp-ui :commands lsp-ui-mode)
-
-(use-package company
-  :defer 0.5
-  :init
-  (add-hook 'after-init-hook 'global-company-mode)
-  :config
-  (setq company-minimum-prefix-length 2)
-  (setq company-idle-delay 0.100)
-  (setq company-backends '((company-capf  company-files company-keywords :with company-yasnippet)))
-  :general-config
-  (general-def company-active-map
-    "<backtab>" (lambda () (interactive) (company-complete-common-or-cycle -1))
-    "S-TAB" (lambda () (interactive) (company-complete-common-or-cycle -1))
-    "TAB" #'company-complete-common-or-cycle
-    "<tab>" #'company-complete-common-or-cycle
-    "RET" #'newline
-    "<return>" #'newline
-    "C-<return>" #'company-complete-selection
-    "C-<RET>" #'company-complete-selection
-    "C-b" #'company-complete-selection
-    "C-w" #'evil-delete-backward-word
-    )
-  :general
-  (general-def
-    :states 'insert
-    "C-x C-f" '("Complete files". company-files)
-    )
-  )
-
 
 (use-package
   exec-path-from-shell
@@ -234,9 +147,9 @@
   (dired-mode . nerd-icons-dired-mode))
 
 ;; The essential modeline
-(use-package doom-modeline
-  :custom  (doom-modeline-height 25) ;; Set modeline height
-  :hook (after-init . doom-modeline-mode))
+;; (use-package doom-modeline
+;;   :custom  (doom-modeline-height 25) ;; Set modeline height
+;;   :hook (after-init . doom-modeline-mode))
 
 
 (use-package nerd-icons-ibuffer
@@ -304,25 +217,6 @@
     ))
 
 
-(use-package git-timemachine :defer 5)
-
-(use-package git-gutter
-  :after magit
-  :init
-  (global-git-gutter-mode +1)
-  :general-config
-  (general-def
-    :states 'normal
-    :prefix "<leader> g h"
-    :prefix-command 'Hunks
-    "s" '("Stage hunk" . git-gutter:stage-hunk)
-    "p" '("Popup hunk" . git-gutter:popup-hunk)
-    "r" '("Revert hunk" . git-gutter:revert-hunk)
-    )
-  )
-;; Generic goodies
-
-;; (setq inhibit-startup-message t)
 
 ;; Turn off some unneeded UI elements
 (menu-bar-mode -1)
@@ -480,9 +374,7 @@
 
 ;; Consult users will also want the embark-consult package.
 
-(use-package tldr :defer 1)
 
-(use-package deadgrep :defer 2)
 
 (setq reb-re-syntax 'string)
 
@@ -534,27 +426,12 @@
   '("Manual with man" . man)
   )
 
-;; Pdf tools
-(use-package pdf-tools
-  :defer 3
-  :init (setq pdf-view-use-unicode-ligther nil)
-  :config
-  (pdf-tools-install)
-  (setq auto-revert-interval 0.5)
-  )
 
+(use-package ghostel)
+(use-package evil-ghostel
+  :after (ghostel evil)
+  :hook (ghostel-mode . evil-ghostel-mode))
 
-(use-package vterm
-  :defer 1.5
-  :config
-  (setq-default vterm-kill-buffer-on-exit t)
-  (setq vterm-timer-delay 0.01)
-  )
-
-(add-hook 'evil-insert-state-entry-hook #'vterm-reset-cursor-point nil t)
-
-
-(tab-bar-mode)
 (general-def
   :states 'normal
   :prefix "<leader> t"
@@ -562,11 +439,8 @@
   "e" '("Toggle eshell" . eshell)
   "b" '("Open terminal" . term)
   "a" '("Open ansi-term" . ansi-term)
-  "t" '("Open vterm" . vterm)
-  "o"
-  '("New tab" . tab-new)
-  "x"
-  '("Close tab" . tab-close))
+  "t" '("Open vterm" . ghostel)
+ )
 
 
 (general-def
@@ -587,7 +461,7 @@
   :init
   (setq
    rust-mode-treesitter-derive t
-   rustic-lsp-client 'lsp-mode
+   rustic-lsp-client 'eglot
    )
   )
 
@@ -791,19 +665,6 @@
   "Calls `chezmoi apply --force`"
   (interactive)
   (async-shell-command "chezmoi apply --force"))
-
-
-(use-package crux
-  :defer 3
-  :general-config
-  (general-def
-    :states 'normal
-    :prefix "<leader> o"
-    :prefix-command 'Open
-    "e" '("Open current file in external app" . crux-open-with)
-    "u" '("View URL content" . crux-view-url)
-    "c" '("Chezmoi apply overwrite" . utils-update-cm-emacs)
-    ))
 
 
 (use-package nix-mode
@@ -1018,12 +879,6 @@
 (defun change-compile-command (str)
   (set (make-local-variable 'compile-command) str))
 
-(use-package fancy-compilation
-  :commands (fancy-compilation-mode))
-
-(with-eval-after-load 'compile
-  (fancy-compilation-mode))
-
 
 (general-def
   :states
@@ -1038,7 +893,7 @@
   'normal
   :prefix "<leader> c"
   "c"
-  '("Compile project" . project-compile) ;;TODO: Switcht to project
+  '("Compile project" . project-compile) ;;TODO: Switch to project
   "C"
   '("Compile buffer" . compile)
   "r"
@@ -1060,60 +915,9 @@
     "<leader> e e" '("Reload env vars" . envrc-reload)))
 
 
-(use-package embark
-  :defer 1
-  :general (general-def ;;:states '('normal 'insert)
-	     "S-C-a" '("Embark act". embark-act)         ;; pick some comfortable binding
-	     "S-C-e" '("Embark dwim". embark-dwim)        ;; good alternative: M-.
-	     "C-h B" '("Embark bindings". embark-bindings)
-	     ) ;; alternative for `describe-bindings'
-
-  :init
-
-  ;; Optionally replace the key help with a completing-read interface
-  (setq prefix-help-command #'embark-prefix-help-command)
-
-  ;; Show the Embark target at point via Eldoc. You may adjust the
-  ;; Eldoc strategy, if you want to see the documentation from
-  ;; multiple providers. Beware that using this can be a little
-  ;; jarring since the message shown in the minibuffer can be more
-  ;; than one line, causing the modeline to move up and down:
-
-  ;; (add-hook 'eldoc-documentation-functions #'embark-eldoc-first-target)
-  ;; (setq eldoc-documentation-strategy #'eldoc-documentation-compose-eagerly)
-
-  ;; Add Embark to the mouse context menu. Also enable `context-menu-mode'.
-  ;; (context-menu-mode 1)
-  ;; (add-hook 'context-menu-functions #'embark-context-menu 100)
-
-  :config
-
-  ;; Hide the mode line of the Embark live/completions buffers
-  (add-to-list 'display-buffer-alist
-               '("\\`\\*Embark Collect \\(Live\\|Completions\\)\\*"
-                 nil
-                 (window-parameters (mode-line-format . none)))))
-
 ;; Consult users will also want the embark-consult package.
-(use-package embark-consult
-  :after '(embar consult)
-  :hook
-
-
-  (embark-collect-mode . consult-preview-at-point-mode))
-
-
 (setq custom-file (locate-user-emacs-file "custom.el"))
 (load custom-file 'noerror 'nomessage)
 
-(global-display-line-numbers-mode)
-(setq display-line-numbers 'relative)
-(setq display-current-line-numbers t)
-
-(add-hook 'prog-mode-hook (lambda ()
-                            (setq-local treesit-font-lock-feature-list '((comment definition) (keyword string)
-									 (assignment attribute builtin constant escape-sequence number type function error variable)
-									 (bracket delimiter operator property))
-					)
-                            ;; Recompute font lock settings if the mode is already set up
-                            (treesit-font-lock-recompute-features)))
+(setq display-line-numbers-type 'relative)
+(global-display-line-numbers-mode +1)
