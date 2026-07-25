@@ -175,6 +175,14 @@
 (define-key completion-in-region-mode-map (kbd "C-n") 'minibuffer-next-completion)
 (define-key completion-in-region-mode-map (kbd "C-p") 'minibuffer-previous-completion)
 
+
+(general-def
+  :states 'insert
+  "TAB"
+  '("Completion" . completion-at-point )
+  )
+
+
 (general-def
   :states 'normal
   :prefix "<leader> b"
