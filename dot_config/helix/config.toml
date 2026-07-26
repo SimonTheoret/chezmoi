@@ -56,7 +56,8 @@ space.C-r = ":redraw"
 "\\" = "match_brackets"
 
 [keys.normal.space.c]
-c = ":! zr.sh"
+c = ":! zr.fish"
+r = ":! zrr.fish"
 
 [keys.select.g]
 F = [":open %{selection}"]
