@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
 set FILE "$__HELIX_LAST_CMD_FILE"
-set LOGFILE "$HOME/_compilation.log"
+set LOGFILE "$HOME/.compilation.log"
 
 if test -z $__HELIX_LAST_CMD_FILE
     echo "Variable `__HELIX_LAST_CMD_FILE` is empty or does not exist." >>$LOGFILE

@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
 set FILE $(mktemp)
-set LOGFILE "$HOME/_compilation.log"
+set LOGFILE "$HOME/.compilation.log"
 
 set read_cmd "read -S -P '\"$PWD\"
 Compilation: '"
