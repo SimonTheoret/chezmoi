@@ -22,6 +22,9 @@
 
 (setq native-comp-async-report-warnings-errors 'silent)
 
+
+(add-hook 'compilation-filter-hook #'ansi-color-compilation-filter)
+
 (use-package straight
   :custom
   (straight-use-package-by-default t))
@@ -31,7 +34,6 @@
   (general-evil-setup t))
 
 (use-package project)
-
 
 (use-package
   evil
@@ -79,65 +81,6 @@
   (when (daemonp)
     (exec-path-from-shell-initialize)))
 
-(use-package org
-  :defer 1
-  :straight (:type built-in))
-;; org roam v2
-(use-package org-roam
-  :custom (org-roam-directory  "~/org/roam")
-  :after org
-  :general
-  (general-def
-    :states 'normal
-    :prefix "<leader> n r" ;; This prefix definition must be placed AFTER the definition of the Org prefix
-    :prefix-command 'Roam
-    "l"
-    '("Roam buffer toggle" . org-roam-buffer-toggle)
-    "f"
-    '("Roam find node" . org-roam-node-find)
-    "g"
-    '("Roam graph" . org-roam-graph)
-    "i"
-    '("Roam insert node " . org-roam-node-insert)
-    "c"
-    '("Roam capture" . org-roam-capture)
-    "c"
-    '("Dailies capture today" . org-roam-dailies-capture-today)
-    "t"
-    '("Today dailies" . org-roam-dailies-goto-today)
-    "y"
-    '("Yesterday dailies" . org-roam-dailies-goto-yesterday)
-    "s"
-    '("Search roam dir" . consult-org-roam-search)
-    )
-  :config
-  ;; If you're using a vertical completion framework, you might want a more informative completion interface
-  (setq org-roam-node-display-template
-	(concat
-         "${title:*} " (propertize "${tags:10}" 'face 'orgomtag)))
-  (org-roam-db-autosync-mode)
-  ;; If using org-roam-protocol
-  (require 'org-roam-protocol)
-  (setq org-roam-dailies-directory "daily")
-  (setq org-roam-completion-everywhere t)
-  (cl-defmethod org-roam-node-hierarchy ((node org-roam-node))
-    (let ((level (org-roam-node-level node)))
-      (concat
-       (when (> level 0) (concat (org-roam-node-file-title node) " > "))
-       (when (> level 1) (concat (string-join (org-roam-node-olp node) " > ") " > "))
-       (org-roam-node-title node))))
-
-  (setq org-roam-node-display-template "${hierarchy:*} ${tags:20}")
-  (setq
-   org-roam-dailies-capture-templates
-   '(("d"
-      "default"
-      entry
-      "* %?"
-      :target (file+head "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>\n")))))
-
-
-
 (use-package gruvbox-theme
   :config
   (setq gruvbox-bold-constructs t)
@@ -176,11 +119,6 @@
 (define-key completion-in-region-mode-map (kbd "C-p") 'minibuffer-previous-completion)
 
 
-(general-def
-  :states 'insert
-  "M-C-i"
-  '("Completion" . completion-at-point )
-  )
 
 
 (general-def
