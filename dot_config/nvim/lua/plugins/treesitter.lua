@@ -303,4 +303,12 @@ return {
                 { desc = "TS repeat last move opposite" })
         end,
     },
+    {
+        "nvim-treesitter/nvim-treesitter-context",
+        event = "BufRead",
+        opts =  {
+            enable = true,
+            max_lines = 1
+        }
+    }
 }
