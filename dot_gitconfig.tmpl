@@ -27,6 +27,9 @@
        process = git-lfs filter-process
        required = true
 
+[push]
+    autoSetupRemote = true
+
 [alias]
 	g = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ad)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'
     c = commit -m
