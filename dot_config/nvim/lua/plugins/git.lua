@@ -53,5 +53,35 @@ return {
                 desc = "Go to file under cursor"
             }
         },
+    },
+    {
+        "NeogitOrg/neogit",
+        dependencies = {
+            "nvim-lua/plenary.nvim",  -- required
+            "esmuellert/codediff.nvim",      -- optional
+            "ibhagwan/fzf-lua",              -- optional
+            "m00qek/baleia.nvim",            -- optional
+        },
+        config = function()
+            local neogit = require("neogit")
+            neogit.setup {
+                graph_style = "unicode",
+                commit_editor = { kind = "tab", staged_diff_split_kind = "auto" }
+            }
+        end,
+        keys = {
+            {
+                "<leader>g/",
+                function()
+                    require('neogit').open()
+                end,
+                desc = "Neogit"
+            },
+            {
+                "<leader>g?",
+                ":Neogit help<CR>",
+                desc = "Neogit help"
+            },
+        },
     }
 }
