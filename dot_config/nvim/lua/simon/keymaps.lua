@@ -72,6 +72,8 @@ vim.keymap.set('n', '<leader>l', function()
   vim.cmd(action)
 end, { noremap = true, silent = true })
 
+vmap.set("n", "<leader>tt", ":term<CR>", { desc = "Open terminal" })
+
 
 function _G.set_terminal_keymaps()
     local opts = { buffer = 0 }
