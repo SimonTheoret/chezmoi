@@ -73,6 +73,7 @@ vim.keymap.set('n', '<leader>l', function()
 end, { noremap = true, silent = true })
 
 vmap.set("n", "<leader>tt", ":term<CR>", { desc = "Open terminal" })
+vmap.set("n", "<leader>tv", ":vsplit term<CR>", { desc = "Open terminal on the right" })
 
 
 function _G.set_terminal_keymaps()
