@@ -60,20 +60,20 @@ vmap.set("i", "<C-b>", "<C-y>", { desc = "accept completion" })
 
 
 vim.keymap.set('n', '<leader>q', function()
-  local qf_winid = vim.fn.getqflist({ winid = 0 }).winid
-  local action = qf_winid > 0 and 'cclose' or 'copen'
-  vim.cmd(action)
+    local qf_winid = vim.fn.getqflist({ winid = 0 }).winid
+    local action = qf_winid > 0 and 'cclose' or 'copen'
+    vim.cmd(action)
 end, { noremap = true, silent = true })
 
 vim.keymap.set('n', '<leader>l', function()
-  local win = vim.api.nvim_get_current_win()
-  local qf_winid = vim.fn.getloclist(win, { winid = 0 }).winid
-  local action = qf_winid > 0 and 'lclose' or 'lopen'
-  vim.cmd(action)
+    local win = vim.api.nvim_get_current_win()
+    local qf_winid = vim.fn.getloclist(win, { winid = 0 }).winid
+    local action = qf_winid > 0 and 'lclose' or 'lopen'
+    vim.cmd(action)
 end, { noremap = true, silent = true })
 
-vmap.set("n", "<leader>tt", ":term<CR>", { desc = "Open terminal" })
-vmap.set("n", "<leader>tv", ":vsplit term<CR>", { desc = "Open terminal on the right" })
+-- vmap.set("n", "<leader>tt", ":term<CR>", { desc = "Open terminal" })
+-- vmap.set("n", "<leader>tv", ":vsplit term<CR>", { desc = "Open terminal on the right" })
 
 
 function _G.set_terminal_keymaps()
