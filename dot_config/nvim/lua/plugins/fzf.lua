@@ -1,33 +1,38 @@
 -- Package name changed from `fff.nvim` to `fff`. If you installed fff.nvim before, clean with `:Lazy clean`
 return {
-    'dmtrKovalenko/fff',
-    build = function()
-        -- downloads a prebuilt binary or falls back to cargo build
-        require("fff.download").download_or_build_binary()
-    end,
-    -- for nixos:
-    -- build = "nix run .#release",
-    opts = {
-        prompt = "> ",
-        debug = {
-            enabled = false,
-            show_scores = false,
-        },
+    {
+        'kevinhwang91/nvim-bqf', ft = 'qf'
     },
-    lazy = false, -- the plugin lazy-initialises itself
-    keys = {
-        { "<leader><leader>", function() require('fff').find_files() end,                                                    desc = 'Files' },
-        { "ff",               function() require('fff').find_files_in_dir(vim.fn.expand("%:p:h")) end,                       desc = 'Files in current directory' },
-        { "ff",               function() require('fff').find_files_in_dir("~/.local/share/chezmoi/") end,                    desc = 'Files in chezmoi' },
-        { "ff",               function() require('fff').find_files_in_dir("~/nixdots") end,                                  desc = 'Files in nixdots' },
-        { "fg",               function() require('fff').live_grep({ grep = { modes = { 'fuzzy', 'regex', 'plain' } } }) end, desc = 'Live grep' },
-        {
-            "fw",
-            function() require('fff').live_grep_under_cursor() end,
-            mode = { 'n', 'x' },
-            desc = 'Search current word / selection',
+    {
+        'dmtrKovalenko/fff',
+        build = function()
+            -- downloads a prebuilt binary or falls back to cargo build
+            require("fff.download").download_or_build_binary()
+        end,
+        -- for nixos:
+        -- build = "nix run .#release",
+        opts = {
+            prompt = "> ",
+            debug = {
+                enabled = false,
+                show_scores = false,
+            },
         },
-    },
+        lazy = false, -- the plugin lazy-initialises itself
+        keys = {
+            { "<leader><leader>", function() require('fff').find_files() end,                                                    desc = 'Files' },
+            { "ff",               function() require('fff').find_files_in_dir(vim.fn.expand("%:p:h")) end,                       desc = 'Files in current directory' },
+            { "fp",               function() require('fff').find_files_in_dir("~/.local/share/chezmoi/") end,                    desc = 'Files in chezmoi' },
+            { "fP",               function() require('fff').find_files_in_dir("~/nixdots") end,                                  desc = 'Files in nixdots' },
+            { "fg",               function() require('fff').live_grep({ grep = { modes = { 'fuzzy', 'regex', 'plain' } } }) end, desc = 'Live grep' },
+            {
+                "fw",
+                function() require('fff').live_grep_under_cursor() end,
+                mode = { 'n', 'x' },
+                desc = 'Search current word / selection',
+            },
+        },
+    }
 }
 -- return {
 --     "ibhagwan/fzf-lua",
@@ -223,4 +228,4 @@ return {
 --             desc = "Fzf resume"
 --         }
 --     }
--- }
+-- }}

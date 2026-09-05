@@ -133,17 +133,15 @@ return {
                 vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition() end,
                     { desc = "LSP definition", buffer = ev.buf })
 
-                vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>',
-                    { desc = "Lsp informations", buffer = ev.buf })
-
-                vim.keymap.set('n', 'gI', function() vim.lsp.buf.implementation() end,
-                    { desc = "LSP implementations", buffer = ev.buf })
-
                 vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { desc = "Lsp signature", buffer = ev.buf })
 
                 vim.keymap.set('i', '<C-h>', vim.lsp.buf.signature_help,
                     { desc = 'Show signature help', buffer = ev.buf })
 
+                vim.keymap.set('n', 'gt', vim.lsp.buf.typehierarchy, { desc = "Lsp hierarchy", buffer = ev.buf })
+
+                vim.keymap.set('n', 'go', vim.lsp.buf.workspace_symbol,
+                    { desc = "Lsp workspace symbols", buffer = ev.buf })
 
                 vim.keymap.set('n', '<leader>ce', vim.lsp.buf.add_workspace_folder,
                     { desc = "Lsp add workspace folder", buffer = ev.buf })
@@ -151,31 +149,23 @@ return {
                 vim.keymap.set('n', '<leader>cw', vim.lsp.buf.remove_workspace_folder,
                     { desc = "Lsp remove workspace folder", buffer = ev.buf })
 
-                -- vim.keymap.set('n', '<leader>xx',
-                --     function()
-                --         vim.diagnostic.setloclist({ open = false })
-                --         require('quicker').toggle({ loclist = true, open = true })
-                --     end,
-                --
-                --     { desc = "Lsp document diagnostics", buffer = ev.buf })
-                --
-                -- vim.keymap.set('n', '<leader>xX',
-                --     function()
-                --         vim.diagnostic.setqflist({ open = false })
-                --         require('quicker').toggle({ focus = true })
-                --     end,
-                --
-                --     { desc = "Lsp workspace diagnostics", buffer = ev.buf })
+                vim.keymap.set('n', '<leader>xx',
+                    function()
+                        vim.diagnostic.setloclist({ open = true })
+                    end,
+
+                    { desc = "Lsp document diagnostics", buffer = ev.buf })
+
+                vim.keymap.set('n', '<leader>xd',
+                    function()
+                        vim.diagnostic.setqflist({ open = true })
+                    end,
+
+                    { desc = "Lsp workspace diagnostics", buffer = ev.buf })
 
                 vim.keymap.set('n', '<leader>cll', function()
                     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
                 end, { desc = "Lsp list workspace folders", buffer = ev.buf })
-
-                vim.keymap.set('n', 'gy', function() vim.lsp.buf.type_definition() end,
-                    { desc = "LSP type definition", buffer = ev.buf })
-
-                vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action,
-                    { desc = "Lsp code action", buffer = ev.buf })
 
                 vim.keymap.set('n', '<leader>bf', function()
                     vim.lsp.buf.format { async = true }
