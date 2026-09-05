@@ -431,6 +431,8 @@ support_kitty_keyboard_protocol true
 //
 // stacked_resize false
 
+stacked_pane_list false
+
 // Whether to show tips on startup
 // Default: true
 //
