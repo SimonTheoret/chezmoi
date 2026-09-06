@@ -39,7 +39,6 @@ vmap.set("n", "<leader>o", "o<Esc>k", { desc = "Whitespace under cursor" })
 vmap.set("n", "<leader>O", 'O<Esc>j', { desc = "Whitespace above cursor" })
 
 vmap.set("n", "<leader>cd", ":cd %:h<CR>", { desc = "Make file's path as working dir" })
-vmap.set("n", "<leader>cd", ":cd %:h<CR>", { desc = "Make file's path as working dir" })
 vmap.set("n", "<leader>pwd", ":lua print(vim.api.nvim_buf_get_name(0))<CR>", { desc = "Print current buffer path" })
 
 -- Notes

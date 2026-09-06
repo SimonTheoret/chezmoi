@@ -51,9 +51,16 @@ return {
                     }
                 },
             })
-            fzf.setup_fzfvim_cmds()
         end,
         keys = {
+            {
+                "<leader>fA",
+                function()
+                    require('fzf-lua').files({ no_ignore = true })
+                end,
+                desc = "List all files"
+            },
+
             {
                 "<C-x><C-f>",
                 function() require("fzf-lua").complete_path() end,

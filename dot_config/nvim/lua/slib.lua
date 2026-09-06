@@ -8,8 +8,8 @@ end
 M.programming_ft = {
     "rust", "python", "go", "lua", "bash", "nix", "gleam", "tex", "cpp", "sql",
     "css", "html", "cmake", "sh", "typescript", "javascript", "php", "vue",
-    "javascriptreact", "typescriptreact", "proto", "fish","dockerfile","yaml",
-    "yml", "yml.docker-compose", "docker-compose", "zsh"
+    "javascriptreact", "typescriptreact", "proto", "fish", "dockerfile", "yaml",
+    "yml", "yml.docker-compose", "docker-compose", "zsh", "ron"
 }
 
 

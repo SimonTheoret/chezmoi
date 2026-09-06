@@ -52,6 +52,7 @@ return {
                 "python",
                 "query",
                 "regex",
+                "ron",
                 "ruby",
                 "rust",
                 "scss",
