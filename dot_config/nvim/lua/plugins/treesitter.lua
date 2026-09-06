@@ -282,20 +282,6 @@ return {
                 { desc = "Previous class end" }
             )
 
-            -- Go to either the start or the end, whichever is closer.
-            -- Use if you want more granular movements
-            vim.keymap.set({ "n", "x", "o" }, "]d", function()
-                    require("nvim-treesitter-textobjects.move").goto_next("@conditional.outer", "textobjects")
-                end,
-                { desc = "Next conditional" }
-            )
-            vim.keymap.set({ "n", "x", "o" }, "[d", function()
-                    require("nvim-treesitter-textobjects.move").goto_previous("@conditional.outer", "textobjects")
-                end,
-                { desc = "Previous conditional" }
-            )
-
-
             local ts_repeat_move = require "nvim-treesitter-textobjects.repeatable_move"
 
             vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move, { desc = "TS repeat last move" })
@@ -306,7 +292,7 @@ return {
     {
         "nvim-treesitter/nvim-treesitter-context",
         event = "BufRead",
-        opts =  {
+        opts = {
             enable = true,
             max_lines = 1
         }
