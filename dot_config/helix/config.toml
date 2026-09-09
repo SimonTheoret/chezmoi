@@ -12,6 +12,7 @@ end-of-line-diagnostics = "disable"
 color-modes = true
 auto-format = true
 cursorline = true
+clipboard-provider = "termcode"
 
 # TODO: Add to next release of helix:
 # rainbow-brackets = true
@@ -113,3 +114,4 @@ separator = "|"
 insert = "bar"
 normal = "block"
 select = "underline"
+
