@@ -55,6 +55,7 @@ C-h = "signature_help"
 space.m = "goto_word"
 space.C-r = ":redraw"
 "\\" = "match_brackets"
+space.H.r = ":reset-diff-change"
 
 [keys.normal.space.c]
 c = ":! zr.fish"
