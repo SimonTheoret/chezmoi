@@ -1,1 +1,5 @@
 leader = " "
+theme = "gruvbox-dark"
+mouse = false
+comment_vim = true           # vim modal editing in the review comment box
+
