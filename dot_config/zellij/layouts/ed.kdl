@@ -27,10 +27,10 @@ layout {
             plugin location="compact-bar"
     	}
     }
-     tab name="opencode" {
+     tab name="claude" {
         pane {
-            name "opencode"
-            command "opencode"
+            name "claude"
+            command "claude"
         }
     	pane size=1 borderless=true {
             plugin location="compact-bar"
