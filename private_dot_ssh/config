@@ -3,7 +3,7 @@ Host server1
     User simon
 
 Host server2
-    HostName 192.168.18.7
+    HostName 192.168.18.14
     User simon
 
 Host github.com
