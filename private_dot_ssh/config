@@ -1,5 +1,9 @@
-Host server
-    HostName 192.168.18.10
+Host server1
+    HostName 192.168.18.15
+    User simon
+
+Host server2
+    HostName 192.168.18.7
     User simon
 
 Host github.com
