@@ -27,11 +27,19 @@ layout {
             plugin location="compact-bar"
     	}
     }
+{{ if eq .chezmoi.os "darwin"  }}
      tab name="claude" {
         pane {
             name "claude"
             command "claude"
         }
+        {{ else }}
+     tab name="opencode" {
+        pane {
+            name "opencode"
+            command "opencode"
+        }
+{{ end }}
     	pane size=1 borderless=true {
             plugin location="compact-bar"
     	}
