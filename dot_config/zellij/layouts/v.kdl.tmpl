@@ -22,6 +22,22 @@ layout {
             plugin location="compact-bar"
     	}
     }
+{{ if (or (eq .chezmoi.os "darwin") (eq .chezmoi.os "linux"))  }}
+     tab name="claude" {
+        pane {
+            name "claude"
+            command "claude"
+        }
+    }
+        {{ else }}
+     tab name="opencode" {
+        pane {
+            name "opencode"
+            command "opencode"
+        }
+    }
+{{ end }}
+
     tab name="yazi" {
         pane {
             name   "yazi"
