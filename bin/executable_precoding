@@ -508,7 +508,7 @@ def write_file(path: Path, content: str, force: bool) -> None:
 
 
 def cmd_playbook(args: argparse.Namespace) -> None:
-    default = {"en": "pre-coding-playbook.md", "fr": "guide-pre-codage.md"}[args.lang]
+    default = {"en": "stheoret-pre-coding-playbook.md", "fr": "stheoret-guide-pre-codage.md"}[args.lang]
     write_file(Path(args.output or default), render_playbook(args.lang), args.force)
 
 
@@ -547,8 +547,8 @@ Run `%(prog)s <command> -h` for the options of each command."""
 
 MAIN_EPILOG = """\
 examples:
-  %(prog)s playbook                      # English playbook -> pre-coding-playbook.md
-  %(prog)s playbook --lang fr            # French playbook  -> guide-pre-codage.md
+  %(prog)s playbook                      # English playbook -> stheoret-pre-coding-playbook.md
+  %(prog)s playbook --lang fr            # French playbook  -> stheoret-guide-pre-codage.md
   %(prog)s new-design "Add retry policy" --size medium
   %(prog)s new-design "Fix typo in error message" --size small      # printed to stdout
   %(prog)s new-design "Rewrite billing module" --size large \\
@@ -560,8 +560,8 @@ coding, a table to size the design artifact, and a checklist for each step."""
 
 PLAYBOOK_EPILOG = """\
 examples:
-  %(prog)s                                   # -> pre-coding-playbook.md
-  %(prog)s --lang fr                         # -> guide-pre-codage.md
+  %(prog)s                                   # -> stheoret-pre-coding-playbook.md
+  %(prog)s --lang fr                         # -> stheoret-guide-pre-codage.md
   %(prog)s -o docs/playbook.md --force       # custom path, overwrite if present"""
 
 DESIGN_DESCRIPTION = """\
@@ -614,8 +614,8 @@ def build_parser() -> argparse.ArgumentParser:
     )
     p.add_argument(
         "-o", "--output", metavar="PATH",
-        help="Output file. Default: pre-coding-playbook.md (en) "
-             "or guide-pre-codage.md (fr).",
+        help="Output file. Default: stheoret-pre-coding-playbook.md (en) "
+             "or stheoret-guide-pre-codage.md (fr).",
     )
     p.add_argument(
         "--force", action="store_true",
