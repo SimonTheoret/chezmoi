@@ -1,0 +1,7 @@
+[[keys.command]]
+key = "prefix+alt+g"        # prefix is ctrl+b by default
+type = "popup"
+command = "$SHELL"         # or "fish", "$SHELL", etc.
+description = "run lazygit"
+width = "80%"               # optional: "80%" or a number of cells
+height = "80%"
