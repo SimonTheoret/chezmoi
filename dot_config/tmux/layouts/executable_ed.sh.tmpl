@@ -1,0 +1,28 @@
+#!/bin/sh
+# tmux port of ~/.config/zellij/layouts/ed.kdl
+# Usage: ed.sh [session-name]   (defaults to the current directory name)
+set -e
+
+session=${1:-$(basename "$PWD")}
+
+if ! tmux has-session -t "=$session" 2>/dev/null; then
+	# Create at the real terminal size so the percentages below hold
+	editor=$(tmux new-session -d -P -F '#{pane_id}' -s "$session" -n editor \
+		-x "$(tput cols 2>/dev/null || echo 200)" -y "$(tput lines 2>/dev/null || echo 50)")
+	# 65% editor on the left, three panes on the right (tmux has no stacked panes)
+	right=$(tmux split-window -h -d -P -F '#{pane_id}' -t "$editor" -l 35%)
+	lower=$(tmux split-window -v -d -P -F '#{pane_id}' -t "$right" -l 67%)
+	tmux split-window -v -d -t "$lower" -l 50%
+
+	tmux new-window -d -t "=$session:" -n term
+	for app in {{ if (or (eq .chezmoi.os "darwin") (eq .chezmoi.os "linux")) }}claude{{ else }}opencode{{ end }} yazi lazygit lazydocker; do
+		pane=$(tmux new-window -d -P -F '#{pane_id}' -t "=$session:" -n "$app")
+		tmux send-keys -t "$pane" "$app" Enter
+	done
+fi
+
+if [ -n "$TMUX" ]; then
+	tmux switch-client -t "=$session"
+else
+	exec tmux attach-session -t "=$session"
+fi
