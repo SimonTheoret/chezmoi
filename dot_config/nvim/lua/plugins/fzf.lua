@@ -1,37 +1,6 @@
--- Package name changed from `fff.nvim` to `fff`. If you installed fff.nvim before, clean with `:Lazy clean`
 return {
     {
         'kevinhwang91/nvim-bqf', ft = 'qf'
-    },
-    {
-        'dmtrKovalenko/fff',
-        build = function()
-            -- downloads a prebuilt binary or falls back to cargo build
-            require("fff.download").download_or_build_binary()
-        end,
-        -- for nixos:
-        -- build = "nix run .#release",
-        opts = {
-            prompt = "> ",
-            debug = {
-                enabled = false,
-                show_scores = false,
-            },
-        },
-        lazy = false, -- the plugin lazy-initialises itself
-        keys = {
-            { "<leader><leader>", function() require('fff').find_files() end,                                                    desc = 'Files' },
-            { "<leader>ff",       function() require('fff').find_files_in_dir(vim.fn.expand("%:p:h")) end,                       desc = 'Files in current directory' },
-            { "<leader>fp",       function() require('fff').find_files_in_dir("~/.local/share/chezmoi/") end,                    desc = 'Files in chezmoi' },
-            { "<leader>fP",       function() require('fff').find_files_in_dir("~/nixdots") end,                                  desc = 'Files in nixdots' },
-            { "<leader>fg",       function() require('fff').live_grep({ grep = { modes = { 'fuzzy', 'regex', 'plain' } } }) end, desc = 'Live grep' },
-            {
-                "<leader>fw",
-                function() require('fff').live_grep_under_cursor() end,
-                mode = { 'n', 'x' },
-                desc = 'Search current word / selection',
-            },
-        },
     },
     {
         "ibhagwan/fzf-lua",
@@ -51,6 +20,13 @@ return {
             })
         end,
         keys = {
+            { "<leader><leader>", function() require('fzf-lua').files() end,                                     desc = 'Files' },
+            { "<leader>ff",       function() require('fzf-lua').files({ cwd = vim.fn.expand("%:p:h") }) end,     desc = 'Files in current directory' },
+            { "<leader>fp",       function() require('fzf-lua').files({ cwd = "~/.local/share/chezmoi/" }) end, desc = 'Files in chezmoi' },
+            { "<leader>fP",       function() require('fzf-lua').files({ cwd = "~/nixdots" }) end,              desc = 'Files in nixdots' },
+            { "<leader>fg",       function() require('fzf-lua').live_grep() end,                                desc = 'Live grep' },
+            { "<leader>fw",       function() require('fzf-lua').grep_cword() end,                              desc = 'Search current word' },
+            { "<leader>fw",       function() require('fzf-lua').grep_visual() end,                             mode = 'x', desc = 'Search selection' },
             {
                 "<leader>fA",
                 function()
