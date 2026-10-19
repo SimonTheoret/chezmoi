@@ -1,0 +1,21 @@
+#!/bin/sh
+# tmux port of ~/.config/zellij/layouts/v.kdl
+# Usage: v.sh [session-name]   (defaults to the current directory name)
+set -e
+
+session=${1:-$(basename "$PWD")}
+
+if ! tmux has-session -t "=$session" 2>/dev/null; then
+	tmux new-session -d -s "$session" -n editor
+	tmux new-window -d -t "=$session:" -n term
+	for app in {{ if (or (eq .chezmoi.os "darwin") (eq .chezmoi.os "linux")) }}claude{{ else }}opencode{{ end }} yazi lazygit lazydocker; do
+		pane=$(tmux new-window -d -P -F '#{pane_id}' -t "=$session:" -n "$app")
+		tmux send-keys -t "$pane" "$app" Enter
+	done
+fi
+
+if [ -n "$TMUX" ]; then
+	tmux switch-client -t "=$session"
+else
+	exec tmux attach-session -t "=$session"
+fi
