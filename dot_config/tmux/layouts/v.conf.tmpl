@@ -1,0 +1,20 @@
+# tmux port of zellij/layouts/v.kdl
+#
+# New session:      tmux new -s v \; source-file ~/.config/tmux/layouts/v.conf
+# Current session:  Alt a, o, l (layouts menu)
+#
+# The current window becomes "editor"; the other tabs are created in the
+# background so the editor keeps the focus. Commands drop to a shell when
+# they exit, like zellij command panes.
+
+rename-window editor
+
+new-window -d -n term -c "#{pane_current_path}"
+{{ if (or (eq .chezmoi.os "darwin") (eq .chezmoi.os "linux")) -}}
+new-window -d -n claude -c "#{pane_current_path}" 'claude; exec $SHELL'
+{{- else -}}
+new-window -d -n opencode -c "#{pane_current_path}" 'opencode; exec $SHELL'
+{{- end }}
+new-window -d -n yazi -c "#{pane_current_path}" 'yazi; exec $SHELL'
+new-window -d -n lazygit -c "#{pane_current_path}" 'lazygit; exec $SHELL'
+new-window -d -n lazydocker -c "#{pane_current_path}" 'lazydocker; exec $SHELL'
