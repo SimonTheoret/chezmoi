@@ -30,6 +30,9 @@
     "autoAllowBashIfSandboxed": true,
     "network": {
       "allowLocalBinding": true
+    },
+    "filesystem": {
+      "allowWrite": ["~/.cache/uv"]
     }
   }
 }
