@@ -3,7 +3,6 @@ return {
     ft = require('slib').programming_ft,
     version = "*",
     dependencies = {
-        -- 'saghen/blink.cmp',
         "stevearc/quicker.nvim" },
     config = function()
         -- python LSP
