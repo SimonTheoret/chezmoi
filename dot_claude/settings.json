@@ -1,16 +1,5 @@
 {
   "model": "opus[1m]",
-  "enabledPlugins": {
-    "pyright-lsp@claude-plugins-official": true,
-    "typescript-lsp@claude-plugins-official": true
-  },
-  "outputStyle": "Concise",
-  "modelSettings": {
-    "claude-opus-5-5": {
-      "effortLevel": "xhigh"
-    }
-  },
-  "tui": "fullscreen",
   "hooks": {
     "SessionStart": [
       {
@@ -25,6 +14,12 @@
       }
     ]
   },
+  "enabledPlugins": {
+    "pyright-lsp@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true
+  },
+  "outputStyle": "Concise",
   "sandbox": {
     "enabled": true,
     "autoAllowBashIfSandboxed": true,
@@ -32,7 +27,18 @@
       "allowLocalBinding": true
     },
     "filesystem": {
-      "allowWrite": ["~/.cache/uv"]
+      "allowWrite": [
+        "~/.cache/uv"
+      ]
     }
-  }
+  },
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "xhigh"
+    }
+  },
+  "tui": "fullscreen",
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+}
 }
