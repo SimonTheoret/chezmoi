@@ -1,7 +1,42 @@
+onboarding=false
+[theme]
+name = "gruvbox"
+
 [[keys.command]]
 key = "prefix+alt+g"        # prefix is ctrl+b by default
 type = "popup"
 command = "$SHELL"         # or "fish", "$SHELL", etc.
 description = "run lazygit"
 width = "80%"               # optional: "80%" or a number of cells
+height = "80%"
+
+[ui]
+status_indicators = "symbols"
+pane_gaps = false
+
+[ui.sound]
+enabled = false
+
+[ui.toast]
+delivery = "herdr"
+
+
+[keys]
+focus_agent = "prefix+alt+1..9"
+
+[[keys.command]]
+key = "prefix+alt+i"
+type = "popup"
+command = "lazygit"
+description = "run lazygit"
+width = "80%"
+height = "80%"
+
+
+[[keys.command]]
+key = "prefix+alt+j"
+type = "popup"
+command = "lazydocker"
+description = "run lazydocker"
+width = "80%"
 height = "80%"
