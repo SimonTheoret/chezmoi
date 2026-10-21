@@ -41,3 +41,9 @@
 [lfs "https://git.druide.com/dev/code.git/info/lfs"]
     locksverify = true
 {{end}}
+
+
+{{ if (or (eq .chezmoi.os "darwin") (and (eq .chezmoi.os "linux") (eq .chezmoi.username "stheoret") ))  }}
+[url "ssh://git@git.druide.com/"]
+       insteadOf = https://git.druide.com/
+{{end}}
