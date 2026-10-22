@@ -56,6 +56,8 @@ vmap.set("n", "<leader>tc", ":tabclose<CR>", { desc = "Close tab" })
 vmap.set("n", "<leader>te", ":tabedit<CR>", { desc = "New tab" })
 
 vmap.set("i", "<C-b>", "<C-y>", { desc = "accept completion" })
+vmap.set("n", "<leader>tt", ":term<CR>", { desc = "Open a terminal" })
+vmap.set("n", "<leader>cc", ":make ", { desc = "make" })
 
 
 vim.keymap.set('n', '<leader>q', function()
