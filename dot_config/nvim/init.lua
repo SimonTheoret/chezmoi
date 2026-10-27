@@ -53,6 +53,7 @@ vim.opt.autocomplete = true
 vim.opt.pumheight = 8
 vim.opt.complete = { "o" }
 vim.opt.autocompletedelay = 50
+vim.o.shell = "/usr/bin/env bash"
 
 vim.filetype.add({
     filename = {
