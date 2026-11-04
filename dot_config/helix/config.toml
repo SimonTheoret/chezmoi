@@ -70,7 +70,8 @@ F = [":open %{selection}"]
 [keys.normal.space.f]
 f = "file_picker_in_current_buffer_directory"
 g = "global_search"
-d = [":vsplit-new", ":lang diff", ":insert-output git diff"]
+d = [":vsplit-new", ":lang diff", ":insert-output git diff --color-moved=zebra --color-moved-ws=allow-indentation-change --cached"]
+D = [":vsplit-new", ":lang diff", ":insert-output git diff --color-moved=zebra --color-moved-ws=allow-indentation-change"]
 a = [":! git add %{buffer_name}"]
 p = [":e ~/.local/share/chezmoi"]
 b = [":buffer-close!"]
