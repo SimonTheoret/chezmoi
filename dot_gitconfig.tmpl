@@ -5,19 +5,25 @@
     email = simonteoret@hotmail.com
     {{end}}
 	name = Simon Théorêt
+
 [pull]
 	rebase = true
+
 [core]
     editor = $EDITOR
     pager = delta
     excludesfile = ~/.gitignore
+
 [interactive]
     diffFilter = delta --color-only
+
 [delta]
     navigate = true  # use n and N to move between diff sections
     line-numbers = false
     syntax-theme = gruvbox-dark
 	features = diff-so-fancy
+    dark = true
+
 [difftool]
     prompt = true
 
@@ -26,6 +32,8 @@
        smudge = git-lfs smudge -- %f
        process = git-lfs filter-process
        required = true
+[merge]
+    conflictStyle = zdiff3
 
 [push]
     autoSetupRemote = true
