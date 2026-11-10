@@ -8,3 +8,4 @@ os:
 git:
   diffRenderers:
     - command: delta --dark --paging=never
+  mainBranches: [tronc, master, main]
