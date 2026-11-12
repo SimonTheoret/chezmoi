@@ -2,7 +2,7 @@ local treesitter = require("nvim-treesitter")
 
 treesitter.install({
 	"javascript", "typescript", "python", "lua", "rust", "go", "ocaml",
-	"elixir", "heex", "eex", "surface", "markdown", "markdown_inline",
+	"elixir", "heex", "eex", "surface", "markdown", "markdown_inline",toml
 })
 
 vim.api.nvim_create_autocmd("FileType", {

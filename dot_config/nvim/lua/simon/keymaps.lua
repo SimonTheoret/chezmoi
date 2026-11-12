@@ -18,8 +18,6 @@ local key_menu = require("key-menu")
 key_menu.set("n", "<Space>")
 
 key_binding("u", "noh", "Clear highlights")
-key_binding("q", "wqa", "Quit")
-key_binding("Q", "qa!", "Quit without saving")
 
 key_menu.set("n", "<Space>l", { desc = "LSP" })
 key_binding("lr", vim.lsp.buf.rename, "Rename")
