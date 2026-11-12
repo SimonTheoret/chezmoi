@@ -1,105 +1,64 @@
--- Useful keymaps:
-local vmap = vim.keymap
-
--- Move selection up or down
-vmap.set("v", "J", ":m '>+1<CR>gv=gv")
-vmap.set("v", "K", ":m '<-2<CR>gv=gv")
-
--- Cursor is centered during Ctrl+u/Ctrl+d
-vmap.set("n", "<C-d>", "<C-d>zz")
-vmap.set("n", "<C-u>", "<C-u>zz")
-
--- Searched for term stays in middle of screen during navigation)
-vmap.set("n", "n", "nzzzv")
-vmap.set("n", "N", "Nzzzv")
-
--- Copy the clipboard content into system clipboard
-vmap.set({ "n", "v" }, "<leader>y", [["+y]],
-    { desc = "Copy clipboard into system clipboard" })
-
-vmap.set("n", "<leader>Y", [["+Y]],
-    { desc = "Copy clipboard into system clipboard with overwrite" })
-
--- Modify the word under the cursor in the whole file
-vmap.set("n", "<leader>mod",
-    [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-    { desc = "Modify word in whole file" })
-
--- Emacs
-vmap.set("n", "<M-x>", "q:", { desc = "Commands" })
+-- Y yank until the end of line  (note: this is now a default on master)
+vim.keymap.set("n", "Y", "y$", { noremap = true })
+-- Re-center on next term
+vim.keymap.set("n", "n", "nzz", { noremap = true })
+vim.keymap.set("n", "N", "Nzz", { noremap = true })
 
 -- Helix
-vmap.set({ "n", "v", "o", "x" }, "\\", "%")
-vmap.set({ "n", "v", "o", "x" }, "gl", "$")
-vmap.set({ "n", "v", "o", "x" }, "gh", "0")
-vmap.set("n", "%", "ggVG")
+vim.keymap.set({ "n", "v", "o", "x" }, "\\", "%", { desc = "Matching bracket" })
+vim.keymap.set({ "n", "v", "o", "x" }, "gl", "$", { desc = "Line end" })
+vim.keymap.set({ "n", "v", "o", "x" }, "gh", "0", { desc = "Line start" })
+vim.keymap.set("n", "%", "ggVG", { desc = "Select whole file" })
 
--- Insert blank lines
-vmap.set("n", "<leader>o", "o<Esc>k", { desc = "Whitespace under cursor" })
-vmap.set("n", "<leader>O", 'O<Esc>j', { desc = "Whitespace above cursor" })
-
-vmap.set("n", "<leader>cd", ":cd %:h<CR>", { desc = "Make file's path as working dir" })
-vmap.set("n", "<leader>pwd", ":lua print(vim.api.nvim_buf_get_name(0))<CR>", { desc = "Print current buffer path" })
-
--- Notes
-vmap.set("n", "<leader>mm", ":80vs notes_perso_stheoret.md<CR>", { desc = "Open notes in directory root" })
-
--- Marks
-vmap.set("n", "<leader>ba", ":delm! | delm A-Z0-9 <CR>", { desc = "Remove all marks" })
-
-vmap.set("n", "<leader>bb", ":only<CR>", { desc = "Focus buffer" })
-
-vmap.set("n", "<leader>E", ":w<CR>", { desc = "Save current file" })
-
--- Keymaps for tabs
-vmap.set("n", "<leader>tc", ":tabclose<CR>", { desc = "Close tab" })
-vmap.set("n", "<leader>te", ":tabedit<CR>", { desc = "New tab" })
-
-vmap.set("i", "<C-b>", "<C-y>", { desc = "accept completion" })
-vmap.set("n", "<leader>tt", function()
-    local shell = vim.env.SHELL or ""
-    vim.cmd("term" .. shell)
-end, { desc = "Open a terminal" })
--- vmap.set("n", "<leader>cc", ":make ", { desc = "make" })
-
-
-vim.keymap.set('n', '<leader>q', function()
-    local qf_winid = vim.fn.getqflist({ winid = 0 }).winid
-    local action = qf_winid > 0 and 'cclose' or 'copen'
-    vim.cmd(action)
-end, { noremap = true, silent = true })
-
-vim.keymap.set('n', '<leader>l', function()
-    local win = vim.api.nvim_get_current_win()
-    local qf_winid = vim.fn.getloclist(win, { winid = 0 }).winid
-    local action = qf_winid > 0 and 'lclose' or 'lopen'
-    vim.cmd(action)
-end, { noremap = true, silent = true })
-
--- vmap.set("n", "<leader>tt", ":term<CR>", { desc = "Open terminal" })
--- vmap.set("n", "<leader>tv", ":vsplit term<CR>", { desc = "Open terminal on the right" })
-
-
-function _G.set_terminal_keymaps()
-    local opts = { buffer = 0 }
-    vim.keymap.set('t', '<C-m><C-m>', [[<C-\><C-n>]], opts)
-    vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
-    vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]], opts)
-    vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]], opts)
-    vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], opts)
+local function cmd(text, lua)
+	if lua then
+		return ":lua " .. text .. "<CR>"
+	else
+		return "<Cmd>" .. text .. "<CR>"
+	end
 end
 
-vim.cmd('autocmd! TermOpen term://*toggleterm#* lua set_terminal_keymaps()')
-vim.cmd('autocmd! TermOpen term://*bash* lua set_terminal_keymaps()')
-vim.cmd('autocmd! TermOpen term://*zsh* lua set_terminal_keymaps()')
-vim.cmd('autocmd! TermOpen term://*sh* lua set_terminal_keymaps()')
-vim.cmd('autocmd! TermOpen term://*fish* lua set_terminal_keymaps()')
+local function key_binding(key, command, description, mode, lua)
+	if mode == nil then
+		mode = "n"
+	end
+	vim.keymap.set(mode, "<leader>" .. key, cmd(command, lua), { desc = description })
+end
 
-vmap.set("n", "<leader>cln", function()
-    local search = "%s/\\s\\+$//e"
-    vim.cmd(search)
-    vim.cmd("noh")
-end, { desc = "Clean trailing whitespaces" })
+local key_menu = require("key-menu")
+key_menu.set("n", "<Space>")
 
-vim.api.nvim_set_keymap("n", "gx", [[:silent execute '!$BROWSER ' . shellescape(expand('<cfile>'), 1)<CR>]],
-    { desc = "Open link in browser" })
+-- Fundamentals
+key_binding("u", "noh", "Clear highlights")
+key_binding("q", "wqa", "Quit")
+key_binding("Q", "qa!", "Quit without saving")
+
+-- LSP bindings
+key_menu.set("n", "<Space>l", { desc = "LSP" })
+key_binding("lr", "vim.lsp.buf.rename()", "Rename", nil, true)
+key_binding("lR", "vim.lsp.buf.references()", "Find References", nil, true)
+key_binding("ld", "vim.lsp.buf.definition()", "Go to Definition", nil, true)
+key_binding("la", "vim.lsp.buf.code_action()", "Code Action", nil, true)
+key_binding("le", "vim.diagnostic.open_float()", "Diagnostics", nil, true)
+key_binding("li", "vim.lsp.buf.incoming_calls()", "Incoming Calls", nil, true)
+key_binding("lo", "vim.lsp.buf.outgoing_calls()", "Outgoing Calls", nil, true)
+
+-- Telescope
+key_menu.set("n", "<Space>t", { desc = " Telescope" })
+key_binding("tf", "Telescope find_files", "󰈔 Find Files")
+key_binding("tg", "Telescope live_grep", "󰈭 Grep")
+key_binding("ta", "Telescope aerial", "Symbols")
+key_binding("tr", "Telescope oldfiles", "Recent files")
+key_binding("tb", "Telescope buffers", "Open buffers")
+key_binding("tC", "Telescope command_history", "Command History")
+key_binding("tc", "Telescope colorscheme", "Themes")
+key_binding("tS", "require('telescope.builtin').live_grep({cwd = '~/Documents'})", "Search all projects", nil, true)
+-- <leader>f* finders (ported from fzf-lua) are defined in lua/plugins/telescope.lua
+key_menu.set("n", "<Space>f", { desc = "󰈞 Find" })
+
+-- Trouble
+key_binding("Td", "Trouble diagnostics", "Diagnostics")
+key_binding("Tt", "Trouble todo", "TO-DO comments")
+
+-- Oil
+key_binding("o", "Oil", "Edit files (oil)")

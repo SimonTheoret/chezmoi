@@ -1,5 +1,7 @@
+-- Colorscheme: gruvbox (dark), loaded at startup.
 return {
     "ellisonleao/gruvbox.nvim",
+    lazy = false,
     priority = 1000,
     config = function()
         require("gruvbox").setup({
