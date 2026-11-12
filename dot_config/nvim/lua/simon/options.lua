@@ -1,4 +1,4 @@
-vim.opt.wrap = false
+vim.opt.wrap = true
 vim.opt.errorbells = false
 vim.opt.undofile = true
 vim.opt.incsearch = true

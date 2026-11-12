@@ -36,3 +36,4 @@ key_binding("Td", "Trouble diagnostics", "Diagnostics")
 key_binding("Tt", "Trouble todo", "TO-DO comments")
 
 key_binding("o", "Oil", "Edit files (oil)")
+key_binding("tt", "term", "Open terminal")
