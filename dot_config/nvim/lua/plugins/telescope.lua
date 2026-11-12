@@ -1,13 +1,23 @@
--- UI to select things (files, grep results, open buffers...)
--- Picker setup is in lua/simon/telescope.lua; the keys below are ported from the old fzf-lua config.
 local function builtin(picker, opts)
     return function()
-        -- pickers mutate their opts, so hand each call a fresh copy
         require("telescope.builtin")[picker](vim.deepcopy(opts))
     end
 end
 
--- Text of the current visual selection (any visual mode); leaves visual mode.
+local function find_files(opts)
+    local cmd = vim.fn.executable("fd") == 1
+            and { "fd", "--type", "f", "--type", "l", "--color", "never", "--exclude", ".git" }
+        or { "rg", "--files", "--color", "never", "--glob", "!**/.git/*" }
+    require("telescope.builtin").find_files(vim.tbl_extend("force", { hidden = true, find_command = cmd }, opts or {}))
+end
+
+local function buffer_dir()
+    if vim.bo.filetype == "oil" then
+        return require("oil").get_current_dir()
+    end
+    return vim.fn.expand("%:p:h")
+end
+
 local function visual_selection()
     local lines = vim.fn.getregion(vim.fn.getpos("v"), vim.fn.getpos("."), { type = vim.fn.mode() })
     vim.api.nvim_feedkeys(vim.keycode("<Esc>"), "nx", false)
@@ -23,20 +33,16 @@ return {
         require("simon.telescope")
     end,
     keys = {
-        -- Files
-        { "<leader><leader>", builtin("find_files"),                                          desc = "Files" },
-        {
-            "<leader>ff",
-            function() require("telescope.builtin").find_files({ cwd = vim.fn.expand("%:p:h") }) end,
-            desc = "Files in current directory",
-        },
-        { "<leader>fp",       builtin("find_files", { cwd = "~/.local/share/chezmoi/" }),      desc = "Files in chezmoi" },
-        { "<leader>fP",       builtin("find_files", { cwd = "~/nixdots" }),                    desc = "Files in nixdots" },
-        { "<leader>fA",       builtin("find_files", { no_ignore = true }),                     desc = "List all files" },
-        { "<leader>fb",       builtin("buffers"),                                              desc = "List buffers" },
+        { "<leader><leader>", function() find_files() end,                                     desc = "Files" },
+        { "<leader>ff",       function() find_files({ cwd = buffer_dir() }) end,               desc = "Files in current directory" },
+        { "<leader>fp",       function() find_files({ cwd = "~/.local/share/chezmoi/" }) end,  desc = "Files in chezmoi" },
+        { "<leader>fP",       function() find_files({ cwd = "~/nixdots" }) end,                desc = "Files in nixdots" },
+        { "<leader>fA",       function() find_files({ no_ignore = true }) end,                 desc = "List all files" },
+        { "<leader>fb",       builtin("buffers", { sort_mru = true, sort_lastused = true }),   desc = "List buffers" },
+        { "<leader>fo",       builtin("oldfiles"),                                             desc = "Recent files" },
 
-        -- Grep ("pattern  glob": two spaces before an optional rg glob, like fzf-lua's rg_glob)
         { "<leader>fg",       function() require("simon.telescope").live_multigrep() end,     desc = "Live grep" },
+        { "<leader>fS",       builtin("live_grep", { cwd = "~/Documents" }),                   desc = "Search all projects" },
         { "<leader>fw",       builtin("grep_string"),                                          desc = "Search current word" },
         {
             "<leader>fw",
@@ -45,13 +51,12 @@ return {
             desc = "Search selection",
         },
 
-        -- Vim
         { "<leader>fk",       builtin("keymaps"),                                              desc = "List keymaps" },
+        { "<leader>fC",       builtin("command_history"),                                      desc = "Command history" },
         { "<leader>fH",       builtin("help_tags"),                                            desc = "Vim help" },
-        { "<leader>fh",       builtin("man_pages"),                                            desc = "Man pages" },
+        { "<leader>fh",       builtin("man_pages", { sections = { "ALL" } }),                  desc = "Man pages" },
         { "<leader>'",        builtin("resume"),                                               desc = "Telescope resume" },
 
-        -- LSP
         {
             "<leader>fJ",
             function()
@@ -64,12 +69,12 @@ return {
             desc = "Lsp workspace symbols query",
         },
         { "<leader>fj",       builtin("lsp_document_symbols"),                                 desc = "Lsp document symbols" },
+        { "<leader>fa",       "<Cmd>Telescope aerial<CR>",                                     desc = "Symbols (aerial)" },
         { "<leader>fi",       builtin("lsp_dynamic_workspace_symbols"),                        desc = "Lsp live workspace symbols" },
         { "<leader>fr",       builtin("lsp_references"),                                       desc = "Lsp references" },
         { "gai",              builtin("lsp_incoming_calls"),                                   desc = "C[a]lls Incoming" },
         { "gao",              builtin("lsp_outgoing_calls"),                                   desc = "C[a]lls Outgoing" },
 
-        -- Diagnostics
         { "<leader>fd",       builtin("diagnostics", { bufnr = 0 }),                           desc = "Document diagnostics" },
         { "<leader>fD",       builtin("diagnostics"),                                          desc = "Workspace diagnostics" },
     },

@@ -1,19 +1,15 @@
--- Install package manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
     vim.fn.system({
         "git",
         "clone",
         "--filter=blob:none",
         "https://github.com/folke/lazy.nvim.git",
-        "--branch=stable", -- latest stable release
+        "--branch=stable",
         lazypath,
     })
 end
 vim.opt.rtp:prepend(lazypath)
-
--- suppress deprecations
-vim.deprecate = function() end
 
 require("lazy").setup({
     {
@@ -24,7 +20,6 @@ require("lazy").setup({
         end,
     },
 
-    -- "gc" to comment visual regions/lines
     {
         "numToStr/Comment.nvim",
         config = function()
@@ -32,16 +27,18 @@ require("lazy").setup({
         end,
     },
 
-    -- UI to select things: telescope lives in lua/plugins/telescope.lua
     {
         "DrKJeff16/project.nvim",
-        lazy = true,
-        config = function() end,
-        dependencies = { "nvim-telescope/telescope.nvim" },
-        opts = {},
+        tag = "v6.5.0-1",
+        lazy = false,
+        opts = {
+            different_owners = { allow = false, notify = false },
+        },
+        keys = {
+            { "<leader>pp", "<Cmd>Telescope projects<CR>", desc = "Search projects" },
+        },
     },
 
-    -- Key mapping helpers -- like which-key
     {
         "cetanu/key-menu.nvim",
         config = function()
@@ -55,7 +52,6 @@ require("lazy").setup({
         end,
     },
 
-    -- Add git related info in the signs columns and popups
     {
         "lewis6991/gitsigns.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
@@ -64,7 +60,6 @@ require("lazy").setup({
         end,
     },
 
-    -- Treesitter
     {
         "nvim-treesitter/nvim-treesitter",
         branch = "main",
@@ -75,7 +70,6 @@ require("lazy").setup({
         end,
     },
 
-    -- Completion
     {
         "saghen/blink.cmp",
         event = "InsertEnter",
@@ -83,6 +77,7 @@ require("lazy").setup({
         version = "1.*",
         opts = {
             keymap = { preset = "default" },
+            snippets = { preset = "luasnip" },
             sources = {
                 default = { "lsp", "path", "snippets", "buffer" },
             },
@@ -91,7 +86,6 @@ require("lazy").setup({
         opts_extend = { "sources.default" },
     },
 
-    -- -- Snippets plugin
     {
         "L3MON4D3/LuaSnip",
         event = "InsertEnter",
@@ -109,7 +103,6 @@ require("lazy").setup({
         build = "make install_jsregexp",
     },
 
-    -- LSP / Language support
     {
         "neovim/nvim-lspconfig",
         ft = {
@@ -156,38 +149,22 @@ require("lazy").setup({
             require("simon.lsp")
         end,
     },
-    { "cespare/vim-toml",     branch = "main" },
-    { -- fancy LSP UI elements
-        "j-hui/fidget.nvim",
-        branch = "legacy",
-        event = "LspAttach",
-        opts = {},
-    },
     { "onsails/lspkind-nvim", lazy = true },
     {
-        "simrat39/rust-tools.nvim",
-        ft = "rust",
-        config = function()
-            require("rust-tools").setup({})
-        end,
-        dependencies = { "neovim/nvim-lspconfig" },
+        "mrcjkb/rustaceanvim",
+        version = "^9",
+        lazy = false,
     },
-    -- LSP diagnostics
     {
         "folke/trouble.nvim",
-        dependencies = "kyazdani42/nvim-web-devicons",
+        dependencies = "nvim-tree/nvim-web-devicons",
         config = function()
             require("trouble").setup({
-                -- your configuration comes here
-                -- or leave it empty to use the default settings
-                -- refer to the configuration section below
             })
         end,
     },
-    -- LSP auto refreshing docs view
     {
         "amrbashir/nvim-docs-view",
-        opt = true,
         cmd = { "DocsViewToggle" },
         config = function()
             require("docs-view").setup({
@@ -195,7 +172,6 @@ require("lazy").setup({
             })
         end,
     },
-    -- symbol navigation
     {
         "stevearc/aerial.nvim",
         event = "VeryLazy",
@@ -203,24 +179,18 @@ require("lazy").setup({
             require("aerial").setup()
         end,
     },
-    { "jubnzv/virtual-types.nvim", event = "LspAttach" },
 
-    -- Status line
-    "tjdevries/express_line.nvim",
-
-    --- Edit file tree as a text file
     {
         "stevearc/oil.nvim",
         config = function()
             require("oil").setup({
                 keymaps = {
-                    ["<Del>"] = { "actions.parent", mode = "n" }, -- go up a directory, like `-`
+                    ["<Del>"] = { "actions.parent", mode = "n" },
                 },
             })
         end,
     },
 
-    -- UI enhancement
     {
         "stevearc/dressing.nvim",
         config = function()
@@ -239,8 +209,6 @@ require("lazy").setup({
                         "ruff_format",
                         "ruff_organize_imports",
                     },
-                    -- Use a sub-list to run only the first available formatter
-                    -- javascript = { { "prettierd", "prettier" } },
                 },
                 formatters = {
                     ruff_format = {
@@ -257,18 +225,6 @@ require("lazy").setup({
         end,
     },
 
-    -- AI auto-complete
-    -- {
-    -- 	"supermaven-inc/supermaven-nvim",
-    -- 	config = function()
-    -- 		require("supermaven-nvim").setup({})
-    -- 	end,
-    -- },
-
-    {
-        "nanozuki/tabby.nvim",
-    },
-
     {
         "saghen/blink.indent",
     },
@@ -276,53 +232,25 @@ require("lazy").setup({
     {
         "folke/noice.nvim",
         event = "VeryLazy",
-        opts = {
-            -- add any options here
-        },
         dependencies = {
-            -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
             "MunifTanjim/nui.nvim",
-            -- OPTIONAL:
-            --   `nvim-notify` is only needed, if you want to use the notification view.
-            --   If not available, we use `mini` as the fallback
-            -- "rcarriga/nvim-notify",
         },
-        config = function()
-            require("noice").setup({
-                lsp = {
-                    -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
-                    override = {
-                        ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-                        ["vim.lsp.util.stylize_markdown"] = true,
-                        ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
-                    },
+        opts = {
+            lsp = {
+                override = {
+                    ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+                    ["vim.lsp.util.stylize_markdown"] = true,
                 },
-                -- you can enable a preset for easier configuration
-                presets = {
-                    bottom_search = true, -- use a classic bottom cmdline for search
-                    command_palette = true, -- position the cmdline and popupmenu together
-                    long_message_to_split = true, -- long messages will be sent to a split
-                    inc_rename = false, -- enables an input dialog for inc-rename.nvim
-                    lsp_doc_border = false, -- add a border to hover docs and signature help
-                },
-            })
-        end,
+            },
+            presets = {
+                bottom_search = true,
+                command_palette = true,
+                long_message_to_split = true,
+                inc_rename = false,
+                lsp_doc_border = false,
+            },
+        },
     },
-
-    -- {
-    -- 	"Bekaboo/dropbar.nvim",
-    -- 	-- optional, but required for fuzzy finder support
-    -- 	dependencies = {
-    -- 		"nvim-telescope/telescope-fzf-native.nvim",
-    -- 		build = "make",
-    -- 	},
-    -- 	config = function()
-    -- 		local dropbar_api = require("dropbar.api")
-    -- 		vim.keymap.set("n", "<Leader>;", dropbar_api.pick, { desc = "Pick symbols in winbar" })
-    -- 		vim.keymap.set("n", "[;", dropbar_api.goto_context_start, { desc = "Go to start of current context" })
-    -- 		vim.keymap.set("n", "];", dropbar_api.select_next_context, { desc = "Select next context" })
-    -- 	end,
-    -- },
 
     {
         "stevearc/quicker.nvim",
@@ -337,6 +265,5 @@ require("lazy").setup({
         lazy = false,
     },
 
-    -- Per-plugin spec files in lua/plugins/ (theme, cursors, flash)
     { import = "plugins" },
 })

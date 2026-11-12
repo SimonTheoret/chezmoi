@@ -14,24 +14,25 @@ local function live_multigrep(opts)
 			if not prompt or prompt == "" then
 				return
 			end
-			local parts = vim.split(prompt, "  ")
+			local parts = vim.split(prompt, " -- ", { plain = true })
+			if #parts == 1 then
+				parts = vim.split(prompt, "  ", { plain = true })
+			end
 			local args = { "rg" }
 			if parts[1] then
-				-- e?
 				table.insert(args, "-e")
 				table.insert(args, parts[1])
 			end
 
-			if parts[2] then
-				-- glob
+			if parts[2] and parts[2] ~= "" then
 				table.insert(args, "-g")
 				table.insert(args, parts[2])
 			end
 
-			return vim.tbl_flatten({
+			return vim.list_extend(
 				args,
-				{ "--color=never", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case" },
-			})
+				{ "--color=never", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case" }
+			)
 		end,
 		entry_maker = make_entry.gen_from_vimgrep(opts),
 		cwd = opts.cwd,
@@ -54,7 +55,6 @@ telescope.setup({
 			i = {
 				["<C-u>"] = false,
 				["<C-d>"] = false,
-				-- fzf-lua's ctrl-a "select-all+accept": every result to the quickfix list
 				["<C-a>"] = actions.send_to_qflist + actions.open_qflist,
 			},
 			n = {
@@ -62,18 +62,10 @@ telescope.setup({
 			},
 		},
 	},
-	pickers = {
-		colorscheme = {
-			ignore_builtins = true,
-		},
-	},
 	extensions = {
 		aerial = {
-			-- Set the width of the first two columns (the second
-			-- is relevant only when show_columns is set to 'both')
 			col1_width = 4,
 			col2_width = 30,
-			-- How to format the symbols
 			format_symbol = function(symbol_path, filetype)
 				if filetype == "json" or filetype == "yaml" then
 					return table.concat(symbol_path, ".")
@@ -81,7 +73,6 @@ telescope.setup({
 					return symbol_path[#symbol_path]
 				end
 			end,
-			-- Available modes: symbols, lines, both
 			show_columns = "both",
 		},
 	},

@@ -1,0 +1,6 @@
+os:
+  editInTerminal: false
+  edit: 'nvim --server "$NVIM" --remote {{filename}} && nvim --server "$NVIM" --remote-expr "v:lua.lazygit_edited(0)"'
+  editAtLine: 'nvim --server "$NVIM" --remote {{filename}} && nvim --server "$NVIM" --remote-expr "v:lua.lazygit_edited({{line}})"'
+  editAtLineAndWait: "nvim +{{line}} -- {{filename}}"
+  openDirInEditor: 'nvim --server "$NVIM" --remote {{dir}} && nvim --server "$NVIM" --remote-expr "v:lua.lazygit_edited(0)"'

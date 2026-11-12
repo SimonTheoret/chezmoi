@@ -5,7 +5,6 @@ vim.opt.incsearch = true
 vim.opt.backup = false
 vim.opt.swapfile = false
 vim.opt.hlsearch = true
-vim.opt.incsearch = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.number = true
@@ -22,40 +21,27 @@ vim.opt.expandtab = true
 vim.opt.backspace = { "indent", "eol", "start" }
 vim.opt.encoding = "UTF-8"
 vim.opt.cursorline = true
---Remap space as leader key
-vim.api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
+vim.keymap.set({ "n", "x", "o" }, "<Space>", "<Nop>", { silent = true })
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+vim.g.no_ocaml_maps = 1
+vim.g.no_mail_maps = 1
 
 vim.opt.listchars = {
 	space = " ",
 	tab = ">~",
 }
 
--- Highlight on yank
-vim.api.nvim_exec(
-	[[
-  augroup YankHighlight
-    autocmd!
-    autocmd TextYankPost * silent! lua vim.highlight.on_yank()
-  augroup end
-]],
-	false
-)
+vim.api.nvim_create_autocmd("TextYankPost", {
+	group = vim.api.nvim_create_augroup("YankHighlight", { clear = true }),
+	callback = function()
+		vim.hl.on_yank()
+	end,
+})
 
---Map blankline
-vim.g.indent_blankline_char = "┊"
-vim.g.indent_blankline_filetype_exclude = { "help", "packer" }
-vim.g.indent_blankline_buftype_exclude = { "terminal", "nofile" }
-vim.g.indent_blankline_char_highlight = "LineNr"
-vim.g.indent_blankline_show_trailing_blankline_indent = false
-
--- Clipboard: system clipboard locally, OSC 52 over SSH
 vim.opt.clipboard:append("unnamedplus")
 
 if os.getenv("SSH_TTY") then
-	-- Paste from the unnamed register instead of sending an OSC 52 paste
-	-- query, which many terminals block or hang on.
 	local function paste()
 		return vim.split(vim.fn.getreg('"'), "\n")
 	end

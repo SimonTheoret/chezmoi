@@ -1,4 +1,3 @@
--- Colorscheme: gruvbox (dark), loaded at startup.
 return {
     "ellisonleao/gruvbox.nvim",
     lazy = false,
@@ -7,7 +6,7 @@ return {
         require("gruvbox").setup({
             transparent_mode = false,
         })
-        vim.o.background = "dark"     -- or "light" for light mode
+        vim.o.background = "dark"
         vim.cmd([[colorscheme gruvbox]])
     end
 }

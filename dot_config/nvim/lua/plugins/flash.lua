@@ -1,24 +1,19 @@
 return {
     "folke/flash.nvim",
     event = "VeryLazy",
-    ---@type Flash.Config
     opts = {},
-    -- stylua: ignore
     keys = {
         {
             "<leader>w",
             mode = { "n", "x", "o" },
             function()
                 local Flash = require("flash")
-                ---@param opts Flash.Format
                 local function format(opts)
-                    -- always show first and second label
                     return {
                         { opts.match.label1, "FlashMatch" },
                         { opts.match.label2, "FlashLabel" },
                     }
                 end
-                -- Flash two caracter jump
                 Flash.jump({
                     search = { mode = "search" },
                     label = { after = false, before = { 0, 0 }, uppercase = false, format = format },
@@ -30,14 +25,13 @@ return {
                             highlight = { matches = false },
                             label = { format = format },
                             matcher = function(win)
-                                -- limit matches to the current label
                                 return vim.tbl_filter(function(m)
                                     return m.label == match.label and m.win == win
                                 end, state.results)
                             end,
                             labeler = function(matches)
                                 for _, m in ipairs(matches) do
-                                    m.label = m.label2 -- use the second label
+                                    m.label = m.label2
                                 end
                             end,
                         })
