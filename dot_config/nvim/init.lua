@@ -16,44 +16,10 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-vim.o.termguicolors = true
-
 -- vim.loader.enable()
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
--- Make sure to setup `mapleader` and `maplocalleader` before
+-- Options (and `mapleader`/`maplocalleader`) must be set before
 -- loading lazy.nvim so that mappings are correct.
-vim.g.mapleader = " "      -- leader key
-vim.g.maplocalleader = "," -- local leader key
-vim.opt.mouse = ""
-vim.opt.cursorline = false
-vim.opt.signcolumn = "yes"
--- vim.opt.relativenumber = true --relative numbers
-vim.wo.relativenumber = true
-vim.opt.number = true
-vim.wo.breakindent = true
-vim.opt.splitright = true
-vim.opt.laststatus = 3
-vim.o.timeoutlen = 125
-vim.o.exrc = true
-vim.opt.cursorline = true
-vim.opt.cursorcolumn = false
-vim.opt.splitkeep = "screen"
-
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.smarttab = true
-vim.opt.expandtab = true
--- vim.opt.smartindent = true
-vim.opt.autoindent = true
-vim.opt.formatoptions = "cqjron"
-vim.opt.completeopt = "menu,menuone,popup,fuzzy,noselect"
-vim.opt.autocomplete = true
-vim.opt.pumheight = 8
-vim.opt.complete = { "o" }
-vim.opt.autocompletedelay = 50
-vim.o.shell = "/usr/bin/env bash"
+require("simon.options") -- load options
 
 vim.filetype.add({
     filename = {
@@ -63,46 +29,6 @@ vim.filetype.add({
         ["compose.yaml"] = "yaml.docker-compose",
     },
 })
-
--- Clipboard shenanigans
-function my_paste(reg)
-    return function(lines)
-        local content = vim.fn.getreg('"')
-        return vim.split(content, '\n')
-    end
-end
-
-if (os.getenv('SSH_TTY') == nil)
-then
-    vim.opt.clipboard:append("unnamedplus")
-else
-    vim.opt.clipboard:append("unnamedplus")
-    vim.g.clipboard = {
-        name = 'OSC 52',
-        copy = {
-            ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
-            ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
-        },
-        paste = {
-            ["+"] = my_paste("+"),
-            ["*"] = my_paste("*"),
-
-
-        },
-    }
-end
-vim.opt.foldlevel = 99
-vim.opt.indentkeys = "0{,0},0),0],:,0#,!^F,O,e"
-
-vim.opt.swapfile = false
-vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vim.opt.undofile = true
-
-vim.opt.incsearch = true
-vim.o.ignorecase = true
-vim.o.smartcase = true
-vim.opt.inccommand = "split"
 
 
 require("lazy").setup({
