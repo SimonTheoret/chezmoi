@@ -14,19 +14,12 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     {
         "folke/todo-comments.nvim",
+        event = { "BufReadPost", "BufNewFile" },
         dependencies = "nvim-lua/plenary.nvim",
         config = function()
             require("todo-comments").setup({})
         end,
     },
-
-    {
-        "numToStr/Comment.nvim",
-        config = function()
-            require("Comment").setup()
-        end,
-    },
-
     {
         "DrKJeff16/project.nvim",
         tag = "v6.5.0-1",
@@ -38,7 +31,6 @@ require("lazy").setup({
             { "<leader>pp", "<Cmd>Telescope projects<CR>", desc = "Search projects" },
         },
     },
-
     {
         "cetanu/key-menu.nvim",
         config = function()
@@ -51,79 +43,78 @@ require("lazy").setup({
             })
         end,
     },
-
     {
         "lewis6991/gitsigns.nvim",
+        event = { "BufReadPre", "BufNewFile" },
         dependencies = { "nvim-lua/plenary.nvim" },
         config = function()
-            require('gitsigns').setup{
-              on_attach = function(bufnr)
-                local gitsigns = require('gitsigns')
+            require('gitsigns').setup {
+                on_attach = function(bufnr)
+                    local gitsigns = require('gitsigns')
 
-                local function map(mode, l, r, opts)
-                  opts = opts or {}
-                  opts.buffer = bufnr
-                  vim.keymap.set(mode, l, r, opts)
+                    local function map(mode, l, r, opts)
+                        opts = opts or {}
+                        opts.buffer = bufnr
+                        vim.keymap.set(mode, l, r, opts)
+                    end
+
+                    -- Navigation
+                    map('n', ']c', function()
+                        if vim.wo.diff then
+                            vim.cmd.normal({ ']c', bang = true })
+                        else
+                            gitsigns.nav_hunk('next')
+                        end
+                    end)
+
+                    map('n', '[c', function()
+                        if vim.wo.diff then
+                            vim.cmd.normal({ '[c', bang = true })
+                        else
+                            gitsigns.nav_hunk('prev')
+                        end
+                    end)
+
+                    -- Actions
+                    map('n', '<leader>hs', gitsigns.stage_hunk)
+                    map('n', '<leader>hr', gitsigns.reset_hunk)
+
+                    map('v', '<leader>hs', function()
+                        gitsigns.stage_hunk({ vim.fn.line('.'), vim.fn.line('v') })
+                    end)
+
+                    map('v', '<leader>hr', function()
+                        gitsigns.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') })
+                    end)
+
+                    map('n', '<leader>hS', gitsigns.stage_buffer)
+                    map('n', '<leader>hR', gitsigns.reset_buffer)
+                    map('n', '<leader>hp', gitsigns.preview_hunk)
+                    map('n', '<leader>hi', gitsigns.preview_hunk_inline)
+
+                    map('n', '<leader>hb', function()
+                        gitsigns.blame_line({ full = true })
+                    end)
+
+                    map('n', '<leader>hd', gitsigns.diffthis)
+
+                    map('n', '<leader>hD', function()
+                        gitsigns.diffthis('~')
+                    end)
+
+                    map('n', '<leader>hQ', function() gitsigns.setqflist('all') end)
+                    map('n', '<leader>hq', gitsigns.setqflist)
+
+                    -- Toggles
+                    map('n', '<leader>tb', gitsigns.toggle_current_line_blame)
+                    map('n', '<leader>tw', gitsigns.toggle_word_diff)
+
+                    -- Text object
+                    map({ 'o', 'x' }, 'ih', gitsigns.select_hunk)
                 end
-
-                -- Navigation
-                map('n', ']c', function()
-                  if vim.wo.diff then
-                    vim.cmd.normal({']c', bang = true})
-                  else
-                    gitsigns.nav_hunk('next')
-                  end
-                end)
-
-                map('n', '[c', function()
-                  if vim.wo.diff then
-                    vim.cmd.normal({'[c', bang = true})
-                  else
-                    gitsigns.nav_hunk('prev')
-                  end
-                end)
-
-                -- Actions
-                map('n', '<leader>hs', gitsigns.stage_hunk)
-                map('n', '<leader>hr', gitsigns.reset_hunk)
-
-                map('v', '<leader>hs', function()
-                  gitsigns.stage_hunk({ vim.fn.line('.'), vim.fn.line('v') })
-                end)
-
-                map('v', '<leader>hr', function()
-                  gitsigns.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') })
-                end)
-
-                map('n', '<leader>hS', gitsigns.stage_buffer)
-                map('n', '<leader>hR', gitsigns.reset_buffer)
-                map('n', '<leader>hp', gitsigns.preview_hunk)
-                map('n', '<leader>hi', gitsigns.preview_hunk_inline)
-
-                map('n', '<leader>hb', function()
-                  gitsigns.blame_line({ full = true })
-                end)
-
-                map('n', '<leader>hd', gitsigns.diffthis)
-
-                map('n', '<leader>hD', function()
-                  gitsigns.diffthis('~')
-                end)
-
-                map('n', '<leader>hQ', function() gitsigns.setqflist('all') end)
-                map('n', '<leader>hq', gitsigns.setqflist)
-
-                -- Toggles
-                map('n', '<leader>tb', gitsigns.toggle_current_line_blame)
-                map('n', '<leader>tw', gitsigns.toggle_word_diff)
-
-                -- Text object
-                map({'o', 'x'}, 'ih', gitsigns.select_hunk)
-              end
             }
         end,
     },
-
     {
         "nvim-treesitter/nvim-treesitter",
         branch = "main",
@@ -133,7 +124,6 @@ require("lazy").setup({
             require("simon.treesitter")
         end,
     },
-
     {
         "saghen/blink.cmp",
         event = "InsertEnter",
@@ -149,7 +139,6 @@ require("lazy").setup({
         },
         opts_extend = { "sources.default" },
     },
-
     {
         "L3MON4D3/LuaSnip",
         event = "InsertEnter",
@@ -166,7 +155,6 @@ require("lazy").setup({
         end,
         build = "make install_jsregexp",
     },
-
     {
         "neovim/nvim-lspconfig",
         ft = {
@@ -232,6 +220,7 @@ require("lazy").setup({
     },
     {
         "folke/trouble.nvim",
+        cmd = "Trouble",
         dependencies = "nvim-tree/nvim-web-devicons",
         config = function()
             require("trouble").setup({
@@ -248,14 +237,6 @@ require("lazy").setup({
         end,
     },
     {
-        "stevearc/aerial.nvim",
-        event = "VeryLazy",
-        config = function()
-            require("aerial").setup()
-        end,
-    },
-
-    {
         "stevearc/oil.nvim",
         config = function()
             require("oil").setup({
@@ -265,16 +246,25 @@ require("lazy").setup({
             })
         end,
     },
-
     {
         "stevearc/dressing.nvim",
+        lazy = true,
+        init = function()
+            for _, name in ipairs({ "select", "input" }) do
+                vim.ui[name] = function(...)
+                    require("lazy").load({ plugins = { "dressing.nvim" } })
+                    return vim.ui[name](...)
+                end
+            end
+        end,
         config = function()
             require("dressing").setup()
         end,
     },
-
     {
         "stevearc/conform.nvim",
+        event = "BufWritePre",
+        cmd = "ConformInfo",
         config = function()
             require("conform").setup({
                 formatters_by_ft = {
@@ -305,7 +295,7 @@ require("lazy").setup({
                 },
                 format_on_save = {
                     timeout_ms = 500,
-                    -- lsp_format = "never",
+                    lsp_format = "fallback",
                 },
             })
         end,
@@ -313,29 +303,6 @@ require("lazy").setup({
 
     {
         "saghen/blink.indent",
-    },
-
-    {
-        "folke/noice.nvim",
-        event = "VeryLazy",
-        dependencies = {
-            "MunifTanjim/nui.nvim",
-        },
-        opts = {
-            lsp = {
-                override = {
-                    ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-                    ["vim.lsp.util.stylize_markdown"] = true,
-                },
-            },
-            presets = {
-                bottom_search = true,
-                command_palette = true,
-                long_message_to_split = true,
-                inc_rename = false,
-                lsp_doc_border = false,
-            },
-        },
     },
 
     {
@@ -348,8 +315,14 @@ require("lazy").setup({
 
     {
         "nstefan002/screenkey.nvim",
-        lazy = false,
+        cmd = "Screenkey",
     },
 
     { import = "plugins" },
+}, {
+    performance = {
+        rtp = {
+            disabled_plugins = { "gzip", "netrwPlugin", "tarPlugin", "tohtml", "tutor", "zipPlugin" },
+        },
+    },
 })

@@ -13,11 +13,11 @@ local servers = {
 	"cmake",
 	"phpactor",
 	"protols",
-	"ts_ls",
 	"vue_ls",
 	"vtsls",
 	"html",
 	"cssls",
 }
 
+vim.lsp.semantic_tokens.enable(true)
 vim.lsp.enable(servers)
