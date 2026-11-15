@@ -5,7 +5,7 @@ name = "gruvbox"
 [[keys.command]]
 key = "prefix+alt+g"        # prefix is ctrl+b by default
 type = "popup"
-command = "$SHELL"         # or "fish", "$SHELL", etc.
+command = "lazygit"        # or "fish", "$SHELL", etc.
 description = "run lazygit"
 width = "80%"               # optional: "80%" or a number of cells
 height = "80%"
@@ -40,3 +40,16 @@ command = "lazydocker"
 description = "run lazydocker"
 width = "80%"
 height = "80%"
+
+# plugin in ~/.config/herdr/layouts, link once with: herdr plugin link ~/.config/herdr/layouts
+[[keys.command]]
+key = "prefix+alt+e"
+type = "plugin_action"
+command = "layouts.ed"
+description = "apply ed layout"
+
+[[keys.command]]
+key = "prefix+alt+v"
+type = "plugin_action"
+command = "layouts.new-v"
+description = "new workspace with v layout"
