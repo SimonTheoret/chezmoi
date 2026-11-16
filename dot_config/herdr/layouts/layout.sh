@@ -1,6 +1,6 @@
 #!/bin/sh
 # Herdr ports of ~/.config/zellij/layouts/{ed,v}.kdl.
-#   layout.sh apply <ed|v>  fill an empty workspace: the new one in a hook, else the current one
+#   layout.sh apply <ed|v>  fill an empty workspace: the new one in a hook, all of them at startup, else the current one
 #   layout.sh new <ed|v>    open a workspace in the current directory, the hook then fills it
 set -eu
 
@@ -21,6 +21,48 @@ if [ "$mode" = new ]; then
 	exit 0
 fi
 
+fill() {
+	ws=$1
+	info=$("$herdr" workspace get "$ws")
+	if [ "$(printf '%s' "$info" | jq '.result.workspace | .tab_count == 1 and .pane_count == 1')" != true ]; then
+		echo "workspace $ws already has a layout, leaving it alone" >&2
+		return 0
+	fi
+	tab=$(printf '%s' "$info" | jq -r .result.workspace.active_tab_id)
+	main=$("$herdr" pane list --workspace "$ws" | jq -r 'first(.. | .pane_id? | strings)')
+
+	"$herdr" tab rename "$tab" editor >/dev/null
+
+	# ed adds three panes stacked in a column right of the editor, v keeps it alone
+	if [ "$layout" = ed ]; then
+		right=$("$herdr" pane split "$main" --direction right --ratio 0.65 --no-focus | jq -r .result.pane.pane_id)
+		middle=$("$herdr" pane split "$right" --direction down --ratio 0.33 --no-focus | jq -r .result.pane.pane_id)
+		"$herdr" pane split "$middle" --direction down --ratio 0.5 --no-focus >/dev/null
+	fi
+
+	# One tab per tool, term stays a plain shell
+	for name in term claude yazi lazygit lazydocker; do
+		pane=$("$herdr" tab create --workspace "$ws" --label "$name" --no-focus | jq -r .result.root_pane.pane_id)
+		case $name in
+		term) ;;
+		claude) agent=$pane ;;
+		*) "$herdr" pane run "$pane" "$name" >/dev/null ;;
+		esac
+	done
+
+	# pane run types ahead of a shell that is still starting, agent start waits until claude is ready.
+	# Started last so the other tabs don't wait on it, named per workspace since agent names are unique.
+	"$herdr" agent start "claude-$ws" --kind claude --pane "$agent" >/dev/null
+}
+
+# The server creates its first workspace before plugins run, so no workspace.created hook fills it
+if [ "${HERDR_PLUGIN_EVENT:-}" = startup ]; then
+	for id in $("$herdr" workspace list | jq -r '.result.workspaces[].workspace_id'); do
+		fill "$id"
+	done
+	exit 0
+fi
+
 # Event hooks name the new workspace in their payload; actions run in the current one.
 if [ -n "${HERDR_PLUGIN_EVENT_JSON:-}" ]; then
 	ws=$(printf '%s' "$HERDR_PLUGIN_EVENT_JSON" | jq -r 'first(.. | .workspace_id? | strings)')
@@ -33,26 +75,4 @@ else
 	ws=${HERDR_WORKSPACE_ID:-}
 fi
 [ -n "$ws" ] || { echo "no workspace id" >&2; exit 1; }
-
-info=$("$herdr" workspace get "$ws")
-if [ "$(printf '%s' "$info" | jq '.result.workspace | .tab_count == 1 and .pane_count == 1')" != true ]; then
-	echo "workspace $ws already has a layout, leaving it alone" >&2
-	exit 0
-fi
-tab=$(printf '%s' "$info" | jq -r .result.workspace.active_tab_id)
-main=$("$herdr" pane list --workspace "$ws" | jq -r 'first(.. | .pane_id? | strings)')
-
-"$herdr" tab rename "$tab" editor >/dev/null
-
-# ed adds three panes stacked in a column right of the editor, v keeps it alone
-if [ "$layout" = ed ]; then
-	right=$("$herdr" pane split "$main" --direction right --ratio 0.65 --no-focus | jq -r .result.pane.pane_id)
-	middle=$("$herdr" pane split "$right" --direction down --ratio 0.33 --no-focus | jq -r .result.pane.pane_id)
-	"$herdr" pane split "$middle" --direction down --ratio 0.5 --no-focus >/dev/null
-fi
-
-# One tab per tool, term stays a plain shell
-for name in term claude yazi lazygit lazydocker; do
-	pane=$("$herdr" tab create --workspace "$ws" --label "$name" --no-focus | jq -r .result.root_pane.pane_id)
-	[ "$name" = term ] || "$herdr" pane run "$pane" "$name" >/dev/null
-done
+fill "$ws"

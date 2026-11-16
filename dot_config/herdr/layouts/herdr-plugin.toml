@@ -2,7 +2,7 @@ id = "layouts"
 name = "Layouts"
 version = "0.1.0"
 min_herdr_version = "0.9.5"
-description = "Ports of the zellij ed and v layouts, new workspaces get v"
+description = "Ports of the zellij ed and v layouts, new workspaces and the startup one get v"
 platforms = ["linux", "macos"]
 
 [[actions]]
@@ -16,6 +16,9 @@ id = "new-v"
 title = "New workspace with v layout"
 contexts = ["workspace"]
 command = ["sh", "layout.sh", "new", "v"]
+
+[[startup]]
+command = ["sh", "layout.sh", "apply", "v"]
 
 [[events]]
 on = "workspace.created"
