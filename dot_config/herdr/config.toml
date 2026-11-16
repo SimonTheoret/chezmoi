@@ -20,6 +20,8 @@ enabled = false
 [ui.toast]
 delivery = "herdr"
 
+[worktrees]
+directory = "~/worktrees"
 
 [keys]
 focus_agent = "prefix+alt+1..9"
