@@ -21,7 +21,8 @@
     "pyright-lsp@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": true,
     "rust-analyzer-lsp@claude-plugins-official": true,
-    "pstack@cursor-plugins": true
+    "pstack@cursor-plugins": true,
+    "lua-lsp@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "cursor-plugins": {
@@ -51,5 +52,11 @@
     }
   },
   "tui": "fullscreen",
-  "theme": "dark"
+  "theme": "dark",
+  "permissions": {
+    "additionalDirectories": [
+      "~/.local",
+      "~/.cache"
+    ]
+  }
 }
