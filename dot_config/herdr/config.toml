@@ -25,6 +25,8 @@ directory = "~/worktrees"
 
 [keys]
 focus_agent = "prefix+alt+1..9"
+open_worktree = "prefix+alt+o"
+remove_worktree = "prefix+alt+d"  # opens confirmation, deletes the checkout
 
 [[keys.command]]
 key = "prefix+alt+i"
