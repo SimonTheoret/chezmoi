@@ -27,36 +27,37 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.g.no_ocaml_maps = 1
 vim.g.no_mail_maps = 1
+vim.opt.splitkeep = "screen"
 
 vim.opt.listchars = {
-	space = " ",
-	tab = ">~",
+    space = " ",
+    tab = ">~",
 }
 
 vim.api.nvim_create_autocmd("TextYankPost", {
-	group = vim.api.nvim_create_augroup("YankHighlight", { clear = true }),
-	callback = function()
-		vim.hl.on_yank()
-	end,
+    group = vim.api.nvim_create_augroup("YankHighlight", { clear = true }),
+    callback = function()
+        vim.hl.on_yank()
+    end,
 })
 
 vim.opt.clipboard:append("unnamedplus")
 
 if os.getenv("SSH_TTY") then
-	local function paste()
-		return vim.split(vim.fn.getreg('"'), "\n")
-	end
+    local function paste()
+        return vim.split(vim.fn.getreg('"'), "\n")
+    end
 
-	local osc52 = require("vim.ui.clipboard.osc52")
-	vim.g.clipboard = {
-		name = "OSC 52",
-		copy = {
-			["+"] = osc52.copy("+"),
-			["*"] = osc52.copy("*"),
-		},
-		paste = {
-			["+"] = paste,
-			["*"] = paste,
-		},
-	}
+    local osc52 = require("vim.ui.clipboard.osc52")
+    vim.g.clipboard = {
+        name = "OSC 52",
+        copy = {
+            ["+"] = osc52.copy("+"),
+            ["*"] = osc52.copy("*"),
+        },
+        paste = {
+            ["+"] = paste,
+            ["*"] = paste,
+        },
+    }
 end
