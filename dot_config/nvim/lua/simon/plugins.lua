@@ -321,6 +321,12 @@ require("lazy").setup({
         "nstefan002/screenkey.nvim",
         cmd = "Screenkey",
     },
+    {
+        "tpope/vim-dispatch",
+        keys = {
+            { "<leader>cc", ":Make ", desc = "make" }
+        }
+    },
 
     { import = "plugins" },
 }, {

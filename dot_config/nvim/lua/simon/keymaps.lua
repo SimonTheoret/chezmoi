@@ -9,9 +9,10 @@ vim.keymap.set({ "n", "x", "o" }, "gl", "$", { desc = "Line end" })
 vim.keymap.set({ "n", "x", "o" }, "gh", "0", { desc = "Line start" })
 vim.keymap.set("n", "%", "ggVG", { desc = "Select whole file" })
 
+
 local function key_binding(key, command, description)
-	local rhs = type(command) == "function" and command or "<Cmd>" .. command .. "<CR>"
-	vim.keymap.set("n", "<leader>" .. key, rhs, { desc = description })
+    local rhs = type(command) == "function" and command or "<Cmd>" .. command .. "<CR>"
+    vim.keymap.set("n", "<leader>" .. key, rhs, { desc = description })
 end
 
 local key_menu = require("key-menu")
@@ -35,3 +36,9 @@ key_binding("Tt", "Trouble todo", "TO-DO comments")
 
 key_binding("o", "Oil", "Edit files (oil)")
 key_binding("tt", "term", "Open terminal")
+key_binding("tt",
+    function()
+        local shell = vim.env.SHELL or ""
+        vim.cmd("term" .. shell)
+    end,
+    "Open terminal")

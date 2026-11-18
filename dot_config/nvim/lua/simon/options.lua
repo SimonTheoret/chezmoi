@@ -28,6 +28,7 @@ vim.g.maplocalleader = " "
 vim.g.no_ocaml_maps = 1
 vim.g.no_mail_maps = 1
 vim.opt.splitkeep = "screen"
+vim.o.shell = "/usr/bin/env bash"
 
 vim.opt.listchars = {
     space = " ",
