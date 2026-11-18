@@ -2,7 +2,7 @@ local treesitter = require("nvim-treesitter")
 
 local parsers = {
     "javascript", "typescript", "python", "lua", "rust", "go", "yaml", "typescript",
-    "elixir", "markdown", "markdown_inline", "toml", "luadoc", "diff", "just", "make"
+    "elixir", "markdown", "markdown_inline", "toml", "luadoc", "diff", "just", "make", "bash"
 }
 local installed = treesitter.get_installed("parsers")
 local missing = vim.tbl_filter(function(lang)
