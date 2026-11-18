@@ -52,7 +52,8 @@ fill() {
 
 	# pane run types ahead of a shell that is still starting, agent start waits until claude is ready.
 	# Started last so the other tabs don't wait on it, named per workspace since agent names are unique.
-	"$herdr" agent start "claude-$ws" --kind claude --pane "$agent" >/dev/null
+	# Agent names must be lowercase but workspace ids go past w9 to wA, wB...
+	"$herdr" agent start "claude-$(printf '%s' "$ws" | tr '[:upper:]' '[:lower:]')" --kind claude --pane "$agent" >/dev/null
 }
 
 # The server creates its first workspace before plugins run, so no workspace.created hook fills it
