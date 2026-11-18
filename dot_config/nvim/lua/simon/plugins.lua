@@ -13,6 +13,10 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release --target install'
+    },
+    {
         "folke/todo-comments.nvim",
         event = { "BufReadPost", "BufNewFile" },
         dependencies = "nvim-lua/plenary.nvim",
