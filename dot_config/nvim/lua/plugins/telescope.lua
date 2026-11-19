@@ -41,7 +41,8 @@ return {
         { "<leader>fb",       builtin("buffers", { sort_mru = true, sort_lastused = true }),                 desc = "List buffers" },
         { "<leader>fo",       builtin("oldfiles"),                                                           desc = "Recent files" },
 
-        { "<leader>fg",       function() require("simon.telescope").live_multigrep() end,                    desc = "Live grep" },
+        { "<leader>fg",       builtin("live_grep"),                                                          desc = "Live grep" },
+        { "<leader>fe",       builtin("live_grep", { grep_open_files = true }),                              desc = "Live grep in open buffers" },
         { "<leader>fw",       builtin("grep_string"),                                                        desc = "Search current word" },
         {
             "<leader>fw",
