@@ -29,6 +29,8 @@ open_worktree = "prefix+alt+o"
 remove_worktree = "prefix+alt+d"  # opens confirmation, deletes the checkout
 navigate_workspace_up = "k"     # navigate mode: swap j/k and arrows
 navigate_workspace_down = "j"
+next_agent = "alt+j"
+previous_agent = "alt+k"
 
 [[keys.command]]
 key = "prefix+alt+i"
