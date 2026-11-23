@@ -46,8 +46,9 @@ go install github.com/jesseduffield/lazydocker@latest
 go install mvdan.cc/sh/v3/cmd/shfmt@latest
 go install github.com/wagoodman/dive@latest
 go install github.com/docker/docker-language-server/cmd/docker-language-server@latest
-go install github.com/bufbuild/buf/cmd/buf@v1.75.0
+go install github.com/bufbuild/buf/cmd/buf@latest
 go install golang.org/x/tools/gopls@latest
+go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@latest
 
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
