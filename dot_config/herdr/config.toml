@@ -31,6 +31,8 @@ navigate_workspace_up = "k"     # navigate mode: swap j/k and arrows
 navigate_workspace_down = "j"
 next_agent = "alt+j"
 previous_agent = "alt+k"
+move_tab_previous = "prefix+alt+h"
+move_tab_next = "prefix+alt+l"
 
 [[keys.command]]
 key = "prefix+alt+i"

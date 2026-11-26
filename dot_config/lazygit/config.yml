@@ -2,6 +2,9 @@ gui:
   nerdFontsVersion: "3"
 
 os:
+  edit: hx {{filename}}
+  editAtLine: hx {{filename}}:{{line}}
+  editAtLineAndWait: hx {{filename}}:{{line}}
   copyToClipboardCmd: printf "\033Ptmux;\033\033]52;c;$(printf {{text}} | base64 -w 0)\a\033\\" > /dev/tty
 
 git:
